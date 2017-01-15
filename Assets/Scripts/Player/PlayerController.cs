@@ -7,6 +7,12 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
 
     public float health = 1f;
     public GameObject playerUiPrefab;
+    public Vector3 realPosition = Vector3.zero;
+    public Vector3 positionAtLastPacket = Vector3.zero;
+    public double currentTime = 0.0;
+    public double currentPacketTime = 0.0;
+    public double lastPacketTime = 0.0;
+    public double timeToReachGoal = 0.0;
     void Start () {
         if(playerUiPrefab == null) {
             Debug.LogError("Missing playerUiPrefab!!");
@@ -20,7 +26,9 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
     void Update () {
         playerInputs();
         if(!photonView.isMine) {
-            this.transform.position = correctPosition;
+            timeToReachGoal = currentPacketTime - lastPacketTime;
+            currentTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
         }
         
         if(health <= 0) {
@@ -53,8 +61,14 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             stream.SendNext(this.transform.position);
             stream.SendNext(health);
         }else {
-            correctPosition = (Vector3)stream.ReceiveNext();
+            //correctPosition = (Vector3)stream.ReceiveNext();
+
+            currentTime = 0.0;
+            positionAtLastPacket = transform.position;
+            realPosition = (Vector3)stream.ReceiveNext();
             this.health = (float)stream.ReceiveNext();
+            lastPacketTime = currentPacketTime;
+            currentPacketTime = info.timestamp;
         }
     }
 }

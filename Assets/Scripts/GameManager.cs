@@ -10,17 +10,17 @@ public class GameManager : Photon.PunBehaviour {
 
     //call functions from other scripts
     static public GameManager Instance;
-    public GameObject playerPrefab;
+    public GameObject[] playerPrefabs;
 
 
     private void Start() {
         //call from other scripts
         Instance = this;
-
-        if(playerPrefab == null) {
+        int selectedChrID = PlayerPrefs.GetInt("chrID");
+        if(playerPrefabs == null) {
             Debug.LogError("Missing PlayerPrefab.Set up GameObject for GameManager script");
         }else {
-            PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
         }
 
     }

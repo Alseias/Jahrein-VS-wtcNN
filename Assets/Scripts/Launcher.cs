@@ -11,6 +11,7 @@ public class Launcher : Photon.PunBehaviour {
     bool isConnecting;
     public InputField playerName;
     public InputField roomName;
+    
 
     private void Awake()
     {
@@ -53,6 +54,11 @@ public class Launcher : Photon.PunBehaviour {
         PlayerPrefs.SetString("playerName", PhotonNetwork.playerName);
         PhotonNetwork.playerName = playerName.text+" Ping:"+PhotonNetwork.GetPing();
 
+    }
+    public void selectCharacter(int id) {
+        
+        PlayerPrefs.SetInt("chrID", id);
+        
     }
     public void CreateRoom()
     {
