@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : Photon.PunBehaviour,IPunObservable {
+public class PlayerController : Photon.PunBehaviour,IPunObservable {
 
     public float health = 1f;
     public GameObject playerUiPrefab;
@@ -13,9 +13,7 @@ public class playerController : Photon.PunBehaviour,IPunObservable {
     public double currentPacketTime = 0.0;
     public double lastPacketTime = 0.0;
     public double timeToReachGoal = 0.0;
-    public bool canMove;
     void Start () {
-        canMove = true;
         if(playerUiPrefab == null) {
             Debug.LogError("Missing playerUiPrefab!!");
         }else {
@@ -40,23 +38,20 @@ public class playerController : Photon.PunBehaviour,IPunObservable {
 	}
 
     private void playerInputs() {
-        if(canMove) {
-            if(Input.GetKey(KeyCode.A)) {
-                transform.Translate(Vector2.left * Time.deltaTime * 10f);
-            }
-            if(Input.GetKey(KeyCode.D)) {
-                transform.Translate(Vector2.right * Time.deltaTime * 10f);
-            }
-
-            if(Input.GetKey(KeyCode.Space)) {
-                if(!photonView.isMine) {
-                    return;
-                }
-                health -= 0.1f * Time.deltaTime;
-                Debug.Log("Health: " + health);
-            }
+        if(Input.GetKey(KeyCode.A)) {
+            transform.Translate(Vector2.left * Time.deltaTime*10f);
         }
-        
+        if(Input.GetKey(KeyCode.D)) {
+            transform.Translate(Vector2.right * Time.deltaTime*10f);
+        }
+
+        if(Input.GetKey(KeyCode.Space)) {
+            if(!photonView.isMine) {
+                return;
+            }
+            health -= 0.1f * Time.deltaTime;
+            Debug.Log("Health: " + health);
+        }
     }
 
     Vector2 correctPosition;
