@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Photon.PunBehaviour,IPunObservable {
+public class playerController : Photon.PunBehaviour,IPunObservable {
 
     public float health = 1f;
     public GameObject playerUiPrefab;

@@ -18,6 +18,7 @@ public class JahreinSkills : Photon.PunBehaviour {
         }
 		
 	}
+    [PunRPC]
     void jahRageSkill() {
 
     }
