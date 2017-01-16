@@ -13,11 +13,21 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
     public double currentPacketTime = 0.0;
     public double lastPacketTime = 0.0;
     public double timeToReachGoal = 0.0;
+
+    public bool canMove;
+    bool canJump;
+
     void Start () {
+        canMove = true;
+
         if(playerUiPrefab == null) {
             Debug.LogError("Missing playerUiPrefab!!");
         }else {
-            GameObject _uiGo = Instantiate(playerUiPrefab) as GameObject;
+            GameObject _uiGo;
+            if(photonView.ownerId==1)
+                _uiGo = GameObject.FindGameObjectWithTag("uiOne");
+            else
+                _uiGo = GameObject.FindGameObjectWithTag("uiTwo");
             _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }
 
@@ -38,19 +48,33 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
 	}
 
     private void playerInputs() {
-        if(Input.GetKey(KeyCode.A)) {
-            transform.Translate(Vector2.left * Time.deltaTime*10f);
-        }
-        if(Input.GetKey(KeyCode.D)) {
-            transform.Translate(Vector2.right * Time.deltaTime*10f);
+        if(canMove) {
+            if(Input.GetKey(KeyCode.LeftArrow)) {
+                transform.Translate(Vector2.left * Time.deltaTime * 3f);
+            }
+            if(Input.GetKey(KeyCode.RightArrow)) {
+                transform.Translate(Vector2.right * Time.deltaTime * 3f);
+            }
+            if(Input.GetKey(KeyCode.UpArrow)&&canJump) {
+                canJump = false;
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
+            }
+
+            if(Input.GetKey(KeyCode.Space)) {
+                if(!photonView.isMine) {
+                    return;
+                }
+                health -= 0.1f * Time.deltaTime;
+
+            }
         }
 
-        if(Input.GetKey(KeyCode.Space)) {
-            if(!photonView.isMine) {
-                return;
-            }
-            health -= 0.1f * Time.deltaTime;
-            Debug.Log("Health: " + health);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision) {
+        if(collision.gameObject.tag == "Ground") {
+            Debug.Log("stay collision");
+            canJump = true;
         }
     }
 

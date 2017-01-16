@@ -15,16 +15,11 @@ public class PlayerUI : MonoBehaviour {
     Vector3 _targetPosition;
 
     void Awake() {
-        this.GetComponent<Transform>().SetParent(GameObject.Find("Canvas").GetComponent<Transform>());
+        //this.GetComponent<Transform>().SetParent(GameObject.Find("Player").GetComponent<Transform>());
 
     }
     private void Start() {
-        if(PhotonNetwork.playerList.Length == 1) {
-            this.GetComponent<RectTransform>().position = transform.parent.position;
-        } else {
-            this.GetComponent<RectTransform>().position = new Vector3(transform.parent.position.x+(100f*(PhotonNetwork.playerList.Length-1)), transform.parent.position.y);
 
-        }
     }
     void Update () {
         if(playerHealthSlider != null) {

@@ -8,6 +8,7 @@ public class Launcher : Photon.PunBehaviour {
     string gameVersion = "1";
     public byte MaxPlayersPerRoom = 4;
     public PhotonLogLevel Loglevel = PhotonLogLevel.Informational;
+    public bool offlineMode;
     bool isConnecting;
     public InputField playerName;
     public InputField roomName;
@@ -22,13 +23,17 @@ public class Launcher : Photon.PunBehaviour {
         PhotonNetwork.autoJoinLobby = false;
 
         //make sure use photonNetwork on master and clients
-        PhotonNetwork.automaticallySyncScene = true;
-        if (PhotonNetwork.connectionStateDetailed == ClientState.PeerCreated)
-        {
-            // Connect to the photon master-server.
-            PhotonNetwork.ConnectUsingSettings(gameVersion);
-        }
+        if(offlineMode) {
+            PhotonNetwork.offlineMode = true;
+        } else {
 
+
+            PhotonNetwork.automaticallySyncScene = true;
+            if(PhotonNetwork.connectionStateDetailed == ClientState.PeerCreated) {
+                // Connect to the photon master-server.
+                PhotonNetwork.ConnectUsingSettings(gameVersion);
+            }
+        }
 
     }
     void Start () {
@@ -74,7 +79,7 @@ public class Launcher : Photon.PunBehaviour {
     public override void OnConnectedToMaster()
     {
 
-        Debug.Log("OnConnectedToMaster() was called by PUN "+PhotonNetwork.GetPing() );
+        Debug.Log("OnConnectedToMaster() was called by PUN | Ping: "+PhotonNetwork.GetPing() );
 
     }
 

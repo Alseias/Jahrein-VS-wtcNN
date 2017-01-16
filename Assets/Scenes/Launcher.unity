@@ -1810,8 +1810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67dc005eaf7544e45bf4d1b982721a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxPlayersPerRoom: 4
+  MaxPlayersPerRoom: 2
   Loglevel: 1
+  offlineMode: 0
   playerName: {fileID: 1224792498}
   roomName: {fileID: 1921422921}
 --- !u!4 &1684778753

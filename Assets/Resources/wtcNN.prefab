@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 114143603903508772}
   m_Layer: 8
   m_Name: wtcNN
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,6 +1170,7 @@ MonoBehaviour:
   currentPacketTime: 0
   lastPacketTime: 0
   timeToReachGoal: 0
+  canMove: 0
 --- !u!114 &114272752660597792
 MonoBehaviour:
   m_ObjectHideFlags: 1
