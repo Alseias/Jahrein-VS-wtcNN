@@ -27,13 +27,18 @@ public class JahreinSkills : Photon.PunBehaviour {
 	}
 
     private void basicAttack() {
-        
+        //asdasd
     }
 
     [PunRPC]
     void jahRageSkill() {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(4, 0), ForceMode2D.Impulse);
         _playerController.canMove = true;
+
+    }
+    [PunRPC]
+    void jahRageSkill3() {
+
 
     }
 }
