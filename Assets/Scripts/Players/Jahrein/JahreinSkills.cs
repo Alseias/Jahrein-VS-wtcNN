@@ -41,4 +41,8 @@ public class JahreinSkills : Photon.PunBehaviour {
 
 
     }
+    void jahRage2()
+    {
+
+    }
 }
