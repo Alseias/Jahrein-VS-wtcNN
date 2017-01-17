@@ -42,7 +42,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
         }
         
         if(health <= 0) {
-            GameManager.Instance.LeaveRoom();
+            health = 1;
         }
 		
 	}
@@ -60,13 +60,6 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
             }
 
-            if(Input.GetKey(KeyCode.Space)) {
-                if(!photonView.isMine) {
-                    return;
-                }
-                health -= 0.1f * Time.deltaTime;
-
-            }
         }
 
     }
@@ -76,6 +69,10 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             Debug.Log("stay collision");
             canJump = true;
         }
+    }
+
+    public void takeHit(float dmg) {
+        this.health -= dmg;
     }
 
     Vector2 correctPosition;

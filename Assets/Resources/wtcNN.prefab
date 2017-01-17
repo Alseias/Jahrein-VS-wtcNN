@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 114840296245073456}
   m_Layer: 8
   m_Name: wtcNN
-  m_TagString: wtcNN
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1191,8 +1191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708881a81b8621846adb2fa5144470e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpSpeed: 200
   health: 1
   playerUiPrefab: {fileID: 1947167703653026, guid: 0cb0379abb84f8444aa696a5ea80da8b,
     type: 2}

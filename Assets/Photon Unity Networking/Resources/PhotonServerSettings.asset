@@ -43,4 +43,6 @@ MonoBehaviour:
   - TaggedPlayer
   - jahRageSkill
   - jahRageSkill3
+  - basicAttack
+  - jahUlti
   DisableAutoOpenWizard: 1
