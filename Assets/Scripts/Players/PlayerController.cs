@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : Photon.PunBehaviour,IPunObservable {
 
-    public float health = 1f;
+    public float health = 100f;
     public GameObject playerUiPrefab;
     public Vector3 realPosition = Vector3.zero;
     public Vector3 positionAtLastPacket = Vector3.zero;
@@ -15,7 +15,12 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
     public double timeToReachGoal = 0.0;
 
     public bool canMove;
-    bool canJump;
+    public bool canJump;
+
+    void ApplyDamage(float damage)
+    {
+        health -= 0.05f;
+    }
 
     void Start () {
         canMove = true;
@@ -47,6 +52,8 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
 		
 	}
 
+
+
     private void playerInputs() {
         if(canMove) {
             if(Input.GetKey(KeyCode.LeftArrow)) {
@@ -58,14 +65,6 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             if(Input.GetKey(KeyCode.UpArrow)&&canJump) {
                 canJump = false;
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
-            }
-
-            if(Input.GetKey(KeyCode.Space)) {
-                if(!photonView.isMine) {
-                    return;
-                }
-                health -= 0.1f * Time.deltaTime;
-
             }
         }
 
