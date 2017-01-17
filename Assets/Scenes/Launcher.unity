@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxPlayersPerRoom: 2
   Loglevel: 1
-  offlineMode: 0
+  offlineMode: 1
   playerName: {fileID: 1224792498}
   roomName: {fileID: 1921422921}
 --- !u!4 &1684778753

@@ -1318,6 +1318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a84de9543be044ba7487e68d1b7fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shurikenSpawnPoint: {fileID: 1162936045234850}
+  shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
 --- !u!212 &212065600123002008
 SpriteRenderer:
   m_ObjectHideFlags: 1
