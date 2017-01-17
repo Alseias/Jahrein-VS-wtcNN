@@ -66,10 +66,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
                 canJump = false;
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
         }
 
     }
