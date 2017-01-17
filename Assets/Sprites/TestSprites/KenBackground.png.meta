@@ -1,0 +1,849 @@
+fileFormatVersion: 2
+guid: a25af369a120d3b45b98f082d4dcc935
+timeCreated: 1482059176
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: KenBackground_0
+    21300002: KenBackground_1
+    21300004: KenBackground_2
+    21300006: KenBackground_3
+    21300008: KenBackground_4
+    21300010: KenBackground_5
+    21300012: KenBackground_6
+    21300014: KenBackground_7
+    21300016: KenBackground_8
+    21300018: KenBackground_9
+    21300020: KenBackground_10
+    21300022: KenBackground_11
+    21300024: KenBackground_12
+    21300026: KenBackground_13
+    21300028: KenBackground_14
+    21300030: KenBackground_15
+    21300032: KenBackground_16
+    21300034: KenBackground_17
+    21300036: KenBackground_18
+    21300038: KenBackground_19
+    21300040: KenBackground_20
+    21300042: KenBackground_21
+    21300044: KenBackground_22
+    21300046: KenBackground_23
+    21300048: KenBackground_24
+    21300050: KenBackground_25
+    21300052: KenBackground_26
+    21300054: KenBackground_27
+    21300056: KenBackground_28
+    21300058: KenBackground_29
+    21300060: KenBackground_31
+    21300062: KenBackground_32
+    21300064: KenBackground_33
+    21300066: KenBackground_34
+    21300068: KenBackground_35
+    21300070: KenBackground_36
+    21300072: KenBackground_37
+    21300074: KenBackground_38
+    21300076: KenBackground_39
+    21300078: KenBackground_40
+    21300080: KenBackground_41
+    21300082: KenBackground_42
+    21300084: KenBackground_43
+    21300086: KenBackground_44
+    21300088: KenBackground_45
+    21300090: KenBackground_46
+    21300092: KenBackground_47
+    21300094: KenBackground_48
+    21300096: KenBackground_49
+    21300098: KenBackground_50
+    21300100: KenBackground_51
+    21300102: KenBackground_52
+    21300104: KenBackground_53
+    21300106: KenBackground_54
+    21300108: KenBackground_55
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KenBackground_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 506
+        width: 701
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 442
+        width: 877
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 220
+        width: 587
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_3
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 263
+        width: 29
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_4
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 263
+        width: 47
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_5
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 263
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_6
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 263
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_7
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 164
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_8
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 164
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 164
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_10
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 164
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_11
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 164
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_12
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 164
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_13
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 164
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_14
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 164
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_15
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 164
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_16
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 164
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_17
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 164
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_18
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 164
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_19
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 164
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_20
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 164
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_21
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 164
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_22
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 160
+        width: 30
+        height: 37
+      alignment: 9
+      pivot: {x: 0.48271483, y: 0.3363495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_23
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 160
+        width: 30
+        height: 37
+      alignment: 9
+      pivot: {x: 0.4838979, y: 0.336945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_24
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 160
+        width: 35
+        height: 37
+      alignment: 9
+      pivot: {x: 0.41469988, y: 0.33810177}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_25
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 160
+        width: 41
+        height: 37
+      alignment: 9
+      pivot: {x: 0.35434332, y: 0.3378366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_26
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 160
+        width: 32
+        height: 37
+      alignment: 9
+      pivot: {x: 0.45307922, y: 0.3367994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_27
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 160
+        width: 30
+        height: 37
+      alignment: 9
+      pivot: {x: 0.48433226, y: 0.338708}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_28
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 111
+        width: 45
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3444292, y: 0.5855152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_29
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 55
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_31
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 111
+        width: 45
+        height: 23
+      alignment: 9
+      pivot: {x: 0.34427932, y: 0.586036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_33
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 110
+        width: 50
+        height: 24
+      alignment: 9
+      pivot: {x: 0.31032196, y: 0.60222274}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_34
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 55
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_35
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 55
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_36
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 111
+        width: 48
+        height: 23
+      alignment: 9
+      pivot: {x: 0.32270685, y: 0.5845443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_37
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 55
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_38
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 55
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_39
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 113
+        width: 37
+        height: 21
+      alignment: 9
+      pivot: {x: 0.4196196, y: 0.54565465}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_40
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 55
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_41
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 116
+        width: 37
+        height: 18
+      alignment: 9
+      pivot: {x: 0.41900882, y: 0.46831003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_42
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 38
+        width: 76
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_43
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 115
+        width: 37
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4168759, y: 0.50373167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_44
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 114
+        width: 65
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_45
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 38
+        width: 76
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_46
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 114
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_47
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 38
+        width: 76
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_48
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 112
+        width: 37
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_49
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 112
+        width: 37
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_50
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 112
+        width: 40
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_51
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 111
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_52
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 111
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_53
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 16
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_54
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 16
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KenBackground_55
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 16
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

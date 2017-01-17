@@ -8,6 +8,8 @@ TagManager:
   - uiOne
   - uiTwo
   - Ground
+  - Jahrein
+  - wtcNN
   layers:
   - Default
   - TransparentFX
