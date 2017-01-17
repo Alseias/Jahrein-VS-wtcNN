@@ -10,7 +10,6 @@ public class PlayerUI : MonoBehaviour {
     public Vector3 ScreenOffset = new Vector3(0, 30f, 0);
 
     PlayerController _target;
-    float _characterControllerHeight = 0;
     Transform _targetTransform;
     Vector3 _targetPosition;
 
@@ -39,7 +38,7 @@ public class PlayerUI : MonoBehaviour {
         //Cache reference for efficiency
         _target = target;
         if(playerNameText != null) {
-            playerNameText.text = _target.photonView.owner.name;
+            playerNameText.text = _target.photonView.owner.NickName;
         }
 
         

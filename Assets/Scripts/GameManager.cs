@@ -11,21 +11,34 @@ public class GameManager : Photon.PunBehaviour {
     //call functions from other scripts
     static public GameManager Instance;
     public GameObject[] playerPrefabs;
-
-
+    public GameObject healthOne, healthTwo;
+    int selectedChrID;
     private void Start() {
         //call from other scripts
         Instance = this;
-        int selectedChrID = PlayerPrefs.GetInt("chrID");
+        selectedChrID = PlayerPrefs.GetInt("chrID");
         if(playerPrefabs == null) {
             Debug.LogError("Missing PlayerPrefab.Set up GameObject for GameManager script");
         }else {
-            PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            /* {
+                healthOne.SetActive(true);
+            }else {
+                healthTwo.SetActive(true);
+                healthOne.SetActive(true);
+
+            }*/
+            PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, new Vector3(Random.Range(-8, 8), 0, 0), Quaternion.identity, 0);
+
+
         }
 
     }
+    private void Update() {
+       
 
-    public void OnLeftRoom()
+    }
+
+    public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
     }
@@ -34,36 +47,34 @@ public class GameManager : Photon.PunBehaviour {
     {
         PhotonNetwork.LeaveRoom();
     }
+
     void LoadArena()
     {
-        if (!PhotonNetwork.isMasterClient)
-        {
-            Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
+        if(PhotonNetwork.room.PlayerCount == 2) {
+            
         }
-        Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.playerCount);
-        PhotonNetwork.LoadLevel("Game");
     }
     #region Photon Messages
 
 
     public override void OnPhotonPlayerConnected(PhotonPlayer other)
     {
-        Debug.Log("OnPhotonPlayerConnected() " + other.name); // not seen if you're the player connecting
+        LoadArena();
+        Debug.Log("OnPhotonPlayerConnected() " + other.NickName); // not seen if you're the player connecting
+        
+        if(PhotonNetwork.isMasterClient) {
+                Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
 
 
-        if (PhotonNetwork.isMasterClient)
-        {
-            Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
-
-
-            //LoadArena();
-        }
+                
+            }
+        
     }
 
 
     public override void OnPhotonPlayerDisconnected(PhotonPlayer other)
     {
-        Debug.Log("OnPhotonPlayerDisconnected() " + other.name); // seen when other disconnects
+        Debug.Log("OnPhotonPlayerDisconnected() " + other.NickName); // seen when other disconnects
 
 
         if (PhotonNetwork.isMasterClient)

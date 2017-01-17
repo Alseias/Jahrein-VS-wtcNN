@@ -17,6 +17,8 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
     public bool canMove;
     public bool canJump;
 
+
+
     void ApplyDamage(float damage)
     {
         health -= 0.05f;
@@ -36,6 +38,8 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }
 
+
+
     }
 
     void Update () {
@@ -47,7 +51,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
         }
         
         if(health <= 0) {
-            health = 1;
+            health = 100;
         }
 		
 	}
@@ -64,7 +68,8 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             }
             if(Input.GetKey(KeyCode.UpArrow)&&canJump) {
                 canJump = false;
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
+                //GetComponent<Rigidbody2D>().velocity = new Vector2(0,4f);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4f), ForceMode2D.Impulse);
             }
 
         }
@@ -72,8 +77,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
     }
 
     private void OnCollisionStay2D(Collision2D collision) {
-        if(collision.gameObject.tag == "Ground") {
-            Debug.Log("stay collision");
+        if(collision.transform.tag == "Ground"&&photonView.isMine) {
             canJump = true;
         }
     }

@@ -10,6 +10,8 @@ public class vidanjor : MonoBehaviour {
         
         if(collision.tag == "Player") {
             collision.GetComponent<PlayerController>().takeHit(.25f);
+        } else {
+            Destroy(gameObject);
         }
     }
     public void OnBecameInvisible() {

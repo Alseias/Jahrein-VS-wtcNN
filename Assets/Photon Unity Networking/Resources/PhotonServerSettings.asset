@@ -45,4 +45,5 @@ MonoBehaviour:
   - jahRageSkill3
   - basicAttack
   - jahUlti
+  - BasicAttack
   DisableAutoOpenWizard: 1

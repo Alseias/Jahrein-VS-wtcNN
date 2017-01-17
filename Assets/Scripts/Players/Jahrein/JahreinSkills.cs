@@ -2,19 +2,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JahreinSkills : Photon.PunBehaviour {
 
     public GameObject vidanjor;
+    public Sprite[] skillSprites;
+    public GameObject skillUiPref;
+    public float damage = 4f;
 
     PlayerController _playerController;
     PhotonView _photonView;
     bool jahAtt = false;
+
     // Use this for initialization
+    private void Awake() {
+        if(photonView.isMine)
+        setSkills();
+    }
     void Start () {
         _playerController = GetComponent<PlayerController>();
         _photonView = GetComponent<PhotonView>();
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,6 +45,14 @@ public class JahreinSkills : Photon.PunBehaviour {
         }
 		
 	}
+    void setSkills() {
+        GameObject skillCanvas = GameObject.Find("SkillSet");
+        GameObject skillUI;
+        for(int i = 0; i < 4; i++) {
+            skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform);
+            skillUI.GetComponent<Image>().sprite = skillSprites[i];
+        }
+    }
     [PunRPC]
     private void basicAttack() {
         jahAtt=true;
@@ -43,7 +61,7 @@ public class JahreinSkills : Photon.PunBehaviour {
     [PunRPC]
     void jahRageSkill() {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(4, 0), ForceMode2D.Impulse);
-        _playerController.canMove = true;
+        damage = damage + (damage * 0.25f);
 
     }
 
@@ -53,10 +71,9 @@ public class JahreinSkills : Photon.PunBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-       Debug.Log(collision.tag);
-        if(collision.tag == "Player" && collision.GetComponent<PhotonView>().photonView.isMine == true && jahAtt) {
+        if(collision.tag == "Player" && !photonView.isMine && jahAtt) {
             Debug.Log("Take dmg");
-            collision.GetComponent<PlayerController>().takeHit(.05f);
+            collision.GetComponent<PlayerController>().takeHit(damage);
 
         }
     }

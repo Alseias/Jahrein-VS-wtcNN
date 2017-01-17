@@ -68,7 +68,7 @@ public class Launcher : Photon.PunBehaviour {
     public void CreateRoom()
     {
         Debug.Log(roomName.text);
-        PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = MaxPlayersPerRoom }, null);
+        PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
     }
     public void JoinRoom()
     {
@@ -94,7 +94,7 @@ public class Launcher : Photon.PunBehaviour {
         Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
 
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-        PhotonNetwork.CreateRoom(null, new RoomOptions() { maxPlayers = MaxPlayersPerRoom }, null);
+        PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
     }
 
     public override void OnJoinedRoom()
@@ -109,7 +109,7 @@ public class Launcher : Photon.PunBehaviour {
             PhotonNetwork.LoadLevel("Game");
 
     }
-    public void OnCreatedRoom()
+    public override void OnCreatedRoom()
     {
         //Debug.Log("OnCreatedRoom");
         PhotonNetwork.LoadLevel("Game");
