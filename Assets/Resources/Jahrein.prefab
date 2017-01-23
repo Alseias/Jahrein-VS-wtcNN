@@ -153,7 +153,6 @@ GameObject:
   - component: {fileID: 114717514807564330}
   - component: {fileID: 114143603903508772}
   - component: {fileID: 114089516542940938}
-  - component: {fileID: 61081689360090196}
   m_Layer: 8
   m_Name: Jahrein
   m_TagString: Player
@@ -426,20 +425,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61081689360090196
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1630368815256212}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0.91, y: 0.57}
-  serializedVersion: 2
-  m_Size: {x: 0.79, y: 0.81}
 --- !u!61 &61098871752748562
 BoxCollider2D:
   m_ObjectHideFlags: 1

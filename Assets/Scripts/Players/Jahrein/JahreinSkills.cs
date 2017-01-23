@@ -14,30 +14,68 @@ public class JahreinSkills : Photon.PunBehaviour {
     PlayerController _playerController;
     PhotonView _photonView;
     bool jahAtt = false;
+    string[] skillKeyMaps = {"SkillQ", "SkillW", "SkillE", "SkillR" };
+    float[] skillCoolDowns = { 4, 7, 10, 25 };
+    //Abilities q, w, e, r;
+    
 
-    // Use this for initialization
     private void Awake() {
-        if(photonView.isMine)
-        setSkills();
+        if(photonView.isMine) {
+            /*q.skillKey = "SkillQ";
+            q.coolDown = 4f;
+            q.damage = 10;
+
+            w.skillKey = "SkillW";
+            w.coolDown = 4f;
+            w.damage = 10;
+
+            e.skillKey = "SkillE";
+            e.coolDown = 4f;
+            e.damage = 10;
+
+            r.skillKey = "SkillR";
+            r.coolDown = 4f;
+            r.damage = 10;*/
+
+            setSkills();
+        }
+            
     }
+    AbilityCoolDown[] skillCoolDownCheck=new AbilityCoolDown[4];
+    void setSkills() {
+        GameObject skillCanvas = GameObject.Find("SkillSet");
+        GameObject skillUI;
+        for(int i = 0; i < 4; i++) {
+            skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
+            skillUI.GetComponentInChildren<Image>().sprite = skillSprites[i];
+
+            skillCoolDownCheck[i] = skillUI.GetComponent<AbilityCoolDown>();
+            skillCoolDownCheck[i].abilityButtonAxisName = skillKeyMaps[i];
+            skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
+
+            //Debug.Log(skillCoolDownCheck[i].abilityButtonAxisName);
+
+
+        }
+    }
+     
     void Start () {
         _playerController = GetComponent<PlayerController>();
         _photonView = GetComponent<PhotonView>();
         
     }
 	
-	// Update is called once per frame
 	void Update () {
         if(photonView.isMine) {
-            if(Input.GetKeyDown(KeyCode.Q)) {
-                _playerController.canMove = false;
-                Invoke("jahRageSkill", 0);
+            if(Input.GetButtonDown("SkillQ")&& skillCoolDownCheck[0].itsReady) {
+                //_playerController.canMove = false;
+                _photonView.RPC("jahRageSkill",PhotonTargets.All);
                 
             }
-            if(Input.GetKeyDown(KeyCode.R)) {
+            if(Input.GetButtonDown("SkillR")&& skillCoolDownCheck[3].itsReady) {
                 _photonView.RPC("jahUlti", PhotonTargets.All);
             }
-            if(Input.GetKeyDown(KeyCode.Space)) {
+            if(Input.GetButtonDown("Attack")) {
                 _photonView.RPC("basicAttack",PhotonTargets.All);
             } else {
                 jahAtt = false;
@@ -45,14 +83,7 @@ public class JahreinSkills : Photon.PunBehaviour {
         }
 		
 	}
-    void setSkills() {
-        GameObject skillCanvas = GameObject.Find("SkillSet");
-        GameObject skillUI;
-        for(int i = 0; i < 4; i++) {
-            skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform);
-            skillUI.GetComponent<Image>().sprite = skillSprites[i];
-        }
-    }
+
     [PunRPC]
     private void basicAttack() {
         jahAtt=true;

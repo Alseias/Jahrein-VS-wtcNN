@@ -15,7 +15,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
     public double timeToReachGoal = 0.0;
 
     public bool canMove;
-    public bool canJump;
+    public bool canJump,dontUseJump;
 
 
 
@@ -24,7 +24,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
         health -= 0.05f;
     }
 
-    void Start () {
+    void Awake () {
         canMove = true;
 
         if(playerUiPrefab == null) {
@@ -35,7 +35,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
                 _uiGo = GameObject.FindGameObjectWithTag("uiOne");
             else
                 _uiGo = GameObject.FindGameObjectWithTag("uiTwo");
-            _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+            //_uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }
 
 
@@ -66,10 +66,14 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             if(Input.GetKey(KeyCode.RightArrow)) {
                 transform.Translate(Vector2.right * Time.deltaTime * 3f);
             }
-            if(Input.GetKey(KeyCode.UpArrow)&&canJump) {
-                canJump = false;
-                //GetComponent<Rigidbody2D>().velocity = new Vector2(0,4f);
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4f), ForceMode2D.Impulse);
+            if(Input.GetKey(KeyCode.UpArrow)&&!dontUseJump) {
+
+                if(canJump) {
+                    canJump = false;
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4f), ForceMode2D.Impulse);
+                    
+                } 
+                
             }
 
         }
@@ -81,7 +85,11 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             canJump = true;
         }
     }
-
+    private void OnCollisionExit2D(Collision2D collision) {
+        if(collision.transform.tag == "Ground" && photonView.isMine) {
+            canJump = false;
+        }
+    }
     public void takeHit(float dmg) {
         this.health -= dmg;
     }

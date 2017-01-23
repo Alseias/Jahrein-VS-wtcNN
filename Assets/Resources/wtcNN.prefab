@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708881a81b8621846adb2fa5144470e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 100
   playerUiPrefab: {fileID: 1947167703653026, guid: 0cb0379abb84f8444aa696a5ea80da8b,
     type: 2}
   realPosition: {x: 0, y: 0, z: 0}
@@ -647,6 +647,7 @@ MonoBehaviour:
   timeToReachGoal: 0
   canMove: 0
   canJump: 0
+  dontUseJump: 1
 --- !u!114 &114272752660597792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -767,10 +768,10 @@ MonoBehaviour:
   shurikenSpawnPoint: {fileID: 1162936045234850}
   shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
   skillSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
   skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
     type: 2}
 --- !u!212 &212065600123002008
