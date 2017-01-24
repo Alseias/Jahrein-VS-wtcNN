@@ -81,4 +81,7 @@ public class wtcnnSkills : Photon.PunBehaviour
         
         canDoubleJump = false;
     }
+    void fnc123asdkAAn2k17() {
+
+    }
 }
