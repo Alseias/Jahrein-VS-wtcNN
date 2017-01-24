@@ -81,4 +81,9 @@ public class wtcnnSkills : Photon.PunBehaviour
         
         canDoubleJump = false;
     }
+
+    void pipi()
+    {
+        //SA Karşim
+    }
 }
