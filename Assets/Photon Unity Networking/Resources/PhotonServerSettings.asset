@@ -46,4 +46,7 @@ MonoBehaviour:
   - basicAttack
   - jahUlti
   - BasicAttack
+  - jahKutsama
+  - jahPasif
+  - takeHit
   DisableAutoOpenWizard: 1

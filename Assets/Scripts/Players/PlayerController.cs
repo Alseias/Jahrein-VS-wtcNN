@@ -2,45 +2,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : Photon.PunBehaviour,IPunObservable {
-
-    public float health = 100f;
-    public GameObject playerUiPrefab;
+    public float health = 100f,damage=1f,speed=1f;
     public Vector3 realPosition = Vector3.zero;
     public Vector3 positionAtLastPacket = Vector3.zero;
-    public double currentTime = 0.0;
-    public double currentPacketTime = 0.0;
-    public double lastPacketTime = 0.0;
-    public double timeToReachGoal = 0.0;
 
-    public bool canMove;
-    public bool canJump,dontUseJump;
+    //skill settings
+    public Sprite[] skillSprites;
+    public float[] skillCoolDowns;
+    public float[] skillDurations;
+
+    string[] skillKeyMaps = {"SkillQ", "SkillW", "SkillE", "SkillR" };
+    
+    //-------------
+
+    public bool dontUseJump;
+    [HideInInspector]
+    public bool canJump, canTakeHit,canMove;
 
 
+    double currentTime = 0.0;
+    double currentPacketTime = 0.0;
+    double lastPacketTime = 0.0;
+    double timeToReachGoal = 0.0;
 
-    void ApplyDamage(float damage)
-    {
-        health -= 0.05f;
-    }
-
+    
+    //GameObject _uiGo;
     void Awake () {
-        canMove = true;
 
-        if(playerUiPrefab == null) {
-            Debug.LogError("Missing playerUiPrefab!!");
-        }else {
-            GameObject _uiGo;
-            if(photonView.ownerId==1)
-                _uiGo = GameObject.FindGameObjectWithTag("uiOne");
-            else
-                _uiGo = GameObject.FindGameObjectWithTag("uiTwo");
-            //_uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+        //setHealthBar();
+
+        canMove = true;
+        canJump = false;
+
+        
+        if(photonView.isMine) {
+
+            setSkills();
         }
 
 
-
     }
+    /*
+    private void setHealthBar() {
+
+        if(PhotonNetwork.room.PlayerCount == 1) {
+            Debug.LogWarning("find and set ui");
+            _uiGo = GameObject.FindGameObjectWithTag("uiOne");
+
+        } else if(PhotonNetwork.room.PlayerCount == 2) {
+            _uiGo = GameObject.FindGameObjectWithTag("uiTwo");
+        }
+        _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+    }*/
+    [HideInInspector]
+    public AbilityCoolDown[] skillCoolDownCheck;
+    void setSkills() {
+        skillCoolDownCheck = new AbilityCoolDown[6];
+        GameObject skillCanvas = GameObject.Find("SkillSet");
+        GameObject skillUI;
+        for(int i = 0; i < 5; i++) {
+            skillUI = Instantiate(Resources.Load("ui/SkillUI"), Vector3.zero, skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
+            skillUI.transform.FindChild("skillSprite").GetComponent<Image>().sprite = skillSprites[i];
+
+            skillCoolDownCheck[i] = skillUI.GetComponent<AbilityCoolDown>();
+            skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
+            if(i < 4) {
+                skillCoolDownCheck[i].abilityButtonAxisName = skillKeyMaps[i];
+                skillCoolDownCheck[i].durationTime = skillDurations[i];
+            }else {
+                skillCoolDownCheck[i].isPassive = true;
+                skillUI.GetComponent<RectTransform>().localScale = new Vector3(.85f, .85f, 1);
+            }
+            
+        }
+        skillUI = Instantiate(Resources.Load("ui/chrStats"), Vector3.zero, skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
+        skillUI.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+        
+    }
+
 
     void Update () {
         playerInputs();
@@ -49,7 +91,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
         }
-        
+
         if(health <= 0) {
             health = 100;
         }
@@ -70,7 +112,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
 
                 if(canJump) {
                     canJump = false;
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4f), ForceMode2D.Impulse);
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 2f), ForceMode2D.Impulse);
                     
                 } 
                 
@@ -90,8 +132,11 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
             canJump = false;
         }
     }
-    public void takeHit(float dmg) {
+    [PunRPC]
+    public bool takeHit(float dmg) {
+        Debug.Log("alınan hasar: " + dmg);
         this.health -= dmg;
+        return true;
     }
 
     Vector2 correctPosition;

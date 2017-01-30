@@ -1879,8 +1879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxPlayersPerRoom: 2
-  Loglevel: 1
-  offlineMode: 1
+  Loglevel: 0
+  offlineMode: 0
   playerName: {fileID: 1224792498}
   roomName: {fileID: 1921422921}
 --- !u!4 &1684778753
@@ -2018,8 +2018,8 @@ Camera:
   m_GameObject: {fileID: 1884539004}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

@@ -23,12 +23,12 @@ public class shurikenScript : MonoBehaviour
         rb.velocity = speed;
 	}
 
-    void OnTriggerEnter2D(Collider2D other)//was collision2d
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            other.gameObject.GetComponent<PlayerController>().takeHit(damage);//was gameobject.sendmessage or smt
+            other.gameObject.GetComponent<PlayerController>().takeHit(damage);
         }
     } 
 }
