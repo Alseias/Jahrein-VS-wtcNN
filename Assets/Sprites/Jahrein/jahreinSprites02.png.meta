@@ -1,0 +1,316 @@
+fileFormatVersion: 2
+guid: 781c0ae02bdfe804c96aaa21ae504a75
+timeCreated: 1481822350
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Axe
+    21300002: Head
+    21300004: Torso
+    21300006: ShoulderArmor
+    21300008: RightLegArmor
+    21300010: RightLowerArm
+    21300012: LeftLowerArm
+    21300014: RightUpperArm
+    21300016: RightUpperLeg
+    21300018: LeftUpperLeg
+    21300020: RightLowerLeg
+    21300022: LeftLegArmor
+    21300024: LeftUpperArm
+    21300026: LeftLowerLeg
+    21300028: RightFoot
+    21300030: LeftFoot
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 72
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Axe
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 105
+        width: 77
+        height: 148
+      alignment: 9
+      pivot: {x: 0.4961441, y: 0.17499852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 188
+        width: 61
+        height: 66
+      alignment: 9
+      pivot: {x: 0.6119515, y: 0.11760943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Torso
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 135
+        width: 101
+        height: 121
+      alignment: 9
+      pivot: {x: 0.6798618, y: 0.3233234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ShoulderArmor
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 128
+        width: 59
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightLegArmor
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 68
+        width: 49
+        height: 66
+      alignment: 9
+      pivot: {x: 0.73632, y: 0.8798763}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightLowerArm
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 41
+        height: 74
+      alignment: 9
+      pivot: {x: 0.36240527, y: 0.8651249}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeftLowerArm
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 3
+        width: 27
+        height: 73
+      alignment: 9
+      pivot: {x: 0.4488078, y: 0.79305893}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightUpperArm
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 49
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.46700922, y: 0.82602423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightUpperLeg
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 72
+        width: 23
+        height: 39
+      alignment: 9
+      pivot: {x: 0.44061705, y: 0.8403659}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeftUpperLeg
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 72
+        width: 22
+        height: 39
+      alignment: 9
+      pivot: {x: 0.45249328, y: 0.86209124}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightLowerLeg
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 26
+        width: 22
+        height: 40
+      alignment: 9
+      pivot: {x: 0.4460151, y: 0.8534702}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeftLegArmor
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 2
+        width: 28
+        height: 64
+      alignment: 9
+      pivot: {x: 0.23489761, y: 0.8553981}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeftUpperArm
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 6
+        width: 29
+        height: 40
+      alignment: 9
+      pivot: {x: 0.3464229, y: 0.8340294}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeftLowerLeg
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 26
+        width: 21
+        height: 40
+      alignment: 9
+      pivot: {x: 0.47172183, y: 0.85629797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightFoot
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1
+        width: 43
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3411851, y: 0.83564293}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeftFoot
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 2
+        width: 44
+        height: 21
+      alignment: 9
+      pivot: {x: 0.38528302, y: 0.74293005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

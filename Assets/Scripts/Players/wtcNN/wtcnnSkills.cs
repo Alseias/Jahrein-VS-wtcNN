@@ -29,7 +29,8 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     }
     AbilityCoolDown[] skillCoolDownCheck = new AbilityCoolDown[4];
-    void setSkills() {
+    void setSkills()
+    {
         GameObject skillCanvas = GameObject.Find("SkillSet");
         GameObject skillUI;
         for(int i = 0; i < 4; i++) {
@@ -43,29 +44,32 @@ public class wtcnnSkills : Photon.PunBehaviour
     }
     void Update ()
     {
-        if(pv.isMine) {
-            
-            if(Input.GetKeyDown(KeyCode.Space)) {
+        if(pv.isMine)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
                 pv.RPC("BasicAttack", PhotonTargets.All);
             }
-            if(Input.GetKeyDown(KeyCode.UpArrow)) {
-                if(pc.canJump) {
+            if(Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if(pc.canJump)
+                {
                     Debug.Log("zıpladık");
                     pc.canJump = false;
-                    
                     GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
                     canDoubleJump = true;
-                } else {
-                    if(canDoubleJump) {
+                }
+                else
+                {
+                    if(canDoubleJump)
+                    {
                         Debug.Log("zıpladık2x");
                         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
                         canDoubleJump = false;
                     }
-                }
-                 
+                }  
             }
-
         }
     }
 
@@ -73,22 +77,5 @@ public class wtcnnSkills : Photon.PunBehaviour
     void BasicAttack()
     {
         Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity);
-    }
-
-    void DoubleJump()
-    {
-
-        
-        canDoubleJump = false;
-    }
-<<<<<<< HEAD
-
-    void pipi()
-    {
-        //SA Karşim
-=======
-    void fnc123asdkAAn2k17() {
-
->>>>>>> origin/master
     }
 }
