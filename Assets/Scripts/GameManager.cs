@@ -17,27 +17,12 @@ public class GameManager : Photon.PunBehaviour {
         //call from other scripts
         Instance = this;
         selectedChrID = PlayerPrefs.GetInt("chrID");
-<<<<<<< HEAD
         Debug.LogWarning(selectedChrID);
-        if(playerPrefabs == null) {
-            Debug.LogError("Missing PlayerPrefab.Set up GameObject for GameManager script");
-        }else {
-            // FIX: TEŞEKKÜRLER KAAN
-            if (selectedChrID == 0) // Jahrein
-            {
-                PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, new Vector3(-9, 0, 0), Quaternion.identity, 0);
-            }
-            else if (selectedChrID == 1)// Wtcn
-            {
-                PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, new Vector3( 11, 0, 0), Quaternion.identity, 0);
-            }
-            //PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, new Vector3(Random.Range(-8, 8), 0, 0), Quaternion.identity, 0);
-=======
+       
         if(playerPrefabs == null)
         {
             Debug.LogError("Missing PlayerPrefab.Set up GameObject for GameManager script");
         }
->>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
 
         else
         {

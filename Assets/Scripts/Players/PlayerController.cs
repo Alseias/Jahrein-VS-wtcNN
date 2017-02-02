@@ -3,11 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
 public class PlayerController : Photon.PunBehaviour, IPunObservable
-=======
-public class PlayerController : Photon.PunBehaviour,IPunObservable
->>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
 {
     public float health = 100f;
     public GameObject playerUiPrefab;
@@ -17,19 +13,11 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable
     public double currentPacketTime = 0.0;
     public double lastPacketTime = 0.0;
     public double timeToReachGoal = 0.0;
-<<<<<<< HEAD
     public float damage = 1f, speed = 1f;
     public bool canMove;
     public bool canJump, dontUseJump;
 
     void Awake()
-=======
-
-    public bool canMove;
-    public bool canJump,dontUseJump;
-
-    void Awake ()
->>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
     {
         canMove = true;
         if (playerUiPrefab == null)
@@ -56,13 +44,8 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
         }
-<<<<<<< HEAD
 
         if (health <= 0)
-=======
-        
-        if(health <= 0)
->>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
         {
             health = 100;
         }
@@ -86,11 +69,7 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable
                 {
                     canJump = false;
                     GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4f), ForceMode2D.Impulse);
-<<<<<<< HEAD
                 }
-=======
-                } 
->>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
             }
         }
     }

@@ -718,22 +718,6 @@ Prefab:
       propertyPath: playerPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 1438730493920144, guid: 8023208148853fa43b949d45cb72a691,
-<<<<<<< HEAD
-        type: 2}
-    - target: {fileID: 114341663276461060, guid: 398c7487a46856e4b83cd1bb5d3d00a0,
-        type: 2}
-      propertyPath: playerPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1630368815256212, guid: 53a6fac1a47b99e4ab5c2a9b1aa762b9,
-        type: 2}
-    - target: {fileID: 114341663276461060, guid: 398c7487a46856e4b83cd1bb5d3d00a0,
-        type: 2}
-      propertyPath: healthOne
-      value: 
-      objectReference: {fileID: 1314002756}
-    - target: {fileID: 114341663276461060, guid: 398c7487a46856e4b83cd1bb5d3d00a0,
-        type: 2}
-=======
         type: 2}
     - target: {fileID: 114341663276461060, guid: 398c7487a46856e4b83cd1bb5d3d00a0,
         type: 2}
@@ -748,7 +732,6 @@ Prefab:
       objectReference: {fileID: 1314002756}
     - target: {fileID: 114341663276461060, guid: 398c7487a46856e4b83cd1bb5d3d00a0,
         type: 2}
->>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
       propertyPath: healthTwo
       value: 
       objectReference: {fileID: 2035912810}
