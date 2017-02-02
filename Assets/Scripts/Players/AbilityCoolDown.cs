@@ -7,20 +7,19 @@ public class AbilityCoolDown : MonoBehaviour {
     public string abilityButtonAxisName = "Fire1";
     public Image darkMask;
     public Text coolDownTextDisplay;
-    public float coolDownDuration,durationTime;
-    public bool itsReady,durationEnd,isPassive,passiveTriggered;
+    public float coolDownDuration;
+    public bool itsReady;
 
 
     private GameObject weaponHolder;
     private Image myButtonImage;
     private AudioSource abilitySource;
     private float nextReadyTime;
-    private float coolDownTimeLeft,tempDuration;
-    private bool btnTriggered;
+    private float coolDownTimeLeft;
 
 
     void Start() {
-        tempDuration = durationTime;
+        //Initialize(ability, weaponHolder);
     }
 
     public void Initialize( GameObject weaponHolder) {
@@ -33,39 +32,22 @@ public class AbilityCoolDown : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         bool coolDownComplete = (Time.time > nextReadyTime);
-
         if(coolDownComplete) {
             itsReady = true;
             AbilityReady();
-            if(Input.GetButtonDown(abilityButtonAxisName)&&!isPassive) {
-                btnTriggered = true;
+            if(Input.GetButtonDown(abilityButtonAxisName)) {
                 ButtonTriggered();
-            }else {
-                if(passiveTriggered) {
-                    passiveTriggered = false;
-                    ButtonTriggered();
-                }
             }
         } else {
             itsReady = false;
             CoolDown();
         }
-        
-        if(btnTriggered && !isPassive) {
-            durationTime -= Time.deltaTime;
-            if(durationTime <= 0) {
-                btnTriggered = false;
-                durationEnd = true;
-                durationTime = tempDuration;
-            } else {
-                durationEnd = false;
-            }
-        }
     }
-    
+
     private void AbilityReady() {
         coolDownTextDisplay.enabled = false;
         darkMask.enabled = false;
+
         
     }
 
@@ -77,7 +59,6 @@ public class AbilityCoolDown : MonoBehaviour {
     }
 
     private void ButtonTriggered() {
-        
         nextReadyTime = coolDownDuration + Time.time;
         coolDownTimeLeft = coolDownDuration;
         darkMask.enabled = true;

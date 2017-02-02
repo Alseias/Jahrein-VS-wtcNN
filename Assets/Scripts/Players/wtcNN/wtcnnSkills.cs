@@ -15,7 +15,11 @@ public class wtcnnSkills : Photon.PunBehaviour
     Transform trans;
     PlayerController pc;
     PhotonView pv;
+<<<<<<< HEAD
     bool canDoubleJump = false;
+=======
+    bool canDoubleJump=false;
+>>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 4, 7, 25 };
 
@@ -23,6 +27,9 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         pc = GetComponent<PlayerController>();
         pv = GetComponent<PhotonView>();
+        
+        if(photonView.isMine)
+            setSkills();
 
         if (photonView.isMine)
             setSkills();
@@ -43,7 +50,11 @@ public class wtcnnSkills : Photon.PunBehaviour
             skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
         }
     }
+<<<<<<< HEAD
     void Update()
+=======
+    void Update ()
+>>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
     {
         if (pv.isMine)
         {
@@ -51,7 +62,11 @@ public class wtcnnSkills : Photon.PunBehaviour
             {
                 pv.RPC("BasicAttack", PhotonTargets.All);
             }
+<<<<<<< HEAD
             if (Input.GetKeyDown(KeyCode.UpArrow))
+=======
+            if(Input.GetKeyDown(KeyCode.UpArrow))
+>>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
             {
                 if (pc.canJump)
                 {

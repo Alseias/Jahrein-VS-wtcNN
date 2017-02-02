@@ -15,12 +15,21 @@ public class JahreinSkills : Photon.PunBehaviour
     PlayerController _playerController;
     PhotonView _photonView;
     bool jahAtt = false;
+<<<<<<< HEAD
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 7, 10, 25 };
     //Abilities q, w, e, r;
 
 
     private void Awake()
+=======
+    string[] skillKeyMaps = {"SkillQ", "SkillW", "SkillE", "SkillR" };
+    float[] skillCoolDowns = { 4, 7, 10, 25 };
+    //Abilities q, w, e, r;
+    
+
+    private void Awake ()
+>>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
     {
         if (photonView.isMine)
         {
@@ -61,8 +70,13 @@ public class JahreinSkills : Photon.PunBehaviour
             //Debug.Log(skillCoolDownCheck[i].abilityButtonAxisName);
         }
     }
+<<<<<<< HEAD
 
     void Start()
+=======
+     
+    void Start ()
+>>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
     {
         _playerController = GetComponent<PlayerController>();
         _photonView = GetComponent<PhotonView>();
@@ -107,14 +121,22 @@ public class JahreinSkills : Photon.PunBehaviour
     }
 
     [PunRPC]
+<<<<<<< HEAD
     void jahRageSkill()
+=======
+    void jahRageSkill ()
+>>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         damage = damage + (damage * 0.25f);
     }
 
     [PunRPC]
+<<<<<<< HEAD
     void jahUlti()
+=======
+    void jahUlti ()
+>>>>>>> fb127976aef4b5725d42990bf5ac3d8a2cfb17bb
     {
         Instantiate(vidanjor, this.transform.position, this.transform.rotation);
     }
