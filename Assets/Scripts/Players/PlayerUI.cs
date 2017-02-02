@@ -21,11 +21,12 @@ public class PlayerUI : MonoBehaviour {
 
     }
     void Update () {
-        if(playerHealthSlider != null) {
+        if(_target != null) {
             playerHealthSlider.value = _target.health;
         }
-        if(_target == null) {
-            Destroy(this.gameObject);
+        else{
+            //Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
             return;
         }
 	}

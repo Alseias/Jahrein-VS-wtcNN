@@ -8,18 +8,18 @@ public class JahreinSkills : Photon.PunBehaviour
 {
     Animator anim;
     public GameObject vidanjor;
-    public Sprite[] skillSprites;
-    public GameObject skillUiPref;
-    public float damage = 4f;
+
+    public float damage = 4f,speed=1f;
+    [HideInInspector]
+    public bool kutsama;
 
     PlayerController _playerController;
     PhotonView _photonView;
     bool jahAtt = false;
-    string[] skillKeyMaps = {"SkillQ", "SkillW", "SkillE", "SkillR" };
-    float[] skillCoolDowns = { 4, 7, 10, 25 };
-    //Abilities q, w, e, r;
+    float jahrageDamage, jahoHealth;
     
 
+<<<<<<< HEAD
     private void Awake ()
     {
         if(photonView.isMine)
@@ -61,11 +61,19 @@ public class JahreinSkills : Photon.PunBehaviour
             //Debug.Log(skillCoolDownCheck[i].abilityButtonAxisName);
         }
     }
+=======
+    private void Awake() {
+        
+            
+    }
+
+>>>>>>> origin/master
      
     void Start ()
     {
         _playerController = GetComponent<PlayerController>();
         _photonView = GetComponent<PhotonView>();
+<<<<<<< HEAD
         anim = GetComponent<Animator>();
         anim.SetInteger("State", 0);
     }
@@ -96,7 +104,67 @@ public class JahreinSkills : Photon.PunBehaviour
             else
             {
                 jahAtt = false;
+=======
+
+
+    }
+	
+	void Update () {
+        if(photonView.isMine) {
+
+            //send info to playerController
+            _playerController.damage = damage;
+            _playerController.speed = speed;
+
+
+            if(Input.GetButtonDown("SkillQ")&& _playerController.skillCoolDownCheck[0].itsReady) {
+                //_playerController.canMove = false;
+                jahrageDamage = damage;
+                _photonView.RPC("jahRageSkill",PhotonTargets.All);
+                
             }
+
+
+            if(Input.GetButtonDown("SkillE")&& _playerController.skillCoolDownCheck[2].itsReady) {
+                jahoHealth = _playerController.health;
+                _photonView.RPC("jahKutsama", PhotonTargets.All);
+
+
+            }
+
+            if(Input.GetButtonDown("SkillR")&& _playerController.skillCoolDownCheck[3].itsReady) {
+                _photonView.RPC("jahUlti", PhotonTargets.All);
+            }
+
+            if(Input.GetButtonDown("Attack")) {
+                _photonView.RPC("basicAttack",PhotonTargets.All);
+            }
+
+            //jahRage finished
+            if(_playerController.skillCoolDownCheck[0].durationEnd&&!_playerController.skillCoolDownCheck[0].itsReady) {
+                //Debug.Log("Jahrage bitti");
+                damage = jahrageDamage;
+            }
+            //------------
+
+            //kutsama finished
+            if(_playerController.skillCoolDownCheck[2].durationEnd&&kutsama) {
+
+                _playerController.canMove = true;
+                    
+                kutsama = false;
+                
+            } else {
+                if(kutsama && damage<6.9) {
+                    float takenDmgPercentage = (jahoHealth - _playerController.health) * 15 / 100;
+                    damage += takenDmgPercentage;
+                    //Debug.Log(damage);
+                    _playerController.health = jahoHealth;
+                }
+>>>>>>> origin/master
+            }
+            //------------
+
         }
 	}
 
@@ -107,10 +175,27 @@ public class JahreinSkills : Photon.PunBehaviour
     }
 
     [PunRPC]
+<<<<<<< HEAD
     void jahRageSkill ()
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         damage = damage + (damage * 0.25f);
+=======
+    void jahRageSkill() {
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(4, 0), ForceMode2D.Impulse);
+        damage += (damage * 0.25f);
+
+    }
+
+    void jahPipiSuyu() {
+
+    }
+
+    [PunRPC]
+    void jahKutsama() {
+        kutsama = true;
+        _playerController.canMove = false;
+>>>>>>> origin/master
     }
 
     [PunRPC]
@@ -119,6 +204,7 @@ public class JahreinSkills : Photon.PunBehaviour
         Instantiate(vidanjor, this.transform.position, this.transform.rotation);
     }
 
+<<<<<<< HEAD
     //This is used for animation event
     void JahRageTrigger () 
     {
@@ -141,6 +227,26 @@ public class JahreinSkills : Photon.PunBehaviour
         {
             Debug.Log("Take dmg");
             collision.GetComponent<PlayerController>().takeHit(damage);
+=======
+    void jahPasif() {
+        _playerController.skillCoolDownCheck[4].passiveTriggered = true;
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        
+        if(photonView.isMine && _playerController.skillCoolDownCheck[4].itsReady && kutsama && collision.tag== "shuriken" || collision.tag == "jahBalta") {
+            jahPasif();
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision) {
+        if(collision.tag == "Player" && jahAtt) {
+            Debug.Log("Take dmg");
+            Debug.Log(damage);
+            collision.GetComponent<PhotonView>().RPC("takeHit", PhotonTargets.All, new object[] { damage });
+            jahAtt = false;
+
+>>>>>>> origin/master
         }
     }
 }
