@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 114717514807564330}
   - component: {fileID: 114143603903508772}
   - component: {fileID: 114089516542940938}
+  - component: {fileID: 95204795778480440}
   m_Layer: 8
   m_Name: Jahrein
   m_TagString: Player
@@ -439,6 +440,23 @@ BoxCollider2D:
   m_Offset: {x: -0.16, y: 0.27}
   serializedVersion: 2
   m_Size: {x: 1.56, y: 2.87}
+--- !u!95 &95204795778480440
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630368815256212}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114089516542940938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,8 +497,11 @@ MonoBehaviour:
   currentPacketTime: 0
   lastPacketTime: 0
   timeToReachGoal: 0
+  damage: 1
+  speed: 1
   canMove: 1
   canJump: 1
+  dontUseJump: 0
 --- !u!114 &114272752660597792
 MonoBehaviour:
   m_ObjectHideFlags: 1

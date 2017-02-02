@@ -22,14 +22,14 @@ GameObject:
   - component: {fileID: 212203155648357976}
   - component: {fileID: 61578115120548200}
   - component: {fileID: 50286491782459452}
-  - component: {fileID: 114593189772828086}
-  - component: {fileID: 114176782891810308}
-  - component: {fileID: 114098705445254156}
   - component: {fileID: 114687506924567278}
   - component: {fileID: 114379587223932800}
-  m_Layer: 0
+  - component: {fileID: 114942270354623500}
+  - component: {fileID: 114460531253182008}
+  - component: {fileID: 114900934224176394}
+  m_Layer: 8
   m_Name: wtcn
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,65 @@ BoxCollider2D:
   m_Offset: {x: 0.05827576, y: -0.010398746}
   serializedVersion: 2
   m_Size: {x: 1.8687524, y: 3.0737536}
---- !u!114 &114098705445254156
+--- !u!114 &114379587223932800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a84de9543be044ba7487e68d1b7fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shurikenSpawnPoint: {fileID: 1875349906173880}
+  shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
+  skillSprites:
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
+    type: 2}
+--- !u!114 &114460531253182008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+--- !u!114 &114687506924567278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708881a81b8621846adb2fa5144470e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  playerUiPrefab: {fileID: 1947167703653026, guid: 0cb0379abb84f8444aa696a5ea80da8b,
+    type: 2}
+  realPosition: {x: 0, y: 0, z: 0}
+  positionAtLastPacket: {x: 0, y: 0, z: 0}
+  currentTime: 0
+  currentPacketTime: 0
+  lastPacketTime: 0
+  timeToReachGoal: 0
+  damage: 1
+  speed: 1
+  canMove: 0
+  canJump: 0
+  dontUseJump: 1
+--- !u!114 &114900934224176394
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -175,40 +233,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &114176782891810308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 1
---- !u!114 &114379587223932800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a84de9543be044ba7487e68d1b7fdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shurikenSpawnPoint: {fileID: 1875349906173880}
-  shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
-  skillSprites:
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
-    type: 2}
---- !u!114 &114593189772828086
+--- !u!114 &114942270354623500
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -223,42 +248,19 @@ MonoBehaviour:
   group: 0
   OwnerShipWasTransfered: 0
   prefixBackup: -1
-  synchronization: 1
+  synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114272752660597792, guid: 53a6fac1a47b99e4ab5c2a9b1aa762b9, type: 2}
-  - {fileID: 114717514807564330, guid: 53a6fac1a47b99e4ab5c2a9b1aa762b9, type: 2}
-  - {fileID: 114143603903508772, guid: 53a6fac1a47b99e4ab5c2a9b1aa762b9, type: 2}
+  - {fileID: 114460531253182008}
+  - {fileID: 114687506924567278}
+  - {fileID: 114900934224176394}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114687506924567278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 708881a81b8621846adb2fa5144470e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  playerUiPrefab: {fileID: 1947167703653026, guid: 0cb0379abb84f8444aa696a5ea80da8b,
-    type: 2}
-  realPosition: {x: 0, y: 0, z: 0}
-  positionAtLastPacket: {x: 0, y: 0, z: 0}
-  currentTime: 0
-  currentPacketTime: 0
-  lastPacketTime: 0
-  timeToReachGoal: 0
-  canMove: 0
-  canJump: 0
-  dontUseJump: 1
 --- !u!212 &212203155648357976
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -22,15 +22,15 @@ GameObject:
   - component: {fileID: 212435971903484344}
   - component: {fileID: 95020390843571004}
   - component: {fileID: 61892106318759676}
-  - component: {fileID: 114711215984874008}
-  - component: {fileID: 50653922519064280}
-  - component: {fileID: 114411676805123266}
-  - component: {fileID: 114879661516849210}
-  - component: {fileID: 114131084494955874}
-  - component: {fileID: 114032182854038182}
-  m_Layer: 0
+  - component: {fileID: 50385646851175594}
+  - component: {fileID: 114062370873117312}
+  - component: {fileID: 114793512835436438}
+  - component: {fileID: 114094645309121682}
+  - component: {fileID: 114576802886067220}
+  - component: {fileID: 114823409317971724}
+  m_Layer: 8
   m_Name: Jahrein 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50653922519064280
+--- !u!50 &50385646851175594
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -67,7 +67,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &61892106318759676
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -99,63 +99,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114032182854038182
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1438730493920144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50d07fee77b26b4fa775a371a33dc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidanjor: {fileID: 1794653895590164, guid: f4fcea867e2f7554cb466b017fb3c467, type: 2}
-  skillSprites:
-  - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
-  - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
-  - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
-  - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
-  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
-    type: 2}
-  damage: 4
---- !u!114 &114131084494955874
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1438730493920144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 708881a81b8621846adb2fa5144470e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  playerUiPrefab: {fileID: 1947167703653026, guid: 0cb0379abb84f8444aa696a5ea80da8b,
-    type: 2}
-  realPosition: {x: 0, y: 0, z: 0}
-  positionAtLastPacket: {x: 0, y: 0, z: 0}
-  currentTime: 0
-  currentPacketTime: 0
-  lastPacketTime: 0
-  timeToReachGoal: 0
-  canMove: 1
-  canJump: 1
-  dontUseJump: 0
---- !u!114 &114411676805123266
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1438730493920144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 1
---- !u!114 &114711215984874008
+--- !u!114 &114062370873117312
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -175,15 +119,15 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114272752660597792, guid: 66f789f946e5f434da632a5bda70b07f, type: 2}
-  - {fileID: 114717514807564330, guid: 66f789f946e5f434da632a5bda70b07f, type: 2}
-  - {fileID: 114143603903508772, guid: 66f789f946e5f434da632a5bda70b07f, type: 2}
+  - {fileID: 114793512835436438}
+  - {fileID: 114094645309121682}
+  - {fileID: 114576802886067220}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114879661516849210
+--- !u!114 &114094645309121682
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -248,6 +192,64 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &114576802886067220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438730493920144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708881a81b8621846adb2fa5144470e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  playerUiPrefab: {fileID: 1947167703653026, guid: 0cb0379abb84f8444aa696a5ea80da8b,
+    type: 2}
+  realPosition: {x: 0, y: 0, z: 0}
+  positionAtLastPacket: {x: 0, y: 0, z: 0}
+  currentTime: 0
+  currentPacketTime: 0
+  lastPacketTime: 0
+  timeToReachGoal: 0
+  damage: 1
+  speed: 1
+  canMove: 1
+  canJump: 1
+  dontUseJump: 0
+--- !u!114 &114793512835436438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438730493920144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+--- !u!114 &114823409317971724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438730493920144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50d07fee77b26b4fa775a371a33dc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidanjor: {fileID: 1794653895590164, guid: f4fcea867e2f7554cb466b017fb3c467, type: 2}
+  skillSprites:
+  - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
+  - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
+  - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
+  - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
+  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
+    type: 2}
+  damage: 4
 --- !u!212 &212435971903484344
 SpriteRenderer:
   m_ObjectHideFlags: 1
