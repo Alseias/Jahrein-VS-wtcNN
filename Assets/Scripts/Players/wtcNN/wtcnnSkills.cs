@@ -8,21 +8,26 @@ public class wtcnnSkills : Photon.PunBehaviour
 {
     public GameObject shurikenSpawnPoint;
     public GameObject shuriken;
-
+    public Sprite[] skillSprites;
+    public GameObject skillUiPref;
 
     bool isFacingRight;
     Transform trans;
     PlayerController pc;
     PhotonView pv;
     bool canDoubleJump=false;
+    string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
+    float[] skillCoolDowns = { 4, 4, 7, 25 };
 
     void Start ()
     {
         pc = GetComponent<PlayerController>();
         pv = GetComponent<PhotonView>();
+        
+        if(photonView.isMine)
+            setSkills();
 
     }
-<<<<<<< HEAD
     AbilityCoolDown[] skillCoolDownCheck = new AbilityCoolDown[4];
     void setSkills()
     {
@@ -31,9 +36,12 @@ public class wtcnnSkills : Photon.PunBehaviour
         for(int i = 0; i < 4; i++) {
             skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
             skillUI.GetComponentInChildren<Image>().sprite = skillSprites[i];
-=======
->>>>>>> origin/master
 
+            skillCoolDownCheck[i] = skillUI.GetComponent<AbilityCoolDown>();
+            skillCoolDownCheck[i].abilityButtonAxisName = skillKeyMaps[i];
+            skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
+        }
+    }
     void Update ()
     {
         if(pv.isMine)
@@ -42,31 +50,20 @@ public class wtcnnSkills : Photon.PunBehaviour
             {
                 pv.RPC("BasicAttack", PhotonTargets.All);
             }
-<<<<<<< HEAD
             if(Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if(pc.canJump)
                 {
                     Debug.Log("zıpladık");
-=======
-            if(Input.GetKeyDown(KeyCode.UpArrow)) {
-                if(pc.canJump) {
->>>>>>> origin/master
                     pc.canJump = false;
                     GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
                     canDoubleJump = true;
-<<<<<<< HEAD
                 }
                 else
                 {
                     if(canDoubleJump)
                     {
                         Debug.Log("zıpladık2x");
-=======
-                } else {
-                    if(canDoubleJump) {
-
->>>>>>> origin/master
                         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
                         canDoubleJump = false;
@@ -81,17 +78,4 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity);
     }
-<<<<<<< HEAD
-=======
-
-    void DoubleJump()
-    {
-
-        
-        canDoubleJump = false;
-    }
-    void fnc123asdkAAn2k17() {
-
-    }
->>>>>>> origin/master
 }
