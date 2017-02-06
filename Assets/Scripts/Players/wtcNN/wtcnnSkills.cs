@@ -19,10 +19,13 @@ public class wtcnnSkills : Photon.PunBehaviour
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 4, 7, 25 };
 
+    Animator anim = new Animator();
+
     void Start()
     {
         pc = GetComponent<PlayerController>();
         pv = GetComponent<PhotonView>();
+        anim = GetComponent<Animator>();
 
         if (photonView.isMine)
             setSkills();
@@ -47,15 +50,41 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         if (pv.isMine)
         {
+            //___________This is for running anim and this has to change with raycast system__________
+            //if (GetComponent<Rigidbody2D>().velocity.x != 0f) 
+
+            //This is temporary this we will use this until facing to enemy
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                anim.SetInteger("State", 3);
+            }
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                anim.SetInteger("State", 0);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                anim.SetInteger("State", 3);
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                anim.SetInteger("State", 0);
+            }
+            //________________________________________________________________________________________
+            if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
+            {
+                anim.SetInteger("State", 2);
+            }
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                pv.RPC("BasicAttack", PhotonTargets.All);
+                anim.SetInteger("State", 1);
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (pc.canJump)
                 {
-                    Debug.Log("zıpladık");
                     pc.canJump = false;
                     GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
                     canDoubleJump = true;
@@ -64,7 +93,6 @@ public class wtcnnSkills : Photon.PunBehaviour
                 {
                     if (canDoubleJump)
                     {
-                        Debug.Log("zıpladık2x");
                         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
                         canDoubleJump = false;
@@ -72,6 +100,16 @@ public class wtcnnSkills : Photon.PunBehaviour
                 }
             }
         }
+    }
+
+    void AttackTrigger()
+    {
+        pv.RPC("BasicAttack", PhotonTargets.All);
+    }
+
+    void ChangeToIdle()
+    {
+        anim.SetInteger("State", 0);
     }
 
     [PunRPC]

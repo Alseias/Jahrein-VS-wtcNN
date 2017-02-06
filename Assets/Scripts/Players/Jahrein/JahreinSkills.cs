@@ -74,6 +74,30 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         if (photonView.isMine)
         {
+            //This is for running anim and this has to change with raycast system
+            //if (GetComponent<Rigidbody2D>().velocity.x != 0f) 
+
+            //This is temporary this we will use this until facing to enemy
+            if(Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                anim.SetInteger("State", 4);
+            }
+            //else
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                anim.SetInteger("State", 0 );
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                anim.SetInteger("State", 5);
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                anim.SetInteger("State", 0);
+            }
+
+
+
             if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
             {
                 anim.SetInteger("State", 1);
@@ -84,6 +108,11 @@ public class JahreinSkills : Photon.PunBehaviour
                 anim.SetInteger("State", 2);
                 _playerController.canMove = false;
                 //_playerController.canMove = false;
+            }
+            if (Input.GetButtonDown("SkillE") && skillCoolDownCheck[2].itsReady)
+            {
+                anim.SetInteger("State", 3);
+                _photonView.RPC("PipiSuyu", PhotonTargets.All);
             }
             if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
             {
@@ -111,6 +140,12 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         damage = damage + (damage * 0.25f);
+    }
+
+    [PunRPC]
+    void PipiSuyu()
+    {
+        //Trow particle
     }
 
     [PunRPC]

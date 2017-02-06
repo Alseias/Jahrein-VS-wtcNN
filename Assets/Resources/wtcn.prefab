@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114942270354623500}
   - component: {fileID: 114460531253182008}
   - component: {fileID: 114900934224176394}
+  - component: {fileID: 95588211672066676}
   m_Layer: 8
   m_Name: wtcn
   m_TagString: Player
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377725903128372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.34, y: -2.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987227377480096}
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1875349906173880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.14, y: 0, z: 0}
+  m_LocalPosition: {x: -3.587, y: 1.516, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4694167850623014}
@@ -107,9 +108,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.05827576, y: -0.010398746}
+  m_Offset: {x: 0.0582757, y: 1.5838042}
   serializedVersion: 2
-  m_Size: {x: 1.8687524, y: 3.0737536}
+  m_Size: {x: 1.8687524, y: 3.0904472}
+--- !u!95 &95588211672066676
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a37eb7d9b179c2040a04846fc4e003ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114379587223932800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,10 +142,10 @@ MonoBehaviour:
   shurikenSpawnPoint: {fileID: 1875349906173880}
   shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
   skillSprites:
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
     type: 2}
 --- !u!114 &114460531253182008
@@ -164,7 +182,7 @@ MonoBehaviour:
   lastPacketTime: 0
   timeToReachGoal: 0
   damage: 1
-  speed: 1
+  speed: 3
   canMove: 0
   canJump: 0
   dontUseJump: 1

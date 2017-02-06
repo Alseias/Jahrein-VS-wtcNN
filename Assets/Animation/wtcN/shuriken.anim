@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PipiSuyu
+  m_Name: shuriken
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,23 +19,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300002, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - time: 0.05
-      value: {fileID: 21300004, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
+      value: {fileID: 21300000, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
+    - time: 0.033333335
+      value: {fileID: 21300002, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
     - time: 0.1
-      value: {fileID: 21300006, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
+      value: {fileID: 21300004, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
     - time: 0.15
-      value: {fileID: 21300008, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - time: 0.21666667
-      value: {fileID: 21300010, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - time: 0.25
-      value: {fileID: 21300012, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - time: 0.3
-      value: {fileID: 21300014, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - time: 0.35
-      value: {fileID: 21300016, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - time: 0.4
-      value: {fileID: 21300018, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
+      value: {fileID: 21300006, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
+    - time: 0.18333334
+      value: {fileID: 21300010, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,21 +46,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300002, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300004, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300006, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300008, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300010, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300012, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300014, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300016, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
-    - {fileID: 21300018, guid: 3d4305e173ebc01448be30b69a8dd16d, type: 3}
+    - {fileID: 21300000, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
+    - {fileID: 21300002, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
+    - {fileID: 21300004, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
+    - {fileID: 21300006, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
+    - {fileID: 21300010, guid: 701b16204a8eef3439666a1b5058cd1b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.4166667
+    m_StopTime: 0.2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,7 +78,14 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
   m_Events:
-  - time: 0.4
+  - time: 0.1
+    functionName: AttackTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
     functionName: ChangeToIdle
     data: 
     objectReferenceParameter: {fileID: 0}

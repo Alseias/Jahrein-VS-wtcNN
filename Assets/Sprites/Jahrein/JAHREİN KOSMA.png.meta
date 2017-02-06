@@ -1,21 +1,20 @@
 fileFormatVersion: 2
-guid: 3d4305e173ebc01448be30b69a8dd16d
-timeCreated: 1486376211
+guid: d84b56b790d7d6f4ca997f630863509b
+timeCreated: 1486374888
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pipiSuyu_0
-    21300002: pipiSuyu_1
-    21300004: pipiSuyu_2
-    21300006: pipiSuyu_3
-    21300008: pipiSuyu_4
-    21300010: pipiSuyu_5
-    21300012: pipiSuyu_6
-    21300014: pipiSuyu_7
-    21300016: pipiSuyu_8
-    21300018: pipiSuyu_9
-    21300020: pipiSuyu_10
-    21300022: pipiSuyu_12
+    21300000: "JAHRE\u0130N KOSMA_0"
+    21300002: "JAHRE\u0130N KOSMA_1"
+    21300004: "JAHRE\u0130N KOSMA_2"
+    21300006: "JAHRE\u0130N KOSMA_3"
+    21300008: "JAHRE\u0130N KOSMA_4"
+    21300010: "JAHRE\u0130N KOSMA_5"
+    21300012: "JAHRE\u0130N KOSMA_6"
+    21300014: "JAHRE\u0130N KOSMA_7"
+    21300016: "JAHRE\u0130N KOSMA_8"
+    21300018: "JAHRE\u0130N KOSMA_9"
+    21300020: "JAHRE\u0130N KOSMA_10"
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -98,130 +97,143 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pipiSuyu_1
+      name: "JAHRE\u0130N KOSMA_0"
       rect:
         serializedVersion: 2
-        x: 146
-        y: 1553
-        width: 213
-        height: 305
-      alignment: 9
-      pivot: {x: 0.38442472, y: 0}
+        x: 25
+        y: 1033
+        width: 301
+        height: 292
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: pipiSuyu_2
+      name: "JAHRE\u0130N KOSMA_1"
       rect:
         serializedVersion: 2
-        x: 792
-        y: 1551
-        width: 236
+        x: 732
+        y: 1032
+        width: 305
+        height: 293
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "JAHRE\u0130N KOSMA_2"
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 1036
+        width: 305
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "JAHRE\u0130N KOSMA_3"
+      rect:
+        serializedVersion: 2
+        x: 2145
+        y: 1035
+        width: 303
+        height: 289
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "JAHRE\u0130N KOSMA_4"
+      rect:
+        serializedVersion: 2
+        x: 2852
+        y: 1040
+        width: 303
+        height: 285
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "JAHRE\u0130N KOSMA_5"
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 525
+        width: 301
+        height: 295
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "JAHRE\u0130N KOSMA_6"
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 525
+        width: 292
+        height: 295
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "JAHRE\u0130N KOSMA_7"
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 525
+        width: 292
+        height: 295
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "JAHRE\u0130N KOSMA_8"
+      rect:
+        serializedVersion: 2
+        x: 2145
+        y: 531
+        width: 303
         height: 288
-      alignment: 9
-      pivot: {x: 0.37540734, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: pipiSuyu_3
+      name: "JAHRE\u0130N KOSMA_9"
       rect:
         serializedVersion: 2
-        x: 1448
-        y: 1553
-        width: 212
-        height: 284
-      alignment: 9
-      pivot: {x: 0.36753643, y: 0}
+        x: 2852
+        y: 531
+        width: 303
+        height: 288
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: pipiSuyu_4
+      name: "JAHRE\u0130N KOSMA_10"
       rect:
         serializedVersion: 2
-        x: 2080
-        y: 1532
-        width: 212
-        height: 304
-      alignment: 9
-      pivot: {x: 0.36281946, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: pipiSuyu_5
-      rect:
-        serializedVersion: 2
-        x: 2644
-        y: 1533
-        width: 348
-        height: 300
-      alignment: 9
-      pivot: {x: 0.33111784, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: pipiSuyu_6
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 998
-        width: 356
-        height: 306
-      alignment: 9
-      pivot: {x: 0.34066793, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: pipiSuyu_7
-      rect:
-        serializedVersion: 2
-        x: 794
-        y: 998
-        width: 349
-        height: 305
-      alignment: 9
-      pivot: {x: 0.3347521, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: pipiSuyu_8
-      rect:
-        serializedVersion: 2
-        x: 1436
-        y: 998
-        width: 356
-        height: 306
-      alignment: 9
-      pivot: {x: 0.32996222, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: pipiSuyu_9
-      rect:
-        serializedVersion: 2
-        x: 2009
-        y: 999
-        width: 336
-        height: 306
-      alignment: 9
-      pivot: {x: 0.30304173, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: pipiSuyu_10
-      rect:
-        serializedVersion: 2
-        x: 2554
-        y: 1204
-        width: 64
-        height: 66
+        x: 25
+        y: 20
+        width: 301
+        height: 294
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

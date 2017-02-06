@@ -1,28 +1,35 @@
 fileFormatVersion: 2
-guid: 78a49889c89dd974aba78f28014667f2
-timeCreated: 1484409097
+guid: e5f75744991117346b3fbea1190a3ffa
+timeCreated: 1486396835
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: 1_0
-    21300002: 1_1
-    21300004: 1_2
-    21300006: 1_3
-    21300008: 1_4
-    21300010: 1_5
-    21300012: 1_6
-    21300014: 1_7
-    21300016: 1_8
-    21300018: 1_9
-    21300020: 1_10
-    21300022: 1_11
-    21300024: 1_12
-    21300026: 1_14
-    21300028: 1_15
-    21300030: 1_16
-    21300032: 1_17
-    21300034: 1_18
-    21300036: 1_19
+    21300000: casper_0
+    21300002: casper_1
+    21300004: casper_2
+    21300006: casper_3
+    21300008: casper_4
+    21300010: casper_5
+    21300012: casper_6
+    21300014: casper_7
+    21300016: casper_8
+    21300018: casper_9
+    21300020: casper_10
+    21300022: casper_11
+    21300024: casper_12
+    21300026: casper_13
+    21300028: casper_14
+    21300030: casper_15
+    21300032: casper_16
+    21300034: casper_17
+    21300036: casper_18
+    21300038: casper_19
+    21300040: casper_20
+    21300042: casper_21
+    21300044: casper_22
+    21300046: casper_23
+    21300048: casper_24
+    21300050: casper_25
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -105,247 +112,182 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_0
+      name: casper_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 701
-        width: 52
-        height: 67
+        x: 641
+        y: 943
+        width: 200
+        height: 315
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_1
+      name: casper_1
       rect:
         serializedVersion: 2
-        x: 105
-        y: 701
-        width: 52
-        height: 67
+        x: 1985
+        y: 943
+        width: 133
+        height: 315
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_2
+      name: casper_2
       rect:
         serializedVersion: 2
-        x: 178
-        y: 701
-        width: 52
-        height: 67
+        x: 3267
+        y: 958
+        width: 174
+        height: 300
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_3
+      name: casper_3
       rect:
         serializedVersion: 2
-        x: 249
-        y: 701
-        width: 53
-        height: 67
+        x: 4492
+        y: 962
+        width: 245
+        height: 296
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_4
+      name: casper_4
       rect:
         serializedVersion: 2
-        x: 340
-        y: 701
-        width: 50
-        height: 74
+        x: 4581
+        y: 958
+        width: 11
+        height: 7
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_5
+      name: casper_5
       rect:
         serializedVersion: 2
-        x: 460
-        y: 702
-        width: 50
-        height: 80
+        x: 5767
+        y: 951
+        width: 248
+        height: 307
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_6
+      name: casper_6
       rect:
         serializedVersion: 2
-        x: 584
-        y: 702
-        width: 52
-        height: 75
+        x: 6915
+        y: 954
+        width: 251
+        height: 304
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_7
+      name: casper_16
       rect:
         serializedVersion: 2
-        x: 704
-        y: 703
-        width: 52
-        height: 75
+        x: 304
+        y: 366
+        width: 281
+        height: 211
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_8
+      name: casper_18
       rect:
         serializedVersion: 2
-        x: 820
-        y: 703
-        width: 50
-        height: 80
+        x: 5407
+        y: 252
+        width: 285
+        height: 332
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_9
+      name: casper_20
       rect:
         serializedVersion: 2
-        x: 940
-        y: 702
-        width: 50
-        height: 80
+        x: 6696
+        y: 248
+        width: 278
+        height: 314
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_10
+      name: casper_21
       rect:
         serializedVersion: 2
-        x: 1029
-        y: 701
-        width: 106
-        height: 85
+        x: 1563
+        y: 277
+        width: 174
+        height: 282
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_11
+      name: casper_22
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 688
-        width: 67
-        height: 66
+        x: 2907
+        y: 248
+        width: 226
+        height: 292
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_12
+      name: casper_24
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 700
-        width: 60
-        height: 52
+        x: 4130
+        y: 248
+        width: 285
+        height: 229
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 1_14
+      name: casper_25
       rect:
         serializedVersion: 2
-        x: 33
-        y: 581
-        width: 58
-        height: 88
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 1_15
-      rect:
-        serializedVersion: 2
-        x: 98
-        y: 581
-        width: 58
-        height: 88
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 1_16
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 581
-        width: 58
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 1_17
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 581
-        width: 58
-        height: 86
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 1_18
-      rect:
-        serializedVersion: 2
-        x: 879
-        y: 585
-        width: 10
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 1_19
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 137
-        width: 7
-        height: 4
+        x: 5607
+        y: 248
+        width: 8
+        height: 7
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

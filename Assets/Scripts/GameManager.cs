@@ -12,6 +12,7 @@ public class GameManager : Photon.PunBehaviour {
     static public GameManager Instance;
     public GameObject[] playerPrefabs;
     public GameObject healthOne, healthTwo;
+    public GameObject jahSpawnPoint, wtcnSpawnPoint;
     int selectedChrID;
     private void Start() {
         //call from other scripts
@@ -33,7 +34,15 @@ public class GameManager : Photon.PunBehaviour {
                 healthOne.SetActive(true);
 
             }*/
-            PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, new Vector3(Random.Range(-8, 8), 0, 0), Quaternion.identity, 0);
+            if (this.playerPrefabs[selectedChrID].name == "Jahrein 1")
+            {
+                PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, jahSpawnPoint.transform.position, Quaternion.identity, 0);
+            }
+            else if (this.playerPrefabs[selectedChrID].name == "wtcn")
+            {
+                PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, wtcnSpawnPoint.transform.position, Quaternion.identity, 0);
+            }
+            
         }
     }
     private void Update()
