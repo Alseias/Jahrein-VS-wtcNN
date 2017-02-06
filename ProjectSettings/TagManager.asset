@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - Jahrein
   - wtcNN
+  - uiHelth
+  - vidanjor
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - 
   - player
-  - 
+  - obstacle
   - 
   - 
   - 

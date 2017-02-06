@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 1070255708}
   - component: {fileID: 1070255707}
   m_Layer: 5
-  m_Name: PlayerName
+  m_Name: lbl_PlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 1251833006}
   - component: {fileID: 1251833005}
   m_Layer: 5
-  m_Name: RoomName
+  m_Name: lbl_RoomName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1945,14 +1945,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1684778751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67dc005eaf7544e45bf4d1b982721a3b, type: 3}
+  m_Script: {fileID: 11500000, guid: faa89cc332e32bc41a37ba1740cf36f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxPlayersPerRoom: 2
   Loglevel: 1
   offlineMode: 1
-  playerName: {fileID: 1224792498}
-  roomName: {fileID: 1921422921}
+  playerName: {fileID: 1921422921}
+  roomName: {fileID: 1224792498}
 --- !u!4 &1684778753
 Transform:
   m_ObjectHideFlags: 0
@@ -2249,7 +2249,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.24264705, g: 0.24264705, b: 0.24264705, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

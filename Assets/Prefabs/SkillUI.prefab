@@ -104,14 +104,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675226655122476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f2301c2b205074caea92eb2ee63bb0, type: 3}
+  m_Script: {fileID: 11500000, guid: fae9e418931a3ff45b44094fe1365649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButtonAxisName: Fire1
   darkMask: {fileID: 114857880473904944}
   coolDownTextDisplay: {fileID: 114088443465373030}
   coolDownDuration: 0
+  durationTime: 0
   itsReady: 0
+  durationEnd: 0
+  isPassive: 0
+  passiveTriggered: 0
 --- !u!114 &114797942212502864
 MonoBehaviour:
   m_ObjectHideFlags: 1
