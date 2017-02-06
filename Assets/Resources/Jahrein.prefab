@@ -154,6 +154,9 @@ GameObject:
   - component: {fileID: 114143603903508772}
   - component: {fileID: 114089516542940938}
   - component: {fileID: 95204795778480440}
+  - component: {fileID: 114231121849385320}
+  - component: {fileID: 114976508198519104}
+  - component: {fileID: 114122458254517098}
   m_Layer: 8
   m_Name: Jahrein
   m_TagString: Player
@@ -477,6 +480,17 @@ MonoBehaviour:
   skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
     type: 2}
   damage: 4
+--- !u!114 &114122458254517098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630368815256212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36340cfc4ffa1c14e9362a095388b576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114143603903508772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -502,6 +516,27 @@ MonoBehaviour:
   canMove: 1
   canJump: 1
   dontUseJump: 0
+--- !u!114 &114231121849385320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630368815256212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b890c15f15ee6459616a6bf6a7c682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  maxSlopeAngle: 80
+  playerInput: {x: 0, y: 0}
 --- !u!114 &114272752660597792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -608,6 +643,25 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &114976508198519104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630368815256212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61691c23034f4b9439476b99e5e66651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxJumpHeight: 4
+  minJumpHeight: 1
+  timeToJumpApex: 0.4
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
+  wallLeap: {x: 0, y: 0}
+  wallSlideSpeedMax: 3
+  wallStickTime: 0.25
 --- !u!212 &212065600123002008
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 39c62dd2443a8f842a6794167cb06d27
-timeCreated: 1481822350
+guid: 78a49889c89dd974aba78f28014667f2
+timeCreated: 1484409097
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Axe
-    21300002: Head
-    21300004: Torso
-    21300006: ShoulderArmor
-    21300008: RightLegArmor
-    21300010: RightLowerArm
-    21300012: LeftLowerArm
-    21300014: RightUpperArm
-    21300016: RightUpperLeg
-    21300018: LeftUpperLeg
-    21300020: RightLowerLeg
-    21300022: LeftLegArmor
-    21300024: LeftUpperArm
-    21300026: LeftLowerLeg
-    21300028: RightFoot
-    21300030: LeftFoot
+    21300000: 1_0
+    21300002: 1_1
+    21300004: 1_2
+    21300006: 1_3
+    21300008: 1_4
+    21300010: 1_5
+    21300012: 1_6
+    21300014: 1_7
+    21300016: 1_8
+    21300018: 1_9
+    21300020: 1_10
+    21300022: 1_11
+    21300024: 1_12
+    21300026: 1_14
+    21300028: 1_15
+    21300030: 1_16
+    21300032: 1_17
+    21300034: 1_18
+    21300036: 1_19
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +46,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -56,7 +59,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 72
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -102,210 +105,249 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Axe
+      name: 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 105
-        width: 77
-        height: 148
-      alignment: 9
-      pivot: {x: 0.4961441, y: 0.17499852}
+        x: 34
+        y: 701
+        width: 52
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Head
+      name: 1_1
       rect:
         serializedVersion: 2
-        x: 85
-        y: 188
-        width: 61
-        height: 66
-      alignment: 9
-      pivot: {x: 0.6119515, y: 0.11760943}
+        x: 105
+        y: 701
+        width: 52
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Torso
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 135
-        width: 101
-        height: 121
-      alignment: 9
-      pivot: {x: 0.6798618, y: 0.3233234}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ShoulderArmor
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 128
-        width: 59
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: RightLegArmor
-      rect:
-        serializedVersion: 2
-        x: 203
-        y: 68
-        width: 49
-        height: 66
-      alignment: 9
-      pivot: {x: 0.73632, y: 0.8798763}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: RightLowerArm
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 0
-        width: 41
-        height: 74
-      alignment: 9
-      pivot: {x: 0.36240527, y: 0.8651249}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LeftLowerArm
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 3
-        width: 27
-        height: 73
-      alignment: 9
-      pivot: {x: 0.4488078, y: 0.79305893}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: RightUpperArm
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 49
-        width: 32
-        height: 48
-      alignment: 9
-      pivot: {x: 0.46700922, y: 0.82602423}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: RightUpperLeg
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 72
-        width: 23
-        height: 39
-      alignment: 9
-      pivot: {x: 0.44061705, y: 0.8403659}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LeftUpperLeg
-      rect:
-        serializedVersion: 2
-        x: 173
-        y: 72
-        width: 22
-        height: 39
-      alignment: 9
-      pivot: {x: 0.45249328, y: 0.86209124}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: RightLowerLeg
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 26
-        width: 22
-        height: 40
-      alignment: 9
-      pivot: {x: 0.4460151, y: 0.8534702}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LeftLegArmor
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 2
-        width: 28
-        height: 64
-      alignment: 9
-      pivot: {x: 0.23489761, y: 0.8553981}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LeftUpperArm
-      rect:
-        serializedVersion: 2
-        x: 89
-        y: 6
-        width: 29
-        height: 40
-      alignment: 9
-      pivot: {x: 0.3464229, y: 0.8340294}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LeftLowerLeg
+      name: 1_2
       rect:
         serializedVersion: 2
         x: 178
-        y: 26
-        width: 21
-        height: 40
-      alignment: 9
-      pivot: {x: 0.47172183, y: 0.85629797}
+        y: 701
+        width: 52
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: RightFoot
+      name: 1_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1
-        width: 43
-        height: 23
-      alignment: 9
-      pivot: {x: 0.3411851, y: 0.83564293}
+        x: 249
+        y: 701
+        width: 53
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LeftFoot
+      name: 1_4
       rect:
         serializedVersion: 2
-        x: 173
-        y: 2
-        width: 44
-        height: 21
-      alignment: 9
-      pivot: {x: 0.38528302, y: 0.74293005}
+        x: 340
+        y: 701
+        width: 50
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_5
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 702
+        width: 50
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_6
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 702
+        width: 52
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_7
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 703
+        width: 52
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_8
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 703
+        width: 50
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_9
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 702
+        width: 50
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_10
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 701
+        width: 106
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_11
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 688
+        width: 67
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_12
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 700
+        width: 60
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_14
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 581
+        width: 58
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_15
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 581
+        width: 58
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_16
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 581
+        width: 58
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_17
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 581
+        width: 58
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_18
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 585
+        width: 10
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 137
+        width: 7
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
