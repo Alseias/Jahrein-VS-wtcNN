@@ -16,6 +16,7 @@ public class JahreinSkills : Photon.PunBehaviour {
     PhotonView _photonView;
     bool jahAtt = false;
     float jahrageDamage, jahoHealth;
+    int skillNo=0;
     
 
     private void Awake() {
@@ -32,31 +33,43 @@ public class JahreinSkills : Photon.PunBehaviour {
     }
 	
 	void Update () {
+        //send info to playerController
+        _playerController.damage = damage;
+        _playerController.speed = speed;
         if(photonView.isMine) {
 
-            //send info to playerController
-            _playerController.damage = damage;
-            _playerController.speed = speed;
+
+            _playerController.canUseSkill = canUseSkill(skillNo);
+            if(canUseSkill(skillNo)) {
+                if(Input.GetButtonDown("SkillQ") && _playerController.skillCoolDownCheck[0].itsReady) {
+
+                    skillNo = 0;
+
+                    jahrageDamage = damage;
+                    _photonView.RPC("jahRageSkill", PhotonTargets.All);
+
+                }
 
 
-            if(Input.GetButtonDown("SkillQ")&& _playerController.skillCoolDownCheck[0].itsReady) {
-                //_playerController.canMove = false;
-                jahrageDamage = damage;
-                _photonView.RPC("jahRageSkill",PhotonTargets.All);
-                
+                if(Input.GetButtonDown("SkillE") && _playerController.skillCoolDownCheck[2].itsReady) {
+
+                    skillNo = 2;
+
+                    jahoHealth = _playerController.health;
+                    _photonView.RPC("jahKutsama", PhotonTargets.All);
+
+
+                }
+
+                if(Input.GetButtonDown("SkillR") && _playerController.skillCoolDownCheck[3].itsReady) {
+
+                    skillNo = 3;
+
+                    _photonView.RPC("jahUlti", PhotonTargets.All);
+                }
             }
 
 
-            if(Input.GetButtonDown("SkillE")&& _playerController.skillCoolDownCheck[2].itsReady) {
-                jahoHealth = _playerController.health;
-                _photonView.RPC("jahKutsama", PhotonTargets.All);
-
-
-            }
-
-            if(Input.GetButtonDown("SkillR")&& _playerController.skillCoolDownCheck[3].itsReady) {
-                _photonView.RPC("jahUlti", PhotonTargets.All);
-            }
 
             if(Input.GetButtonDown("Attack")) {
                 _photonView.RPC("basicAttack",PhotonTargets.All);
@@ -89,6 +102,11 @@ public class JahreinSkills : Photon.PunBehaviour {
         }
 		
 	}
+
+    private bool canUseSkill(int skillNo) {
+        //Debug.Log(_playerController.skillCoolDownCheck[skillNo].durationEnd);
+        return _playerController.skillCoolDownCheck[skillNo].durationEnd;
+    }
 
     [PunRPC]
     private void basicAttack() {

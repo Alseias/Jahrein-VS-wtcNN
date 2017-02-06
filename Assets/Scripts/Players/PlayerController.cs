@@ -9,18 +9,18 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
     public Vector3 realPosition = Vector3.zero;
     public Vector3 positionAtLastPacket = Vector3.zero;
 
-    //skill settings
+    //skill settings-->
     public Sprite[] skillSprites;
     public float[] skillCoolDowns;
     public float[] skillDurations;
 
     string[] skillKeyMaps = {"SkillQ", "SkillW", "SkillE", "SkillR" };
     
-    //-------------
+    //end of skill settings---|
 
     public bool dontUseJump;
     [HideInInspector]
-    public bool canJump, canTakeHit,canMove;
+    public bool canJump, canTakeHit,canMove,canUseSkill;
 
 
     double currentTime = 0.0;
@@ -66,8 +66,9 @@ public class PlayerController : Photon.PunBehaviour,IPunObservable {
         for(int i = 0; i < 5; i++) {
             skillUI = Instantiate(Resources.Load("ui/SkillUI"), Vector3.zero, skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
             skillUI.transform.FindChild("skillSprite").GetComponent<Image>().sprite = skillSprites[i];
-
+            
             skillCoolDownCheck[i] = skillUI.GetComponent<AbilityCoolDown>();
+            skillCoolDownCheck[i].setTarget(this);
             skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
             if(i < 4) {
                 skillCoolDownCheck[i].abilityButtonAxisName = skillKeyMaps[i];

@@ -5,10 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - playerList
-  - uiOne
-  - uiTwo
   - Ground
   - vidanjor
+  - shuriken
+  - jahBalta
+  - uiTwo
+  - uiOne
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - 
   - 
   - player
-  - 
+  - obstacle
   - 
   - 
   - 
