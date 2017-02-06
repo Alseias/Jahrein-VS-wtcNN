@@ -14,11 +14,12 @@ public class PlayerInput : MonoBehaviour {
 		Vector2 directionalInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		player.SetDirectionalInput (directionalInput);
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetButtonDown ("Jump")) {
 			player.OnJumpInputDown ();
 		}
-		if (Input.GetKeyUp (KeyCode.Space)) {
-			player.OnJumpInputUp ();
+		if (Input.GetButtonUp ("Jump")) {
+
+            player.OnJumpInputUp ();
 		}
 	}
 }
