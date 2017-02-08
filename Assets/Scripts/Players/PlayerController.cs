@@ -81,13 +81,7 @@ public class PlayerController : Photon.PunBehaviour, IPunObservable
             canJump = true;
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.transform.tag == "Ground" && photonView.isMine)
-        {
-            canJump = false;
-        }
-    }
+
     public void takeHit(float dmg)
     {
         this.health -= dmg;

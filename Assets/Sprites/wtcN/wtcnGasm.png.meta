@@ -1,0 +1,465 @@
+fileFormatVersion: 2
+guid: eb18e63380a62a749a4a8e04755ced5a
+timeCreated: 1486566167
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: wtcnGasm_0
+    21300002: wtcnGasm_1
+    21300004: wtcnGasm_2
+    21300006: wtcnGasm_3
+    21300008: wtcnGasm_4
+    21300010: wtcnGasm_5
+    21300012: wtcnGasm_6
+    21300014: wtcnGasm_7
+    21300016: wtcnGasm_8
+    21300018: wtcnGasm_9
+    21300020: wtcnGasm_10
+    21300022: wtcnGasm_11
+    21300024: wtcnGasm_12
+    21300026: wtcnGasm_13
+    21300028: wtcnGasm_14
+    21300030: wtcnGasm_15
+    21300032: wtcnGasm_16
+    21300034: wtcnGasm_17
+    21300036: wtcnGasm_18
+    21300038: wtcnGasm_19
+    21300040: wtcnGasm_20
+    21300042: wtcnGasm_21
+    21300044: wtcnGasm_22
+    21300046: wtcnGasm_23
+    21300048: wtcnGasm_24
+    21300050: wtcnGasm_25
+    21300052: wtcnGasm_26
+    21300054: wtcnGasm_27
+    21300056: wtcnGasm_28
+    21300058: wtcnGasm_29
+    21300060: wtcnGasm_30
+    21300062: wtcnGasm_31
+    21300064: wtcnGasm_32
+    21300066: wtcnGasm_33
+    21300068: wtcnGasm_34
+    21300070: wtcnGasm_35
+    21300072: wtcnGasm_36
+    21300074: wtcnGasm_37
+    21300076: wtcnGasm_38
+    21300078: wtcnGasm_39
+    21300080: wtcnGasm_40
+    21300082: wtcnGasm_41
+    21300084: wtcnGasm_42
+    21300086: wtcnGasm_43
+    21300088: wtcnGasm_44
+    21300090: wtcnGasm_45
+    21300092: wtcnGasm_46
+    21300094: wtcnGasm_47
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wtcnGasm_0
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 5754
+        width: 340
+        height: 993
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_2
+      rect:
+        serializedVersion: 2
+        x: 3858
+        y: 5747
+        width: 319
+        height: 1000
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_4
+      rect:
+        serializedVersion: 2
+        x: 6855
+        y: 5754
+        width: 333
+        height: 979
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_6
+      rect:
+        serializedVersion: 2
+        x: 9852
+        y: 5754
+        width: 333
+        height: 993
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_8
+      rect:
+        serializedVersion: 2
+        x: 12849
+        y: 5754
+        width: 333
+        height: 993
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_15
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 3748
+        width: 340
+        height: 979
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_17
+      rect:
+        serializedVersion: 2
+        x: 3858
+        y: 3748
+        width: 326
+        height: 979
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_19
+      rect:
+        serializedVersion: 2
+        x: 6855
+        y: 3748
+        width: 416
+        height: 972
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_20
+      rect:
+        serializedVersion: 2
+        x: 9852
+        y: 3748
+        width: 333
+        height: 979
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_22
+      rect:
+        serializedVersion: 2
+        x: 12544
+        y: 3693
+        width: 950
+        height: 1062
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_23
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 4373
+        width: 14
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_27
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 1749
+        width: 326
+        height: 979
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_29
+      rect:
+        serializedVersion: 2
+        x: 3545
+        y: 1694
+        width: 951
+        height: 1055
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_30
+      rect:
+        serializedVersion: 2
+        x: 6549
+        y: 1694
+        width: 972
+        height: 1055
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_31
+      rect:
+        serializedVersion: 2
+        x: 9547
+        y: 1694
+        width: 971
+        height: 1062
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_32
+      rect:
+        serializedVersion: 2
+        x: 12232
+        y: 2068
+        width: 992
+        height: 459
+      alignment: 9
+      pivot: {x: 0.5, y: -0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_34
+      rect:
+        serializedVersion: 2
+        x: 13238
+        y: 2103
+        width: 20
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_37
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 58
+        width: 1007
+        height: 470
+      alignment: 9
+      pivot: {x: 0.5, y: -0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_38
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 69
+        width: 978
+        height: 459
+      alignment: 9
+      pivot: {x: 0.5, y: -0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_39
+      rect:
+        serializedVersion: 2
+        x: 4392
+        y: 451
+        width: 7
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_40
+      rect:
+        serializedVersion: 2
+        x: 6247
+        y: 56
+        width: 979
+        height: 472
+      alignment: 9
+      pivot: {x: 0.5, y: -0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_41
+      rect:
+        serializedVersion: 2
+        x: 9195
+        y: 56
+        width: 1018
+        height: 472
+      alignment: 9
+      pivot: {x: 0.5, y: -0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_42
+      rect:
+        serializedVersion: 2
+        x: 4392
+        y: 298
+        width: 7
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_44
+      rect:
+        serializedVersion: 2
+        x: 4392
+        y: 160
+        width: 7
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wtcnGasm_47
+      rect:
+        serializedVersion: 2
+        x: 4392
+        y: 69
+        width: 7
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

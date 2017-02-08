@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class JahreinSkills : Photon.PunBehaviour
 {
+    
     Animator anim;
     public GameObject vidanjor;
     public Sprite[] skillSprites;
@@ -19,6 +20,7 @@ public class JahreinSkills : Photon.PunBehaviour
     float[] skillCoolDowns = { 4, 7, 10, 25 };
     //Abilities q, w, e, r;
 
+    Controller2D _controller;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class JahreinSkills : Photon.PunBehaviour
             r.damage = 10;*/
 
             setSkills();
+            
         }
     }
 
@@ -68,6 +71,7 @@ public class JahreinSkills : Photon.PunBehaviour
         _photonView = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
         anim.SetInteger("State", 0);
+        _controller = GetComponent<Controller2D>();
     }
 
     void Update()
@@ -78,40 +82,40 @@ public class JahreinSkills : Photon.PunBehaviour
             //if (GetComponent<Rigidbody2D>().velocity.x != 0f) 
 
             //This is temporary this we will use this until facing to enemy
-            if(Input.GetKeyDown(KeyCode.RightArrow))
+            if (_controller.canMove)
             {
-                anim.SetInteger("State", 4);
-            }
-            //else
-            if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                anim.SetInteger("State", 0 );
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                anim.SetInteger("State", 5);
-            }
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                anim.SetInteger("State", 0);
-            }
+                if (Input.GetKey(KeyCode.RightArrow) && _playerController.canJump)
+                {
+                    anim.Play("Running");
+                }
+                if (Input.GetKeyUp(KeyCode.RightArrow))
+                {
+                    anim.Play("Idle");
+                }
 
-
+                if (Input.GetKey(KeyCode.LeftArrow) && _playerController.canJump)
+                {
+                    anim.Play("Running");
+                }
+                if (Input.GetKeyUp(KeyCode.LeftArrow))
+                {
+                    anim.Play("Idle");
+                }
+            }
 
             if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
             {
-                anim.SetInteger("State", 1);
-                //_playerController.canMove = false;
+                anim.Play("jahRage");
             }
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
             {
-                anim.SetInteger("State", 2);
-                _playerController.canMove = false;
-                //_playerController.canMove = false;
+                _controller.canMove = false;
+                anim.Play("Kutsama");
+                
             }
             if (Input.GetButtonDown("SkillE") && skillCoolDownCheck[2].itsReady)
             {
-                anim.SetInteger("State", 3);
+                anim.Play("PipiSuyu");
                 _photonView.RPC("PipiSuyu", PhotonTargets.All);
             }
             if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
@@ -120,6 +124,7 @@ public class JahreinSkills : Photon.PunBehaviour
             }
             if (Input.GetButtonDown("Attack"))
             {
+                anim.Play("BasicAttack");
                 _photonView.RPC("basicAttack", PhotonTargets.All);
             }
             else
@@ -167,7 +172,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
     void CanMove()
     {
-        _playerController.canMove = true;
+        _controller.canMove = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

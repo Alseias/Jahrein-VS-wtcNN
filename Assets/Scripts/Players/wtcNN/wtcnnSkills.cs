@@ -50,37 +50,46 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         if (pv.isMine)
         {
-            //___________This is for running anim and this has to change with raycast system__________
-            //if (GetComponent<Rigidbody2D>().velocity.x != 0f) 
+            if (pc.canMove)
+            {
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    anim.Play("running");
+                }
+                if (Input.GetKeyUp(KeyCode.RightArrow))
+                {
+                    anim.Play("Idle");
+                }
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    anim.Play("running");
+                }
+                if (Input.GetKeyUp(KeyCode.LeftArrow))
+                {
+                    anim.Play("Idle");
+                }
+            }
 
-            //This is temporary this we will use this until facing to enemy
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
             {
-                anim.SetInteger("State", 3);
-            }
-            if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                anim.SetInteger("State", 0);
+                anim.Play("wtcnGasm");
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                anim.SetInteger("State", 3);
-            }
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                anim.SetInteger("State", 0);
-            }
-            //________________________________________________________________________________________
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
             {
-                anim.SetInteger("State", 2);
+                anim.Play("casper");
+            }
+
+            if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
+            {
+                anim.Play("AWP");
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                anim.SetInteger("State", 1);
+                anim.Play("shuriken");
             }
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (pc.canJump)
