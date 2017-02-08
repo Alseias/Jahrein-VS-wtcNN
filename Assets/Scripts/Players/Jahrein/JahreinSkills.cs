@@ -14,6 +14,8 @@ public class JahreinSkills : Photon.PunBehaviour
 
     PlayerController _playerController;
     PhotonView _photonView;
+    Controller2D _controller;
+    Player _player;
     bool jahAtt = false;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 7, 10, 25 };
@@ -65,6 +67,8 @@ public class JahreinSkills : Photon.PunBehaviour
     void Start()
     {
         _playerController = GetComponent<PlayerController>();
+        _controller = GetComponent<Controller2D>();
+        _player = GetComponent<Player>();
         _photonView = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
         anim.SetInteger("State", 0);
@@ -138,7 +142,8 @@ public class JahreinSkills : Photon.PunBehaviour
     [PunRPC]
     void jahRageSkill()
     {
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
+        //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
+        _player.velocity.x = 80f;
         damage = damage + (damage * 0.25f);
     }
 
