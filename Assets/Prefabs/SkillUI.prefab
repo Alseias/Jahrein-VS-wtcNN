@@ -113,7 +113,7 @@ MonoBehaviour:
   coolDownDuration: 0
   durationTime: 0
   itsReady: 0
-  durationEnd: 0
+  durationEnd: 1
   isPassive: 0
   passiveTriggered: 0
 --- !u!114 &114797942212502864

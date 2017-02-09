@@ -3,7 +3,7 @@ using System.Collections;
 
 [RequireComponent (typeof (Controller2D))]
 public class Player : Photon.PunBehaviour {
-
+    public bool canMove = true;
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -25,6 +25,7 @@ public class Player : Photon.PunBehaviour {
 	float minJumpVelocity;
 	public Vector3 velocity;
 	float velocityXSmoothing;
+    
 
 	Controller2D controller;
 
@@ -38,6 +39,7 @@ public class Player : Photon.PunBehaviour {
     double currentPacketTime = 0.0;
     double lastPacketTime = 0.0;
     double timeToReachGoal = 0.0;
+    bool turned = true;
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -48,17 +50,40 @@ public class Player : Photon.PunBehaviour {
 	}
 
 	void Update() {
-		CalculateVelocity ();
-		HandleWallSliding ();
+        if(canMove) {
+            CalculateVelocity();
+
+        }
+
+        HandleWallSliding();
 
         if(!photonView.isMine) {
+            
             timeToReachGoal = currentPacketTime - lastPacketTime;
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
-        }
-        controller.Move (velocity * Time.deltaTime, directionalInput);
+        }else {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach(var t in players) {
+                if(t.GetPhotonView()!=photonView) {
+                    /*transform.LookAt(t.transform);
+                    transform.Rotate(new Vector3(0, -90, 0), Space.Self);*/
+                    //rotate towards other player!!!
+                    //Debug.Log(Vector3.Scale(this.transform.position, t.transform.position));
+                    /*if(Vector3.Scale(this.transform.position, t.transform.position).x < 0 && turned) {
+                        turned = false;
+                        this.transform.Rotate(0, this.transform.rotation.y + 180f, 0);
+                    }*/
 
-		if (controller.collisions.above || controller.collisions.below) {
+                }
+
+            }
+            
+        }
+
+        controller.Move(velocity * Time.deltaTime, directionalInput);
+
+        if(controller.collisions.above || controller.collisions.below) {
 			if (controller.collisions.slidingDownMaxSlope) {
 				velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
 			} else {
@@ -68,8 +93,11 @@ public class Player : Photon.PunBehaviour {
 	}
 
 	public void SetDirectionalInput (Vector2 input) {
-		directionalInput = input;
-	}
+        if(canMove) {
+            directionalInput = input;
+
+        }
+    }
 
 	public void OnJumpInputDown() {
 		if (wallSliding) {
@@ -86,7 +114,7 @@ public class Player : Photon.PunBehaviour {
 				velocity.y = wallLeap.y;
 			}
 		}
-		if (controller.collisions.below) {
+		if (controller.collisions.below && canMove) {
 			if (controller.collisions.slidingDownMaxSlope) {
 				if (directionalInput.x != -Mathf.Sign (controller.collisions.slopeNormal.x)) { // not jumping against max slope
 					velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
@@ -99,7 +127,7 @@ public class Player : Photon.PunBehaviour {
 	}
 
 	public void OnJumpInputUp() {
-		if (velocity.y > minJumpVelocity) {
+		if (velocity.y > minJumpVelocity && canMove) {
 			velocity.y = minJumpVelocity;
 		}
 	}

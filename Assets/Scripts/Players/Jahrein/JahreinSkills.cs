@@ -18,7 +18,8 @@ public class JahreinSkills : Photon.PunBehaviour
     Player _player;
     bool jahAtt = false;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
-    float[] skillCoolDowns = { 4, 7, 10, 25 };
+    public float[] skillCoolDowns = { 4, 7, 10, 25 };
+    public float[] skillDurations = { 1, 1, 1, 1 };
     //Abilities q, w, e, r;
 
 
@@ -26,21 +27,6 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         if (photonView.isMine)
         {
-            /*q.skillKey = "SkillQ";
-            q.coolDown = 4f;
-            q.damage = 10;
-
-            w.skillKey = "SkillW";
-            w.coolDown = 4f;
-            w.damage = 10;
-
-            e.skillKey = "SkillE";
-            e.coolDown = 4f;
-            e.damage = 10;
-
-            r.skillKey = "SkillR";
-            r.coolDown = 4f;
-            r.damage = 10;*/
 
             setSkills();
         }
@@ -60,6 +46,7 @@ public class JahreinSkills : Photon.PunBehaviour
             skillCoolDownCheck[i] = skillUI.GetComponent<AbilityCoolDown>();
             skillCoolDownCheck[i].abilityButtonAxisName = skillKeyMaps[i];
             skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
+            skillCoolDownCheck[i].durationTime = skillDurations[i];
             //Debug.Log(skillCoolDownCheck[i].abilityButtonAxisName);
         }
     }
@@ -130,6 +117,9 @@ public class JahreinSkills : Photon.PunBehaviour
             {
                 jahAtt = false;
             }
+            _player.canMove = skillCoolDownCheck[0].durationEnd;
+            Debug.Log(skillCoolDownCheck[0].durationEnd);
+
         }
     }
 
@@ -143,7 +133,7 @@ public class JahreinSkills : Photon.PunBehaviour
     void jahRageSkill()
     {
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
-        _player.velocity.x = 80f;
+        _player.velocity.x = 8f;
         damage = damage + (damage * 0.25f);
     }
 
