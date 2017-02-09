@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 114188423380075542}
   - component: {fileID: 114291588835410690}
   m_Layer: 5
-  m_Name: PlayerUI
+  m_Name: PlayerUI_Healt
   m_TagString: uiHelth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
