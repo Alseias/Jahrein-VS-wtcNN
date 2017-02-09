@@ -4,25 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class GameManager : Photon.PunBehaviour {
-
-
-
+public class GameManager : Photon.PunBehaviour
+{
     //call functions from other scripts
     static public GameManager Instance;
     public GameObject[] playerPrefabs;
     public GameObject healthOne, healthTwo;
     public GameObject jahSpawnPoint, wtcnSpawnPoint;
     int selectedChrID;
-    private void Start() {
+
+    private void Start()
+    {
         //call from other scripts
         Instance = this;
         selectedChrID = PlayerPrefs.GetInt("chrID");
-       
 
-        if(playerPrefabs == null) {
+        if(playerPrefabs == null)
+        {
             Debug.LogError("Missing PlayerPrefab.Set up GameObject for GameManager script");
-        } else {
+        }
+        else
+        {
             /* {
                 healthOne.SetActive(true);
             }else {
@@ -30,28 +32,34 @@ public class GameManager : Photon.PunBehaviour {
                 healthOne.SetActive(true);
 
             }*/
-            if(this.playerPrefabs[selectedChrID].name == "Jahrein 1"|| this.playerPrefabs[selectedChrID].name == "jahRay") {
+            if(this.playerPrefabs[selectedChrID].name == "Jahrein 1"|| this.playerPrefabs[selectedChrID].name == "jahRay")
+            {
                 PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, jahSpawnPoint.transform.position, Quaternion.identity, 0);
-            } else if(this.playerPrefabs[selectedChrID].name == "wtcn") {
+            }
+            else if(this.playerPrefabs[selectedChrID].name == "wtcn")
+            {
                 PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, wtcnSpawnPoint.transform.position, Quaternion.identity, 0);
             }
-
         }
     }
-    private void Update() {
+    private void Update()
+    {
 
 
     }
 
-    public override void OnLeftRoom() {
+    public override void OnLeftRoom()
+    {
         SceneManager.LoadScene(0);
     }
 
-    public void LeaveRoom() {
+    public void LeaveRoom()
+    {
         PhotonNetwork.LeaveRoom();
     }
 
-    void LoadArena() {
+    void LoadArena()
+    {
         if(PhotonNetwork.room.PlayerCount == 2) {
 
         }

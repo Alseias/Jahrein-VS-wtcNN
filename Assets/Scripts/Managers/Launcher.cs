@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Launcher : Photon.PunBehaviour {
+public class Launcher : Photon.PunBehaviour
+{
     // Set game version
     string gameVersion = "1";
     public byte MaxPlayersPerRoom = 4;
@@ -23,20 +24,22 @@ public class Launcher : Photon.PunBehaviour {
         PhotonNetwork.autoJoinLobby = false;
 
         //make sure use photonNetwork on master and clients
-        if(offlineMode) {
+        if(offlineMode)
+        {
             PhotonNetwork.offlineMode = true;
-        } else {
-
-
+        }
+        else
+        {
             PhotonNetwork.automaticallySyncScene = true;
-            if(PhotonNetwork.connectionStateDetailed == ClientState.PeerCreated) {
+            if(PhotonNetwork.connectionStateDetailed == ClientState.PeerCreated)
+            {
                 // Connect to the photon master-server.
                 PhotonNetwork.ConnectUsingSettings(gameVersion);
             }
         }
-
     }
-    void Start () {
+    void Start ()
+    {
         //Connect();
 	}
 
@@ -53,17 +56,14 @@ public class Launcher : Photon.PunBehaviour {
             PhotonNetwork.ConnectUsingSettings(gameVersion);
     }
 
-
     public void checkPlayerName()
     {
         PlayerPrefs.SetString("playerName", PhotonNetwork.playerName);
         PhotonNetwork.playerName = playerName.text+" Ping:"+PhotonNetwork.GetPing();
-
     }
-    public void selectCharacter(int id) {
-        
+    public void selectCharacter(int id)
+    {
         PlayerPrefs.SetInt("chrID", id);
-        
     }
     public void CreateRoom()
     {

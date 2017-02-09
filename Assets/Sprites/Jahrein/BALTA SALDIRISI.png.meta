@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: 7192a7c145f6e3a47bc6d5b0ed01d752
+timeCreated: 1486564591
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BALTA SALDIRISI_0
+    21300002: BALTA SALDIRISI_4
+    21300004: BALTA SALDIRISI_6
+    21300006: BALTA SALDIRISI_7
+    21300008: BALTA SALDIRISI_8
+    21300010: BALTA SALDIRISI_13
+    21300012: BALTA SALDIRISI_15
+    21300014: BALTA SALDIRISI_16
+    21300016: BALTA SALDIRISI_17
+    21300018: BALTA SALDIRISI_18
+    21300020: BALTA SALDIRISI_25
+    21300022: BALTA SALDIRISI_27
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 591
+        width: 279
+        height: 362
+      alignment: 9
+      pivot: {x: 0.5463382, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_4
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 605
+        width: 370
+        height: 343
+      alignment: 9
+      pivot: {x: 0.617927, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_6
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 583
+        width: 319
+        height: 341
+      alignment: 9
+      pivot: {x: 0.82005763, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_7
+      rect:
+        serializedVersion: 2
+        x: 2062
+        y: 597
+        width: 317
+        height: 334
+      alignment: 9
+      pivot: {x: 0.83064264, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_8
+      rect:
+        serializedVersion: 2
+        x: 2803
+        y: 583
+        width: 301
+        height: 349
+      alignment: 9
+      pivot: {x: 0.73961955, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_13
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 47
+        width: 282
+        height: 404
+      alignment: 9
+      pivot: {x: 0.5475193, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_15
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 61
+        width: 303
+        height: 346
+      alignment: 9
+      pivot: {x: 0.6870117, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_16
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 87
+        width: 273
+        height: 355
+      alignment: 9
+      pivot: {x: 0.54908615, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_17
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 396
+        width: 9
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_18
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 47
+        width: 250
+        height: 373
+      alignment: 9
+      pivot: {x: 0.20265137, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_25
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 175
+        width: 11
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BALTA SALDIRISI_27
+      rect:
+        serializedVersion: 2
+        x: 2683
+        y: 113
+        width: 5
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

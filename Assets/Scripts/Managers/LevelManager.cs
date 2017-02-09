@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	public void LoadLevel(string name) {
+	public void LoadLevel(string name)
+    {
         Debug.Log("Want to go gameplay");
         SceneManager.LoadScene(name);
     }
     
-    public void QuitGame() {
+    public void QuitGame()
+    {
         Debug.Log("Quit game");
         Application.Quit();
     }

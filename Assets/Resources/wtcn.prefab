@@ -173,8 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  playerUiPrefab: {fileID: 1947167703653026, guid: 0cb0379abb84f8444aa696a5ea80da8b,
-    type: 2}
+  playerUiPrefab: {fileID: 0}
   realPosition: {x: 0, y: 0, z: 0}
   positionAtLastPacket: {x: 0, y: 0, z: 0}
   currentTime: 0
