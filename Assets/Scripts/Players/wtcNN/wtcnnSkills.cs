@@ -11,8 +11,6 @@ public class wtcnnSkills : Photon.PunBehaviour
     public Sprite[] skillSprites;
     public GameObject skillUiPref;
 
-    bool isFacingRight;
-    Transform trans;
     PlayerController pc;
     PhotonView pv;
     bool canDoubleJump = false;

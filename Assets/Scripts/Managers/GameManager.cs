@@ -35,10 +35,12 @@ public class GameManager : Photon.PunBehaviour
             if(this.playerPrefabs[selectedChrID].name == "Jahrein 1"|| this.playerPrefabs[selectedChrID].name == "jahRay")
             {
                 PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, jahSpawnPoint.transform.position, Quaternion.identity, 0);
+                this.playerPrefabs[selectedChrID].GetComponent<Stats>().JahInstantiateHud();
             }
             else if(this.playerPrefabs[selectedChrID].name == "wtcn")
             {
                 PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, wtcnSpawnPoint.transform.position, Quaternion.identity, 0);
+                this.playerPrefabs[selectedChrID].GetComponent<Stats>().WtcnInstantiateHud();
             }
         }
     }

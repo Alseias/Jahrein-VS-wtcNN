@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 114848562982247206}
   - component: {fileID: 114565588516007208}
   - component: {fileID: 114091646295004024}
+  - component: {fileID: 114953734344746878}
+  - component: {fileID: 114587850588985602}
   m_Layer: 8
   m_Name: jahRay
   m_TagString: Player
@@ -273,6 +275,17 @@ MonoBehaviour:
   canMove: 1
   canJump: 1
   dontUseJump: 0
+--- !u!114 &114587850588985602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438730493920144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4298a09348253af49be4a4a89f252049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114823409317971724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -326,6 +339,19 @@ MonoBehaviour:
   maxSlopeAngle: 80
   canMove: 0
   playerInput: {x: 0, y: 0}
+--- !u!114 &114953734344746878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438730493920144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3c293932c921648b853b3999597a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hud: {fileID: 1576136324415718, guid: 6de3596f58291da4fb57498b52b41907, type: 2}
+  currentHealth: 0
 --- !u!212 &212435971903484344
 SpriteRenderer:
   m_ObjectHideFlags: 1
