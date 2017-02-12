@@ -2144,20 +2144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxPlayersPerRoom: 4
   Loglevel: 1
-<<<<<<< HEAD
   offlineMode: 1
   playerName: {fileID: 1224792498}
   roomName: {fileID: 1921422921}
-=======
-  offlineMode: 0
-<<<<<<< HEAD
-  playerName: {fileID: 153}
-  roomName: {fileID: 127}
---- !u!114 &152
-=======
-  playerName: {fileID: 1921422921}
-  roomName: {fileID: 1224792498}
->>>>>>> 42499504a336500b64e1fd4b233ccd9ced54b4f3
 --- !u!4 &1684778753
 Transform:
   m_ObjectHideFlags: 0
@@ -2207,7 +2196,6 @@ RectTransform:
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817534016
->>>>>>> 69c0c71555d8f74e980f5ca8faa5b984f9343122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
