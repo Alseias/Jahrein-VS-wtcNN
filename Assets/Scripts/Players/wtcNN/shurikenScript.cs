@@ -7,8 +7,7 @@ public class shurikenScript : MonoBehaviour
 {
     [SerializeField]
     Vector2 speed = new Vector2(1,0);
-    float damage = 2f;
-
+    int damage = 2;
     Rigidbody2D rb;
 
 	void Start ()
@@ -23,12 +22,13 @@ public class shurikenScript : MonoBehaviour
         rb.velocity = -speed;
 	}
 
-    void OnTriggerEnter2D(Collider2D other)//was collision2d
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Did damage");
             Destroy(gameObject);
-            other.gameObject.GetComponent<PlayerController>().takeHit(damage);//was gameobject.sendmessage or smt
+            other.gameObject.GetComponent<Stats>().TakeDamage(damage);
         }
     } 
 }

@@ -28,6 +28,8 @@ GameObject:
   - component: {fileID: 114460531253182008}
   - component: {fileID: 114900934224176394}
   - component: {fileID: 95588211672066676}
+  - component: {fileID: 114849173555132420}
+  - component: {fileID: 114206388039537768}
   m_Layer: 8
   m_Name: wtcn
   m_TagString: Player
@@ -128,6 +130,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114206388039537768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4298a09348253af49be4a4a89f252049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114379587223932800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +198,19 @@ MonoBehaviour:
   canMove: 0
   canJump: 0
   dontUseJump: 1
+--- !u!114 &114849173555132420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3c293932c921648b853b3999597a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hud: {fileID: 1276426522113334, guid: c267e4ad05562ef4b952cb072ed9da4f, type: 2}
+  currentHealth: 0
 --- !u!114 &114900934224176394
 MonoBehaviour:
   m_ObjectHideFlags: 1

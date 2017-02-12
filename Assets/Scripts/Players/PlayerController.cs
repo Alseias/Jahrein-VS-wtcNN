@@ -22,7 +22,7 @@ public class PlayerController : Photon.PunBehaviour, IPunObservable
         canMove = true;
         if (playerUiPrefab == null)
         {
-            Debug.LogError("Missing playerUiPrefab!!");
+            //Debug.LogError("Missing playerUiPrefab!!");
         }
         else
         {

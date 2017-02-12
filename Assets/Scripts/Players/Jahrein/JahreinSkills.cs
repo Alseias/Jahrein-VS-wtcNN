@@ -22,8 +22,6 @@ public class JahreinSkills : Photon.PunBehaviour
     float[] skillCoolDowns = { 4, 7, 10, 25 };
     //Abilities q, w, e, r;
 
-    Controller2D _controller;
-
     private void Awake()
     {
         if (photonView.isMine)
