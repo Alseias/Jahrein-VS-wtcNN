@@ -284,7 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50d07fee77b26b4fa775a371a33dc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidanjor: {fileID: 1794653895590164, guid: f4fcea867e2f7554cb466b017fb3c467, type: 2}
+  vidanjor: {fileID: 1794653895590164, guid: 6992f5b15953fbf48b022b18a446c1a1, type: 2}
+  pipiSuyu: {fileID: 1456051342887322, guid: 84c5974f1416bb24c809479bf24fb6bb, type: 2}
   skillSprites:
   - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
   - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
