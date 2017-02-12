@@ -241,8 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61691c23034f4b9439476b99e5e66651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpHeight: 4
-  minJumpHeight: 1
+  canMove: 1
+  maxJumpHeight: 2
+  minJumpHeight: 0.24
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
@@ -305,6 +306,16 @@ MonoBehaviour:
   skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
     type: 2}
   damage: 4
+  skillCoolDowns:
+  - 4
+  - 7
+  - 10
+  - 25
+  skillDurations:
+  - 2
+  - 3
+  - 4
+  - 0
 --- !u!114 &114848562982247206
 MonoBehaviour:
   m_ObjectHideFlags: 1
