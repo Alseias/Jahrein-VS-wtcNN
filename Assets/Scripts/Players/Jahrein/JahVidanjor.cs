@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class vidanjor : MonoBehaviour
+public class JahVidanjor : MonoBehaviour
 {
     private void Update()
     {

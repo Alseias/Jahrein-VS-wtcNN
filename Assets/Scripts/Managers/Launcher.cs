@@ -58,8 +58,10 @@ public class Launcher : Photon.PunBehaviour
 
     public void checkPlayerName()
     {
+        
+        PhotonNetwork.playerName = (playerName.text+PhotonNetwork.countOfPlayers.ToString());
         PlayerPrefs.SetString("playerName", PhotonNetwork.playerName);
-        PhotonNetwork.playerName = playerName.text+" Ping:"+PhotonNetwork.GetPing();
+
     }
     public void selectCharacter(int id)
     {

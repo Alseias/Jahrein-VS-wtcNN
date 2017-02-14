@@ -8,7 +8,7 @@ public class JahreinSkills : Photon.PunBehaviour
 {
     
     Animator anim;
-    public GameObject vidanjor;
+    public GameObject vidanjor,pipiSuyu;
     public Sprite[] skillSprites;
     public GameObject skillUiPref;
     public float damage = 4f;
@@ -23,6 +23,10 @@ public class JahreinSkills : Photon.PunBehaviour
     public float[] skillDurations = { 1, 1, 1, 1 };
     //Abilities q, w, e, r;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbd66779259842c84a2b580038120aa3931b7f12
     private void Awake()
     {
         if (photonView.isMine)
@@ -98,6 +102,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
             if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
             {
+                _player.canMove = false;
                 anim.Play("jahRage");
                 anim.SetInteger("State",1);
             }
@@ -123,13 +128,12 @@ public class JahreinSkills : Photon.PunBehaviour
                 anim.Play("BasicAttack");
                 anim.SetInteger("State",7);
                 _photonView.RPC("basicAttack", PhotonTargets.All);
-            }
-            else
+            }else
             {
                 jahAtt = false;
             }
             _player.canMove = skillCoolDownCheck[0].durationEnd;
-            Debug.Log(skillCoolDownCheck[0].durationEnd);
+           
 
         }
     }
@@ -144,20 +148,23 @@ public class JahreinSkills : Photon.PunBehaviour
     void jahRageSkill()
     {
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
+        _player.velocity = Vector2.zero;
         _player.velocity.x = 8f;
+        
         damage = damage + (damage * 0.25f);
     }
 
     [PunRPC]
     void PipiSuyu()
     {
-        //Trow particle
+        Instantiate(pipiSuyu, new Vector3(this.transform.position.x+2, this.transform.position.y / 2, 0), this.transform.rotation);
+
     }
 
     [PunRPC]
     void jahUlti()
     {
-        Instantiate(vidanjor, this.transform.position, this.transform.rotation);
+        Instantiate(vidanjor, new Vector3(this.transform.position.x, this.transform.position.y/2,0), this.transform.rotation);
     }
 
     //This is used for animation event

@@ -24,9 +24,15 @@ public class Stats : Photon.PunBehaviour
             if (currentHealth <= 0)
             {
                 Debug.Log("YOU ARE DIE !!");
+
             }
             float _health = currentHealth / maxHealth;//Healthbar's x axis size is 1 by default. This gives us a number between 0-1.
             OnChangeHealth(_health);
+        }else {
+            if(currentHealth <= 0) {
+                Debug.Log("YOU ARE DIE !!");
+
+            }
         }
     }
 
