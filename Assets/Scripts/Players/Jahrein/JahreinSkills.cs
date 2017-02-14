@@ -23,7 +23,10 @@ public class JahreinSkills : Photon.PunBehaviour
     public float[] skillDurations = { 1, 1, 1, 1 };
     //Abilities q, w, e, r;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> fbd66779259842c84a2b580038120aa3931b7f12
     private void Awake()
     {
         if (photonView.isMine)
@@ -77,19 +80,23 @@ public class JahreinSkills : Photon.PunBehaviour
                 if (Input.GetKey(KeyCode.RightArrow) && _playerController.canJump)
                 {
                     anim.Play("Running");
+                    anim.SetInteger("State",4);
                 }
                 if (Input.GetKeyUp(KeyCode.RightArrow))
                 {
                     anim.Play("Idle");
+                    anim.SetInteger("State",0);
                 }
 
                 if (Input.GetKey(KeyCode.LeftArrow) && _playerController.canJump)
                 {
                     anim.Play("Running");
+                    anim.SetInteger("State",4);
                 }
                 if (Input.GetKeyUp(KeyCode.LeftArrow))
                 {
                     anim.Play("Idle");
+                    anim.SetInteger("State",0);
                 }
             }
 
@@ -97,16 +104,19 @@ public class JahreinSkills : Photon.PunBehaviour
             {
                 _player.canMove = false;
                 anim.Play("jahRage");
+                anim.SetInteger("State",1);
             }
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
             {
                 _controller.canMove = false;
                 anim.Play("Kutsama");
-                
+                anim.SetInteger("State",2);
+
             }
             if (Input.GetButtonDown("SkillE") && skillCoolDownCheck[2].itsReady)
             {
                 anim.Play("PipiSuyu");
+                anim.SetInteger("State",3);
                 _photonView.RPC("PipiSuyu", PhotonTargets.All);
             }
             if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
@@ -116,6 +126,7 @@ public class JahreinSkills : Photon.PunBehaviour
             if (Input.GetButtonDown("Attack"))
             {
                 anim.Play("BasicAttack");
+                anim.SetInteger("State",7);
                 _photonView.RPC("basicAttack", PhotonTargets.All);
             }else
             {

@@ -50,42 +50,50 @@ public class wtcnnSkills : Photon.PunBehaviour
         {
             if (pc.canMove)
             {
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     anim.Play("running");
+                    anim.SetInteger("State",3);
                 }
                 if (Input.GetKeyUp(KeyCode.RightArrow))
                 {
                     anim.Play("Idle");
+                    anim.SetInteger("State",0);
                 }
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     anim.Play("running");
+                    anim.SetInteger("State",3);
                 }
                 if (Input.GetKeyUp(KeyCode.LeftArrow))
                 {
                     anim.Play("Idle");
+                    anim.SetInteger("State",0);
                 }
             }
 
             if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
             {
                 anim.Play("wtcnGasm");
+                anim.SetInteger("State",5);
             }
 
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
             {
                 anim.Play("casper");
+                anim.SetInteger("State",2);
             }
 
             if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
             {
                 anim.Play("AWP");
+                anim.SetInteger("State",6);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 anim.Play("shuriken");
+                anim.SetInteger("State",1);
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
