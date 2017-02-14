@@ -6,10 +6,11 @@ public class AnimatorView : Photon.MonoBehaviour
 {
     Animator animator;
     int state;
+
 	void Start ()
     {
         animator = GetComponent<Animator>();
-
+        state = 0;
     }
 	
 	void Update ()
