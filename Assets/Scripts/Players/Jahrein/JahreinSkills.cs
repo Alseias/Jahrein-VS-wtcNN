@@ -23,10 +23,6 @@ public class JahreinSkills : Photon.PunBehaviour
     public float[] skillDurations = { 1, 1, 1, 1 };
     //Abilities q, w, e, r;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> fbd66779259842c84a2b580038120aa3931b7f12
     private void Awake()
     {
         if (photonView.isMine)
