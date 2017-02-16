@@ -1,0 +1,620 @@
+fileFormatVersion: 2
+guid: 4dfa793e16f506c498e09cfa3a48fbf8
+timeCreated: 1487266729
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kutsamav2_0
+    21300002: kutsamav2_1
+    21300004: kutsamav2_7
+    21300006: kutsamav2_8
+    21300008: kutsamav2_9
+    21300010: kutsamav2_10
+    21300012: kutsamav2_28
+    21300014: kutsamav2_29
+    21300016: kutsamav2_30
+    21300018: kutsamav2_31
+    21300020: kutsamav2_32
+    21300022: kutsamav2_33
+    21300024: kutsamav2_34
+    21300026: kutsamav2_35
+    21300028: kutsamav2_36
+    21300030: kutsamav2_37
+    21300032: kutsamav2_38
+    21300034: kutsamav2_39
+    21300036: kutsamav2_40
+    21300038: kutsamav2_41
+    21300040: kutsamav2_42
+    21300042: kutsamav2_43
+    21300044: kutsamav2_44
+    21300046: kutsamav2_45
+    21300048: kutsamav2_46
+    21300050: kutsamav2_47
+    21300052: kutsamav2_48
+    21300054: kutsamav2_49
+    21300056: kutsamav2_50
+    21300058: kutsamav2_51
+    21300060: kutsamav2_52
+    21300062: kutsamav2_53
+    21300064: kutsamav2_54
+    21300066: kutsamav2_55
+    21300068: kutsamav2_56
+    21300070: kutsamav2_57
+    21300072: kutsamav2_58
+    21300074: kutsamav2_59
+    21300076: kutsamav2_60
+    21300078: kutsamav2_61
+    21300080: kutsamav2_62
+    21300082: kutsamav2_63
+    21300084: kutsamav2_64
+    21300086: kutsamav2_65
+    21300088: kutsamav2_66
+    21300090: kutsamav2_67
+    21300092: kutsamav2_68
+    21300094: kutsamav2_69
+    21300096: kutsamav2_70
+    21300098: kutsamav2_71
+    21300100: kutsamav2_72
+    21300102: kutsamav2_73
+    21300104: kutsamav2_74
+    21300106: kutsamav2_75
+    21300108: kutsamav2_76
+    21300110: kutsamav2_77
+    21300112: kutsamav2_78
+    21300114: kutsamav2_79
+    21300116: kutsamav2_80
+    21300118: kutsamav2_81
+    21300120: kutsamav2_82
+    21300122: kutsamav2_83
+    21300124: kutsamav2_84
+    21300126: kutsamav2_85
+    21300128: kutsamav2_86
+    21300130: kutsamav2_109
+    21300132: kutsamav2_110
+    21300134: kutsamav2_111
+    21300136: kutsamav2_112
+    21300138: kutsamav2_2
+    21300140: kutsamav2_3
+    21300142: kutsamav2_4
+    21300144: kutsamav2_5
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kutsamav2_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 868
+        width: 242
+        height: 217
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_1
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 872
+        width: 223
+        height: 211
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_7
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 861
+        width: 288
+        height: 273
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_8
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 859
+        width: 255
+        height: 283
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_9
+      rect:
+        serializedVersion: 2
+        x: 3031
+        y: 851
+        width: 251
+        height: 274
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_10
+      rect:
+        serializedVersion: 2
+        x: 3533
+        y: 858
+        width: 253
+        height: 269
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_37
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 451
+        width: 248
+        height: 275
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_38
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 606
+        width: 7
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_39
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 448
+        width: 249
+        height: 278
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_40
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 605
+        width: 14
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_41
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 450
+        width: 249
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_42
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 450
+        width: 256
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_43
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 612
+        width: 5
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_44
+      rect:
+        serializedVersion: 2
+        x: 2032
+        y: 451
+        width: 251
+        height: 275
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_45
+      rect:
+        serializedVersion: 2
+        x: 2533
+        y: 447
+        width: 249
+        height: 270
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_46
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 449
+        width: 251
+        height: 270
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_47
+      rect:
+        serializedVersion: 2
+        x: 3532
+        y: 448
+        width: 250
+        height: 278
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_48
+      rect:
+        serializedVersion: 2
+        x: 3031
+        y: 603
+        width: 10
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_49
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 579
+        width: 6
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_55
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 427
+        width: 11
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_56
+      rect:
+        serializedVersion: 2
+        x: 1721
+        y: 429
+        width: 8
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_57
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 434
+        width: 6
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_58
+      rect:
+        serializedVersion: 2
+        x: 2220
+        y: 429
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_72
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 423
+        width: 21
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_73
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 419
+        width: 13
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_74
+      rect:
+        serializedVersion: 2
+        x: 2181
+        y: 427
+        width: 8
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_75
+      rect:
+        serializedVersion: 2
+        x: 2192
+        y: 423
+        width: 13
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_76
+      rect:
+        serializedVersion: 2
+        x: 2211
+        y: 419
+        width: 20
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_84
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 40
+        width: 271
+        height: 278
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_85
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 52
+        width: 240
+        height: 217
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_86
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 56
+        width: 223
+        height: 211
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_2
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 880
+        width: 212
+        height: 205
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_3
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 897
+        width: 180
+        height: 185
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_4
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 65
+        width: 221
+        height: 211
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kutsamav2_5
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 61
+        width: 198
+        height: 202
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

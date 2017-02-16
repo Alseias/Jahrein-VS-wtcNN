@@ -75,7 +75,7 @@ public class JahreinSkills : Photon.PunBehaviour
             {
                 if (Input.GetKey(KeyCode.RightArrow) && _playerController.canJump)
                 {
-                    anim.Play("Running");
+                    anim.Play("jahreinRunning");
                     anim.SetInteger("State",4);
                 }
                 if (Input.GetKeyUp(KeyCode.RightArrow))
@@ -86,7 +86,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
                 if (Input.GetKey(KeyCode.LeftArrow) && _playerController.canJump)
                 {
-                    anim.Play("Running");
+                    anim.Play("jahreinRunning");
                     anim.SetInteger("State",4);
                 }
                 if (Input.GetKeyUp(KeyCode.LeftArrow))
@@ -99,13 +99,13 @@ public class JahreinSkills : Photon.PunBehaviour
             if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
             {
                 _player.canMove = false;
-                anim.Play("jahRage");
+                anim.Play("jahRagev2");
                 anim.SetInteger("State",1);
             }
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
             {
                 _controller.canMove = false;
-                anim.Play("Kutsama");
+                anim.Play("kutsamav2");
                 anim.SetInteger("State",2);
 
             }
@@ -121,7 +121,7 @@ public class JahreinSkills : Photon.PunBehaviour
             }
             if (Input.GetButtonDown("Attack"))
             {
-                anim.Play("BasicAttack");
+                anim.Play("BasicAttackv2");
                 anim.SetInteger("State",7);
                 _photonView.RPC("basicAttack", PhotonTargets.All);
             }else
@@ -145,7 +145,7 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         _player.velocity = Vector2.zero;
-        _player.velocity.x = 8f;
+        _player.velocity.x = 15f;
         
         damage = damage + (damage * 0.25f);
     }
@@ -177,6 +177,11 @@ public class JahreinSkills : Photon.PunBehaviour
     void CanMove()
     {
         _controller.canMove = true;
+    }
+
+    void ChangeVelocity()
+    {
+        _player.velocity.x = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

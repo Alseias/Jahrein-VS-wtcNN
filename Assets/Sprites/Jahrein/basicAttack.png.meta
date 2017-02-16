@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: 965ae3bf3462ea742974137573e95bf0
+timeCreated: 1487268059
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: basicAttack_1
+    21300002: basicAttack_2
+    21300004: basicAttack_4
+    21300006: basicAttack_5
+    21300008: basicAttack_6
+    21300010: basicAttack_7
+    21300012: basicAttack_11
+    21300014: basicAttack_13
+    21300016: basicAttack_14
+    21300018: basicAttack_15
+    21300020: basicAttack_16
+    21300022: basicAttack_17
+    21300024: basicAttack_21
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: basicAttack_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 554
+        width: 275
+        height: 355
+      alignment: 9
+      pivot: {x: 0.5321043, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_2
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 557
+        width: 307
+        height: 343
+      alignment: 9
+      pivot: {x: 0.7204789, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_4
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 562
+        width: 315
+        height: 338
+      alignment: 9
+      pivot: {x: 0.8059694, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_5
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 561
+        width: 313
+        height: 337
+      alignment: 9
+      pivot: {x: 0.8008725, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_6
+      rect:
+        serializedVersion: 2
+        x: 2842
+        y: 561
+        width: 296
+        height: 349
+      alignment: 9
+      pivot: {x: 0.7087881, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_7
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 726
+        width: 5
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_11
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 51
+        width: 280
+        height: 402
+      alignment: 9
+      pivot: {x: 0.50394136, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_13
+      rect:
+        serializedVersion: 2
+        x: 2311
+        y: 51
+        width: 242
+        height: 369
+      alignment: 9
+      pivot: {x: 0.14142804, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_14
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 56
+        width: 301
+        height: 348
+      alignment: 9
+      pivot: {x: 0.65521175, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_15
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 48
+        width: 275
+        height: 353
+      alignment: 9
+      pivot: {x: 0.51415926, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_16
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 399
+        width: 10
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_17
+      rect:
+        serializedVersion: 2
+        x: 2915
+        y: 399
+        width: 9
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicAttack_21
+      rect:
+        serializedVersion: 2
+        x: 2993
+        y: 50
+        width: 287
+        height: 312
+      alignment: 9
+      pivot: {x: 0.2005577, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
