@@ -13,7 +13,7 @@ public class JahreinSkills : Photon.PunBehaviour
     public GameObject skillUiPref;
     public float damage = 4f;
 
-    PlayerController _playerController;
+    //PlayerController _playerController;
     PhotonView _photonView;
     Controller2D _controller;
     Player _player;
@@ -21,19 +21,15 @@ public class JahreinSkills : Photon.PunBehaviour
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     public float[] skillCoolDowns = { 4, 7, 10, 25 };
     public float[] skillDurations = { 1, 1, 1, 1 };
+    int usedSkill;
     //Abilities q, w, e, r;
 
     private void Awake()
     {
-        if (photonView.isMine)
-        {
 
-            setSkills();
-            
-        }
     }
 
-    AbilityCoolDown[] skillCoolDownCheck = new AbilityCoolDown[4];
+    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
 
     void setSkills()
     {
@@ -44,23 +40,28 @@ public class JahreinSkills : Photon.PunBehaviour
             skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
             skillUI.GetComponentInChildren<Image>().sprite = skillSprites[i];
 
-            skillCoolDownCheck[i] = skillUI.GetComponent<AbilityCoolDown>();
-            skillCoolDownCheck[i].abilityButtonAxisName = skillKeyMaps[i];
-            skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
-            skillCoolDownCheck[i].durationTime = skillDurations[i];
+            skillACD[i] = skillUI.GetComponent<AbilityCoolDown>();
+            skillACD[i].setTarget(_player);
+            skillACD[i].abilityButtonAxisName = skillKeyMaps[i];
+            skillACD[i].coolDownDuration = skillCoolDowns[i];
+            skillACD[i].durationTime = skillDurations[i];
             //Debug.Log(skillCoolDownCheck[i].abilityButtonAxisName);
         }
     }
 
     void Start()
     {
-        _playerController = GetComponent<PlayerController>();
+        //_playerController = GetComponent<PlayerController>();
         _controller = GetComponent<Controller2D>();
         _player = GetComponent<Player>();
         _photonView = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
         anim.SetInteger("State", 0);
+        if(photonView.isMine) {
 
+            setSkills();
+
+        }
     }
 
     void Update()
@@ -73,7 +74,7 @@ public class JahreinSkills : Photon.PunBehaviour
             //This is temporary this we will use this until facing to enemy
             if (_controller.canMove)
             {
-                if (Input.GetKey(KeyCode.RightArrow) && _playerController.canJump)
+                if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
                 {
                     anim.Play("jahreinRunning");
                     anim.SetInteger("State",4);
@@ -84,7 +85,7 @@ public class JahreinSkills : Photon.PunBehaviour
                     anim.SetInteger("State",0);
                 }
 
-                if (Input.GetKey(KeyCode.LeftArrow) && _playerController.canJump)
+                if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
                 {
                     anim.Play("jahreinRunning");
                     anim.SetInteger("State",4);
@@ -94,41 +95,74 @@ public class JahreinSkills : Photon.PunBehaviour
                     anim.Play("Idle");
                     anim.SetInteger("State",0);
                 }
-            }
-
-            if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
-            {
-                _player.canMove = false;
-                anim.Play("jahRagev2");
-                anim.SetInteger("State",1);
-            }
-            if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
-            {
-                _controller.canMove = false;
-                anim.Play("kutsamav2");
-                anim.SetInteger("State",2);
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    anim.Play("jahJump");
+                    anim.SetInteger("State", 5);
+                }
 
             }
-            if (Input.GetButtonDown("SkillE") && skillCoolDownCheck[2].itsReady)
-            {
-                anim.Play("PipiSuyu");
-                anim.SetInteger("State",3);
-                _photonView.RPC("PipiSuyu", PhotonTargets.All);
+
+
+            if(_player.canUseSkill) {
+
+                if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady) {
+                    _player.canUseSkill = false;
+                    skillACD[0].use();
+                    usedSkill = 0;
+                    _player.canMove = false;
+                    anim.Play("jahRagev2");
+                    anim.SetInteger("State", 1);
+                    
+
+                }
+                if(Input.GetButtonDown("SkillW") && skillACD[1].itsReady) {
+                    _player.canUseSkill = false;
+                    skillACD[1].use();
+                    usedSkill = 1;
+
+                    _controller.canMove = false;
+                    anim.Play("kutsamav2");
+                    anim.SetInteger("State", 2);
+                    
+
+
+                }
+                if(Input.GetButtonDown("SkillE") && skillACD[2].itsReady) {
+                   
+                    _player.canUseSkill = false;
+                    skillACD[2].use();
+                    usedSkill = 2;
+
+                    anim.Play("PipiSuyu");
+                    anim.SetInteger("State", 3);
+                    _photonView.RPC("PipiSuyu", PhotonTargets.All);
+                }
+                if(Input.GetButtonDown("SkillR") && skillACD[3].itsReady) {
+                    _player.canUseSkill = false;
+                    skillACD[3].use();
+                    usedSkill = 3;
+
+                    _photonView.RPC("jahUlti", PhotonTargets.All);
+                }
+                if(Input.GetButtonDown("Attack")) {
+                    anim.Play("BasicAttackv2");
+                    anim.SetInteger("State", 7);
+                    _photonView.RPC("basicAttack", PhotonTargets.All);
+                } else {
+                    jahAtt = false;
+                }
+            }else {
+                //if player cant use skill
+                
+                if(skillACD[usedSkill].durationEnd) {
+                    
+
+                    //if duration ends player can use skill again
+                    _player.canUseSkill = true;
+                }
             }
-            if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
-            {
-                _photonView.RPC("jahUlti", PhotonTargets.All);
-            }
-            if (Input.GetButtonDown("Attack"))
-            {
-                anim.Play("BasicAttackv2");
-                anim.SetInteger("State",7);
-                _photonView.RPC("basicAttack", PhotonTargets.All);
-            }else
-            {
-                jahAtt = false;
-            }
-            _player.canMove = skillCoolDownCheck[0].durationEnd;
+            _player.canMove = skillACD[0].durationEnd;
            
 
         }

@@ -17,9 +17,10 @@ public class AbilityCoolDown : MonoBehaviour {
     private float nextReadyTime;
     private float coolDownTimeLeft,tempDuration;
     private bool btnTriggered=false;
-    private PlayerController target;
+    private bool canUse=true;
+    private Player target;
 
-    public void setTarget(PlayerController pc) {
+    public void setTarget(Player pc) {
         target = pc;
     }
 
@@ -37,20 +38,13 @@ public class AbilityCoolDown : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        
         bool coolDownComplete = (Time.time > nextReadyTime);
 
-        if(coolDownComplete) {
+        if(coolDownComplete ) {
             itsReady = true;
             AbilityReady();
-            if(Input.GetButtonDown(abilityButtonAxisName)&&!isPassive) {
-                btnTriggered = true;
-                ButtonTriggered();
-            }else {
-                if(passiveTriggered) {
-                    passiveTriggered = false;
-                    ButtonTriggered();
-                }
-            }
+            
         } else {
             itsReady = false;
             CoolDown();
@@ -59,10 +53,14 @@ public class AbilityCoolDown : MonoBehaviour {
         if(btnTriggered && !isPassive) {
             durationTime -= Time.deltaTime;
             if(durationTime <= 0) {
+                //Debug.Log("duration end");
+
                 btnTriggered = false;
                 durationEnd = true;
                 durationTime = tempDuration;
             } else {
+
+
                 durationEnd = false;
             }
         }
@@ -83,11 +81,24 @@ public class AbilityCoolDown : MonoBehaviour {
 
     private void ButtonTriggered() {
         
-        nextReadyTime = coolDownDuration + Time.time;
-        coolDownTimeLeft = coolDownDuration;
-        darkMask.enabled = true;
-        coolDownTextDisplay.enabled = true;
+            nextReadyTime = coolDownDuration + Time.time;
+            coolDownTimeLeft = coolDownDuration;
+            darkMask.enabled = true;
+            coolDownTextDisplay.enabled = true;
+         
+    }
 
-             
+    public void use() {
+        if(!isPassive) {
+            //Debug.Log("Button triggered");
+            btnTriggered = true;
+            ButtonTriggered();
+
+        } else {
+            if(passiveTriggered) {
+                passiveTriggered = false;
+                ButtonTriggered();
+            }
+        }
     }
 }
