@@ -455,6 +455,8 @@ PlayerSettings:
   cloudServicesEnabled:
     Build: 1
     Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   cloudProjectId: 524e5b46-e4bb-492e-bf76-5224a3135de0
   projectName: Jahrein vs wtcNN
