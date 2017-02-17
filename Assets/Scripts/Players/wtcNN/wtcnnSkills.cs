@@ -10,6 +10,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     public GameObject shuriken;
     public Sprite[] skillSprites;
     public GameObject skillUiPref;
+    public AudioClip[] skillSounds;
 
     PlayerController pc;
     PhotonView pv;
@@ -76,18 +77,21 @@ public class wtcnnSkills : Photon.PunBehaviour
             {
                 anim.Play("wtcnGasm");
                 anim.SetInteger("State",5);
+                AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
             }
 
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
             {
                 anim.Play("casper");
                 anim.SetInteger("State",2);
+                AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
             }
 
             if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
             {
                 anim.Play("AWP");
                 anim.SetInteger("State",6);
+                AudioSource.PlayClipAtPoint(skillSounds[3], transform.position, 2f);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
