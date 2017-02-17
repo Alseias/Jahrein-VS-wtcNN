@@ -50,24 +50,24 @@ public class wtcnnSkills : Photon.PunBehaviour
         {
             if (pc.canMove)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    anim.Play("running");
+                    anim.Play("wtcnRunning");
                     anim.SetInteger("State",3);
                 }
                 if (Input.GetKeyUp(KeyCode.RightArrow))
                 {
-                    anim.Play("Idle");
+                    anim.Play("wtcnIdle");
                     anim.SetInteger("State",0);
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    anim.Play("running");
-                    anim.SetInteger("State",3);
+                    anim.Play("wtcnWalking");
+                    anim.SetInteger("State",4);
                 }
                 if (Input.GetKeyUp(KeyCode.LeftArrow))
                 {
-                    anim.Play("Idle");
+                    anim.Play("wtcnIdle");
                     anim.SetInteger("State",0);
                 }
             }
@@ -92,24 +92,24 @@ public class wtcnnSkills : Photon.PunBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                anim.Play("shuriken");
+                anim.Play("BasicAttack");
                 anim.SetInteger("State",1);
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                anim.Play("wtcnJump");
+                anim.SetInteger("State", 7);
                 if (pc.canJump)
                 {
                     pc.canJump = false;
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
                     canDoubleJump = true;
                 }
                 else
                 {
                     if (canDoubleJump)
                     {
-                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
-                        GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
+                        GetComponent<Player>().velocity.y = 5f;
                         canDoubleJump = false;
                     }
                 }

@@ -94,6 +94,12 @@ public class JahreinSkills : Photon.PunBehaviour
                     anim.Play("Idle");
                     anim.SetInteger("State",0);
                 }
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    anim.Play("jahJump");
+                    anim.SetInteger("State", 5);
+                }
+
             }
 
             if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
