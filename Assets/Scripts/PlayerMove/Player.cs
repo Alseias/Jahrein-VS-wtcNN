@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent (typeof (Controller2D))]
 public class Player : Photon.PunBehaviour {
     public bool canMove = true;
+    public bool canUseSkill = true;
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -25,10 +26,10 @@ public class Player : Photon.PunBehaviour {
 	float minJumpVelocity;
 	public Vector3 velocity;
 	float velocityXSmoothing;
-    
 
+    Animator animator;
 	Controller2D controller;
-
+    int state=0;
 	Vector2 directionalInput;
 	bool wallSliding;
 	int wallDirX;
@@ -43,10 +44,9 @@ public class Player : Photon.PunBehaviour {
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
+        animator = GetComponent<Animator>();
 
-        Debug.Log(PhotonNetwork.playerName);
-
-		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+        gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 	}
@@ -60,7 +60,8 @@ public class Player : Photon.PunBehaviour {
         HandleWallSliding();
 
         if(!photonView.isMine) {
-            
+            animator.SetInteger("State", state);
+
             timeToReachGoal = currentPacketTime - lastPacketTime;
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
@@ -175,6 +176,8 @@ public class Player : Photon.PunBehaviour {
         if(stream.isWriting) {
             stream.SendNext(this.transform.position);
             //stream.SendNext(health);
+            stream.SendNext(animator.GetInteger("State")); //Set animation state
+
         } else {
             //correctPosition = (Vector3)stream.ReceiveNext();
 
@@ -184,6 +187,8 @@ public class Player : Photon.PunBehaviour {
             //this.health = (float)stream.ReceiveNext();
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.timestamp;
+            state = (int)stream.ReceiveNext(); //Get Animation state
+
         }
     }
 }
