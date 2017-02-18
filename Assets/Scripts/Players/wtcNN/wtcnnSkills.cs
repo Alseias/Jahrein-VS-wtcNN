@@ -12,7 +12,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     public GameObject skillUiPref;
     public AudioClip[] skillSounds;
 
-    PlayerController pc;
+    Player _player;
     PhotonView pv;
     bool canDoubleJump = false;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
@@ -22,7 +22,7 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void Start()
     {
-        pc = GetComponent<PlayerController>();
+        _player = GetComponent<Player>();
         pv = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
 
@@ -49,7 +49,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         if (pv.isMine)
         {
-            if (pc.canMove)
+            if (true)//can move
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
@@ -77,7 +77,7 @@ public class wtcnnSkills : Photon.PunBehaviour
             {
                 anim.Play("wtcnGasm");
                 anim.SetInteger("State",5);
-                AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+                
             }
 
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
@@ -104,19 +104,6 @@ public class wtcnnSkills : Photon.PunBehaviour
             {
                 anim.Play("wtcnJump");
                 anim.SetInteger("State", 7);
-                if (pc.canJump)
-                {
-                    pc.canJump = false;
-                    canDoubleJump = true;
-                }
-                else
-                {
-                    if (canDoubleJump)
-                    {
-                        GetComponent<Player>().velocity.y = 5f;
-                        canDoubleJump = false;
-                    }
-                }
             }
         }
     }
@@ -129,6 +116,17 @@ public class wtcnnSkills : Photon.PunBehaviour
     void ChangeToIdle()
     {
         anim.SetInteger("State", 0);
+    }
+
+    void WtcnGasmTrigger()
+    {
+        _player.velocity.x = -150f;
+        AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+    }
+
+    void ChangeVelocity()
+    {
+        _player.velocity.x = 0;
     }
 
     [PunRPC]
