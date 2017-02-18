@@ -453,11 +453,11 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Build: 1
+    Build: 0
     Collab: 0
     ErrorHub: 0
     Hub: 0
-    UNet: 1
+    UNet: 0
   cloudProjectId: 524e5b46-e4bb-492e-bf76-5224a3135de0
   projectName: Jahrein vs wtcNN
   organizationId: pi-games-1ce265ee-3329-47a7-b13d-8393d496b130
