@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerController))]
 public class wtcnnSkills : Photon.PunBehaviour
 {
     public GameObject shurikenSpawnPoint;

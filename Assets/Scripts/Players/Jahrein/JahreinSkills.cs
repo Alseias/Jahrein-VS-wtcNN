@@ -81,7 +81,7 @@ public class JahreinSkills : Photon.PunBehaviour
                 }
                 if (Input.GetKeyUp(KeyCode.RightArrow))
                 {
-                    anim.Play("Idle");
+                    anim.Play("jahIdle");
                     anim.SetInteger("State",0);
                 }
 
@@ -92,7 +92,7 @@ public class JahreinSkills : Photon.PunBehaviour
                 }
                 if (Input.GetKeyUp(KeyCode.LeftArrow))
                 {
-                    anim.Play("Idle");
+                    anim.Play("jahIdle");
                     anim.SetInteger("State",0);
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -106,7 +106,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
             if(_player.canUseSkill) {
 
-                if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady) {
+                if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady && _controller.collisions.below) {
                     _player.canUseSkill = false;
                     skillACD[0].use();
                     usedSkill = 0;
