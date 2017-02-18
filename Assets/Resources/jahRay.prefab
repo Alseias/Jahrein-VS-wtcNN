@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 114091646295004024}
   - component: {fileID: 114953734344746878}
   - component: {fileID: 114587850588985602}
+  - component: {fileID: 82420386762137136}
   m_Layer: 8
   m_Name: jahRay
   m_TagString: Player
@@ -109,6 +110,86 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 1.4300003}
   serializedVersion: 2
   m_Size: {x: 2.91, y: 2.8600001}
+--- !u!82 &82420386762137136
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438730493920144}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95020390843571004
 Animator:
   serializedVersion: 3
@@ -243,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
+  canUseSkill: 1
   maxJumpHeight: 2
   minJumpHeight: 0.24
   timeToJumpApex: 0.4
@@ -308,6 +390,13 @@ MonoBehaviour:
   skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
     type: 2}
   damage: 4
+  skillSounds:
+  - {fileID: 8300000, guid: e2cbc5a07309c9647ae8e67668ca8537, type: 3}
+  - {fileID: 8300000, guid: 6625f9109997c1440b140630adffdd76, type: 3}
+  - {fileID: 8300000, guid: 84f8e6b5554c0854d9bc1a1c96cbf609, type: 3}
+  - {fileID: 8300000, guid: 88a1f48ddc4fff64c8bd017e4bdff59a, type: 3}
+  - {fileID: 8300000, guid: fd76ce3fedce3a54db3d74400ffbf7a4, type: 3}
+  - {fileID: 8300000, guid: 847e2fec1e80c064fb93eafe658587f3, type: 3}
   skillCoolDowns:
   - 4
   - 7
