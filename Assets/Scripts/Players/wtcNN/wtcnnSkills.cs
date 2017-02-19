@@ -11,7 +11,6 @@ public class wtcnnSkills : Photon.PunBehaviour
     
     Animator anim = new Animator();
     Player _player;
-    Player pc;
     PhotonView pv;
     bool canJump, isGrounded;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
@@ -81,15 +80,16 @@ public class wtcnnSkills : Photon.PunBehaviour
                 anim.Play("wtcnGasm");
                 anim.SetInteger("State",5);
             }
-            
+
             if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
+
             {
                 skillACD[1].use();
                 anim.Play("casper");
                 anim.SetInteger("State",2);
                 AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
             }
-            
+
             if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
             {
                 skillACD[3].use();
