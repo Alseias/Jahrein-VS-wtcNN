@@ -37,14 +37,12 @@ GameObject:
   - component: {fileID: 212203155648357976}
   - component: {fileID: 61578115120548200}
   - component: {fileID: 50286491782459452}
-  - component: {fileID: 114687506924567278}
   - component: {fileID: 114379587223932800}
   - component: {fileID: 114942270354623500}
   - component: {fileID: 114460531253182008}
   - component: {fileID: 114900934224176394}
   - component: {fileID: 95588211672066676}
   - component: {fileID: 114849173555132420}
-  - component: {fileID: 114206388039537768}
   - component: {fileID: 114717691345566406}
   - component: {fileID: 114811536063702468}
   - component: {fileID: 114896018929359106}
@@ -258,17 +256,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114206388039537768
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4298a09348253af49be4a4a89f252049, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114379587223932800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,30 +299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
   m_SynchronizeAngularVelocity: 1
---- !u!114 &114687506924567278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 708881a81b8621846adb2fa5144470e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  playerUiPrefab: {fileID: 0}
-  realPosition: {x: 0, y: 0, z: 0}
-  positionAtLastPacket: {x: 0, y: 0, z: 0}
-  currentTime: 0
-  currentPacketTime: 0
-  lastPacketTime: 0
-  timeToReachGoal: 0
-  damage: 1
-  speed: 3
-  canMove: 0
-  canJump: 0
-  dontUseJump: 1
 --- !u!114 &114717691345566406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,8 +452,13 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
+<<<<<<< HEAD
   - {fileID: 114900934224176394}
   - {fileID: 114811536063702468}
+=======
+  - {fileID: 114460531253182008}
+  - {fileID: 114900934224176394}
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

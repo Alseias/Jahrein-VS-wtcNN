@@ -365,7 +365,7 @@ MonoBehaviour:
   - 10
   - 25
   skillDurations:
-  - 2
+  - 1.4
   - 3
   - 4
   - 0

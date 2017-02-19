@@ -107,7 +107,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
             if(_player.canUseSkill) {
 
-                if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady) {
+                if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady && _controller.collisions.below) {
                     _player.canUseSkill = false;
                     skillACD[0].use();
                     usedSkill = 0;

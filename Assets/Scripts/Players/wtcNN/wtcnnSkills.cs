@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerController))]
 public class wtcnnSkills : Photon.PunBehaviour
 {
     public GameObject shurikenSpawnPoint, shuriken, bulletSpawnPoint, bullet, skillUiPref;
     public Sprite[] skillSprites;
     public AudioClip[] skillSounds;
 
+<<<<<<< HEAD
     Animator anim = new Animator();
     Player _player;
+=======
+    Player pc;
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
     PhotonView pv;
     bool canJump, isGrounded;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
@@ -20,7 +23,11 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void Start()
     {
+<<<<<<< HEAD
         _player = GetComponent<Player>();
+=======
+        pc = GetComponent<Player>();
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
         pv = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
 
@@ -31,7 +38,11 @@ public class wtcnnSkills : Photon.PunBehaviour
             setSkills();
 
     }
+<<<<<<< HEAD
 
+=======
+    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
     void setSkills()
     {
         GameObject skillCanvas = GameObject.Find("SkillSet");
@@ -41,9 +52,9 @@ public class wtcnnSkills : Photon.PunBehaviour
             skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
             skillUI.GetComponentInChildren<Image>().sprite = skillSprites[i];
 
-            skillCoolDownCheck[i] = skillUI.GetComponent<AbilityCoolDown>();
-            skillCoolDownCheck[i].abilityButtonAxisName = skillKeyMaps[i];
-            skillCoolDownCheck[i].coolDownDuration = skillCoolDowns[i];
+            skillACD[i] = skillUI.GetComponent<AbilityCoolDown>();
+            skillACD[i].abilityButtonAxisName = skillKeyMaps[i];
+            skillACD[i].coolDownDuration = skillCoolDowns[i];
         }
     }
     void Update()
@@ -74,21 +85,36 @@ public class wtcnnSkills : Photon.PunBehaviour
                 }
             }
 
+<<<<<<< HEAD
             if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady) //wtcnGasm
+=======
+            if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
             {
+                skillACD[0].use();
                 anim.Play("wtcnGasm");
                 anim.SetInteger("State",5);
             }
 
+<<<<<<< HEAD
             if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady) //Casper
+=======
+            if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
             {
+                skillACD[1].use();
                 anim.Play("casper");
                 anim.SetInteger("State",2);
                 AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
             }
 
+<<<<<<< HEAD
             if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady) //AWP
+=======
+            if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
             {
+                skillACD[3].use();
                 anim.Play("AWP");
                 anim.SetInteger("State",6);
                 AudioSource.PlayClipAtPoint(skillSounds[3], transform.position, 2f);
@@ -104,12 +130,27 @@ public class wtcnnSkills : Photon.PunBehaviour
             {
                 anim.Play("wtcnJump");
                 anim.SetInteger("State", 7);
+<<<<<<< HEAD
                 if (!isGrounded && canJump)
                 {
                     anim.Play("wtcnJump");
                     anim.SetInteger("State", 7);
                     _player.velocity.y = 20f;
                     canJump = false;
+=======
+                if (true)//pc.canjump??
+                {
+                    //
+                    canDoubleJump = true;
+                }
+                else
+                {
+                    if (canDoubleJump)
+                    {
+                        GetComponent<Player>().velocity.y = 5f;
+                        canDoubleJump = false;
+                    }
+>>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
                 }
             }
         }
