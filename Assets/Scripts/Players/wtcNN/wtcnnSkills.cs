@@ -9,12 +9,10 @@ public class wtcnnSkills : Photon.PunBehaviour
     public Sprite[] skillSprites;
     public AudioClip[] skillSounds;
 
-<<<<<<< HEAD
+
     Animator anim = new Animator();
     Player _player;
-=======
-    Player pc;
->>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
+
     PhotonView pv;
     bool canJump, isGrounded;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
@@ -23,11 +21,9 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
+
         _player = GetComponent<Player>();
-=======
-        pc = GetComponent<Player>();
->>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
+        
         pv = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
 
@@ -38,11 +34,8 @@ public class wtcnnSkills : Photon.PunBehaviour
             setSkills();
 
     }
-<<<<<<< HEAD
 
-=======
     AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
->>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
     void setSkills()
     {
         GameObject skillCanvas = GameObject.Find("SkillSet");
@@ -85,22 +78,15 @@ public class wtcnnSkills : Photon.PunBehaviour
                 }
             }
 
-<<<<<<< HEAD
-            if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady) //wtcnGasm
-=======
             if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
->>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
             {
                 skillACD[0].use();
                 anim.Play("wtcnGasm");
                 anim.SetInteger("State",5);
             }
 
-<<<<<<< HEAD
-            if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady) //Casper
-=======
             if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
->>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
+
             {
                 skillACD[1].use();
                 anim.Play("casper");
@@ -108,11 +94,8 @@ public class wtcnnSkills : Photon.PunBehaviour
                 AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
             }
 
-<<<<<<< HEAD
-            if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady) //AWP
-=======
+
             if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
->>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
             {
                 skillACD[3].use();
                 anim.Play("AWP");
@@ -130,27 +113,14 @@ public class wtcnnSkills : Photon.PunBehaviour
             {
                 anim.Play("wtcnJump");
                 anim.SetInteger("State", 7);
-<<<<<<< HEAD
+
                 if (!isGrounded && canJump)
                 {
                     anim.Play("wtcnJump");
                     anim.SetInteger("State", 7);
                     _player.velocity.y = 20f;
                     canJump = false;
-=======
-                if (true)//pc.canjump??
-                {
-                    //
-                    canDoubleJump = true;
-                }
-                else
-                {
-                    if (canDoubleJump)
-                    {
-                        GetComponent<Player>().velocity.y = 5f;
-                        canDoubleJump = false;
-                    }
->>>>>>> f2af27870f7d7cd2e723c6852d912648bf0aa2f6
+
                 }
             }
         }
