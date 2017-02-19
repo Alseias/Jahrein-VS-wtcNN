@@ -18,6 +18,7 @@ public class GameManager : Photon.PunBehaviour
         //call from other scripts
         Instance = this;
         selectedChrID = PlayerPrefs.GetInt("chrID");
+        int playerID = PlayerPrefs.GetInt("player");
 
         if(playerPrefabs == null)
         {
@@ -32,12 +33,12 @@ public class GameManager : Photon.PunBehaviour
                 healthOne.SetActive(true);
 
             }*/
-            if(this.playerPrefabs[selectedChrID].name == "Jahrein 1"|| this.playerPrefabs[selectedChrID].name == "jahRay")
+            if(playerID==1)
             {
                 PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, jahSpawnPoint.transform.position, Quaternion.identity, 0);
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().JahInstantiateHud();
             }
-            else if(this.playerPrefabs[selectedChrID].name == "wtcn")
+            else
             {
                 PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, wtcnSpawnPoint.transform.position, Quaternion.identity, 0);
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().WtcnInstantiateHud();

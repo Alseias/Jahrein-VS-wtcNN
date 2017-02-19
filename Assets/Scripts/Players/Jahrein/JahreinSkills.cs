@@ -8,10 +8,11 @@ public class JahreinSkills : Photon.PunBehaviour
 {
     
     Animator anim;
-    public GameObject vidanjor,pipiSuyu;
+    public GameObject vidanjor,pipiSuyu,vidanjorSpawn;
     public Sprite[] skillSprites;
     public GameObject skillUiPref;
     public float damage = 4f;
+    public AudioClip[] skillSounds;
 
     //PlayerController _playerController;
     PhotonView _photonView;
@@ -113,7 +114,8 @@ public class JahreinSkills : Photon.PunBehaviour
                     _player.canMove = false;
                     anim.Play("jahRagev2");
                     anim.SetInteger("State", 1);
-                    
+                    AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+
 
                 }
                 if(Input.GetButtonDown("SkillW") && skillACD[1].itsReady) {
@@ -124,7 +126,8 @@ public class JahreinSkills : Photon.PunBehaviour
                     _controller.canMove = false;
                     anim.Play("kutsamav2");
                     anim.SetInteger("State", 2);
-                    
+                    AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
+
 
 
                 }
@@ -137,6 +140,7 @@ public class JahreinSkills : Photon.PunBehaviour
                     anim.Play("PipiSuyu");
                     anim.SetInteger("State", 3);
                     _photonView.RPC("PipiSuyu", PhotonTargets.All);
+                    AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
                 }
                 if(Input.GetButtonDown("SkillR") && skillACD[3].itsReady) {
                     _player.canUseSkill = false;
@@ -144,6 +148,7 @@ public class JahreinSkills : Photon.PunBehaviour
                     usedSkill = 3;
 
                     _photonView.RPC("jahUlti", PhotonTargets.All);
+                    AudioSource.PlayClipAtPoint(skillSounds[3], transform.position, 2f);
                 }
                 if(Input.GetButtonDown("Attack")) {
                     anim.Play("BasicAttackv2");
@@ -194,7 +199,8 @@ public class JahreinSkills : Photon.PunBehaviour
     [PunRPC]
     void jahUlti()
     {
-        Instantiate(vidanjor, new Vector3(this.transform.position.x, this.transform.position.y/2,0), this.transform.rotation);
+        Instantiate(vidanjor, new Vector3(-18f,-2f,0f), this.transform.rotation);
+        //this.transform.position.x, this.transform.position.y/2,0
     }
 
     //This is used for animation event
