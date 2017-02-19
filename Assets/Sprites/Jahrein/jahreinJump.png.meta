@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6d9fbbb4db92b194ca8c37c57f4bd8d3
-timeCreated: 1487347716
+timeCreated: 1487510935
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -97,11 +97,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 54
-        y: 1546
+        y: 1549
         width: 290
-        height: 302
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 299
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -113,8 +113,8 @@ TextureImporter:
         y: 1569
         width: 289
         height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -123,11 +123,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 53
-        y: 1082
+        y: 1083
         width: 291
         height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -139,8 +139,8 @@ TextureImporter:
         y: 1098
         width: 290
         height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -152,8 +152,8 @@ TextureImporter:
         y: 577
         width: 291
         height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -165,8 +165,8 @@ TextureImporter:
         y: 560
         width: 289
         height: 299
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -178,8 +178,8 @@ TextureImporter:
         y: 34
         width: 290
         height: 299
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

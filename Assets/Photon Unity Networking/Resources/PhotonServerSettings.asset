@@ -48,4 +48,5 @@ MonoBehaviour:
   - BasicAttack
   - PipiSuyu
   - OnChangeHealth
+  - AwpTrigger
   DisableAutoOpenWizard: 1

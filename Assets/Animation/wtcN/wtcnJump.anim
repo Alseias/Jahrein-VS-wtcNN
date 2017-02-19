@@ -102,7 +102,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
   m_Events:
-  - time: 0.6166667
+  - time: 0.6
     functionName: ChangeToIdle
     data: 
     objectReferenceParameter: {fileID: 0}

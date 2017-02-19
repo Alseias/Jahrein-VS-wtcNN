@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1377725903128372}
   m_IsPrefabParent: 1
+--- !u!1 &1358746246464886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4179274921502678}
+  m_Layer: 8
+  m_Name: bulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1377725903128372
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,6 +49,7 @@ GameObject:
   - component: {fileID: 114811536063702468}
   - component: {fileID: 114896018929359106}
   - component: {fileID: 82385186755419764}
+  - component: {fileID: 61326152673741930}
   m_Layer: 8
   m_Name: wtcn
   m_TagString: Player
@@ -56,6 +72,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4179274921502678
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358746246464886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4694167850623014}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4694167850623014
 Transform:
   m_ObjectHideFlags: 1
@@ -67,6 +96,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987227377480096}
+  - {fileID: 4179274921502678}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,6 +133,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &61326152673741930
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -2.306962, y: 1.5495591}
+  serializedVersion: 2
+  m_Size: {x: 2.6608605, y: 2.7540112}
 --- !u!61 &61578115120548200
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -236,15 +280,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a84de9543be044ba7487e68d1b7fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wtcnGasmDamage: 10
   shurikenSpawnPoint: {fileID: 1875349906173880}
   shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
+  bulletSpawnPoint: {fileID: 1358746246464886}
+  bullet: {fileID: 1456051342887322, guid: e1d07dc2bd8e0b74ea2031c6d48b2890, type: 2}
+  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
+    type: 2}
   skillSprites:
   - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
   - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
   - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
   - {fileID: 21300000, guid: 5b53446e2701425489e6d398adaa30b8, type: 3}
-  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
-    type: 2}
   skillSounds:
   - {fileID: 8300000, guid: 4bc63cc460332734a880df34909d6ba7, type: 3}
   - {fileID: 8300000, guid: 9b66bcb1ec10fb84f9038aa48e777e06, type: 3}
@@ -325,7 +372,7 @@ MonoBehaviour:
   canMove: 1
   canUseSkill: 1
   maxJumpHeight: 4
-  minJumpHeight: 0.24
+  minJumpHeight: 3
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
@@ -442,10 +489,8 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114460531253182008}
-  - {fileID: 114687506924567278}
   - {fileID: 114900934224176394}
-  - {fileID: 114206388039537768}
+  - {fileID: 114811536063702468}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

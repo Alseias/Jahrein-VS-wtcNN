@@ -7,7 +7,8 @@ public class shurikenScript : MonoBehaviour
 {
     [SerializeField]
     Vector2 speed = new Vector2(1,0);
-    int damage = 2;
+    int shurikenDamage = 2;
+    int bulletDamage = 40;
     Rigidbody2D rb;
 
 	void Start ()
@@ -28,7 +29,14 @@ public class shurikenScript : MonoBehaviour
         {
             Debug.Log("Did damage");
             Destroy(gameObject);
-            other.gameObject.GetComponent<Stats>().TakeDamage(damage);
+            if (this.gameObject.CompareTag("bullet"))
+            {
+                other.gameObject.GetComponent<Stats>().TakeDamage(bulletDamage);
+            }
+            else if (this.gameObject.CompareTag("shuriken"))
+            {
+                other.gameObject.GetComponent<Stats>().TakeDamage(shurikenDamage);
+            }
         }
     } 
 }

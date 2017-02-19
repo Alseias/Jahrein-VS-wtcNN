@@ -12,6 +12,8 @@ TagManager:
   - wtcNN
   - uiHelth
   - vidanjor
+  - bullet
+  - shuriken
   layers:
   - Default
   - TransparentFX

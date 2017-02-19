@@ -6,19 +6,17 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerController))]
 public class wtcnnSkills : Photon.PunBehaviour
 {
-    public GameObject shurikenSpawnPoint;
-    public GameObject shuriken;
+    public GameObject shurikenSpawnPoint, shuriken, bulletSpawnPoint, bullet, skillUiPref;
     public Sprite[] skillSprites;
-    public GameObject skillUiPref;
     public AudioClip[] skillSounds;
 
+    Animator anim = new Animator();
     Player _player;
     PhotonView pv;
-    bool canDoubleJump = false;
+    bool canJump, isGrounded;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 4, 7, 25 };
-
-    Animator anim = new Animator();
+    AbilityCoolDown[] skillCoolDownCheck = new AbilityCoolDown[4];
 
     void Start()
     {
@@ -26,11 +24,14 @@ public class wtcnnSkills : Photon.PunBehaviour
         pv = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
 
+        isGrounded = false;
+        canJump = true;
+
         if (photonView.isMine)
             setSkills();
 
     }
-    AbilityCoolDown[] skillCoolDownCheck = new AbilityCoolDown[4];
+
     void setSkills()
     {
         GameObject skillCanvas = GameObject.Find("SkillSet");
@@ -73,40 +74,65 @@ public class wtcnnSkills : Photon.PunBehaviour
                 }
             }
 
-            if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady)
+            if (Input.GetButtonDown("SkillQ") && skillCoolDownCheck[0].itsReady) //wtcnGasm
             {
                 anim.Play("wtcnGasm");
                 anim.SetInteger("State",5);
-                
             }
 
-            if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady)
+            if (Input.GetButtonDown("SkillW") && skillCoolDownCheck[1].itsReady) //Casper
             {
                 anim.Play("casper");
                 anim.SetInteger("State",2);
                 AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
             }
 
-            if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady)
+            if (Input.GetButtonDown("SkillR") && skillCoolDownCheck[3].itsReady) //AWP
             {
                 anim.Play("AWP");
                 anim.SetInteger("State",6);
                 AudioSource.PlayClipAtPoint(skillSounds[3], transform.position, 2f);
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)) //Basic Attack
             {
                 anim.Play("BasicAttack");
                 anim.SetInteger("State",1);
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow)) // This will be used for DoubleJump
             {
                 anim.Play("wtcnJump");
                 anim.SetInteger("State", 7);
+                if (!isGrounded && canJump)
+                {
+                    anim.Play("wtcnJump");
+                    anim.SetInteger("State", 7);
+                    _player.velocity.y = 20f;
+                    canJump = false;
+                }
             }
         }
     }
+
+    private void OnCollisionEnter2D (Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+            canJump = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
+
+    //These are used for animation event
 
     void AttackTrigger()
     {
@@ -127,6 +153,12 @@ public class wtcnnSkills : Photon.PunBehaviour
     void ChangeVelocity()
     {
         _player.velocity.x = 0;
+    }
+
+    [PunRPC]
+    void AwpTrigger()
+    {
+        Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
     }
 
     [PunRPC]
