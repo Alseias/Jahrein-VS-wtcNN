@@ -30,7 +30,7 @@ public class ConnectionManager : Photon.PunBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        PlayerPrefs.DeleteAll();
 	}
 	
 	// Update is called once per frame
@@ -39,15 +39,15 @@ public class ConnectionManager : Photon.PunBehaviour {
 	}
 
     public void CreateRoom() {
-        PhotonNetwork.CreateRoom("4n4n", new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
         PlayerPrefs.SetInt("player", 1);
-
+        PhotonNetwork.CreateRoom("4n4n", new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
+        
     }
-    //joining same room for 2 player
+
+    //joining same room for 2. player
     public void JoinRoom() {
         PlayerPrefs.SetInt("player", 2);
-
-        PhotonNetwork.JoinRoom("4n4n");
+        PhotonNetwork.JoinRandomRoom();
     }
 
     //------------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ public class ConnectionManager : Photon.PunBehaviour {
         Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
 
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-        PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
+        CreateRoom();
     }
     public override void OnPhotonCreateRoomFailed(object[] codeAndMsg) {
         JoinRoom();

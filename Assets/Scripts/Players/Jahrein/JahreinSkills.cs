@@ -18,10 +18,13 @@ public class JahreinSkills : Photon.PunBehaviour
     PhotonView _photonView;
     Controller2D _controller;
     Player _player;
+
     bool jahAtt = false;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     public float[] skillCoolDowns = { 4, 7, 10, 25 };
     public float[] skillDurations = { 1, 1, 1, 1 };
+    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
+
     int usedSkill;
     //Abilities q, w, e, r;
 
@@ -30,7 +33,6 @@ public class JahreinSkills : Photon.PunBehaviour
 
     }
 
-    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
 
     void setSkills()
     {
@@ -42,7 +44,6 @@ public class JahreinSkills : Photon.PunBehaviour
             skillUI.GetComponentInChildren<Image>().sprite = skillSprites[i];
 
             skillACD[i] = skillUI.GetComponent<AbilityCoolDown>();
-            skillACD[i].setTarget(_player);
             skillACD[i].abilityButtonAxisName = skillKeyMaps[i];
             skillACD[i].coolDownDuration = skillCoolDowns[i];
             skillACD[i].durationTime = skillDurations[i];
