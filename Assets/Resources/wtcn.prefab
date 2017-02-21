@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 114811536063702468}
   - component: {fileID: 114896018929359106}
   - component: {fileID: 82385186755419764}
-  - component: {fileID: 61326152673741930}
   m_Layer: 8
   m_Name: wtcn
   m_TagString: Player
@@ -131,20 +130,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61326152673741930
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -2.306962, y: 1.5495591}
-  serializedVersion: 2
-  m_Size: {x: 2.6608605, y: 2.7540112}
 --- !u!61 &61578115120548200
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -267,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a84de9543be044ba7487e68d1b7fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wtcnGasmDamage: 10
   shurikenSpawnPoint: {fileID: 1875349906173880}
   shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
   bulletSpawnPoint: {fileID: 1358746246464886}
@@ -452,7 +436,6 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-
   - {fileID: 114900934224176394}
   - {fileID: 114811536063702468}
   ObservedComponentsFoldoutOpen: 1
