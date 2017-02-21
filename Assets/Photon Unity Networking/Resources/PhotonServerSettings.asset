@@ -49,4 +49,5 @@ MonoBehaviour:
   - PipiSuyu
   - OnChangeHealth
   - AwpTrigger
+  - ready
   DisableAutoOpenWizard: 1

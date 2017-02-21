@@ -9,7 +9,7 @@ public class SelectedHero : Photon.PunBehaviour {
     int playerID;
     // Use this for initialization
     void Start () {
-        GameObject parentChr=GameObject.Find("Characters");
+
         /*(int i = 0; i < parentChr.transform.childCount; i++) {
 
         }*/
@@ -31,28 +31,41 @@ public class SelectedHero : Photon.PunBehaviour {
     }
 
     // Update is called once per frame
+    GameObject[] players;
     void Update() {
         
         if(PhotonNetwork.room.PlayerCount==2) {
 
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            players = GameObject.FindGameObjectsWithTag("Player");
             if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
                 PhotonNetwork.LoadLevel("Game");
             }
 
+        }else if(PhotonNetwork.offlineMode) {
+            //OFFLINE MODE
+            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerChrSelect>().imready) {
+                PhotonNetwork.LoadLevel("Game");
+
+            }
+
         }
-	}
+    }
 
     public void selectChr(Transform transform) {
         switch(playerID) {
             case 1:
-                p1.transform.SetParent(transform);
-                p1.transform.localPosition = Vector3.zero;
+                if(!p1.GetComponent<PlayerChrSelect>().imready) {
+                    p1.transform.SetParent(transform);
+                    p1.transform.localScale = Vector3.one;
+                    p1.transform.localPosition = Vector3.zero;
+                }
                 break;
             case 2:
-                p2.transform.SetParent(transform);
-                p2.transform.localPosition = Vector3.zero;
-
+                if(!p2.GetComponent<PlayerChrSelect>().imready) {
+                    p2.transform.SetParent(transform);
+                    p2.transform.localScale = Vector3.one;
+                    p2.transform.localPosition = Vector3.zero;
+                }
                 break;
             default:
                 break;
@@ -60,17 +73,32 @@ public class SelectedHero : Photon.PunBehaviour {
     }
     
     public void setChrID(int id) {
-        PlayerPrefs.SetInt("chrID", id);
+        switch(playerID) {
+            case 1:
+                if(!p1.GetComponent<PlayerChrSelect>().imready) {
+                    PlayerPrefs.SetInt("chrID", id);
+                }
+                break;
+            case 2:
+                if(!p2.GetComponent<PlayerChrSelect>().imready) {
+                    PlayerPrefs.SetInt("chrID", id);
+                }
+                break;
+            default:
+                break;
+        }
+
 
     }
     public void IamReady() {
         switch(playerID) {
             case 1:
-                p1.GetComponent<PlayerChrSelect>().imready = true;
+                p1.GetComponent<PhotonView>().RPC("ready", PhotonTargets.All);
 
                 break;
             case 2:
-                p2.GetComponent<PlayerChrSelect>().imready = true;
+                p2.GetComponent<PhotonView>().RPC("ready", PhotonTargets.All);
+
 
                 break;
 

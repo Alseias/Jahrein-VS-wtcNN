@@ -15,7 +15,8 @@ public class wtcnnSkills : Photon.PunBehaviour
     bool canJump, isGrounded;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 4, 7, 25 };
-    AbilityCoolDown[] skillCoolDownCheck = new AbilityCoolDown[4];
+    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
+
 
     void Start()
     {
@@ -31,7 +32,6 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     }
 
-    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
     void setSkills()
     {
         GameObject skillCanvas = GameObject.Find("SkillSet");

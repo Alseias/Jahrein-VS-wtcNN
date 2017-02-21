@@ -17,24 +17,14 @@ public class AbilityCoolDown : MonoBehaviour {
     private float nextReadyTime;
     private float coolDownTimeLeft,tempDuration;
     private bool btnTriggered=false;
-    private bool canUse=true;
-    private Player target;
 
-    public void setTarget(Player pc) {
-        target = pc;
-    }
+
 
     void Start() {
         tempDuration = durationTime;
         AbilityReady();
     }
 
-    public void Initialize( GameObject weaponHolder) {
-        myButtonImage = GetComponent<Image>();
-        abilitySource = GetComponent<AudioSource>();
-
-        
-    }
 
     // Update is called once per frame
     void Update() {
