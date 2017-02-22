@@ -38,6 +38,7 @@ public class SelectedHero : Photon.PunBehaviour {
 
             players = GameObject.FindGameObjectsWithTag("Player");
             if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
+                PhotonNetwork.DestroyAll();
                 PhotonNetwork.LoadLevel("Game");
             }
 

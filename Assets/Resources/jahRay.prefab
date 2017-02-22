@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 61892106318759676}
   - component: {fileID: 114062370873117312}
   - component: {fileID: 114094645309121682}
-  - component: {fileID: 114823409317971724}
   - component: {fileID: 114848562982247206}
   - component: {fileID: 114565588516007208}
+  - component: {fileID: 114823409317971724}
   - component: {fileID: 114091646295004024}
   - component: {fileID: 114953734344746878}
   - component: {fileID: 82420386762137136}
@@ -330,6 +330,7 @@ MonoBehaviour:
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
   velocity: {x: 0, y: 0, z: 0}
+  controller: {fileID: 0}
 --- !u!114 &114823409317971724
 MonoBehaviour:
   m_ObjectHideFlags: 1

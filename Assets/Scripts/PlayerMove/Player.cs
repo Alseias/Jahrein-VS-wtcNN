@@ -28,7 +28,7 @@ public class Player : Photon.PunBehaviour {
 	float velocityXSmoothing;
 
     Animator animator;
-	Controller2D controller;
+	public Controller2D controller;
     int state=0;
 	Vector2 directionalInput;
 	bool wallSliding;
@@ -41,10 +41,12 @@ public class Player : Photon.PunBehaviour {
     double lastPacketTime = 0.0;
     double timeToReachGoal = 0.0;
     bool turned = true;
+    private void Awake() {
+        animator = GetComponent<Animator>();
 
+    }
     void Start() {
 		controller = GetComponent<Controller2D> ();
-        animator = GetComponent<Animator>();
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -65,23 +67,8 @@ public class Player : Photon.PunBehaviour {
             timeToReachGoal = currentPacketTime - lastPacketTime;
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
-        }else {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            foreach(var t in players) {
-                if(t.GetPhotonView()!=photonView) {
-                    /*transform.LookAt(t.transform);
-                    transform.Rotate(new Vector3(0, -90, 0), Space.Self);*/
-                    //rotate towards other player!!!
-                    //Debug.Log(Vector3.Scale(this.transform.position, t.transform.position));
-                    /*if(Vector3.Scale(this.transform.position, t.transform.position).x < 0 && turned) {
-                        turned = false;
-                        this.transform.Rotate(0, this.transform.rotation.y + 180f, 0);
-                    }*/
 
-                }
-
-            }
-            
+            this.gameObject.layer = 10;
         }
 
         controller.Move(velocity * Time.deltaTime, directionalInput);

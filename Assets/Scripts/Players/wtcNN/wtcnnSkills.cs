@@ -1,21 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof( Controller2D))]
 public class wtcnnSkills : Photon.PunBehaviour
 {
     public GameObject shurikenSpawnPoint, shuriken, bulletSpawnPoint, bullet, skillUiPref;
     public Sprite[] skillSprites;
     public AudioClip[] skillSounds;
-    
+    public Transform rayStart, rayEnd;
+
     Animator anim = new Animator();
     Player _player;
     PhotonView pv;
+    Controller2D controller;
     bool canJump, isGrounded;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 4, 7, 25 };
     AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
+    int usedSkill;
 
 
     void Start()
@@ -23,6 +28,7 @@ public class wtcnnSkills : Photon.PunBehaviour
         _player = GetComponent<Player>();
         pv = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
+        //controller.GetComponent<Controller2D>();
 
         isGrounded = false;
         canJump = true;
@@ -50,6 +56,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         if (pv.isMine)
         {
+            Raycasting();
             if (true)//can move
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -74,28 +81,34 @@ public class wtcnnSkills : Photon.PunBehaviour
                 }
             }
 
-            if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
+            
+
+            if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
             {
+
+                usedSkill = 0;
                 skillACD[0].use();
                 anim.Play("wtcnGasm");
                 anim.SetInteger("State",5);
             }
 
             if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
-
             {
+                usedSkill = 1;
                 skillACD[1].use();
                 anim.Play("casper");
                 anim.SetInteger("State",2);
-                AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
+                pv.RPC("playSound", PhotonTargets.All, usedSkill);
             }
 
             if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
             {
+                usedSkill = 3;
                 skillACD[3].use();
                 anim.Play("AWP");
                 anim.SetInteger("State",6);
-                AudioSource.PlayClipAtPoint(skillSounds[3], transform.position, 2f);
+                pv.RPC("playSound", PhotonTargets.All, usedSkill);
+
             }
 
             if (Input.GetKeyDown(KeyCode.Space)) //Basic Attack
@@ -119,15 +132,28 @@ public class wtcnnSkills : Photon.PunBehaviour
         }
     }
 
+    private void Raycasting() {
+        Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
+        bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1<<LayerMask.NameToLayer("enemy"));
+        Debug.Log(rayHit);
+    }
+
+
+
+
+    #region collision
     private void OnCollisionEnter2D (Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
+            Debug.Log("collision enter w ground obj");
             isGrounded = true;
             canJump = true;
         }
     }
-
+    private void OnTriggerStay2D(Collider2D collision) {
+        Debug.Log(collision.tag);
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -135,7 +161,7 @@ public class wtcnnSkills : Photon.PunBehaviour
             isGrounded = false;
         }
     }
-
+    #endregion
     //These are used for animation event
 
     void AttackTrigger()
@@ -151,13 +177,16 @@ public class wtcnnSkills : Photon.PunBehaviour
     void WtcnGasmTrigger()
     {
         _player.velocity.x = -150f;
-        AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+        pv.RPC("playSound", PhotonTargets.All, usedSkill);
+
     }
 
     void ChangeVelocity()
     {
         _player.velocity.x = 0;
     }
+
+    #region PunRPC's
 
     [PunRPC]
     void AwpTrigger()
@@ -170,4 +199,12 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity);
     }
+
+    [PunRPC]
+    void playSound(int skillID) {
+       AudioSource.PlayClipAtPoint(skillSounds[skillID], transform.position, 2f);
+    
+    }
+
+    #endregion
 }

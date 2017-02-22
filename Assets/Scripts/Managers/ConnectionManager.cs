@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ConnectionManager : Photon.PunBehaviour {
     string gameVersion = "1";
-    public byte MaxPlayersPerRoom = 4;
+    public byte MaxPlayersPerRoom;
+    public string roomName="4n4n";
     public PhotonLogLevel Loglevel = PhotonLogLevel.Informational;
     public bool offlineMode;
 
@@ -40,14 +41,17 @@ public class ConnectionManager : Photon.PunBehaviour {
 
     public void CreateRoom() {
         PlayerPrefs.SetInt("player", 1);
-        PhotonNetwork.CreateRoom("4n4n", new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
+        PhotonNetwork.CreateRoom(roomName, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
         
     }
 
     //joining same room for 2. player
     public void JoinRoom() {
-        PlayerPrefs.SetInt("player", 2);
-        PhotonNetwork.JoinRandomRoom();
+        if(PhotonNetwork.connectedAndReady) {
+            PlayerPrefs.SetInt("player", 2);
+            PhotonNetwork.JoinRandomRoom();
+        }
+
     }
 
     //------------------------------------------------------------------------------------------
@@ -63,7 +67,7 @@ public class ConnectionManager : Photon.PunBehaviour {
         Debug.LogWarning("OnDisconnectedFromPhoton() was called by PUN");
     }
     public override void OnPhotonRandomJoinFailed(object[] codeAndMsg) {
-        Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
+        Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers ="+MaxPlayersPerRoom+"}, null);");
 
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
         CreateRoom();

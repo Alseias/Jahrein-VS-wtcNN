@@ -13,7 +13,7 @@ public class JahVidanjor : MonoBehaviour
         
         if(collision.tag == "Player")
         {
-            collision.GetComponent<PlayerController>().takeHit(.25f);
+            //collision.GetComponent<PlayerController>().takeHit(.25f);
         }
         else
         {

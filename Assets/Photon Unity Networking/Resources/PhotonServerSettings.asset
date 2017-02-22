@@ -50,4 +50,5 @@ MonoBehaviour:
   - OnChangeHealth
   - AwpTrigger
   - ready
+  - playSound
   DisableAutoOpenWizard: 1

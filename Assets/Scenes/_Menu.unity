@@ -193,8 +193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxPlayersPerRoom: 2
+  roomName: 4n4
   Loglevel: 1
-  offlineMode: 1
+  offlineMode: 0
 --- !u!4 &180158297
 Transform:
   m_ObjectHideFlags: 0

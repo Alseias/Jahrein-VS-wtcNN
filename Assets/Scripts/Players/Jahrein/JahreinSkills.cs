@@ -115,7 +115,8 @@ public class JahreinSkills : Photon.PunBehaviour
                     _player.canMove = false;
                     anim.Play("jahRagev2");
                     anim.SetInteger("State", 1);
-                    AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+                    //AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+                    _photonView.RPC("playSound", PhotonTargets.All,usedSkill);
 
 
                 }
@@ -127,7 +128,9 @@ public class JahreinSkills : Photon.PunBehaviour
                     _controller.canMove = false;
                     anim.Play("kutsamav2");
                     anim.SetInteger("State", 2);
-                    AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
+                    // AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
+                    _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
+
 
 
 
@@ -141,7 +144,10 @@ public class JahreinSkills : Photon.PunBehaviour
                     anim.Play("PipiSuyu");
                     anim.SetInteger("State", 3);
                     _photonView.RPC("PipiSuyu", PhotonTargets.All);
-                    AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
+                    //AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
+                    _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
+
+
                 }
                 if(Input.GetButtonDown("SkillR") && skillACD[3].itsReady) {
                     _player.canUseSkill = false;
@@ -149,7 +155,8 @@ public class JahreinSkills : Photon.PunBehaviour
                     usedSkill = 3;
 
                     _photonView.RPC("jahUlti", PhotonTargets.All);
-                    AudioSource.PlayClipAtPoint(skillSounds[3], transform.position, 2f);
+                    _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
+
                 }
                 if(Input.GetButtonDown("Attack")) {
                     anim.Play("BasicAttackv2");
@@ -174,6 +181,7 @@ public class JahreinSkills : Photon.PunBehaviour
         }
     }
 
+    #region PunRPC's
     [PunRPC]
     private void basicAttack()
     {
@@ -203,7 +211,13 @@ public class JahreinSkills : Photon.PunBehaviour
         Instantiate(vidanjor, new Vector3(-18f,-2f,0f), this.transform.rotation);
         //this.transform.position.x, this.transform.position.y/2,0
     }
+    [PunRPC]
+    void playSound(int skillID) {
+        AudioSource.PlayClipAtPoint(skillSounds[skillID], transform.position, 2f);
 
+    }
+
+    #endregion
     //This is used for animation event
     void JahRageTrigger()
     {
