@@ -6,10 +6,11 @@ using UnityEngine;
 public class shurikenScript : MonoBehaviour
 {
     [SerializeField]
-    Vector2 speed = new Vector2(1,0);
+    Vector2 speed = new Vector2(1, 0);
     int shurikenDamage = 2;
     int bulletDamage = 40;
     Rigidbody2D rb;
+    public Player _player;
 
 	void Start ()
     {
@@ -20,8 +21,18 @@ public class shurikenScript : MonoBehaviour
 	
 	void Update ()
     {
-        rb.velocity = -speed;
-	}
+        if (_player.isfacingRight)
+        {
+            rb.velocity = speed;
+            Debug.Log("1");
+        }
+        else
+        {
+            rb.velocity = -speed;
+
+            Debug.Log("2");
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
