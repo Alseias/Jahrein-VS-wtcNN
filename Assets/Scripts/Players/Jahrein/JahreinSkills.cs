@@ -193,8 +193,10 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         _player.velocity = Vector2.zero;
-        _player.velocity.x = 15f;
-        
+        if (GetComponent<Player>().isfacingRight)
+            _player.velocity.x = 15f;
+        else
+            _player.velocity.x = -15f;
         damage = damage + (damage * 0.25f);
     }
 

@@ -123,9 +123,9 @@ public class wtcnnSkills : Photon.PunBehaviour
                 anim.SetInteger("State", 7);
                 if (!isGrounded && canJump)
                 {
+                    _player.velocity.y = 20f;
                     anim.Play("wtcnJump");
                     anim.SetInteger("State", 7);
-                    _player.velocity.y = 20f;
                     canJump = false;
                 }
             }
@@ -197,7 +197,8 @@ public class wtcnnSkills : Photon.PunBehaviour
     [PunRPC]
     void BasicAttack()
     {
-        Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity);
+        GameObject objShur= Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity);
+        objShur.GetComponent<shurikenScript>().faceDir = _player.isfacingRight;
     }
 
     [PunRPC]

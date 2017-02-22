@@ -50,5 +50,6 @@ public class Stats : Photon.PunBehaviour
     public void WtcnInstantiateHud()
     {
         PhotonNetwork.Instantiate(hud.name, new Vector3(8, 4, 0), Quaternion.identity, 0);
+        Debug.Log(hud.name);
     }
 }

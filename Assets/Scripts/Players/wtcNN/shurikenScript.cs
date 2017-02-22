@@ -6,22 +6,33 @@ using UnityEngine;
 public class shurikenScript : MonoBehaviour
 {
     [SerializeField]
-    Vector2 speed = new Vector2(1,0);
+    Vector2 speed = new Vector2(1, 0);
     int shurikenDamage = 2;
     int bulletDamage = 40;
     Rigidbody2D rb;
-
+    public Player _player;
+    public bool faceDir;
 	void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = speed;
         Destroy(gameObject, 2);
 	}
-	
+
 	void Update ()
     {
-        rb.velocity = -speed;
-	}
+        if (faceDir)
+        {
+            rb.velocity = speed;
+            Debug.Log("1");
+        }
+        else
+        {
+            rb.velocity = -speed;
+
+            Debug.Log("2");
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

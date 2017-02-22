@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 1377725903128372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.2217245, y: -2.8047624, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987227377480096}
   - {fileID: 4179274921502678}
@@ -375,6 +375,7 @@ MonoBehaviour:
   maxJumpHeight: 4
   minJumpHeight: 3
   timeToJumpApex: 0.4
+  isfacingRight: 0
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
   wallLeap: {x: 0, y: 0}
@@ -467,8 +468,8 @@ MonoBehaviour:
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
   m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
+    SynchronizeEnabled: 1
+    InterpolateOption: 2
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
 --- !u!114 &114942270354623500

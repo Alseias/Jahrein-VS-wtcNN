@@ -10,7 +10,6 @@ public class JahVidanjor : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
         if(collision.tag == "Player")
         {
             //collision.GetComponent<PlayerController>().takeHit(.25f);
