@@ -12,9 +12,8 @@ public class Player : Photon.PunBehaviour
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
 	float moveSpeed = 6;
-    bool getFacingRight;
     public bool isfacingRight;
-    GameObject target, player;
+    public GameObject target, player;
 
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
@@ -56,9 +55,7 @@ public class Player : Photon.PunBehaviour
     void Start()
     {
         player = this.gameObject;
-
 		controller = GetComponent<Controller2D> ();
-
         animator = GetComponent<Animator>();
         gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -79,27 +76,24 @@ public class Player : Photon.PunBehaviour
 
 	void Update()
     {
-        
-        
-       
 
-        if(!photonView.isMine)
+        if (canMove)
+        {
+            CalculateVelocity();
+        }
+        LookAtTarget();
+        HandleWallSliding();
+        controller.Move(velocity * Time.deltaTime, directionalInput);
+
+
+        if (!photonView.isMine)
         {
             animator.SetInteger("State", state);
 
             timeToReachGoal = currentPacketTime - lastPacketTime;
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
-            isfacingRight = getFacingRight;
             this.gameObject.layer = 10;
-
-        }else {
-            if(canMove) {
-                CalculateVelocity();
-            }
-            LookAtTarget();
-            HandleWallSliding();
-            controller.Move(velocity * Time.deltaTime, directionalInput);
 
         }
 
@@ -212,7 +206,6 @@ public class Player : Photon.PunBehaviour
             float xDirection = target.transform.position.x - this.transform.position.x;
             if (xDirection < 0 && !isfacingRight || xDirection > 0 && isfacingRight)
             {
-                Debug.Log("if true");
                 ChangeDirection();
             }
         }
@@ -241,7 +234,6 @@ public class Player : Photon.PunBehaviour
             stream.SendNext(this.transform.position);
             //stream.SendNext(health);
             stream.SendNext(animator.GetInteger("State")); //Set animation state
-            stream.SendNext(isfacingRight);
         }
         else
         {
@@ -254,7 +246,6 @@ public class Player : Photon.PunBehaviour
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.timestamp;
             state = (int)stream.ReceiveNext(); //Get Animation state
-            getFacingRight = (bool)stream.ReceiveNext();
         }
     }
 }

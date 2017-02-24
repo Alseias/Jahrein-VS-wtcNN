@@ -17,21 +17,16 @@ public class shurikenScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = speed;
         Destroy(gameObject, 2);
-	}
+        Vector2 targetDir = GetComponent<Player>().target.transform.position - transform.position;
+        Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDir), 500f);
+        transform.rotation = rot;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, 0);
+
+    }
 
 	void Update ()
     {
-        if (faceDir)
-        {
-            rb.velocity = speed;
-            Debug.Log("1");
-        }
-        else
-        {
-            rb.velocity = -speed;
-
-            Debug.Log("2");
-        }
+        rb.velocity = speed;
     }
 
     void OnTriggerEnter2D(Collider2D other)

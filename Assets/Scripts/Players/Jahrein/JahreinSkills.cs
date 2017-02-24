@@ -8,7 +8,7 @@ public class JahreinSkills : Photon.PunBehaviour
 {
     
     Animator anim;
-    public GameObject vidanjor,pipiSuyu,vidanjorSpawn;
+    public GameObject vidanjor, pipiSuyu, vidanjorSpawn, pipiSuyuSpawn;
     public Sprite[] skillSprites;
     public GameObject skillUiPref;
     public float damage = 4f;
@@ -203,7 +203,8 @@ public class JahreinSkills : Photon.PunBehaviour
     [PunRPC]
     void PipiSuyu()
     {
-        Instantiate(pipiSuyu, new Vector3(this.transform.position.x+2, this.transform.position.y / 2, 0), this.transform.rotation);
+        
+        Instantiate(pipiSuyu, new Vector3(pipiSuyuSpawn.transform.position.x, pipiSuyuSpawn.transform.position.y, 0), this.transform.rotation);
 
     }
 

@@ -37,6 +37,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1554745573101502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4910156367731970}
+  m_Layer: 8
+  m_Name: pipisuyuSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1578512814702066
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +79,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4521480217414012}
+  - {fileID: 4910156367731970}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,6 +95,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4170604715867456}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4910156367731970
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554745573101502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.48, y: 2.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4170604715867456}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61834413974197400
 BoxCollider2D:
@@ -324,6 +353,9 @@ MonoBehaviour:
   maxJumpHeight: 2
   minJumpHeight: 0.24
   timeToJumpApex: 0.4
+  isfacingRight: 0
+  target: {fileID: 0}
+  player: {fileID: 0}
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
   wallLeap: {x: 0, y: 0}
@@ -345,6 +377,7 @@ MonoBehaviour:
   vidanjor: {fileID: 1794653895590164, guid: 6992f5b15953fbf48b022b18a446c1a1, type: 2}
   pipiSuyu: {fileID: 1456051342887322, guid: 84c5974f1416bb24c809479bf24fb6bb, type: 2}
   vidanjorSpawn: {fileID: 0}
+  pipiSuyuSpawn: {fileID: 1554745573101502}
   skillSprites:
   - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
   - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
