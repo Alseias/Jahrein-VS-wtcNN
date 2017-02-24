@@ -215,7 +215,7 @@ public class JahreinSkills : Photon.PunBehaviour
         //this.transform.position.x, this.transform.position.y/2,0
     }
     [PunRPC]
-    void playSound(int skillID) {
+    public void playSound(int skillID) {
         AudioSource.PlayClipAtPoint(skillSounds[skillID], transform.position, 2f);
 
     }

@@ -202,7 +202,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     }
 
     [PunRPC]
-    void playSound(int skillID) {
+    public void playSound(int skillID) {
        AudioSource.PlayClipAtPoint(skillSounds[skillID], transform.position, 2f);
     
     }

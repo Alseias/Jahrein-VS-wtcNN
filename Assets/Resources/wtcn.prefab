@@ -160,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377725903128372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2217245, y: -2.8047624, z: 0}
+  m_LocalPosition: {x: 11.65, y: -2.59, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987227377480096}
@@ -376,6 +376,8 @@ MonoBehaviour:
   minJumpHeight: 3
   timeToJumpApex: 0.4
   isfacingRight: 0
+  target: {fileID: 0}
+  player: {fileID: 0}
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
   wallLeap: {x: 0, y: 0}

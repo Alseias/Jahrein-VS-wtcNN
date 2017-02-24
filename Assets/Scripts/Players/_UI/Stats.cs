@@ -24,9 +24,17 @@ public class Stats : Photon.PunBehaviour
             if (currentHealth <= 0)
             {
                 Debug.Log("YOU ARE DIE !!");
+                if (this.gameObject.name == "wtcn")
+                    this.gameObject.GetComponent<JahreinSkills>().playSound(5);
+                else
+                    this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
+                this.gameObject.GetComponent<Player>().canMove = false;
+                this.gameObject.GetComponent<Player>().canUseSkill = false;
+                this.gameObject.GetComponent<Animator>().Play("dying");
+                this.gameObject.GetComponent<Animator>().SetInteger("State", 8);
 
             }
-            float _health = currentHealth / maxHealth;//Healthbar's x axis size is 1 by default. This gives us a number between 0-1.
+            float _health = currentHealth / maxHealth;
             OnChangeHealth(_health);
         }else {
             if(currentHealth <= 0) {
@@ -34,6 +42,12 @@ public class Stats : Photon.PunBehaviour
 
             }
         }
+    }
+
+    void Dead()
+    {
+        this.gameObject.GetComponent<Animator>().SetInteger("State", 8);
+        this.gameObject.GetComponent<Animator>().Play("dead");
     }
 
     [PunRPC]
