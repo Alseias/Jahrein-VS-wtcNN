@@ -374,14 +374,10 @@ MonoBehaviour:
   maxJumpHeight: 2
   minJumpHeight: 0.24
   timeToJumpApex: 0.4
-<<<<<<< HEAD
   isfacingRight: 0
   target: {fileID: 0}
   player: {fileID: 0}
-=======
   health: 100
-  isfacingRight: 0
->>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
   wallLeap: {x: 0, y: 0}
