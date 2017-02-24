@@ -9,7 +9,7 @@ public class PlayerUI : MonoBehaviour {
     public Slider playerHealthSlider;
     public Vector3 ScreenOffset = new Vector3(0, 30f, 0);
 
-    PlayerController _target;
+    Player _target;
     Transform _targetTransform;
     Vector3 _targetPosition;
 
@@ -32,7 +32,7 @@ public class PlayerUI : MonoBehaviour {
 	}
 
 
-    public void SetTarget(PlayerController target) {
+    public void SetTarget(Player target) {
         if(target == null) {
             Debug.LogError("Missing playerController target!!");
         }

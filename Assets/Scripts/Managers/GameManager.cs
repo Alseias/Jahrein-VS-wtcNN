@@ -9,9 +9,10 @@ public class GameManager : Photon.PunBehaviour
     //call functions from other scripts
     static public GameManager Instance;
     public GameObject[] playerPrefabs;
-    public GameObject healthOne, healthTwo;
-    public GameObject jahSpawnPoint, wtcnSpawnPoint;
+    //public GameObject healthOne, healthTwo;
+    public GameObject playerOne, playerTwo;
     int selectedChrID;
+    bool gameStart = false;
 
     private void Start()
     {
@@ -35,22 +36,31 @@ public class GameManager : Photon.PunBehaviour
             }*/
             if(playerID==1)
             {
-                PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, jahSpawnPoint.transform.position, Quaternion.identity, 0);
+                playerOne= PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerOne.transform.position, Quaternion.identity, 0);
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().JahInstantiateHud();
+                //playerOne.GetComponent<Player>().canMove = false;
             }
             else
             {
-                PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, wtcnSpawnPoint.transform.position, Quaternion.identity, 0);
+                playerTwo = PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerTwo.transform.position, Quaternion.identity, 0);
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().WtcnInstantiateHud();
+                //playerTwo.GetComponent<Player>().canMove = false;
+
             }
         }
+
+
+
     }
     private void Update()
     {
 
 
     }
-
+    IEnumerator debug() {
+        yield return new WaitForSeconds(3);
+        Debug.LogError(Time.deltaTime);
+    }
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
@@ -63,8 +73,9 @@ public class GameManager : Photon.PunBehaviour
 
     void LoadArena()
     {
+        Debug.Log(PhotonNetwork.room.PlayerCount);
         if(PhotonNetwork.room.PlayerCount == 2) {
-
+            Debug.Log("2  kişi var oda da");
         }
     }
     #region Photon Messages
