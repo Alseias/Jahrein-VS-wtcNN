@@ -135,7 +135,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     private void Raycasting() {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1<<LayerMask.NameToLayer("enemy"));
-        Debug.Log(rayHit);
+       
     }
 
 

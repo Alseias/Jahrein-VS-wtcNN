@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent (typeof (Controller2D))]
 public class Player : Photon.PunBehaviour
 {
-    public bool canMove = true;
+    public bool canMove = false;
     public bool canUseSkill = true;
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
@@ -12,6 +12,11 @@ public class Player : Photon.PunBehaviour
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
 	float moveSpeed = 6;
+<<<<<<< HEAD
+=======
+    public float health = 100;
+    bool getFacingRight;
+>>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
     public bool isfacingRight;
     public GameObject target, player;
 
@@ -31,6 +36,7 @@ public class Player : Photon.PunBehaviour
 	float velocityXSmoothing;
 
     Animator animator;
+    InRoomTime gameManager;
 	public Controller2D controller;
     int state=0;
 	Vector2 directionalInput;
@@ -54,7 +60,12 @@ public class Player : Photon.PunBehaviour
 
     void Start()
     {
+        
         player = this.gameObject;
+<<<<<<< HEAD
+=======
+        gameManager = GameObject.Find("GameManager").GetComponent<InRoomTime>();
+>>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
 		controller = GetComponent<Controller2D> ();
         animator = GetComponent<Animator>();
         gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -72,10 +83,21 @@ public class Player : Photon.PunBehaviour
             isfacingRight = false;
             player.transform.localScale = new Vector2(transform.localScale.x * -1, 1);
         }
-	}
 
-	void Update()
+
+    }
+
+    void Update()
     {
+<<<<<<< HEAD
+=======
+        if(canMove) {
+            CalculateVelocity();
+        }
+        LookAtTarget();
+        HandleWallSliding();
+        controller.Move(velocity * Time.deltaTime, directionalInput);
+>>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
 
         if (canMove)
         {
@@ -93,8 +115,17 @@ public class Player : Photon.PunBehaviour
             timeToReachGoal = currentPacketTime - lastPacketTime;
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
+<<<<<<< HEAD
             this.gameObject.layer = 10;
 
+=======
+            //isfacingRight = getFacingRight;
+            this.gameObject.layer = 10;
+
+        }else {
+            Debug.Log(gameManager.RoomTime);
+
+>>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
         }
 
 
@@ -206,11 +237,17 @@ public class Player : Photon.PunBehaviour
             float xDirection = target.transform.position.x - this.transform.position.x;
             if (xDirection < 0 && !isfacingRight || xDirection > 0 && isfacingRight)
             {
+<<<<<<< HEAD
                 ChangeDirection();
+=======
+                Debug.Log("if true");
+                photonView.RPC("ChangeDirection", PhotonTargets.All);
+>>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
             }
         }
     }
 
+    [PunRPC]
     void ChangeDirection()
     {
         isfacingRight = !isfacingRight;
@@ -232,8 +269,12 @@ public class Player : Photon.PunBehaviour
         if(stream.isWriting)
         {
             stream.SendNext(this.transform.position);
-            //stream.SendNext(health);
+            stream.SendNext(health);
             stream.SendNext(animator.GetInteger("State")); //Set animation state
+<<<<<<< HEAD
+=======
+           // stream.SendNext(player.transform.localScale);
+>>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
         }
         else
         {
@@ -242,10 +283,14 @@ public class Player : Photon.PunBehaviour
             currentTime = 0.0;
             positionAtLastPacket = transform.position;
             realPosition = (Vector3)stream.ReceiveNext();
-            //this.health = (float)stream.ReceiveNext();
+            health = (float)stream.ReceiveNext();
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.timestamp;
             state = (int)stream.ReceiveNext(); //Get Animation state
+<<<<<<< HEAD
+=======
+            //transform.localScale = (Vector3)stream.ReceiveNext();
+>>>>>>> 3dd6cbb8335913dc524866d435fd0a46d2626c32
         }
     }
 }
