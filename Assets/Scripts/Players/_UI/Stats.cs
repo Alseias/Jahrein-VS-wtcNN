@@ -25,9 +25,9 @@ public class Stats : Photon.PunBehaviour
             {
                 Debug.Log("YOU ARE DIE !!");
                 if (this.gameObject.name == "wtcn")
-                    this.gameObject.GetComponent<JahreinSkills>().playSound(5);
-                else
                     this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
+                else
+                    this.gameObject.GetComponent<JahreinSkills>().playSound(5);
                 this.gameObject.GetComponent<Player>().canMove = false;
                 this.gameObject.GetComponent<Player>().canUseSkill = false;
                 this.gameObject.GetComponent<Animator>().Play("dying");
