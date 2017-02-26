@@ -257,6 +257,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114565588516007208}
   - {fileID: 114094645309121682}
+  - {fileID: 114479564706865248}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -329,8 +330,8 @@ MonoBehaviour:
     ExtrapolateNumberOfStoredPositions: 1
     DrawErrorGizmo: 1
   m_RotationModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 1
+    SynchronizeEnabled: 1
+    InterpolateOption: 2
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
   m_ScaleModel:
@@ -374,10 +375,10 @@ MonoBehaviour:
   maxJumpHeight: 2
   minJumpHeight: 0.24
   timeToJumpApex: 0.4
+  health: 100
   isfacingRight: 0
   target: {fileID: 0}
   player: {fileID: 0}
-  health: 100
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
   wallLeap: {x: 0, y: 0}

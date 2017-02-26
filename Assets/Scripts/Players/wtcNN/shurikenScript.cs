@@ -17,9 +17,9 @@ public class shurikenScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = speed;
         Destroy(gameObject, 2);
-        Vector2 targetDir = GetComponent<Player>().target.transform.position - transform.position;
+        /*Vector2 targetDir = GetComponent<Player>().target.transform.position - transform.position; //NO REFERANCE FOR PLAYER SO IT DOESN'T WORK!!!
         Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDir), 500f);
-        transform.rotation = rot;
+        transform.rotation = rot;*/
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, 0);
 
     }

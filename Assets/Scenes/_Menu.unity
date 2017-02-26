@@ -158,7 +158,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: play
+  m_Text: Connecting
 --- !u!222 &41494650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 180158297}
   - component: {fileID: 180158296}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: ConnectionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,8 @@ MonoBehaviour:
   MaxPlayersPerRoom: 2
   roomName: 4n4
   Loglevel: 1
-  offlineMode: 1
+  offlineMode: 0
+  btn_play: {fileID: 859044150}
 --- !u!4 &180158297
 Transform:
   m_ObjectHideFlags: 0
@@ -280,7 +281,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 859044151}
   m_OnClick:
     m_PersistentCalls:
@@ -1192,7 +1193,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7bf35f919b10c524a84e8d99dee1adc1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0

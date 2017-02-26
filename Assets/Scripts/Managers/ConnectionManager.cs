@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class ConnectionManager : Photon.PunBehaviour {
     string gameVersion = "1";
@@ -8,12 +10,12 @@ public class ConnectionManager : Photon.PunBehaviour {
     public string roomName="4n4n";
     public PhotonLogLevel Loglevel = PhotonLogLevel.Informational;
     public bool offlineMode;
-
+    public Button btn_play;
 
     private void Awake() {
         //force full log.
         PhotonNetwork.logLevel = Loglevel;
-
+        btn_play.GetComponentInChildren<Text>().text = "Connecting..";
         //it must be false to list lobbies
         PhotonNetwork.autoJoinLobby = false;
 
@@ -32,7 +34,8 @@ public class ConnectionManager : Photon.PunBehaviour {
     // Use this for initialization
     void Start () {
         PlayerPrefs.DeleteAll();
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -54,8 +57,11 @@ public class ConnectionManager : Photon.PunBehaviour {
 
     }
 
+    #region Photon Logs
     //------------------------------------------------------------------------------------------
     public override void OnConnectedToMaster() {
+        btn_play.interactable = true;
+        btn_play.GetComponentInChildren<Text>().text = "Play";
 
         Debug.Log("OnConnectedToMaster() was called by PUN | Ping: " + PhotonNetwork.GetPing());
 
@@ -90,4 +96,5 @@ public class ConnectionManager : Photon.PunBehaviour {
         //Debug.Log("OnCreatedRoom");
         PhotonNetwork.LoadLevel("CharacterSelect");
     }
+    #endregion
 }

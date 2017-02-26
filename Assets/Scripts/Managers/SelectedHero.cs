@@ -13,6 +13,8 @@ public class SelectedHero : Photon.PunBehaviour {
         /*(int i = 0; i < parentChr.transform.childCount; i++) {
 
         }*/
+        
+        //PLAYER INSTANTIATE
         playerID = PlayerPrefs.GetInt("player");
         switch(playerID) {
             case 1:
@@ -40,6 +42,7 @@ public class SelectedHero : Photon.PunBehaviour {
             if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
                 //PhotonNetwork.DestroyAll();
                 PhotonNetwork.automaticallySyncScene = true;
+                
                 PhotonNetwork.LoadLevel("Game");
             }
 
@@ -53,6 +56,7 @@ public class SelectedHero : Photon.PunBehaviour {
         }
     }
 
+    //CHANGE PLAYER PARENT
     public void selectChr(Transform transform) {
         switch(playerID) {
             case 1:
@@ -73,7 +77,8 @@ public class SelectedHero : Photon.PunBehaviour {
                 break;
         }
     }
-    
+
+    //SET PLAYER CHR ID
     public void setChrID(int id) {
         switch(playerID) {
             case 1:
@@ -92,6 +97,8 @@ public class SelectedHero : Photon.PunBehaviour {
 
 
     }
+
+    //SET PLAYER IMREADY BOOL TO TRUE
     public void IamReady() {
         switch(playerID) {
             case 1:
