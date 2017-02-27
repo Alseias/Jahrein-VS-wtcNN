@@ -52,7 +52,7 @@ public class InRoomRoundTimer : MonoBehaviour
 
 
     /// <summary>Called by PUN when this client entered a room (no matter if joined or created).</summary>
-    public void OnJoinedRoom()
+    /*public void OnJoinedRoom()
     {
         if (PhotonNetwork.isMasterClient)
         {
@@ -63,7 +63,7 @@ public class InRoomRoundTimer : MonoBehaviour
             // as the creator of the room sets the start time after entering the room, we may enter a room that has no timer started yet
             Debug.Log("StartTime already set: " + PhotonNetwork.room.CustomProperties.ContainsKey(StartTimeKey));
         }
-    }
+    }*/
 
     /// <summary>Called by PUN when new properties for the room were set (by any client in the room).</summary>
     public void OnPhotonCustomRoomPropertiesChanged(Hashtable propertiesThatChanged)
@@ -79,14 +79,14 @@ public class InRoomRoundTimer : MonoBehaviour
     /// Just to make extremely sure this never happens, a new masterClient will check if it has to
     /// start a new round.
     /// </remarks>
-    public void OnMasterClientSwitched(PhotonPlayer newMasterClient)
+   /* public void OnMasterClientSwitched(PhotonPlayer newMasterClient)
     {
         if (!PhotonNetwork.room.CustomProperties.ContainsKey(StartTimeKey))
         {
             Debug.Log("The new master starts a new round, cause we didn't start yet.");
             this.StartRoundNow();
         }
-    }
+    }*/
 
 
     void Update()

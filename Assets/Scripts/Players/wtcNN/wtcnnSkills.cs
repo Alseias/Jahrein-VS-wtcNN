@@ -206,7 +206,8 @@ public class wtcnnSkills : Photon.PunBehaviour
     void BasicAttack()
     {
         GameObject objShur= Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity);
-        objShur.GetComponent<shurikenScript>().faceDir = _player.isfacingRight;
+        Debug.Log(_player.isfacingRight);
+        objShur.SendMessage("dir", _player.isfacingRight, SendMessageOptions.RequireReceiver);
     }
 
     [PunRPC]

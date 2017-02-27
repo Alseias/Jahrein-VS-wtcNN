@@ -12,7 +12,7 @@ public class GameManager : Photon.PunBehaviour
     //public GameObject healthOne, healthTwo;
     public GameObject playerOne, playerTwo;
     int selectedChrID;
-    bool gameStart = false;
+    public bool gameStart = false;
     int playerID;
     private void Start()
     {
@@ -51,16 +51,18 @@ public class GameManager : Photon.PunBehaviour
     private void Update()
     {
         if(PhotonNetwork.room.PlayerCount == 2) {
-            
-            
+            treeSecond();
 
         }
 
     }
-    IEnumerator debug() {
-        yield return new WaitForSeconds(3);
-        Debug.LogError(Time.deltaTime);
+    
+    IEnumerator treeSecond() {
+        yield return new WaitForSeconds(3f);
+        gameStart = true;
+
     }
+
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
@@ -71,45 +73,5 @@ public class GameManager : Photon.PunBehaviour
         PhotonNetwork.LeaveRoom();
     }
 
-    void LoadArena()
-    {
-        Debug.Log(PhotonNetwork.room.PlayerCount);
-
-    }
-    #region Photon Messages
-
-
-    public override void OnPhotonPlayerConnected(PhotonPlayer other) {
-        LoadArena();
-        Debug.Log("OnPhotonPlayerConnected() " + other.NickName); // not seen if you're the player connecting
-
-        if(PhotonNetwork.isMasterClient) {
-            Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
-
-
-
-        }
-
-    }
-
-
-    public override void OnPhotonPlayerDisconnected(PhotonPlayer other) {
-        Debug.Log("OnPhotonPlayerDisconnected() " + other.NickName); // seen when other disconnects
-
-
-        if(PhotonNetwork.isMasterClient) {
-            Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
-
-
-            //LoadArena();
-        }
-    }
-    private void OnLevelWasLoaded(int level) {
-
-        
-    }
-
-
-    #endregion
 
 }

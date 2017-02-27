@@ -14,15 +14,18 @@ public class shurikenScript : MonoBehaviour
     float direction;
 
     GameObject wtcn;
-
+    void dir(bool _dir) {
+        
+        faceDir = _dir;
+    }
     void Start ()
     {
-        wtcn = GameObject.Find("wtcn");
+        //wtcn = GameObject.Find("wtcn");
         Destroy(gameObject, 2);
         rb = GetComponent<Rigidbody2D>();
-        direction = wtcn.GetComponent<wtcnnSkills>().SendDirection();
+        //direction = wtcn.GetComponent<wtcnnSkills>().SendDirection();
         rb.AddForce(new Vector2(direction * 10, transform.position.y), ForceMode2D.Impulse);
-        rb.velocity = speed;
+        rb.velocity = speed * (faceDir ? 1 : -1);
     }
 
     void OnTriggerEnter2D(Collider2D other)

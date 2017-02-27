@@ -33,7 +33,7 @@ public class Player : Photon.PunBehaviour
 	float velocityXSmoothing;
 
     Animator animator;
-    InRoomTime gameManager;
+    bool gamestart;
 	public Controller2D controller;
     int state=0;
 	Vector2 directionalInput;
@@ -62,7 +62,7 @@ public class Player : Photon.PunBehaviour
     {
         isfacingRight = true;
         player = this.gameObject;
-        gameManager = GameObject.Find("GameManager").GetComponent<InRoomTime>();
+        gamestart = GameObject.Find("GameManager").GetComponent<GameManager>().gameStart;
 		controller = GetComponent<Controller2D> ();
         animator = GetComponent<Animator>();
         gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -72,6 +72,7 @@ public class Player : Photon.PunBehaviour
 
     void Update()
     {
+
         if(canMove)
         {
             CalculateVelocity();
@@ -111,6 +112,8 @@ public class Player : Photon.PunBehaviour
 			}
 		}
 	}
+    
+
 
 	public void SetDirectionalInput (Vector2 input)
     {
