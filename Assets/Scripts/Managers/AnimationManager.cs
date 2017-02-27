@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class AnimationManager : MonoBehaviour {
 
@@ -15,10 +16,11 @@ public class AnimationManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(DisplayTimer());
+        //StartCoroutine(DisplayTimer());
+        textArea.DOText("We are a few game developers trying to make this gaming world a better place! Follow us from: perfectillusiongames.com", 2.3f, true, ScrambleMode.None, null);
     }
 
-    IEnumerator DisplayTimer()
+   /* IEnumerator DisplayTimer()
     {
         while(1 == 1)
         {
@@ -31,7 +33,7 @@ public class AnimationManager : MonoBehaviour {
             textArea.text = strings[stringIndex].Substring(0, characterIndex);
             characterIndex++;
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

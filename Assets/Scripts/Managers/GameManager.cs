@@ -13,20 +13,17 @@ public class GameManager : Photon.PunBehaviour
     public GameObject playerOne, playerTwo;
     int selectedChrID;
     bool gameStart = false;
-
+    int playerID;
     private void Start()
     {
+
         //call from other scripts
         Instance = this;
         selectedChrID = PlayerPrefs.GetInt("chrID");
-        int playerID = PlayerPrefs.GetInt("player");
-
-        if(playerPrefabs == null)
-        {
+        playerID = PlayerPrefs.GetInt("player");
+        if(playerPrefabs == null) {
             Debug.LogError("Missing PlayerPrefab.Set up GameObject for GameManager script");
-        }
-        else
-        {
+        } else {
             /* {
                 healthOne.SetActive(true);
             }else {
@@ -34,16 +31,15 @@ public class GameManager : Photon.PunBehaviour
                 healthOne.SetActive(true);
 
             }*/
-            if(playerID==1)
-            {
-                playerOne= PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerOne.transform.position, Quaternion.identity, 0);
+            if(playerID == 1) {
+                playerOne = (GameObject)PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerOne.transform.position, Quaternion.identity, 0);
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().JahInstantiateHud();
                 //playerOne.GetComponent<Player>().canMove = false;
-            }
-            else
-            {
-                playerTwo = PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerTwo.transform.position, Quaternion.identity, 0);
+            } else {
+                playerTwo = (GameObject)PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerTwo.transform.position, Quaternion.Euler(0, 180, 0), 0);
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().WtcnInstantiateHud();
+                //playerTwo.GetComponent<Player>().isfacingRight = true;
+
                 //playerTwo.GetComponent<Player>().canMove = false;
 
             }
@@ -54,7 +50,11 @@ public class GameManager : Photon.PunBehaviour
     }
     private void Update()
     {
+        if(PhotonNetwork.room.PlayerCount == 2) {
+            
+            
 
+        }
 
     }
     IEnumerator debug() {
@@ -74,9 +74,7 @@ public class GameManager : Photon.PunBehaviour
     void LoadArena()
     {
         Debug.Log(PhotonNetwork.room.PlayerCount);
-        if(PhotonNetwork.room.PlayerCount == 2) {
-            Debug.Log("2  kişi var oda da");
-        }
+
     }
     #region Photon Messages
 
@@ -105,6 +103,10 @@ public class GameManager : Photon.PunBehaviour
 
             //LoadArena();
         }
+    }
+    private void OnLevelWasLoaded(int level) {
+
+        
     }
 
 

@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4883254848001336}
   - component: {fileID: 212111138694207168}
-  - component: {fileID: 114300938353710232}
-  - component: {fileID: 114519763276068492}
+  - component: {fileID: 114241229893286748}
+  - component: {fileID: 114365978897175130}
   m_Layer: 0
   m_Name: healthbar
   m_TagString: Untagged
@@ -104,7 +104,7 @@ Transform:
   m_Father: {fileID: 4672611263071256}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114300938353710232
+--- !u!114 &114241229893286748
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -124,13 +124,13 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114519763276068492}
+  - {fileID: 114365978897175130}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114519763276068492
+--- !u!114 &114365978897175130
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
   m_ScaleModel:
-    SynchronizeEnabled: 1
+    SynchronizeEnabled: 0
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0

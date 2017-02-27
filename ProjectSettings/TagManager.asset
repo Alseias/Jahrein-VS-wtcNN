@@ -15,6 +15,7 @@ TagManager:
   - bullet
   - shuriken
   - Through
+  - enemy
   layers:
   - Default
   - TransparentFX

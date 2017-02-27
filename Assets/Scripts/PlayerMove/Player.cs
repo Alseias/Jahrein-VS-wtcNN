@@ -14,7 +14,7 @@ public class Player : Photon.PunBehaviour
 	float moveSpeed = 6;
     public float health = 100;
     bool getFacingRight;
-    public bool isfacingRight;
+    public bool isfacingRight=false;
     public GameObject target, player;
 
 	public Vector2 wallJumpClimb;
@@ -50,7 +50,9 @@ public class Player : Photon.PunBehaviour
     bool turned = true;
     private void Awake() {
         animator = GetComponent<Animator>();
-
+        if(!photonView.isMine) {
+            this.gameObject.tag = "enemy";
+        }
     }
 
     //bool turned = true;
@@ -65,8 +67,10 @@ public class Player : Photon.PunBehaviour
         gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-        target = GameObject.FindGameObjectWithTag("Player");
-        if (PlayerPrefs.GetInt("player") == 1 && 
+
+        
+        Debug.Log(target.name);
+        /*if (PlayerPrefs.GetInt("player") == 1 && 
             ((gameObject.name == "wtcn" && transform.localScale.x == -1) ||
             (gameObject.name == "jahRay" && transform.localScale.x == 1)))
         {
@@ -76,7 +80,7 @@ public class Player : Photon.PunBehaviour
         {
             isfacingRight = false;
             player.transform.localScale = new Vector2(transform.localScale.x * -1, 1);
-        }
+        }*/
 
 
     }
@@ -86,15 +90,6 @@ public class Player : Photon.PunBehaviour
         if(canMove) {
             CalculateVelocity();
         }
-        LookAtTarget();
-        HandleWallSliding();
-        controller.Move(velocity * Time.deltaTime, directionalInput);
-
-        if (canMove)
-        {
-            CalculateVelocity();
-        }
-        LookAtTarget();
         HandleWallSliding();
         controller.Move(velocity * Time.deltaTime, directionalInput);
 
@@ -106,15 +101,20 @@ public class Player : Photon.PunBehaviour
             timeToReachGoal = currentPacketTime - lastPacketTime;
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(positionAtLastPacket, realPosition, (float)(currentTime / timeToReachGoal));
-            this.gameObject.layer = 10;
-
+           
             //isfacingRight = getFacingRight;
             this.gameObject.layer = 10;
 
         }
         else
         {
-            Debug.Log(gameManager.RoomTime);
+            if(target == null) {
+                target = GameObject.FindGameObjectWithTag("enemy");
+
+            }
+            //Debug.Log(target.name);
+            LookAtTarget();
+
         }
 
 
@@ -218,25 +218,50 @@ public class Player : Photon.PunBehaviour
 		}
 
 	}
-
+    float tempSign = -1;
     void LookAtTarget() //This function changes players direction toward enemy
     {
         if(target != null)
         {
-            float xDirection = target.transform.position.x - this.transform.position.x;
-            if (xDirection < 0 && !isfacingRight || xDirection > 0 && isfacingRight)
+            float xDirection = Mathf.Sign(target.transform.position.x - this.transform.position.x);
+            Debug.Log("aradaki fark: "+ xDirection);
+            if (xDirection < 0 && !isfacingRight)
             {
-                ChangeDirection();
+                //ChangeDirection();
                 Debug.Log("if true");
-                photonView.RPC("ChangeDirection", PhotonTargets.All);
+                //photonView.RPC("ChangeDirection", PhotonTargets.All);
+                //isfacingRight = !isfacingRight;
+                
             }
+
+            /*if(xDirection<tempSign) {
+                    tempSign = xDirection;
+                Debug.Log("face right=:"+isfacingRight);
+                if(!isfacingRight) {
+                    isfacingRight = true;
+                    Debug.Log("face right=:" + isfacingRight);
+                    Debug.Log("bi kere dön");
+
+                    transform.localScale = new Vector2(transform.localScale.x * -1, 1);
+
+                }
+            } else {
+                tempSign = xDirection;
+                if(isfacingRight) {
+                    isfacingRight = false;
+                    Debug.Log("bi kere daha dön");
+
+                    transform.localScale = new Vector2(transform.localScale.x * -1, 1);
+
+                }
+            }*/
         }
     }
 
     [PunRPC]
     void ChangeDirection()
     {
-        isfacingRight = !isfacingRight;
+        //isfacingRight = !isfacingRight;
         target.transform.localScale = new Vector2(transform.localScale.x * -1, 1);
         player.transform.localScale = new Vector2(transform.localScale.x * -1, 1);
     }

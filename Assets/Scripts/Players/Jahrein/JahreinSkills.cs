@@ -175,7 +175,8 @@ public class JahreinSkills : Photon.PunBehaviour
                     _player.canUseSkill = true;
                 }
             }
-            //_player.canMove = skillACD[0].durationEnd;
+            //if game started 
+            _player.canMove = skillACD[0].durationEnd;
            
 
         }
