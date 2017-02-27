@@ -36,7 +36,7 @@ public class GameManager : Photon.PunBehaviour
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().JahInstantiateHud();
                 //playerOne.GetComponent<Player>().canMove = false;
             } else {
-                playerTwo = (GameObject)PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerTwo.transform.position, Quaternion.Euler(0, 180, 0), 0);
+                playerTwo = (GameObject)PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerTwo.transform.position, Quaternion.identity, 0);
                 this.playerPrefabs[selectedChrID].GetComponent<Stats>().WtcnInstantiateHud();
                 //playerTwo.GetComponent<Player>().isfacingRight = true;
 
