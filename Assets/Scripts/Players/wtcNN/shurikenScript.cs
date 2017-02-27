@@ -10,30 +10,25 @@ public class shurikenScript : MonoBehaviour
     int shurikenDamage = 2;
     int bulletDamage = 40;
     Rigidbody2D rb;
-    public Player _player;
     public bool faceDir;
-	void Start ()
+    float direction;
+
+    GameObject wtcn;
+
+    void Start ()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = speed;
+        wtcn = GameObject.Find("wtcn");
         Destroy(gameObject, 2);
-        /*Vector2 targetDir = GetComponent<Player>().target.transform.position - transform.position; //NO REFERANCE FOR PLAYER SO IT DOESN'T WORK!!!
-        Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDir), 500f);
-        transform.rotation = rot;*/
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, 0);
-
-    }
-
-	void Update ()
-    {
+        rb = GetComponent<Rigidbody2D>();
+        direction = wtcn.GetComponent<wtcnnSkills>().SendDirection();
+        rb.AddForce(new Vector2(direction * 10, transform.position.y), ForceMode2D.Impulse);
         rb.velocity = speed;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("enemy"))
         {
-            Debug.Log("Did damage");
             Destroy(gameObject);
             if (this.gameObject.CompareTag("bullet"))
             {

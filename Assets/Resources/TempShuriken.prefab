@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 10, y: 0}
+  _player: {fileID: 114811536063702468, guid: 946cd59e150e7cd44b0a9a0c0ba25d9f, type: 2}
+  faceDir: 0
 --- !u!212 &212421230872536144
 SpriteRenderer:
   m_ObjectHideFlags: 1

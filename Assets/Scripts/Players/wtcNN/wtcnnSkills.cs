@@ -52,6 +52,7 @@ public class wtcnnSkills : Photon.PunBehaviour
             skillACD[i].coolDownDuration = skillCoolDowns[i];
         }
     }
+
     void Update()
     {
         if (pv.isMine)
@@ -132,7 +133,14 @@ public class wtcnnSkills : Photon.PunBehaviour
         }
     }
 
-    private void Raycasting() {
+    public float SendDirection()
+    {
+        float direction = _player.target.transform.position.x - transform.position.x;
+        return direction;
+    }
+
+    private void Raycasting()
+    {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1<<LayerMask.NameToLayer("enemy"));
        
