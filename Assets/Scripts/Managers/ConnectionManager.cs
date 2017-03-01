@@ -7,7 +7,7 @@ using DG.Tweening;
 public class ConnectionManager : Photon.PunBehaviour {
     string gameVersion = "1";
     public byte MaxPlayersPerRoom;
-    public string roomName="b4b4n";
+    public string roomName="4n4n";
     public PhotonLogLevel Loglevel = PhotonLogLevel.Informational;
     public bool offlineMode;
     public Button btn_play;
