@@ -66,119 +66,137 @@ public class JahreinSkills : Photon.PunBehaviour
         }
     }
 
+    void Fear()
+    {
+        _controller.canMove = false;
+        _player.canUseSkill = false;
+        StartCoroutine("FearCounter");
+    }
+
+    IEnumerator FearCounter()
+    {
+        yield return new WaitForSeconds(3);
+        _controller.canMove = true;
+        _player.canUseSkill = true;
+    }
+
     void Update()
     {
         if (photonView.isMine)
         {
-            //This is for running anim and this has to change with raycast system
-            //if (GetComponent<Rigidbody2D>().velocity.x != 0f) 
-
-            //This is temporary this we will use this until facing to enemy
-            if (_controller.canMove)
+            if (GetComponent<Stats>().isAlive)
             {
-                if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
+                if (_controller.canMove)
                 {
-                    anim.Play("jahreinRunning");
-                    anim.SetInteger("State",4);
+                    if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
+                    {
+                        anim.Play("jahreinRunning");
+                        anim.SetInteger("State", 4);
+                    }
+                    if (Input.GetKeyUp(KeyCode.RightArrow))
+                    {
+                        anim.Play("jahIdle");
+                        anim.SetInteger("State", 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
+                    {
+                        anim.Play("jahreinRunning");
+                        anim.SetInteger("State", 4);
+                    }
+                    if (Input.GetKeyUp(KeyCode.LeftArrow))
+                    {
+                        anim.Play("jahIdle");
+                        anim.SetInteger("State", 0);
+                    }
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        anim.Play("jahJump");
+                        anim.SetInteger("State", 5);
+                    }
+
                 }
-                if (Input.GetKeyUp(KeyCode.RightArrow))
+
+                if (Input.GetButtonDown("Attack")) // Basic Attack
                 {
-                    anim.Play("jahIdle");
-                    anim.SetInteger("State",0);
-                }
-
-                if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
-                {
-                    anim.Play("jahreinRunning");
-                    anim.SetInteger("State",4);
-                }
-                if (Input.GetKeyUp(KeyCode.LeftArrow))
-                {
-                    anim.Play("jahIdle");
-                    anim.SetInteger("State",0);
-                }
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    anim.Play("jahJump");
-                    anim.SetInteger("State", 5);
-                }
-
-            }
-
-
-            if(_player.canUseSkill) {
-
-                if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady && _controller.collisions.below) {
-                    _player.canUseSkill = false;
-                    skillACD[0].use();
-                    usedSkill = 0;
-                    _player.canMove = false;
-                    anim.Play("jahRagev2");
-                    anim.SetInteger("State", 1);
-                    //AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
-                    _photonView.RPC("playSound", PhotonTargets.All,usedSkill);
-
-
-                }
-                if(Input.GetButtonDown("SkillW") && skillACD[1].itsReady) {
-                    _player.canUseSkill = false;
-                    skillACD[1].use();
-                    usedSkill = 1;
-
-                    _controller.canMove = false;
-                    anim.Play("kutsamav2");
-                    anim.SetInteger("State", 2);
-                    // AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
-                    _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
-
-
-
-
-                }
-                if(Input.GetButtonDown("SkillE") && skillACD[2].itsReady) {
-                   
-                    _player.canUseSkill = false;
-                    skillACD[2].use();
-                    usedSkill = 2;
-
-                    anim.Play("PipiSuyu");
-                    anim.SetInteger("State", 3);
-                    _photonView.RPC("PipiSuyu", PhotonTargets.All);
-                    //AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
-                    _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
-
-
-                }
-                if(Input.GetButtonDown("SkillR") && skillACD[3].itsReady) {
-                    _player.canUseSkill = false;
-                    skillACD[3].use();
-                    usedSkill = 3;
-
-                    _photonView.RPC("jahUlti", PhotonTargets.All);
-                    _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
-
-                }
-                if(Input.GetButtonDown("Attack")) {
                     anim.Play("BasicAttackv2");
                     anim.SetInteger("State", 7);
                     _photonView.RPC("basicAttack", PhotonTargets.All);
-                } else {
+                }
+
+                else
+                {
                     jahAtt = false;
                 }
-            }else {
-                //if player cant use skill
-                
-                if(skillACD[usedSkill].durationEnd) {
-                    
 
-                    //if duration ends player can use skill again
-                    _player.canUseSkill = true;
+
+                if (_player.canUseSkill)
+                {
+
+                    if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady && _controller.collisions.below)
+                    {
+                        _player.canUseSkill = false;
+                        skillACD[0].use();
+                        usedSkill = 0;
+                        _player.canMove = false;
+                        anim.Play("jahRagev2");
+                        anim.SetInteger("State", 1);
+                        //AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+                        _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
+                    }
+
+                    if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
+                    {
+                        _player.canUseSkill = false;
+                        skillACD[1].use();
+                        usedSkill = 1;
+
+                        _controller.canMove = false;
+                        anim.Play("kutsamav2");
+                        anim.SetInteger("State", 2);
+                        // AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
+                        _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
+                    }
+
+                    if (Input.GetButtonDown("SkillE") && skillACD[2].itsReady)
+                    {
+
+                        _player.canUseSkill = false;
+                        skillACD[2].use();
+                        usedSkill = 2;
+
+                        anim.Play("PipiSuyu");
+                        anim.SetInteger("State", 3);
+                        _photonView.RPC("PipiSuyu", PhotonTargets.All);
+                        //AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
+                        _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
+
+                    }
+
+                    if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
+                    {
+                        _player.canUseSkill = false;
+                        skillACD[3].use();
+                        usedSkill = 3;
+
+                        _photonView.RPC("jahUlti", PhotonTargets.All);
+                        _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
+
+                    }
                 }
-            }
-            //if game started 
-            _player.canMove = skillACD[0].durationEnd;
-           
 
+                else
+                {
+                    //if player cant use skill
+                    if (skillACD[usedSkill].durationEnd)
+                    {
+                        //if duration ends player can use skill again
+                        _player.canUseSkill = true;
+                    }
+                }
+                //if game started 
+                _player.canMove = skillACD[0].durationEnd;
+            }
         }
     }
 
@@ -194,10 +212,7 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         _player.velocity = Vector2.zero;
-        if (GetComponent<Player>().isfacingRight)
-            _player.velocity.x = 15f;
-        else
-            _player.velocity.x = -15f;
+        _player.velocity.x = 150f * (_player.isfacingRight ? 1 : -1);
         damage = damage + (damage * 0.25f);
     }
 
@@ -222,7 +237,9 @@ public class JahreinSkills : Photon.PunBehaviour
     }
 
     #endregion
-    //This is used for animation event
+
+
+    #region Animation events
     void JahRageTrigger()
     {
         _photonView.RPC("jahRageSkill", PhotonTargets.All);
@@ -242,6 +259,7 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         _player.velocity.x = 0;
     }
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

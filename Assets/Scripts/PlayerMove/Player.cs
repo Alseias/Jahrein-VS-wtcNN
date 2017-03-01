@@ -72,8 +72,7 @@ public class Player : Photon.PunBehaviour
 
     void Update()
     {
-
-        if(canMove)
+        if (canMove)
         {
             CalculateVelocity();
         }
@@ -202,7 +201,7 @@ public class Player : Photon.PunBehaviour
 		}
 
 	}
-    float tempSign = -1;
+
     void LookAtTarget() //This function changes players direction towards enemy
     {
         if(target != null)

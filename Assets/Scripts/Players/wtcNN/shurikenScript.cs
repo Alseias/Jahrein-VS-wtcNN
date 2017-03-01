@@ -11,26 +11,20 @@ public class shurikenScript : MonoBehaviour
     int bulletDamage = 40;
     Rigidbody2D rb;
     public bool faceDir;
-    float direction;
-
-    GameObject wtcn;
-    void dir(bool _dir) {
-        
+    void dir(bool _dir)
+    {
         faceDir = _dir;
     }
     void Start ()
     {
-        //wtcn = GameObject.Find("wtcn");
         Destroy(gameObject, 2);
         rb = GetComponent<Rigidbody2D>();
-        //direction = wtcn.GetComponent<wtcnnSkills>().SendDirection();
-        rb.AddForce(new Vector2(direction * 10, transform.position.y), ForceMode2D.Impulse);
         rb.velocity = speed * (faceDir ? 1 : -1);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
             if (this.gameObject.CompareTag("bullet"))
