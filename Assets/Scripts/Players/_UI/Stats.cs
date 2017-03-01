@@ -7,13 +7,18 @@ public class Stats : Photon.PunBehaviour
     public const float maxHealth = 100;
     public GameObject hud;
     public float currentHealth;
+    public bool isAlive;
+    public Sprite Sprite;
 
     GameObject healthbar;
 
     void Start ()
     {
+        isAlive = true;
         currentHealth = maxHealth;
         healthbar = GameObject.Find("healthbar").gameObject;
+        Debug.Log(hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite.name);
+        
     }
 
     public void TakeDamage (int damage)
@@ -23,6 +28,7 @@ public class Stats : Photon.PunBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
+                isAlive = false;
                 Debug.Log("YOU ARE DIE !!");
                 if (this.gameObject.name == "wtcn")
                     this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
@@ -36,8 +42,11 @@ public class Stats : Photon.PunBehaviour
             }
             float _health = currentHealth / maxHealth;
             OnChangeHealth(_health);
-        }else {
-            if(currentHealth <= 0) {
+        }
+        else
+        {
+            if(currentHealth <= 0)
+            {
                 Debug.Log("YOU ARE DIE !!");
 
             }
@@ -56,14 +65,18 @@ public class Stats : Photon.PunBehaviour
         healthbar.transform.localScale = new Vector3(health, healthbar.transform.localScale.y, healthbar.transform.localScale.z);
     }
 
-    public void JahInstantiateHud()
+    public void playerOneHud()
     {
-        PhotonNetwork.Instantiate(hud.name, new Vector3(-5, 4, 0), Quaternion.identity, 0);
+
+       hud = PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
+       hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
+
     }
 
-    public void WtcnInstantiateHud()
+    public void playerTwoHud()
     {
-        PhotonNetwork.Instantiate(hud.name, new Vector3(5, 4, 0), Quaternion.identity, 0);
-        Debug.Log(hud.name);
+        hud = PhotonNetwork.Instantiate("p2HealthUI", new Vector3(5, 4, 0), Quaternion.identity, 0);
+        hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
+
     }
 }

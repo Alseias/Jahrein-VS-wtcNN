@@ -6,6 +6,7 @@ public class Player : Photon.PunBehaviour
 {
     public bool canMove = false;
     public bool canUseSkill = true;
+    public bool canDoubleJump;
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -72,8 +73,7 @@ public class Player : Photon.PunBehaviour
 
     void Update()
     {
-
-        if(canMove)
+        if (canMove)
         {
             CalculateVelocity();
         }
@@ -145,6 +145,7 @@ public class Player : Photon.PunBehaviour
 		}
 		if (controller.collisions.below && canMove)
         {
+            canDoubleJump = true;
 			if (controller.collisions.slidingDownMaxSlope)
             {
 				if (directionalInput.x != -Mathf.Sign (controller.collisions.slopeNormal.x))
@@ -157,7 +158,10 @@ public class Player : Photon.PunBehaviour
             {
 				velocity.y = maxJumpVelocity;
 			}
-		}
+		}else if(canDoubleJump&&(gameObject.name!= "jahRay(Clone)")) {
+            canDoubleJump = false;
+            velocity.y = maxJumpVelocity;
+        }
 	}
 
 	public void OnJumpInputUp()
@@ -202,7 +206,7 @@ public class Player : Photon.PunBehaviour
 		}
 
 	}
-    float tempSign = -1;
+
     void LookAtTarget() //This function changes players direction towards enemy
     {
         if(target != null)
@@ -240,6 +244,7 @@ public class Player : Photon.PunBehaviour
             stream.SendNext(this.transform.position);
             stream.SendNext(health);
             stream.SendNext(this.transform.localScale);
+            stream.SendNext(isfacingRight);
         }
         else
         {
@@ -253,6 +258,7 @@ public class Player : Photon.PunBehaviour
             currentPacketTime = info.timestamp;
             
             target.transform.localScale = (Vector3)stream.ReceiveNext();
+            isfacingRight = (bool)stream.ReceiveNext();
         }
     }
 }

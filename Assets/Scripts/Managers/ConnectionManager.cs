@@ -22,6 +22,8 @@ public class ConnectionManager : Photon.PunBehaviour {
         //make sure use photonNetwork on master and clients
         if(offlineMode) {
             PhotonNetwork.offlineMode = true;
+            btn_play.interactable = true;
+            btn_play.GetComponentInChildren<Text>().text = "Play";
         } else {
             PhotonNetwork.automaticallySyncScene = true;
             if(PhotonNetwork.connectionStateDetailed == ClientState.PeerCreated) {

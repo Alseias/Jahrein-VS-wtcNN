@@ -388,8 +388,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   canUseSkill: 1
-  maxJumpHeight: 4
-  minJumpHeight: 3
+  canDoubleJump: 0
+  maxJumpHeight: 2
+  minJumpHeight: 0.24
   timeToJumpApex: 0.4
   health: 100
   isfacingRight: 0
@@ -413,8 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3c293932c921648b853b3999597a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hud: {fileID: 1276426522113334, guid: c267e4ad05562ef4b952cb072ed9da4f, type: 2}
+  hud: {fileID: 0}
   currentHealth: 0
+  isAlive: 0
+  Sprite: {fileID: 21300004, guid: 08366761d793a4d41a366f692a877f14, type: 3}
 --- !u!114 &114896018929359106
 MonoBehaviour:
   m_ObjectHideFlags: 1
