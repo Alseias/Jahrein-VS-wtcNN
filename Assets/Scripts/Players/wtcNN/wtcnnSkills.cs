@@ -124,15 +124,7 @@ public class wtcnnSkills : Photon.PunBehaviour
                         pv.RPC("WtcnGasmAnimTrigger", PhotonTargets.All);
                         //anim.Play("wtcnGasm");
                         //anim.SetInteger("State", 5);
-                        if (OnTrigger)
-                        {
-                            Debug.Log("TriggerEnter");
-                            if (Raycasting())
-                            {
-                                _player.target.GetComponent<Stats>().TakeDamage(10);
-                                Debug.Log("Damage given");
-                            }
-                        }
+
                     }
                     
                     if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
@@ -210,7 +202,11 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void CheckRayCast()
     {
-        OnTrigger = !OnTrigger;
+        Debug.Log("TriggerEnter");
+        if(Raycasting()) {
+            _player.target.GetComponent<Stats>().TakeDamage(10);
+            Debug.Log("Damage given");
+        }
     }
 
     void AttackTrigger()

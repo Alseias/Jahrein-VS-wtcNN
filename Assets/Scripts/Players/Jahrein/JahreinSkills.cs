@@ -90,53 +90,38 @@ public class JahreinSkills : Photon.PunBehaviour
                 {
                     if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
                     {
-<<<<<<< HEAD
                         anim.Play("jahreinRunning");
-=======
                         _photonView.RPC("RunningAnimTrigger", PhotonTargets.All);
                         //anim.Play("jahreinRunning");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 4);
                     }
                     if (Input.GetKeyUp(KeyCode.RightArrow))
                     {
-<<<<<<< HEAD
                         anim.Play("jahIdle");
-=======
                         _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
                         //anim.Play("jahIdle");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 0);
                     }
 
                     if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
                     {
-<<<<<<< HEAD
                         anim.Play("jahreinRunning");
-=======
                         _photonView.RPC("RunningAnimTrigger", PhotonTargets.All);
                         //anim.Play("jahreinRunning");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 4);
                     }
                     if (Input.GetKeyUp(KeyCode.LeftArrow))
                     {
-<<<<<<< HEAD
                         anim.Play("jahIdle");
-=======
                         _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
                         //anim.Play("jahIdle");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 0);
                     }
                     if (Input.GetKeyDown(KeyCode.UpArrow))
                     {
-<<<<<<< HEAD
                         anim.Play("jahJump");
-=======
                         _photonView.RPC("JumpAnimTrigger", PhotonTargets.All);
                         //anim.Play("jahJump");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 5);
                     }
 
@@ -165,12 +150,9 @@ public class JahreinSkills : Photon.PunBehaviour
                         skillACD[0].use();
                         usedSkill = 0;
                         _player.canMove = false;
-<<<<<<< HEAD
                         anim.Play("jahRagev2");
-=======
                         _photonView.RPC("JahRageAnimTrigger", PhotonTargets.All);
                         //anim.Play("jahRagev2");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 1);
                         //AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
@@ -183,12 +165,10 @@ public class JahreinSkills : Photon.PunBehaviour
                         usedSkill = 1;
 
                         _controller.canMove = false;
-<<<<<<< HEAD
+
                         anim.Play("kutsamav2");
-=======
                         _photonView.RPC("KutsamaAnimTrigger", PhotonTargets.All);
                         //anim.Play("kutsamav2");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 2);
                         // AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
@@ -199,13 +179,10 @@ public class JahreinSkills : Photon.PunBehaviour
                         _player.canUseSkill = false;
                         skillACD[2].use();
                         usedSkill = 2;
-<<<<<<< HEAD
 
                         anim.Play("PipiSuyu");
-=======
                         _photonView.RPC("PipisuyuAnimTrigger", PhotonTargets.All);
                         //anim.Play("PipiSuyu");
->>>>>>> 87e26449d8cb358178d7d0c2fd83ae403b840f82
                         //anim.SetInteger("State", 3);
                         _photonView.RPC("PipiSuyu", PhotonTargets.All);
                         //AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
