@@ -54,4 +54,5 @@ MonoBehaviour:
   - ChangeDirection
   - shoot
   - setVelocity
+  - CasperAnimTrigger
   DisableAutoOpenWizard: 1

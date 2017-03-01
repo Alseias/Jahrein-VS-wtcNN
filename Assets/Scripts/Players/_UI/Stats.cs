@@ -30,14 +30,17 @@ public class Stats : Photon.PunBehaviour
             {
                 isAlive = false;
                 Debug.Log("YOU ARE DIE !!");
+
                 if (this.gameObject.name == "wtcn")
                     this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
                 else
                     this.gameObject.GetComponent<JahreinSkills>().playSound(5);
-                this.gameObject.GetComponent<Player>().canMove = false;
-                this.gameObject.GetComponent<Player>().canUseSkill = false;
-                this.gameObject.GetComponent<Animator>().Play("dying");
-                this.gameObject.GetComponent<Animator>().SetInteger("State", 8);
+
+                this.gameObject.GetComponent<Player>().enabled = false;
+                this.gameObject.GetComponent<JahreinSkills>().enabled = false;
+                this.gameObject.GetComponent<PhotonView>().RPC("DyingAnimTrigger", PhotonTargets.All);
+                //this.gameObject.GetComponent<Animator>().Play("dying");
+                //this.gameObject.GetComponent<Animator>().SetInteger("State", 8);
 
             }
             float _health = currentHealth / maxHealth;
@@ -55,8 +58,9 @@ public class Stats : Photon.PunBehaviour
 
     void Dead()
     {
-        this.gameObject.GetComponent<Animator>().SetInteger("State", 8);
-        this.gameObject.GetComponent<Animator>().Play("dead");
+        this.gameObject.GetComponent<PhotonView>().RPC("DeadAnimTrigger", PhotonTargets.All);
+        //this.gameObject.GetComponent<Animator>().SetInteger("State", 8);
+        //this.gameObject.GetComponent<Animator>().Play("dead");
     }
 
     [PunRPC]
@@ -79,4 +83,19 @@ public class Stats : Photon.PunBehaviour
         hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
 
     }
+
+    #region Animation RPC
+
+    [PunRPC]
+    void DyingAnimTrigger()
+    {
+        this.gameObject.GetComponent<Animator>().Play("dying");
+    }
+
+    [PunRPC]
+    void DeadAnimTrigger()
+    {
+        this.gameObject.GetComponent<Animator>().Play("dead");
+    }
+    #endregion
 }
