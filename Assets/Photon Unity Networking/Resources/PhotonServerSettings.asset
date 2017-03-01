@@ -55,4 +55,16 @@ MonoBehaviour:
   - shoot
   - setVelocity
   - CasperAnimTrigger
+  - AwpAnimTrigger
+  - DeadAnimTrigger
+  - DyingAnimTrigger
+  - IdleAnimTrigger
+  - JahRageAnimTrigger
+  - KutsamaAnimTrigger
+  - PipisuyuAnimTrigger
+  - RunningAnimTrigger
+  - WalkingAnimTrigger
+  - WtcnGasmAnimTrigger
+  - AttackAnimTrigger
+  - JumpAnimTrigger
   DisableAutoOpenWizard: 1

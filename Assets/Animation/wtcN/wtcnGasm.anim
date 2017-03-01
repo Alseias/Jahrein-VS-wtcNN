@@ -189,8 +189,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.1166667
-    functionName: ChangeToIdle
+  - time: 0.9166667
+    functionName: CheckRayCast
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -198,6 +198,20 @@ AnimationClip:
     messageOptions: 0
   - time: 1.15
     functionName: ChangeVelocity
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
+    functionName: CheckRayCast
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1833333
+    functionName: ChangeToIdle
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

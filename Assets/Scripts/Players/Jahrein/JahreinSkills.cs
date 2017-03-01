@@ -115,6 +115,7 @@ public class JahreinSkills : Photon.PunBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.UpArrow))
                     {
+                        _photonView.RPC("JumpAnimTrigger", PhotonTargets.All);
                         //anim.Play("jahJump");
                         //anim.SetInteger("State", 5);
                     }
@@ -280,11 +281,13 @@ public class JahreinSkills : Photon.PunBehaviour
         anim.Play("jahIdle");
     }
 
+    [PunRPC]
     void JumpAnimTrigger()
     {
         anim.Play("jahJump");
     }
 
+    [PunRPC]
     void AttackAnimTrigger()
     {
         anim.Play("BasicAttackv2");
@@ -292,6 +295,9 @@ public class JahreinSkills : Photon.PunBehaviour
     #endregion
 
     #region Animation events
+
+
+
     void JahRageTrigger()
     {
         _photonView.RPC("jahRageSkill", PhotonTargets.All);
@@ -299,6 +305,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
     void ChangeToIdle()
     {
+        _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
         anim.SetInteger("State", 0);
     }
 

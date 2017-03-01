@@ -17,7 +17,7 @@ public class Stats : Photon.PunBehaviour
         isAlive = true;
         currentHealth = maxHealth;
         healthbar = GameObject.Find("healthbar").gameObject;
-        Debug.Log(hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite.name);
+        //Debug.Log(hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite.name);
         
     }
 
