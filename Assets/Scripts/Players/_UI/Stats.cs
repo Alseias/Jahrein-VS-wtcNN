@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stats : Photon.PunBehaviour
 {
     public const float maxHealth = 100;
-    public GameObject hud;
+    GameObject hud;
     public float currentHealth;
     public bool isAlive;
     public Sprite Sprite;

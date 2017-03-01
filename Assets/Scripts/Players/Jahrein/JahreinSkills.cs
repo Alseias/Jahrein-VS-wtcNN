@@ -91,28 +91,28 @@ public class JahreinSkills : Photon.PunBehaviour
                     if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
                     {
                         anim.Play("jahreinRunning");
-                        anim.SetInteger("State", 4);
+                        //anim.SetInteger("State", 4);
                     }
                     if (Input.GetKeyUp(KeyCode.RightArrow))
                     {
                         anim.Play("jahIdle");
-                        anim.SetInteger("State", 0);
+                        //anim.SetInteger("State", 0);
                     }
 
                     if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
                     {
                         anim.Play("jahreinRunning");
-                        anim.SetInteger("State", 4);
+                        //anim.SetInteger("State", 4);
                     }
                     if (Input.GetKeyUp(KeyCode.LeftArrow))
                     {
                         anim.Play("jahIdle");
-                        anim.SetInteger("State", 0);
+                        //anim.SetInteger("State", 0);
                     }
                     if (Input.GetKeyDown(KeyCode.UpArrow))
                     {
                         anim.Play("jahJump");
-                        anim.SetInteger("State", 5);
+                        //anim.SetInteger("State", 5);
                     }
 
                 }
@@ -140,7 +140,7 @@ public class JahreinSkills : Photon.PunBehaviour
                         usedSkill = 0;
                         _player.canMove = false;
                         anim.Play("jahRagev2");
-                        anim.SetInteger("State", 1);
+                        //anim.SetInteger("State", 1);
                         //AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
@@ -153,7 +153,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
                         _controller.canMove = false;
                         anim.Play("kutsamav2");
-                        anim.SetInteger("State", 2);
+                        //anim.SetInteger("State", 2);
                         // AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
@@ -165,7 +165,7 @@ public class JahreinSkills : Photon.PunBehaviour
                         usedSkill = 2;
 
                         anim.Play("PipiSuyu");
-                        anim.SetInteger("State", 3);
+                        //anim.SetInteger("State", 3);
                         _photonView.RPC("PipiSuyu", PhotonTargets.All);
                         //AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
