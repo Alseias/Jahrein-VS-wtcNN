@@ -206,11 +206,15 @@ public class wtcnnSkills : Photon.PunBehaviour
     }
 
     [PunRPC]
-    void BasicAttack()
-    {
-        GameObject objShur= Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity);
-        Debug.Log(_player.isfacingRight);
-        objShur.SendMessage("dir", _player.isfacingRight, SendMessageOptions.RequireReceiver);
+    void BasicAttack() {
+        shurikenScript objShur = PhotonNetwork.Instantiate("shuriken", shurikenSpawnPoint.transform.position, Quaternion.identity,0).GetComponent<shurikenScript>();
+        /*objShur.SendMessage("dir", _player.isfacingRight, SendMessageOptions.RequireReceiver);
+        objShur.SendMessage("id", pv.viewID, SendMessageOptions.RequireReceiver);*/
+        objShur.pvID = pv.viewID;
+        if(_player.isfacingRight)
+            objShur.fDir = 1;
+        else
+            objShur.fDir = -1;
     }
 
     [PunRPC]

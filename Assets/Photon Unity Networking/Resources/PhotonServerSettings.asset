@@ -52,4 +52,6 @@ MonoBehaviour:
   - ready
   - playSound
   - ChangeDirection
+  - shoot
+  - setVelocity
   DisableAutoOpenWizard: 1
