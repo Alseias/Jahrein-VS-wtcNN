@@ -235,22 +235,23 @@ public class Player : Photon.PunBehaviour
     {
         if(stream.isWriting)
         {
+            stream.SendNext(animator.GetInteger("State")); //Set animation state
+
             stream.SendNext(this.transform.position);
             stream.SendNext(health);
-            stream.SendNext(animator.GetInteger("State")); //Set animation state
-            stream.SendNext(player.transform.localScale);
+            stream.SendNext(this.transform.localScale);
         }
         else
         {
             //correctPosition = (Vector3)stream.ReceiveNext();
-
+            state = (int)stream.ReceiveNext(); //Get Animation state
             currentTime = 0.0;
             positionAtLastPacket = transform.position;
             realPosition = (Vector3)stream.ReceiveNext();
             health = (float)stream.ReceiveNext();
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.timestamp;
-            state = (int)stream.ReceiveNext(); //Get Animation state
+            
             target.transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }

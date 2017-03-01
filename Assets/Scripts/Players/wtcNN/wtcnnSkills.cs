@@ -53,34 +53,35 @@ public class wtcnnSkills : Photon.PunBehaviour
         }
     }
 
+    private void FixedUpdate() {
+        if(pv.isMine) {
+            if(true){
+                if(Input.GetKeyDown(KeyCode.LeftArrow)) {
+                    anim.Play("wtcnRunning");
+                    anim.SetInteger("State", 3);
+                }
+                if(Input.GetKeyUp(KeyCode.RightArrow)) {
+                    anim.Play("wtcnIdle");
+                    anim.SetInteger("State", 0);
+                }
+                if(Input.GetKeyDown(KeyCode.RightArrow)) {
+                    anim.Play("wtcnWalking");
+                    anim.SetInteger("State", 4);
+                }
+                if(Input.GetKeyUp(KeyCode.LeftArrow)) {
+                    anim.Play("wtcnIdle");
+                    anim.SetInteger("State", 0);
+                }
+            }
+        }
+    }
+
     void Update()
     {
         if (pv.isMine)
         {
             Raycasting();
-            if (true)//can move
-            {
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    anim.Play("wtcnRunning");
-                    anim.SetInteger("State",3);
-                }
-                if (Input.GetKeyUp(KeyCode.RightArrow))
-                {
-                    anim.Play("wtcnIdle");
-                    anim.SetInteger("State",0);
-                }
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    anim.Play("wtcnWalking");
-                    anim.SetInteger("State",4);
-                }
-                if (Input.GetKeyUp(KeyCode.LeftArrow))
-                {
-                    anim.Play("wtcnIdle");
-                    anim.SetInteger("State",0);
-                }
-            }
+
 
             
 

@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 95588211672066676}
   - component: {fileID: 114942270354623500}
   - component: {fileID: 114900934224176394}
+  - component: {fileID: 114437186993548108}
   - component: {fileID: 114849173555132420}
   - component: {fileID: 114717691345566406}
   - component: {fileID: 114811536063702468}
@@ -337,6 +338,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3aef8ae8335738146bde2a4ab7bee81d, type: 3}
   rayStart: {fileID: 4911621908453134}
   rayEnd: {fileID: 4382976176790716}
+--- !u!114 &114437186993548108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!114 &114717691345566406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,6 +513,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114900934224176394}
   - {fileID: 114811536063702468}
+  - {fileID: 114437186993548108}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
