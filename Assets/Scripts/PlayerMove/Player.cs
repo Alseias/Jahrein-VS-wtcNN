@@ -96,7 +96,10 @@ public class Player : Photon.PunBehaviour
             {
                 target = GameObject.FindGameObjectWithTag("enemy");
             }
-            LookAtTarget();
+            if (canUseSkill)
+            {
+                LookAtTarget();
+            }
         }
 
         if(controller.collisions.above || controller.collisions.below)

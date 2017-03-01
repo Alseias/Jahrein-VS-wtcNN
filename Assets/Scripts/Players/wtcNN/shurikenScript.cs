@@ -13,7 +13,6 @@ public class shurikenScript : MonoBehaviour
     public bool faceDir;
     public float direction,fDir;
     public int pvID;
-
     GameObject wtcn;
     void dir(bool _dir)
     {

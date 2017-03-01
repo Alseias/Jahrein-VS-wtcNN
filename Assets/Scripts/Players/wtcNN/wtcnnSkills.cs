@@ -56,7 +56,7 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void Update()
     {
-        distance = Vector2.Distance(_player.target.transform.position, transform.position);
+        
 
         if (pv.isMine)
         {
@@ -87,42 +87,6 @@ public class wtcnnSkills : Photon.PunBehaviour
                     }
                 }
 
-
-                if (_player.canUseSkill)
-                {
-                    if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
-                    {
-
-                        usedSkill = 0;
-                        skillACD[0].use();
-                        anim.Play("wtcnGasm");
-                        anim.SetInteger("State", 5);
-                    }
-
-                    if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
-                    {
-                        usedSkill = 1;
-                        skillACD[1].use();
-                        anim.Play("casper");
-                        anim.SetInteger("State", 2);
-                        pv.RPC("playSound", PhotonTargets.All, usedSkill);
-                        if (distance < 5f)
-                        {
-                            _player.target.SendMessage("Fear");
-                            Debug.Log("Skill information : Casper");
-                        }
-                    }
-
-                    if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
-                    {
-                        usedSkill = 3;
-                        skillACD[3].use();
-                        anim.Play("AWP");
-                        anim.SetInteger("State", 6);
-                        pv.RPC("playSound", PhotonTargets.All, usedSkill);
-                    }
-                }
-
                 if (Input.GetButtonDown("Attack")) //Basic Attack
                 {
                     anim.Play("BasicAttack");
@@ -141,6 +105,55 @@ public class wtcnnSkills : Photon.PunBehaviour
                         canJump = false;
                     }
                 }
+
+                if (_player.canUseSkill)
+                {
+                    if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
+                    {
+                        _player.canUseSkill = false;
+                        usedSkill = 0;
+                        skillACD[0].use();
+                        anim.Play("wtcnGasm");
+                        anim.SetInteger("State", 5);
+                    }
+
+                    if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
+                    {
+                        _player.canUseSkill = false;
+                        distance = Vector2.Distance(_player.target.transform.position, transform.position);
+                        usedSkill = 1;
+                        skillACD[1].use();
+                        anim.Play("casper");
+                        anim.SetInteger("State", 2);
+                        pv.RPC("playSound", PhotonTargets.All, usedSkill);
+                        if (distance < 5f)
+                        {
+                            _player.target.SendMessage("Fear");
+                            Debug.Log("Skill information : Casper");
+                        }
+                    }
+
+                    if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
+                    {
+                        _player.canUseSkill = false;
+                        usedSkill = 3;
+                        skillACD[3].use();
+                        anim.Play("AWP");
+                        anim.SetInteger("State", 6);
+                        pv.RPC("playSound", PhotonTargets.All, usedSkill);
+                    }
+                }
+
+                else
+                {
+                    //if player cant use skill
+                    if (skillACD[usedSkill].durationEnd)
+                    {
+                        //if duration ends player can use skill again
+                        _player.canUseSkill = true;
+                    }
+                }
+                _player.canMove = skillACD[0].durationEnd;
             }
         }
     }
@@ -149,7 +162,6 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1<<LayerMask.NameToLayer("enemy"));
-       
     }
 
     #region collision

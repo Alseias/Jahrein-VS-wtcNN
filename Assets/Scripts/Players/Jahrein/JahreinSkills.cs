@@ -160,7 +160,6 @@ public class JahreinSkills : Photon.PunBehaviour
 
                     if (Input.GetButtonDown("SkillE") && skillACD[2].itsReady)
                     {
-
                         _player.canUseSkill = false;
                         skillACD[2].use();
                         usedSkill = 2;
@@ -212,16 +211,14 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         _player.velocity = Vector2.zero;
-        _player.velocity.x = 150f * (_player.isfacingRight ? 1 : -1);
+        _player.velocity.x = 22f * (_player.isfacingRight ? 1 : -1);
         damage = damage + (damage * 0.25f);
     }
 
     [PunRPC]
     void PipiSuyu()
     {
-        
         Instantiate(pipiSuyu, new Vector3(pipiSuyuSpawn.transform.position.x, pipiSuyuSpawn.transform.position.y, 0), this.transform.rotation);
-
     }
 
     [PunRPC]
