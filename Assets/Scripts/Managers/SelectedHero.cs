@@ -13,7 +13,8 @@ public class SelectedHero : Photon.PunBehaviour {
         /*(int i = 0; i < parentChr.transform.childCount; i++) {
 
         }*/
-        
+                PhotonNetwork.automaticallySyncScene = true;
+
         //PLAYER INSTANTIATE
         playerID = PlayerPrefs.GetInt("player");
         switch(playerID) {
@@ -35,15 +36,13 @@ public class SelectedHero : Photon.PunBehaviour {
     // Update is called once per frame
     GameObject[] players;
     void Update() {
-        
-        if(PhotonNetwork.room.PlayerCount==2) {
+        Debug.Log("ismaster: "+PhotonNetwork.isMasterClient);
+        if(PhotonNetwork.room.PlayerCount==2&& PhotonNetwork.isMasterClient) {
 
             players = GameObject.FindGameObjectsWithTag("Player");
             if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
-                //PhotonNetwork.DestroyAll();
-                PhotonNetwork.automaticallySyncScene = true;
-                
                 PhotonNetwork.LoadLevel("Game");
+                
             }
 
         }else if(PhotonNetwork.offlineMode) {

@@ -6,6 +6,7 @@ public class Player : Photon.PunBehaviour
 {
     public bool canMove = false;
     public bool canUseSkill = true;
+    public bool canDoubleJump;
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -147,6 +148,7 @@ public class Player : Photon.PunBehaviour
 		}
 		if (controller.collisions.below && canMove)
         {
+            canDoubleJump = true;
 			if (controller.collisions.slidingDownMaxSlope)
             {
 				if (directionalInput.x != -Mathf.Sign (controller.collisions.slopeNormal.x))
@@ -159,7 +161,10 @@ public class Player : Photon.PunBehaviour
             {
 				velocity.y = maxJumpVelocity;
 			}
-		}
+		}else if(canDoubleJump&&(gameObject.name!= "jahRay(Clone)")) {
+            canDoubleJump = false;
+            velocity.y = maxJumpVelocity;
+        }
 	}
 
 	public void OnJumpInputUp()
@@ -237,23 +242,26 @@ public class Player : Photon.PunBehaviour
     {
         if(stream.isWriting)
         {
+            stream.SendNext(animator.GetInteger("State")); //Set animation state
+
             stream.SendNext(this.transform.position);
             stream.SendNext(health);
-            stream.SendNext(animator.GetInteger("State")); //Set animation state
-            stream.SendNext(player.transform.localScale);
+            stream.SendNext(this.transform.localScale);
+            stream.SendNext(isfacingRight);
         }
         else
         {
             //correctPosition = (Vector3)stream.ReceiveNext();
-
+            state = (int)stream.ReceiveNext(); //Get Animation state
             currentTime = 0.0;
             positionAtLastPacket = transform.position;
             realPosition = (Vector3)stream.ReceiveNext();
             health = (float)stream.ReceiveNext();
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.timestamp;
-            state = (int)stream.ReceiveNext(); //Get Animation state
+            
             target.transform.localScale = (Vector3)stream.ReceiveNext();
+            isfacingRight = (bool)stream.ReceiveNext();
         }
     }
 }

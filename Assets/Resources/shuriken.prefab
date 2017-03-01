@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 114432027767959304}
   - component: {fileID: 50207556798438610}
   - component: {fileID: 58966614204731966}
-  - component: {fileID: 114289716064889624}
-  - component: {fileID: 114104282132132926}
+  - component: {fileID: 114401610478213300}
+  - component: {fileID: 114154343380668728}
   m_Layer: 0
   m_Name: shuriken
   m_TagString: shuriken
@@ -79,7 +79,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114104282132132926
+--- !u!114 &114154343380668728
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
   m_SynchronizeAngularVelocity: 1
---- !u!114 &114289716064889624
+--- !u!114 &114401610478213300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 114104282132132926}
+  - {fileID: 114154343380668728}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

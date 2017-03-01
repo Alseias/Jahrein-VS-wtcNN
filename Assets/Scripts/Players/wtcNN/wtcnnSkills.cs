@@ -54,6 +54,8 @@ public class wtcnnSkills : Photon.PunBehaviour
         }
     }
 
+
+
     void Update()
     {
         
@@ -153,7 +155,23 @@ public class wtcnnSkills : Photon.PunBehaviour
                         _player.canUseSkill = true;
                     }
                 }
+                //if game started 
                 _player.canMove = skillACD[0].durationEnd;
+
+                /*if (Input.GetKeyDown(KeyCode.UpArrow)) // This will be used for DoubleJump
+>>>>>>> 1a45961d6d51616180c41a484c209231df2209db
+                {
+                    //if player cant use skill
+                    if (skillACD[usedSkill].durationEnd)
+                    {
+                        //if duration ends player can use skill again
+                        _player.canUseSkill = true;
+                    }
+<<<<<<< HEAD
+                }
+                _player.canMove = skillACD[0].durationEnd;
+=======
+                }*/
             }
         }
     }

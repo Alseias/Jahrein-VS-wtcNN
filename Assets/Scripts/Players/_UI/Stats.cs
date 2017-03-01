@@ -8,6 +8,7 @@ public class Stats : Photon.PunBehaviour
     public GameObject hud;
     public float currentHealth;
     public bool isAlive;
+    public Sprite Sprite;
 
     GameObject healthbar;
 
@@ -16,6 +17,8 @@ public class Stats : Photon.PunBehaviour
         isAlive = true;
         currentHealth = maxHealth;
         healthbar = GameObject.Find("healthbar").gameObject;
+        Debug.Log(hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite.name);
+        
     }
 
     public void TakeDamage (int damage)
@@ -62,13 +65,18 @@ public class Stats : Photon.PunBehaviour
         healthbar.transform.localScale = new Vector3(health, healthbar.transform.localScale.y, healthbar.transform.localScale.z);
     }
 
-    public void JahInstantiateHud()
+    public void playerOneHud()
     {
-        PhotonNetwork.Instantiate(hud.name, new Vector3(-5, 4, 0), Quaternion.identity, 0);
+
+       hud = PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
+       hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
+
     }
 
-    public void WtcnInstantiateHud()
+    public void playerTwoHud()
     {
-        PhotonNetwork.Instantiate(hud.name, new Vector3(5, 4, 0), Quaternion.identity, 0);
+        hud = PhotonNetwork.Instantiate("p2HealthUI", new Vector3(5, 4, 0), Quaternion.identity, 0);
+        hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
+
     }
 }
