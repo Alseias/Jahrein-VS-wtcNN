@@ -203,7 +203,8 @@ public class wtcnnSkills : Photon.PunBehaviour
     void CheckRayCast()
     {
         Debug.Log("TriggerEnter");
-        if(Raycasting()) {
+        if(Raycasting())
+        {
             _player.target.GetComponent<Stats>().TakeDamage(10);
             Debug.Log("Damage given");
         }
