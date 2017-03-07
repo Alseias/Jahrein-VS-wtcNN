@@ -9,11 +9,12 @@ public class Stats : Photon.PunBehaviour
     public float currentHealth;
     public bool isAlive;
     public Sprite Sprite;
-
+    Player _player;
     GameObject healthbar;
 
     void Start ()
     {
+        _player = GetComponent<Player>();
         isAlive = true;
         currentHealth = maxHealth;
         healthbar = GameObject.Find("healthbar").gameObject;
@@ -26,6 +27,7 @@ public class Stats : Photon.PunBehaviour
         if (photonView.isMine)
         {
             currentHealth -= damage;
+            _player.health -= damage;
             if (currentHealth <= 0)
             {
                 isAlive = false;
@@ -44,6 +46,7 @@ public class Stats : Photon.PunBehaviour
 
             }
             float _health = currentHealth / maxHealth;
+
             OnChangeHealth(_health);
         }
         else
@@ -54,6 +57,7 @@ public class Stats : Photon.PunBehaviour
 
             }
         }
+
     }
 
     void Dead()
@@ -63,7 +67,7 @@ public class Stats : Photon.PunBehaviour
         //this.gameObject.GetComponent<Animator>().Play("dead");
     }
 
-    [PunRPC]
+
     void OnChangeHealth (float health)
     {
         healthbar.transform.localScale = new Vector3(health, healthbar.transform.localScale.y, healthbar.transform.localScale.z);

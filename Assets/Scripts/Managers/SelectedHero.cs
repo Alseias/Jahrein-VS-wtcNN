@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class SelectedHero : Photon.PunBehaviour {
     GameObject p1, p2;
     GameObject[] characters;
+    public Text[] txtSkills;
     int playerID;
+    uiSelectedHeroInfo heroInfo;
     // Use this for initialization
     void Start () {
 
@@ -14,6 +16,9 @@ public class SelectedHero : Photon.PunBehaviour {
 
         }*/
                 PhotonNetwork.automaticallySyncScene = true;
+
+
+        heroInfo=this.GetComponent<uiSelectedHeroInfo>();
 
         //PLAYER INSTANTIATE
         playerID = PlayerPrefs.GetInt("player");
@@ -83,11 +88,19 @@ public class SelectedHero : Photon.PunBehaviour {
             case 1:
                 if(!p1.GetComponent<PlayerChrSelect>().imready) {
                     PlayerPrefs.SetInt("chrID", id);
+                    txtSkills[0].text = heroInfo.jahrein.heroName;
+                    for(int i = 1; i < 5; i++) {
+                        txtSkills[i].text = heroInfo.jahrein.skills[i];
+                    }
                 }
                 break;
             case 2:
                 if(!p2.GetComponent<PlayerChrSelect>().imready) {
                     PlayerPrefs.SetInt("chrID", id);
+                    txtSkills[0].text = heroInfo.wtcn.heroName;
+                    for(int i = 1; i < 5; i++) {
+                        txtSkills[i].text = heroInfo.wtcn.skills[i];
+                    }
                 }
                 break;
             default:
