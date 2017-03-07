@@ -195,7 +195,7 @@ MonoBehaviour:
   MaxPlayersPerRoom: 4
   roomName: 4n4
   Loglevel: 1
-  offlineMode: 0
+  offlineMode: 1
   btn_play: {fileID: 859044150}
 --- !u!4 &180158297
 Transform:

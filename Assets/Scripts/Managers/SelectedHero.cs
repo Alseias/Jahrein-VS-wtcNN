@@ -7,6 +7,7 @@ public class SelectedHero : Photon.PunBehaviour {
     GameObject p1, p2;
     GameObject[] characters;
     public Text[] txtSkills;
+    public Image[] imgSkills;
     int playerID;
     uiSelectedHeroInfo heroInfo;
     // Use this for initialization
@@ -84,27 +85,28 @@ public class SelectedHero : Photon.PunBehaviour {
 
     //SET PLAYER CHR ID
     public void setChrID(int id) {
+        Debug.Log("selected hero id:" + id);
         switch(playerID) {
             case 1:
                 if(!p1.GetComponent<PlayerChrSelect>().imready) {
                     PlayerPrefs.SetInt("chrID", id);
-                    txtSkills[0].text = heroInfo.jahrein.heroName;
-                    for(int i = 1; i < 5; i++) {
-                        txtSkills[i].text = heroInfo.jahrein.skills[i];
-                    }
+
                 }
                 break;
             case 2:
                 if(!p2.GetComponent<PlayerChrSelect>().imready) {
                     PlayerPrefs.SetInt("chrID", id);
-                    txtSkills[0].text = heroInfo.wtcn.heroName;
-                    for(int i = 1; i < 5; i++) {
-                        txtSkills[i].text = heroInfo.wtcn.skills[i];
-                    }
                 }
                 break;
             default:
                 break;
+        }
+
+        //txtskills i dışarıdan referans alıyoruz dizi olarak 5 adet textbox
+        txtSkills[0].text = heroInfo.AllHeros[id].heroName;
+        for(int i = 0; i < 4; i++) {
+            txtSkills[i + 1].text = heroInfo.AllHeros[id].skills[i];
+            imgSkills[i].sprite = heroInfo.AllHeros[id].skillImages[i];
         }
 
 
