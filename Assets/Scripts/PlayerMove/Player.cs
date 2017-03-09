@@ -259,7 +259,6 @@ public class Player : Photon.PunBehaviour
             health = (float)stream.ReceiveNext();
             lastPacketTime = currentPacketTime;
             currentPacketTime = info.timestamp;
-            
             target.transform.localScale = (Vector3)stream.ReceiveNext();
             isfacingRight = (bool)stream.ReceiveNext();
         }

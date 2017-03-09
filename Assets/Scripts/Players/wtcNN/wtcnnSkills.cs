@@ -56,19 +56,18 @@ public class wtcnnSkills : Photon.PunBehaviour
         }
     }
 
-
-
     void Update()
     {
-        Debug.Log(OnTrigger+ " "+ _wtcnGasm);
         if (OnTrigger && !_wtcnGasm)
         {
             if (Raycasting())
             {
-                _player.target.GetComponent<Stats>().TakeDamage(10);
+                _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10);
                 Debug.Log("Damage given");
             }
         }
+
+
         if (pv.isMine)
         {
             Raycasting();
@@ -79,46 +78,35 @@ public class wtcnnSkills : Photon.PunBehaviour
                     if (Input.GetKey(KeyCode.LeftArrow))
                     {
                         pv.RPC("RunningAnimTrigger", PhotonTargets.All);
-                        //anim.Play("wtcnRunning");
-                        //anim.SetInteger("State", 3);
                     }
                     if (Input.GetKeyUp(KeyCode.RightArrow))
                     {
                         pv.RPC("IdleAnimTrigger", PhotonTargets.All);
-                        //anim.Play("wtcnIdle");
-                        //anim.SetInteger("State", 0);
                     }
                     if (Input.GetKey(KeyCode.RightArrow))
                     {
                         pv.RPC("WalkingAnimTrigger", PhotonTargets.All);
-                        //anim.Play("wtcnWalking");
-                        //anim.SetInteger("State", 4);
                     }
                     if (Input.GetKeyUp(KeyCode.LeftArrow))
                     {
                         pv.RPC("IdleAnimTrigger", PhotonTargets.All);
-                        //anim.Play("wtcnIdle");
-                        //anim.SetInteger("State", 0);
                     }
                 }
 
                 if (Input.GetButtonDown("Attack")) //Basic Attack
                 {
+                    _player.target.GetComponent<Stats>().isDamageTaken = false;
                     pv.RPC("AttackAnimTrigger", PhotonTargets.All);
-                    //anim.Play("BasicAttack");
-                    //anim.SetInteger("State", 1);
                 }
 
                 if (Input.GetKeyDown(KeyCode.UpArrow)) // This will be used for DoubleJump
                 {
                     pv.RPC("JumpAnimTrigger", PhotonTargets.All);
-                    //anim.Play("wtcnJump");
                     anim.SetInteger("State", 7);
                     if (!isGrounded && canJump)
                     {
                         pv.RPC("JumpAnimTrigger", PhotonTargets.All);
                         _player.velocity.y = 20f;
-                        //anim.Play("wtcnJump");
                         anim.SetInteger("State", 7);
                         canJump = false;
                     }
@@ -128,40 +116,37 @@ public class wtcnnSkills : Photon.PunBehaviour
                 {
                     if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
                     {
+                        _player.target.GetComponent<Stats>().isDamageTaken = false;
                         _player.canUseSkill = false;
                         usedSkill = 0;
                         skillACD[0].use();
                         pv.RPC("WtcnGasmAnimTrigger", PhotonTargets.All);
-                        //anim.Play("wtcnGasm");
-                        //anim.SetInteger("State", 5);
                         _wtcnGasm = true;
-
                     }
                     
                     if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
                     {
+                        _player.target.GetComponent<Stats>().isDamageTaken = false;
                         _player.canUseSkill = false;
                         distance = Vector2.Distance(_player.target.transform.position, transform.position);
                         usedSkill = 1;
                         skillACD[1].use();
                         pv.RPC("CasperAnimTrigger", PhotonTargets.All);
-                        //anim.Play("casper");
-                        //anim.SetInteger("State", 2);
                         pv.RPC("playSound", PhotonTargets.All, usedSkill);
                         if (distance < 5f)
                         {
+                            Debug.Log("Korkuttum xd");
                             _player.target.SendMessage("Fear");
                         }
                     }
 
                     if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
                     {
+                        _player.target.GetComponent<Stats>().isDamageTaken = false;
                         _player.canUseSkill = false;
                         usedSkill = 3;
                         skillACD[3].use();
                         pv.RPC("AwpAnimTrigger", PhotonTargets.All);
-                        //anim.Play("AWP");
-                        //anim.SetInteger("State", 6);
                         pv.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
                 }
@@ -202,9 +187,7 @@ public class wtcnnSkills : Photon.PunBehaviour
             canJump = true;
         }
     }
-    private void OnTriggerStay2D(Collider2D collision) {
-        Debug.Log(collision.tag);
-    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")

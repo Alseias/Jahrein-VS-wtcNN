@@ -67,4 +67,6 @@ MonoBehaviour:
   - WtcnGasmAnimTrigger
   - AttackAnimTrigger
   - JumpAnimTrigger
+  - TakeDamage
+  - GiveDamage
   DisableAutoOpenWizard: 1
