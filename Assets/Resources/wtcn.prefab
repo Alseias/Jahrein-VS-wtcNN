@@ -65,11 +65,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4694167850623014}
   - component: {fileID: 212203155648357976}
-  - component: {fileID: 61578115120548200}
   - component: {fileID: 95588211672066676}
+  - component: {fileID: 61578115120548200}
   - component: {fileID: 114942270354623500}
   - component: {fileID: 114900934224176394}
-  - component: {fileID: 114437186993548108}
   - component: {fileID: 114849173555132420}
   - component: {fileID: 114717691345566406}
   - component: {fileID: 114811536063702468}
@@ -297,7 +296,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a37eb7d9b179c2040a04846fc4e003ae, type: 2}
   m_CullingMode: 0
@@ -338,21 +337,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3aef8ae8335738146bde2a4ab7bee81d, type: 3}
   rayStart: {fileID: 4911621908453134}
   rayEnd: {fileID: 4382976176790716}
---- !u!114 &114437186993548108
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
 --- !u!114 &114717691345566406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,6 +377,7 @@ MonoBehaviour:
   minJumpHeight: 0.24
   timeToJumpApex: 0.4
   health: 100
+  damage: 0
   isfacingRight: 0
   target: {fileID: 0}
   player: {fileID: 0}
@@ -414,10 +399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3c293932c921648b853b3999597a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hud: {fileID: 0}
   currentHealth: 0
   isAlive: 0
-  Sprite: {fileID: 21300004, guid: 08366761d793a4d41a366f692a877f14, type: 3}
+  isDamageTaken: 0
+  spr: {fileID: 21300000, guid: 28c74470b3e2ce142b42c26b3f9c63a8, type: 3}
 --- !u!114 &114896018929359106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,7 +429,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 4
-    InterpolateOption: 4
+    InterpolateOption: 2
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 13
     InterpolateMoveTowardsAcceleration: 2
@@ -493,7 +478,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     InterpolateOption: 2
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
+    InterpolateLerpSpeed: 1
 --- !u!114 &114942270354623500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -509,14 +494,13 @@ MonoBehaviour:
   group: 0
   OwnerShipWasTransfered: 0
   prefixBackup: -1
-  synchronization: 3
+  synchronization: 1
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 114900934224176394}
   - {fileID: 114811536063702468}
-  - {fileID: 114437186993548108}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

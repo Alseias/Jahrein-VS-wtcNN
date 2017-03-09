@@ -39,4 +39,5 @@ public class PlayerChrSelect : Photon.PunBehaviour {
             //imready = (bool)stream.ReceiveNext();
         }
     }
+
 }

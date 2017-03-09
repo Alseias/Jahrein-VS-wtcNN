@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class GameManager : Photon.PunBehaviour
-{
+public class GameManager : Photon.PunBehaviour{
     //call functions from other scripts
     static public GameManager Instance;
     public GameObject[] playerPrefabs;
@@ -16,7 +15,7 @@ public class GameManager : Photon.PunBehaviour
     int playerID;
     private void Start()
     {
-
+         
         //call from other scripts
         Instance = this;
         selectedChrID = PlayerPrefs.GetInt("chrID");
@@ -33,11 +32,16 @@ public class GameManager : Photon.PunBehaviour
             }*/
             if(playerID == 1) {
                 playerOne = (GameObject)PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerOne.transform.position, Quaternion.identity, 0);
-                this.playerPrefabs[selectedChrID].GetComponent<Stats>().playerOneHud();
+                PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
+                PhotonNetwork.isMessageQueueRunning = true;
+
+                //this.playerPrefabs[selectedChrID].GetComponent<Stats>().playerOneHud();
                 //playerOne.GetComponent<Player>().canMove = false;
             } else {
                 playerTwo = (GameObject)PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerTwo.transform.position, Quaternion.identity, 0);
-                this.playerPrefabs[selectedChrID].GetComponent<Stats>().playerTwoHud();
+                PhotonNetwork.Instantiate("p2HealthUI", new Vector3(5, 4, 0), Quaternion.identity, 0);
+
+                //this.playerPrefabs[selectedChrID].GetComponent<Stats>().playerTwoHud();
                 //playerTwo.GetComponent<Player>().isfacingRight = true;
 
                 //playerTwo.GetComponent<Player>().canMove = false;
@@ -50,10 +54,10 @@ public class GameManager : Photon.PunBehaviour
     }
     private void Update()
     {
-        if(PhotonNetwork.room.PlayerCount == 2) {
+       /* if(PhotonNetwork.room.PlayerCount == 2) {
             treeSecond();
 
-        }
+        }*/
 
     }
     

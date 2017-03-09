@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxPlayersPerRoom: 2
-  roomName: 4n4n
-  Loglevel: 1
+  roomName: 4n4
+  Loglevel: 2
   offlineMode: 0
   btn_play: {fileID: 859044150}
 --- !u!4 &180158297

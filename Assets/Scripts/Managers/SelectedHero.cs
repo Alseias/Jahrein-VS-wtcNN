@@ -16,7 +16,6 @@ public class SelectedHero : Photon.PunBehaviour {
         /*(int i = 0; i < parentChr.transform.childCount; i++) {
 
         }*/
-                PhotonNetwork.automaticallySyncScene = true;
 
 
         heroInfo=this.GetComponent<uiSelectedHeroInfo>();
@@ -47,6 +46,8 @@ public class SelectedHero : Photon.PunBehaviour {
 
             players = GameObject.FindGameObjectsWithTag("Player");
             if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
+                PhotonNetwork.DestroyAll();
+
                 PhotonNetwork.LoadLevel("Game");
                 
             }
@@ -133,7 +134,8 @@ public class SelectedHero : Photon.PunBehaviour {
     }
 
     public override void OnPhotonPlayerConnected(PhotonPlayer other) {
-       // Debug.Log("OnPhotonPlayerConnected() "); // not seen if you're the player connecting
+        // Debug.Log("OnPhotonPlayerConnected() "); // not seen if you're the player connecting
+        PhotonNetwork.automaticallySyncScene = true;
 
         if(PhotonNetwork.isMasterClient) {
             //Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected

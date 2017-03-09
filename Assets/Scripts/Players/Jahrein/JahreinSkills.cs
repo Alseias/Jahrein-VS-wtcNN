@@ -55,7 +55,6 @@ public class JahreinSkills : Photon.PunBehaviour
 
     void Start()
     {
-        //_playerController = GetComponent<PlayerController>();
         _controller = GetComponent<Controller2D>();
         _player = GetComponent<Player>();
         _photonView = GetComponent<PhotonView>();
@@ -68,18 +67,19 @@ public class JahreinSkills : Photon.PunBehaviour
         }
     }
 
-    void Fear()
+    public void Fear()
     {
-        _controller.canMove = false;
-        _player.canUseSkill = false;
+        Debug.Log("Korktum :("); // Bunu yazıyor
+        _controller.enabled = false; // Bu amına kodumun yeri çalışmıyor bilgisayarı parçalıyacam.
+        _player.enabled = false;
         StartCoroutine("FearCounter");
     }
 
     IEnumerator FearCounter()
     {
-        yield return new WaitForSeconds(3);
-        _controller.canMove = true;
-        _player.canUseSkill = true;
+        yield return new WaitForSeconds(3); //Burayada giriyor
+        _controller.enabled = true;
+        _player.enabled = true;
     }
 
     void Update()
@@ -95,38 +95,28 @@ public class JahreinSkills : Photon.PunBehaviour
                     if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
                     {
                         anim.Play("jahreinRunning");
-                        _photonView.RPC("RunningAnimTrigger", PhotonTargets.All);
-                        //anim.Play("jahreinRunning");
-                        //anim.SetInteger("State", 4);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
                     }
                     if (Input.GetKeyUp(KeyCode.RightArrow))
                     {
                         anim.Play("jahIdle");
-                        _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
-                        //anim.Play("jahIdle");
-                        //anim.SetInteger("State", 0);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
                     }
 
                     if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
                     {
                         anim.Play("jahreinRunning");
-                        _photonView.RPC("RunningAnimTrigger", PhotonTargets.All);
-                        //anim.Play("jahreinRunning");
-                        //anim.SetInteger("State", 4);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
                     }
                     if (Input.GetKeyUp(KeyCode.LeftArrow))
                     {
                         anim.Play("jahIdle");
-                        _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
-                        //anim.Play("jahIdle");
-                        //anim.SetInteger("State", 0);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
                     }
                     if (Input.GetKeyDown(KeyCode.UpArrow))
                     {
                         anim.Play("jahJump");
-                        _photonView.RPC("JumpAnimTrigger", PhotonTargets.All);
-                        //anim.Play("jahJump");
-                        //anim.SetInteger("State", 5);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahJump");
                     }
 
                 }
@@ -134,9 +124,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
                 if(Input.GetButtonDown("Attack")) // Basic Attack
                 {
-                    _photonView.RPC("AttackAnimTrigger", PhotonTargets.All);
-                    //anim.Play("BasicAttackv2");
-                    //anim.SetInteger("State", 7);
+                    _photonView.RPC("AnimTrigger", PhotonTargets.All, "BasicAttackv2");
                     _photonView.RPC("basicAttack", PhotonTargets.All);
                 }
 
@@ -156,10 +144,7 @@ public class JahreinSkills : Photon.PunBehaviour
                         usedSkill = 0;
                         _player.canMove = false;
                         anim.Play("jahRagev2");
-                        _photonView.RPC("JahRageAnimTrigger", PhotonTargets.All);
-                        //anim.Play("jahRagev2");
-                        //anim.SetInteger("State", 1);
-                        //AudioSource.PlayClipAtPoint(skillSounds[0], transform.position, 2f);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahRagev2");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
 
@@ -172,25 +157,20 @@ public class JahreinSkills : Photon.PunBehaviour
                         _controller.canMove = false;
 
                         anim.Play("kutsamav2");
-                        _photonView.RPC("KutsamaAnimTrigger", PhotonTargets.All);
-                        //anim.Play("kutsamav2");
-                        //anim.SetInteger("State", 2);
-                        // AudioSource.PlayClipAtPoint(skillSounds[1], transform.position, 2f);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "kutsamav2");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
 
                     if (Input.GetButtonDown("SkillE") && skillACD[2].itsReady)
                     {
+
                         _player.canUseSkill = false;
                         skillACD[2].use();
                         usedSkill = 2;
 
                         anim.Play("PipiSuyu");
-                        _photonView.RPC("PipisuyuAnimTrigger", PhotonTargets.All);
-                        //anim.Play("PipiSuyu");
-                        //anim.SetInteger("State", 3);
-                        _photonView.RPC("PipiSuyu", PhotonTargets.All);
-                        //AudioSource.PlayClipAtPoint(skillSounds[2], transform.position, 2f);
+                        
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "PipiSuyu");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
 
                     }
@@ -238,11 +218,16 @@ public class JahreinSkills : Photon.PunBehaviour
         
     }
 
-    [PunRPC]
+    /*[PunRPC]//animtrigger a taşı
     void PipiSuyu()
     {
-        Instantiate(pipiSuyu, new Vector3(pipiSuyuSpawn.transform.position.x, pipiSuyuSpawn.transform.position.y, 0), this.transform.rotation);
-    }
+        JahPipiSuyu objPipiSuyu = Instantiate(pipiSuyu, new Vector3(pipiSuyuSpawn.transform.position.x, pipiSuyuSpawn.transform.position.y, 0), this.transform.rotation).GetComponent<JahPipiSuyu>();
+        objPipiSuyu.pvID = _photonView.viewID;
+        if (_player.isfacingRight)
+            objPipiSuyu.fDir = 1;
+        else
+            objPipiSuyu.fDir = -1;
+    }*/
 
     [PunRPC]
     void jahUlti()
@@ -259,7 +244,11 @@ public class JahreinSkills : Photon.PunBehaviour
     #endregion
 
     #region Animation RPC
-
+    [PunRPC]
+    void AnimTrigger(string animName) {
+        anim.Play(animName);
+    }
+    /*
     [PunRPC]
     void JahRageAnimTrigger()
     {
@@ -285,12 +274,6 @@ public class JahreinSkills : Photon.PunBehaviour
     }
 
     [PunRPC]
-    void WalkingAnimTrigger()
-    {
-        //Walking animation
-    }
-
-    [PunRPC]
     void IdleAnimTrigger()
     {
         anim.Play("jahIdle");
@@ -306,13 +289,13 @@ public class JahreinSkills : Photon.PunBehaviour
     void AttackAnimTrigger()
     {
         anim.Play("BasicAttackv2");
-    }
+    }*/
     #endregion
 
-    [PunRPC]
+   /* [PunRPC]
     void giveDamage() {
         _player.target.GetComponent<Stats>().TakeDamage(_player.damage);
-    }
+    }*/
 
     #region Animation events
 
@@ -334,12 +317,12 @@ public class JahreinSkills : Photon.PunBehaviour
 
     void JahRageTrigger()
     {
-        _photonView.RPC("jahRageSkill", PhotonTargets.All);
+        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahRagev2");
     }
 
     void ChangeToIdle()
     {
-        _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
+        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
         anim.SetInteger("State", 0);
     }
 

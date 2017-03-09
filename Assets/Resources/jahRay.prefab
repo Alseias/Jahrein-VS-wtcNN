@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 61892106318759676}
   - component: {fileID: 114062370873117312}
   - component: {fileID: 114094645309121682}
-  - component: {fileID: 114479564706865248}
   - component: {fileID: 114848562982247206}
   - component: {fileID: 114565588516007208}
   - component: {fileID: 114823409317971724}
@@ -283,7 +282,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1438730493920144}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 03ad4ddf02b0a874b9d9a8a90ab19b79, type: 2}
   m_CullingMode: 0
@@ -315,7 +314,6 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114565588516007208}
   - {fileID: 114094645309121682}
-  - {fileID: 114479564706865248}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -396,27 +394,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     InterpolateOption: 2
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
---- !u!114 &114479564706865248
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1438730493920144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 0
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 3
-    SynchronizeType: 2
-    Name: State
-  m_SynchronizeLayers:
-  - SynchronizeType: 2
-    LayerIndex: 0
+    InterpolateLerpSpeed: 1
 --- !u!114 &114565588516007208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,7 +500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   isAlive: 0
-  Sprite: {fileID: 21300000, guid: d428e37df2e279745a8117f8d1913378, type: 3}
+  isDamageTaken: 0
+  spr: {fileID: 21300000, guid: c859297090bf72b4087014eb95eae0ed, type: 3}
 --- !u!212 &212435971903484344
 SpriteRenderer:
   m_ObjectHideFlags: 1
