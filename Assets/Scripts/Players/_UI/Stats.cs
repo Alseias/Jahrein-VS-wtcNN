@@ -23,8 +23,10 @@ public class Stats : Photon.PunBehaviour
 
     public void TakeDamage (int damage)
     {
+        Debug.Log("Damage taken");
         if (photonView.isMine)
         {
+            
             currentHealth -= damage;
             if (currentHealth <= 0)
             {

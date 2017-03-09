@@ -16,7 +16,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     Player _player;
     PhotonView pv;
     Controller2D controller;
-    bool canJump, isGrounded, OnTrigger;
+    bool canJump, isGrounded, OnTrigger, _wtcnGasm;
     string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
     float[] skillCoolDowns = { 4, 4, 7, 25 };
     AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
@@ -34,6 +34,7 @@ public class wtcnnSkills : Photon.PunBehaviour
         isGrounded = false;
         OnTrigger = false;
         canJump = true;
+        _wtcnGasm = false;
 
         if (photonView.isMine)
             setSkills();
@@ -59,6 +60,15 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void Update()
     {
+        Debug.Log(OnTrigger+ " "+ _wtcnGasm);
+        if (OnTrigger && !_wtcnGasm)
+        {
+            if (Raycasting())
+            {
+                _player.target.GetComponent<Stats>().TakeDamage(10);
+                Debug.Log("Damage given");
+            }
+        }
         if (pv.isMine)
         {
             Raycasting();
@@ -124,6 +134,7 @@ public class wtcnnSkills : Photon.PunBehaviour
                         pv.RPC("WtcnGasmAnimTrigger", PhotonTargets.All);
                         //anim.Play("wtcnGasm");
                         //anim.SetInteger("State", 5);
+                        _wtcnGasm = true;
 
                     }
                     
@@ -162,6 +173,11 @@ public class wtcnnSkills : Photon.PunBehaviour
                     {
                         //if duration ends player can use skill again
                         _player.canUseSkill = true;
+                        
+                    }
+                    if(skillACD[0].durationEnd)
+                    {
+                        _wtcnGasm = false;
                     }
                 }
                 _player.canMove = skillACD[0].durationEnd;
@@ -202,12 +218,7 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void CheckRayCast()
     {
-        Debug.Log("TriggerEnter");
-        if(Raycasting())
-        {
-            _player.target.GetComponent<Stats>().TakeDamage(10);
-            Debug.Log("Damage given");
-        }
+        OnTrigger = !OnTrigger;
     }
 
     void AttackTrigger()
