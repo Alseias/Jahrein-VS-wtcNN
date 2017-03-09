@@ -47,7 +47,7 @@ public class Stats : Photon.PunBehaviour
                 float _health = currentHealth / maxHealth;
                 OnChangeHealth(_health);
                 isDamageTaken = true;
-           }
+            }
         }
     }
 
