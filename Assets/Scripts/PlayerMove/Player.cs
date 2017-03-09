@@ -14,6 +14,7 @@ public class Player : Photon.PunBehaviour
 	float accelerationTimeGrounded = .1f;
 	float moveSpeed = 6;
     public float health = 100;
+    public float damage;
     bool getFacingRight;
     public bool isfacingRight;
     public GameObject target, player;
@@ -248,6 +249,7 @@ public class Player : Photon.PunBehaviour
             stream.SendNext(health);
             stream.SendNext(this.transform.localScale);
             stream.SendNext(isfacingRight);
+            stream.SendNext(damage);
         }
         else
         {
@@ -262,6 +264,7 @@ public class Player : Photon.PunBehaviour
             
             target.transform.localScale = (Vector3)stream.ReceiveNext();
             isfacingRight = (bool)stream.ReceiveNext();
+            damage = (float)stream.ReceiveNext();
         }
     }
 }

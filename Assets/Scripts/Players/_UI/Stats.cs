@@ -22,7 +22,8 @@ public class Stats : Photon.PunBehaviour
         
     }
 
-    public void TakeDamage (int damage)
+    [PunRPC]
+    public void TakeDamage (float damage)
     {
         if (photonView.isMine)
         {
@@ -75,15 +76,19 @@ public class Stats : Photon.PunBehaviour
 
     public void playerOneHud()
     {
-
        hud = PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
-       hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
+        photonView.RPC("changeSprite", PhotonTargets.AllBufferedViaServer);
 
     }
 
     public void playerTwoHud()
     {
         hud = PhotonNetwork.Instantiate("p2HealthUI", new Vector3(5, 4, 0), Quaternion.identity, 0);
+
+    }
+
+    [PunRPC]
+    void changeSprite() {
         hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
 
     }
