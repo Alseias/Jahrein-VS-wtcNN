@@ -18,12 +18,11 @@ public class Stats : Photon.PunBehaviour
         _player = GetComponent<Player>();
         isAlive = true;
         currentHealth = maxHealth;
-        healthbar = GameObject.Find("healthbar").gameObject;
         playerID = PlayerPrefs.GetInt("chrID");
 
-        if(hud == null && !PhotonNetwork.offlineMode)
+        if(hud == null)
         {
-            if(PhotonNetwork.isMasterClient)
+            if(PhotonNetwork.isMasterClient || PhotonNetwork.offlineMode)
             {
                 hud = GameObject.Find("p1HealthUI(Clone)");
                 hud.GetComponent<PhotonView>().RPC("changeSprite", PhotonTargets.AllBuffered, playerID);
@@ -34,29 +33,30 @@ public class Stats : Photon.PunBehaviour
                 hud.GetComponent<PhotonView>().RPC("changeSprite", PhotonTargets.All, playerID);
             }
         }
-        if(PhotonNetwork.offlineMode)
+        healthbar = hud.transform.FindChild("healthbar").gameObject;
+
+        /*if()
         {
             hud = GameObject.Find("p1HealthUI(Clone)");
             hud.GetComponent<PhotonView>().RPC("changeSprite", PhotonTargets.All, playerID);
-        }
+        }*/
         isDamageTaken = false;
     }
 
     private void Update()
     {
-        Debug.Log(healthbar.name);
     }
 
     [PunRPC]
     public void TakeDamage(float damage)
     {
-        Debug.Log("Damage taken, "+this.gameObject.name);
-        currentHealth -= damage;
+        Debug.Log("Damage taken, "+this.gameObject.name+" " +photonView.viewID);
+        //currentHealth -= damage;
         _player.health -= damage;
-        if(currentHealth <= 0 && isAlive)
+        if(_player.health <= 0 && isAlive)
         {
             isAlive = false;
-            if(this.gameObject.name == "wtcn")
+            if(this.gameObject.name == "wtcn(clone)")
                 this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
             else
                 this.gameObject.GetComponent<JahreinSkills>().playSound(5);
@@ -65,8 +65,13 @@ public class Stats : Photon.PunBehaviour
             //this.gameObject.GetComponent<JahreinSkills>().enabled = false;
             photonView.RPC("DyingAnimTrigger", PhotonTargets.All);
         }
-        float _health = currentHealth / maxHealth;
-        OnChangeHealth(_health);
+        float _health = _player.health / maxHealth;
+        //OnChangeHealth(_health);
+        if(photonView.isMine) {
+            healthbar.transform.localScale = new Vector3(_health, healthbar.transform.localScale.y, healthbar.transform.localScale.z);
+
+        }
+
         isDamageTaken = true;
     }
 
