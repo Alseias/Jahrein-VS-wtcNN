@@ -8,9 +8,10 @@ public class Stats : Photon.PunBehaviour
     GameObject hud;
     public float currentHealth;
     public bool isAlive, isDamageTaken;
-    public Sprite Sprite;
+    public Sprite spr;
     Player _player;
     GameObject healthbar;
+    int playerID;
 
     void Start ()
     {
@@ -18,6 +19,29 @@ public class Stats : Photon.PunBehaviour
         isAlive = true;
         currentHealth = maxHealth;
         healthbar = GameObject.Find("healthbar").gameObject;
+        playerID = PlayerPrefs.GetInt("chrID");
+
+        if(hud == null && !PhotonNetwork.offlineMode)
+        {
+            if(PhotonNetwork.isMasterClient)
+            {
+                hud = GameObject.Find("p1HealthUI(Clone)");
+                hud.GetComponent<PhotonView>().RPC("changeSprite", PhotonTargets.AllBuffered, playerID);
+            }
+            else
+            {
+                hud = GameObject.Find("p2HealthUI(Clone)");
+                hud.GetComponent<PhotonView>().RPC("changeSprite", PhotonTargets.All, playerID);
+            }
+        }
+        if(PhotonNetwork.offlineMode) {
+            hud = GameObject.Find("p1HealthUI(Clone)");
+            hud.GetComponent<PhotonView>().RPC("changeSprite", PhotonTargets.All, playerID);
+
+        }
+
+        //Debug.Log(hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite.name);
+
         isDamageTaken = false;
     }
 
@@ -27,39 +51,32 @@ public class Stats : Photon.PunBehaviour
     }
 
     [PunRPC]
-    public void TakeDamage (int damage)
+    public void TakeDamage(float damage)
     {
-        if (!isDamageTaken)
+        Debug.Log("Damage taken");
+        currentHealth -= damage;
+        _player.health -= damage;
+        if(currentHealth <= 0)
         {
-            if (photonView.isMine)
-            {
-                Debug.Log("Damage taken");
-                currentHealth -= damage;
-                _player.health -= damage;
-                if (currentHealth <= 0)
-                {
-                    isAlive = false;
-                    if (this.gameObject.name == "wtcn")
-                        this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
-                    else
-                        this.gameObject.GetComponent<JahreinSkills>().playSound(5);
+            isAlive = false;
+            if(this.gameObject.name == "wtcn")
+                this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
+            else
+                this.gameObject.GetComponent<JahreinSkills>().playSound(5);
 
-                    this.gameObject.GetComponent<Player>().enabled = false;
-                    this.gameObject.GetComponent<JahreinSkills>().enabled = false;
-                    this.gameObject.GetComponent<PhotonView>().RPC("DyingAnimTrigger", PhotonTargets.All);
-                }
-                float _health = currentHealth / maxHealth;
-                OnChangeHealth(_health);
-                isDamageTaken = true;
-            }
+            this.gameObject.GetComponent<Player>().enabled = false;
+            this.gameObject.GetComponent<JahreinSkills>().enabled = false;
+            this.gameObject.GetComponent<PhotonView>().RPC("DyingAnimTrigger", PhotonTargets.All);
         }
+        float _health = currentHealth / maxHealth;
+        OnChangeHealth(_health);
+        isDamageTaken = true;
     }
 
     void Dead()
     {
-        this.gameObject.GetComponent<PhotonView>().RPC("DeadAnimTrigger", PhotonTargets.All);
+        photonView.RPC("DeadAnimTrigger", PhotonTargets.All);
     }
-
 
     void OnChangeHealth (float health)
     {
@@ -68,18 +85,15 @@ public class Stats : Photon.PunBehaviour
 
     public void playerOneHud()
     {
-
-       hud = PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
-       hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
-
+        PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
     }
 
     public void playerTwoHud()
     {
-        hud = PhotonNetwork.Instantiate("p2HealthUI", new Vector3(5, 4, 0), Quaternion.identity, 0);
-        hud.transform.FindChild("healthSprite").GetComponent<SpriteRenderer>().sprite = Sprite;
-
+        PhotonNetwork.Instantiate("p2HealthUI", new Vector3(5, 4, 0), Quaternion.identity, 0);
     }
+
+
 
     #region Animation RPC
 
@@ -89,10 +103,5 @@ public class Stats : Photon.PunBehaviour
         this.gameObject.GetComponent<Animator>().Play("dying");
     }
 
-    [PunRPC]
-    void DeadAnimTrigger()
-    {
-        this.gameObject.GetComponent<Animator>().Play("dead");
-    }
     #endregion
 }

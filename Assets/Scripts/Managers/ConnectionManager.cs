@@ -53,7 +53,13 @@ public class ConnectionManager : Photon.PunBehaviour {
     //joining same room for 2. player
     public void JoinRoom() {
         if(PhotonNetwork.connectedAndReady) {
-            PlayerPrefs.SetInt("player", 2);
+            if(offlineMode) {
+                PlayerPrefs.SetInt("player", 1);
+
+            } else {
+                PlayerPrefs.SetInt("player", 2);
+
+            }
             PhotonNetwork.JoinRandomRoom();
         }
 

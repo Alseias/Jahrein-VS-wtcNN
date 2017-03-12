@@ -11,62 +11,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
-  AppID: f14f22c0-3803-450e-8e56-2f7d065dc9a2
+  AppID: 1abb0980-1a70-4e86-82fe-8e928b65f667
   VoiceAppID: 
   ChatAppID: 465b811f-682b-4ba4-9adc-4847ade0f966
   HostType: 1
   PreferredRegion: 0
-  EnabledRegions: 1
-  Protocol: 0
+  EnabledRegions: -1
+  Protocol: 1
   ServerAddress: 
   ServerPort: 5055
   VoiceServerPort: 5055
   JoinLobby: 0
   EnableLobbyStatistics: 0
-  PunLogging: 0
-  NetworkLogging: 1
+  PunLogging: 2
+  NetworkLogging: 5
   RunInBackground: 1
   RpcList:
+  - AnimTrigger
+  - AwpTrigger
+  - basicAttack
+  - BasicAttack
+  - ChangeDirection
+  - changeSprite
   - Chat
   - DestroyRpc
+  - DoJump
+  - DyingAnimTrigger
   - InstantiateRpc
+  - jahRageSkill
+  - jahUlti
+  - Marco
   - OnAwakeRPC
   - PickupItemInit
+  - playSound
+  - Polo
   - PunPickup
   - PunPickupSimple
   - PunRespawn
+  - ready
   - RequestForPickupItems
   - RequestForPickupTimes
-  - DoJump
-  - Marco
-  - Polo
   - TaggedPlayer
-  - jahRageSkill
-  - jahRageSkill3
-  - basicAttack
-  - jahUlti
-  - BasicAttack
-  - PipiSuyu
-  - OnChangeHealth
-  - AwpTrigger
-  - ready
-  - playSound
-  - ChangeDirection
-  - shoot
-  - setVelocity
-  - CasperAnimTrigger
+  - TakeDamage
+  - AttackAnimTrigger
   - AwpAnimTrigger
+  - CasperAnimTrigger
   - DeadAnimTrigger
-  - DyingAnimTrigger
   - IdleAnimTrigger
   - JahRageAnimTrigger
+  - JumpAnimTrigger
   - KutsamaAnimTrigger
+  - PipiSuyu
   - PipisuyuAnimTrigger
   - RunningAnimTrigger
+  - setVelocity
   - WalkingAnimTrigger
   - WtcnGasmAnimTrigger
-  - AttackAnimTrigger
-  - JumpAnimTrigger
-  - TakeDamage
-  - GiveDamage
   DisableAutoOpenWizard: 1

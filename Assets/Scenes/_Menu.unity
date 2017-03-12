@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6d8eefaa273994b8bfeb6c1b8d5698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxPlayersPerRoom: 4
+  MaxPlayersPerRoom: 2
   roomName: 4n4
-  Loglevel: 1
-  offlineMode: 1
+  Loglevel: 2
+  offlineMode: 0
   btn_play: {fileID: 859044150}
 --- !u!4 &180158297
 Transform:
@@ -1188,7 +1188,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2088345304}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7bf35f919b10c524a84e8d99dee1adc1, type: 3}
@@ -1249,7 +1249,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

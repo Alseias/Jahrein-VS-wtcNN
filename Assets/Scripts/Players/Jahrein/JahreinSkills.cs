@@ -11,7 +11,9 @@ public class JahreinSkills : Photon.PunBehaviour
     public GameObject vidanjor, pipiSuyu, vidanjorSpawn, pipiSuyuSpawn;
     public Sprite[] skillSprites;
     public GameObject skillUiPref;
-    public float damage = 4f;
+    public Transform rayStart, rayEnd;
+
+
     public AudioClip[] skillSounds;
 
     //PlayerController _playerController;
@@ -84,43 +86,45 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         if (photonView.isMine)
         {
+            Raycasting();
             if (GetComponent<Stats>().isAlive)
             {
-                if (_controller.canMove)
+                #region animationInput
+                if(_controller.canMove)
                 {
                     if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
                     {
                         anim.Play("jahreinRunning");
-                        _photonView.RPC("RunningAnimTrigger", PhotonTargets.All);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
                     }
                     if (Input.GetKeyUp(KeyCode.RightArrow))
                     {
                         anim.Play("jahIdle");
-                        _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
                     }
 
                     if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
                     {
                         anim.Play("jahreinRunning");
-                        _photonView.RPC("RunningAnimTrigger", PhotonTargets.All);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
                     }
                     if (Input.GetKeyUp(KeyCode.LeftArrow))
                     {
                         anim.Play("jahIdle");
-                        _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
                     }
                     if (Input.GetKeyDown(KeyCode.UpArrow))
                     {
                         anim.Play("jahJump");
-                        _photonView.RPC("JumpAnimTrigger", PhotonTargets.All);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahJump");
                     }
 
                 }
+                #endregion
 
-                if (Input.GetButtonDown("Attack")) // Basic Attack
+                if(Input.GetButtonDown("Attack")) // Basic Attack
                 {
-                    _player.target.GetComponent<Stats>().isDamageTaken = false;
-                    _photonView.RPC("AttackAnimTrigger", PhotonTargets.All);
+                    _photonView.RPC("AnimTrigger", PhotonTargets.All, "BasicAttackv2");
                     _photonView.RPC("basicAttack", PhotonTargets.All);
                 }
 
@@ -135,19 +139,17 @@ public class JahreinSkills : Photon.PunBehaviour
 
                     if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady && _controller.collisions.below)
                     {
-                        _player.target.GetComponent<Stats>().isDamageTaken = false;
                         _player.canUseSkill = false;
                         skillACD[0].use();
                         usedSkill = 0;
                         _player.canMove = false;
                         anim.Play("jahRagev2");
-                        _photonView.RPC("JahRageAnimTrigger", PhotonTargets.All);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahRagev2");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
 
                     if (Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
                     {
-                        _player.target.GetComponent<Stats>().isDamageTaken = false;
                         _player.canUseSkill = false;
                         skillACD[1].use();
                         usedSkill = 1;
@@ -155,27 +157,26 @@ public class JahreinSkills : Photon.PunBehaviour
                         _controller.canMove = false;
 
                         anim.Play("kutsamav2");
-                        _photonView.RPC("KutsamaAnimTrigger", PhotonTargets.All);
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "kutsamav2");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
 
                     if (Input.GetButtonDown("SkillE") && skillACD[2].itsReady)
                     {
-                        _player.target.GetComponent<Stats>().isDamageTaken = false;
+
                         _player.canUseSkill = false;
                         skillACD[2].use();
                         usedSkill = 2;
 
                         anim.Play("PipiSuyu");
-                        _photonView.RPC("PipisuyuAnimTrigger", PhotonTargets.All);
-                        _photonView.RPC("PipiSuyu", PhotonTargets.All);
+                        
+                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "PipiSuyu");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
 
                     }
 
                     if (Input.GetButtonDown("SkillR") && skillACD[3].itsReady)
                     {
-                        _player.target.GetComponent<Stats>().isDamageTaken = false;
                         _player.canUseSkill = false;
                         skillACD[3].use();
                         usedSkill = 3;
@@ -214,10 +215,10 @@ public class JahreinSkills : Photon.PunBehaviour
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 0), ForceMode2D.Impulse);
         _player.velocity = Vector2.zero;
         _player.velocity.x = 22f * (_player.isfacingRight ? 1 : -1);
-        damage = damage + (damage * 0.25f);
+        
     }
 
-    [PunRPC]
+    /*[PunRPC]//animtrigger a taşı
     void PipiSuyu()
     {
         JahPipiSuyu objPipiSuyu = Instantiate(pipiSuyu, new Vector3(pipiSuyuSpawn.transform.position.x, pipiSuyuSpawn.transform.position.y, 0), this.transform.rotation).GetComponent<JahPipiSuyu>();
@@ -226,7 +227,7 @@ public class JahreinSkills : Photon.PunBehaviour
             objPipiSuyu.fDir = 1;
         else
             objPipiSuyu.fDir = -1;
-    }
+    }*/
 
     [PunRPC]
     void jahUlti()
@@ -243,7 +244,11 @@ public class JahreinSkills : Photon.PunBehaviour
     #endregion
 
     #region Animation RPC
-
+    [PunRPC]
+    void AnimTrigger(string animName) {
+        anim.Play(animName);
+    }
+    /*
     [PunRPC]
     void JahRageAnimTrigger()
     {
@@ -269,12 +274,6 @@ public class JahreinSkills : Photon.PunBehaviour
     }
 
     [PunRPC]
-    void WalkingAnimTrigger()
-    {
-        //Walking animation
-    }
-
-    [PunRPC]
     void IdleAnimTrigger()
     {
         anim.Play("jahIdle");
@@ -290,21 +289,40 @@ public class JahreinSkills : Photon.PunBehaviour
     void AttackAnimTrigger()
     {
         anim.Play("BasicAttackv2");
-    }
+    }*/
     #endregion
+
+   /* [PunRPC]
+    void giveDamage() {
+        _player.target.GetComponent<Stats>().TakeDamage(_player.damage);
+    }*/
 
     #region Animation events
 
+    private bool Raycasting() {
+        Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
+        bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1 << LayerMask.NameToLayer("enemy"));
+        return rayHit;
+    }
+
+    void basicAttTrigger() {
+        
+        Debug.Log("hit enemy:" + Raycasting());
+        if(Raycasting()) {
+            _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, _player.damage);
+
+        }
+    }
 
 
     void JahRageTrigger()
     {
-        _photonView.RPC("jahRageSkill", PhotonTargets.All);
+        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahRagev2");
     }
 
     void ChangeToIdle()
     {
-        _photonView.RPC("IdleAnimTrigger", PhotonTargets.All);
+        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
         anim.SetInteger("State", 0);
     }
 
@@ -319,12 +337,4 @@ public class JahreinSkills : Photon.PunBehaviour
     }
     #endregion
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" && !photonView.isMine && jahAtt)
-        {
-            Debug.Log("Take dmg");
-            collision.GetComponent<PlayerController>().takeHit(damage);
-        }
-    }
 }

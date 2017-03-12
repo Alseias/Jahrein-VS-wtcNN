@@ -16,7 +16,6 @@ public class SelectedHero : Photon.PunBehaviour {
         /*(int i = 0; i < parentChr.transform.childCount; i++) {
 
         }*/
-                PhotonNetwork.automaticallySyncScene = true;
 
 
         heroInfo=this.GetComponent<uiSelectedHeroInfo>();
@@ -42,11 +41,13 @@ public class SelectedHero : Photon.PunBehaviour {
     // Update is called once per frame
     GameObject[] players;
     void Update() {
-        Debug.Log("ismaster: "+PhotonNetwork.isMasterClient);
+
         if(PhotonNetwork.room.PlayerCount==2&& PhotonNetwork.isMasterClient) {
 
             players = GameObject.FindGameObjectsWithTag("Player");
             if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
+                PhotonNetwork.DestroyAll();
+
                 PhotonNetwork.LoadLevel("Game");
                 
             }
@@ -85,7 +86,7 @@ public class SelectedHero : Photon.PunBehaviour {
 
     //SET PLAYER CHR ID
     public void setChrID(int id) {
-        Debug.Log("selected hero id:" + id);
+
         switch(playerID) {
             case 1:
                 if(!p1.GetComponent<PlayerChrSelect>().imready) {
@@ -133,7 +134,8 @@ public class SelectedHero : Photon.PunBehaviour {
     }
 
     public override void OnPhotonPlayerConnected(PhotonPlayer other) {
-       // Debug.Log("OnPhotonPlayerConnected() "); // not seen if you're the player connecting
+        // Debug.Log("OnPhotonPlayerConnected() "); // not seen if you're the player connecting
+        PhotonNetwork.automaticallySyncScene = true;
 
         if(PhotonNetwork.isMasterClient) {
             //Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected

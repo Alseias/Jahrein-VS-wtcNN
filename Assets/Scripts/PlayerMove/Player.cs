@@ -14,6 +14,7 @@ public class Player : Photon.PunBehaviour
 	float accelerationTimeGrounded = .1f;
 	float moveSpeed = 6;
     public float health = 100;
+    public float damage;
     bool getFacingRight;
     public bool isfacingRight;
     public GameObject target, player;
@@ -57,6 +58,11 @@ public class Player : Photon.PunBehaviour
             this.gameObject.tag = "enemy";
         }
         target = GameObject.FindGameObjectWithTag("enemy");
+        /*if(PhotonNetwork.isMasterClient) {
+            GetComponent<Stats>().playerOneHud();
+        }else {
+            GetComponent<Stats>().playerTwoHud();
+        }*/
     }
 
     void Start()
@@ -73,17 +79,11 @@ public class Player : Photon.PunBehaviour
 
     void Update()
     {
-        if (canMove)
-        {
-            CalculateVelocity();
-        }
 
-        HandleWallSliding();
-
-        controller.Move(velocity * Time.deltaTime, directionalInput);
 
         if (!photonView.isMine)
         {
+
             animator.SetInteger("State", state);
 
             timeToReachGoal = currentPacketTime - lastPacketTime;
@@ -93,6 +93,13 @@ public class Player : Photon.PunBehaviour
         }
         else
         {
+            if(canMove) {
+                CalculateVelocity();
+            }
+
+            HandleWallSliding();
+
+            controller.Move(velocity * Time.deltaTime, directionalInput);
             if(target == null)
             {
                 target = GameObject.FindGameObjectWithTag("enemy");
@@ -101,19 +108,16 @@ public class Player : Photon.PunBehaviour
             {
                 LookAtTarget();
             }
+            if(controller.collisions.above || controller.collisions.below) {
+                if(controller.collisions.slidingDownMaxSlope) {
+                    velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
+                } else {
+                    velocity.y = 0;
+                }
+            }
         }
 
-        if(controller.collisions.above || controller.collisions.below)
-        {
-			if (controller.collisions.slidingDownMaxSlope)
-            {
-				velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
-			}
-            else
-            {
-				velocity.y = 0;
-			}
-		}
+       
 	}
     
 
@@ -242,17 +246,18 @@ public class Player : Photon.PunBehaviour
     {
         if(stream.isWriting)
         {
-            stream.SendNext(animator.GetInteger("State")); //Set animation state
+            //stream.SendNext(animator.GetInteger("State")); //Set animation state
 
             stream.SendNext(this.transform.position);
             stream.SendNext(health);
             stream.SendNext(this.transform.localScale);
             stream.SendNext(isfacingRight);
+            stream.SendNext(damage);
         }
         else
         {
             //correctPosition = (Vector3)stream.ReceiveNext();
-            state = (int)stream.ReceiveNext(); //Get Animation state
+            //state = (int)stream.ReceiveNext(); //Get Animation state
             currentTime = 0.0;
             positionAtLastPacket = transform.position;
             realPosition = (Vector3)stream.ReceiveNext();
@@ -261,6 +266,7 @@ public class Player : Photon.PunBehaviour
             currentPacketTime = info.timestamp;
             target.transform.localScale = (Vector3)stream.ReceiveNext();
             isfacingRight = (bool)stream.ReceiveNext();
+            damage = (float)stream.ReceiveNext();
         }
     }
 }
