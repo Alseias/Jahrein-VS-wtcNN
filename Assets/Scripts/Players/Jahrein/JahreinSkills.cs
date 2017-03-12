@@ -129,7 +129,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
                 if(Input.GetButtonDown("Attack")) // Basic Attack
                 {
-                    anim.SetInteger("State", 7);
+                    //anim.SetInteger("State", 7);
                     _photonView.RPC("AnimTrigger", PhotonTargets.All, "BasicAttackv2");
                     _photonView.RPC("basicAttack", PhotonTargets.All);
                 }
