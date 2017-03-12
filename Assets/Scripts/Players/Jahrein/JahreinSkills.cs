@@ -227,15 +227,12 @@ public class JahreinSkills : Photon.PunBehaviour
         
     }
 
-    [PunRPC]//animtrigger a taşı
+    [PunRPC]
     void PipiSuyu()
     {
         JahPipiSuyu objPipiSuyu = Instantiate(pipiSuyu, new Vector3(pipiSuyuSpawn.transform.position.x, pipiSuyuSpawn.transform.position.y, 0), this.transform.rotation).GetComponent<JahPipiSuyu>();
         objPipiSuyu.pvID = _photonView.viewID;
-        if (_player.isfacingRight)
-            objPipiSuyu.fDir = 1;
-        else
-            objPipiSuyu.fDir = -1;
+        objPipiSuyu.fDir = _player.isfacingRight ? 1 : -1;
     }
 
     [PunRPC]
@@ -253,55 +250,11 @@ public class JahreinSkills : Photon.PunBehaviour
 
     #endregion
 
-    #region Animation RPC
     [PunRPC]
     void AnimTrigger(string animName)
     {
         anim.Play(animName);
     }
-    /*
-    [PunRPC]
-    void JahRageAnimTrigger()
-    {
-        anim.Play("jahRagev2");
-    }
-
-    [PunRPC]
-    void KutsamaAnimTrigger()
-    {
-        anim.Play("kutsamav2");
-    }
-
-    [PunRPC]
-    void PipisuyuAnimTrigger()
-    {
-        anim.Play("PipiSuyu");
-    }
-
-    [PunRPC]
-    void RunningAnimTrigger()
-    {
-        anim.Play("jahreinRunning");
-    }
-
-    [PunRPC]
-    void IdleAnimTrigger()
-    {
-        anim.Play("jahIdle");
-    }
-
-    [PunRPC]
-    void JumpAnimTrigger()
-    {
-        anim.Play("jahJump");
-    }
-
-    [PunRPC]
-    void AttackAnimTrigger()
-    {
-        anim.Play("BasicAttackv2");
-    }*/
-    #endregion
 
    /* [PunRPC]
     void giveDamage() {

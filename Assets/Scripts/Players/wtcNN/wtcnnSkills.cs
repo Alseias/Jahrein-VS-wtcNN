@@ -64,11 +64,15 @@ public class wtcnnSkills : Photon.PunBehaviour {
         }
     }
 
-    void Update() {
-        if(OnTrigger && !_wtcnGasm) {
-            if(Raycasting()) {
-                _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10);
+    void Update()
+    {
+        if(OnTrigger && !_wtcnGasm)
+        {
+            if(Raycasting())
+            {
+                _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
                 Debug.Log("Damage given");
+                _wtcnGasm = false;
             }
         }
 
@@ -185,9 +189,7 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
     #region Animation events
 
-    void CheckRayCast() {
-        OnTrigger = !OnTrigger;
-    }
+    void CheckRayCast() { OnTrigger = !OnTrigger;}
 
     void AttackTrigger() {
         pv.RPC("BasicAttack", PhotonTargets.All);
@@ -210,7 +212,8 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
     #region Animation RPC
     [PunRPC]
-    void AnimTrigger(string animName) {
+    void AnimTrigger(string animName)
+    {
         anim.Play(animName);
     }
 
