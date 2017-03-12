@@ -66,16 +66,20 @@ public class wtcnnSkills : Photon.PunBehaviour {
             if(GetComponent<Stats>().isAlive) {
                 if(_player.canMove) {
                     if(Input.GetKey(KeyCode.LeftArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnRunning");
+                        //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnRunning");
+                        anim.SetInteger("State", 3);
                     }
                     if(Input.GetKeyUp(KeyCode.RightArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                        //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                        anim.SetInteger("State", 0);
                     }
                     if(Input.GetKey(KeyCode.RightArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnWalking");
+                        //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnWalking");
+                        anim.SetInteger("State", 4);
                     }
                     if(Input.GetKeyUp(KeyCode.LeftArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                       //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                        anim.SetInteger("State", 0);
                     }
                 }
 

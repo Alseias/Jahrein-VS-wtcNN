@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114091646295004024}
   - component: {fileID: 114953734344746878}
   - component: {fileID: 82420386762137136}
+  - component: {fileID: 114440532978934934}
   m_Layer: 8
   m_Name: jahRay
   m_TagString: Player
@@ -282,7 +283,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1438730493920144}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 03ad4ddf02b0a874b9d9a8a90ab19b79, type: 2}
   m_CullingMode: 0
@@ -314,6 +315,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114565588516007208}
   - {fileID: 114094645309121682}
+  - {fileID: 114440532978934934}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -395,6 +397,26 @@ MonoBehaviour:
     InterpolateOption: 2
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
+--- !u!114 &114440532978934934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438730493920144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 3
+    SynchronizeType: 2
+    Name: State
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &114565588516007208
 MonoBehaviour:
   m_ObjectHideFlags: 1

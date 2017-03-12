@@ -94,29 +94,34 @@ public class JahreinSkills : Photon.PunBehaviour
                 {
                     if (Input.GetKey(KeyCode.RightArrow))//set can jump!!!!!
                     {
-                        anim.Play("jahreinRunning");
-                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
+                        anim.SetInteger("State", 4);
+                        //anim.Play("jahreinRunning");
+                        //_photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
                     }
                     if (Input.GetKeyUp(KeyCode.RightArrow))
                     {
-                        anim.Play("jahIdle");
-                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
+                        anim.SetInteger("State", 0);
+                        //anim.Play("jahIdle");
+                        //_photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
                     }
 
                     if (Input.GetKey(KeyCode.LeftArrow))//set can jump!!!!!
                     {
-                        anim.Play("jahreinRunning");
-                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
+                        anim.SetInteger("State", 4);
+                        //anim.Play("jahreinRunning");
+                        //_photonView.RPC("AnimTrigger", PhotonTargets.All, "jahreinRunning");
                     }
                     if (Input.GetKeyUp(KeyCode.LeftArrow))
                     {
-                        anim.Play("jahIdle");
-                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
+                        anim.SetInteger("State", 0);
+                        //anim.Play("jahIdle");
+                        //_photonView.RPC("AnimTrigger", PhotonTargets.All, "jahIdle");
                     }
                     if (Input.GetKeyDown(KeyCode.UpArrow))
                     {
-                        anim.Play("jahJump");
-                        _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahJump");
+                        anim.SetInteger("State", 5);
+                        //anim.Play("jahJump");
+                        //_photonView.RPC("AnimTrigger", PhotonTargets.All, "jahJump");
                     }
 
                 }
@@ -124,10 +129,10 @@ public class JahreinSkills : Photon.PunBehaviour
 
                 if(Input.GetButtonDown("Attack")) // Basic Attack
                 {
+                    anim.SetInteger("State", 7);
                     _photonView.RPC("AnimTrigger", PhotonTargets.All, "BasicAttackv2");
                     _photonView.RPC("basicAttack", PhotonTargets.All);
                 }
-
                 else
                 {
                     jahAtt = false;
@@ -144,6 +149,7 @@ public class JahreinSkills : Photon.PunBehaviour
                         usedSkill = 0;
                         _player.canMove = false;
                         anim.Play("jahRagev2");
+                        //anim.SetInteger("State", 1);
                         _photonView.RPC("AnimTrigger", PhotonTargets.All, "jahRagev2");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
@@ -157,6 +163,7 @@ public class JahreinSkills : Photon.PunBehaviour
                         _controller.canMove = false;
 
                         anim.Play("kutsamav2");
+                        //anim.SetInteger("State", 2);
                         _photonView.RPC("AnimTrigger", PhotonTargets.All, "kutsamav2");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
                     }
@@ -169,7 +176,7 @@ public class JahreinSkills : Photon.PunBehaviour
                         usedSkill = 2;
 
                         anim.Play("PipiSuyu");
-                        
+                        //anim.SetInteger("State", 3);
                         _photonView.RPC("AnimTrigger", PhotonTargets.All, "PipiSuyu");
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
 
@@ -180,7 +187,7 @@ public class JahreinSkills : Photon.PunBehaviour
                         _player.canUseSkill = false;
                         skillACD[3].use();
                         usedSkill = 3;
-
+                        
                         _photonView.RPC("jahUlti", PhotonTargets.All);
                         _photonView.RPC("playSound", PhotonTargets.All, usedSkill);
 

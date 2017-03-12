@@ -40,7 +40,7 @@ public class SelectedHero : Photon.PunBehaviour {
 
     // Update is called once per frame
     GameObject[] players;
-    void Update() {
+    void LateUpdate() {
 
         if(PhotonNetwork.room.PlayerCount==2&& PhotonNetwork.isMasterClient) {
 
