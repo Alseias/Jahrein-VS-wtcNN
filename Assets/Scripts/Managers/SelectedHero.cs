@@ -40,16 +40,16 @@ public class SelectedHero : Photon.PunBehaviour {
 
     // Update is called once per frame
     GameObject[] players;
-    void Update() {
+    void LateUpdate() {
 
         if(PhotonNetwork.room.PlayerCount==2&& PhotonNetwork.isMasterClient) {
 
             players = GameObject.FindGameObjectsWithTag("Player");
-            if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
-                PhotonNetwork.DestroyAll();
-
-                PhotonNetwork.LoadLevel("Game");
-                
+            if(players.Length == 2) {
+                if(players[0].GetComponent<PlayerChrSelect>().imready && players[1].GetComponent<PlayerChrSelect>().imready) {
+                    PhotonNetwork.DestroyAll();
+                    PhotonNetwork.LoadLevel("Game");
+                }
             }
 
         }else if(PhotonNetwork.offlineMode) {
@@ -117,11 +117,11 @@ public class SelectedHero : Photon.PunBehaviour {
     public void IamReady() {
         switch(playerID) {
             case 1:
-                p1.GetComponent<PhotonView>().RPC("ready", PhotonTargets.All);
+                p1.GetComponent<PhotonView>().RPC("ready", PhotonTargets.AllBuffered);
 
                 break;
             case 2:
-                p2.GetComponent<PhotonView>().RPC("ready", PhotonTargets.All);
+                p2.GetComponent<PhotonView>().RPC("ready", PhotonTargets.AllBuffered);
 
 
                 break;

@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 114896018929359106}
   - component: {fileID: 114379587223932800}
   - component: {fileID: 82385186755419764}
+  - component: {fileID: 114461622384726908}
   m_Layer: 8
   m_Name: wtcn
   m_TagString: Player
@@ -296,7 +297,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377725903128372}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a37eb7d9b179c2040a04846fc4e003ae, type: 2}
   m_CullingMode: 0
@@ -321,6 +322,8 @@ MonoBehaviour:
   shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
   bulletSpawnPoint: {fileID: 1358746246464886}
   bullet: {fileID: 1456051342887322, guid: e1d07dc2bd8e0b74ea2031c6d48b2890, type: 2}
+  rayStart: {fileID: 4911621908453134}
+  rayEnd: {fileID: 4382976176790716}
   skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
     type: 2}
   skillSprites:
@@ -335,8 +338,36 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fee006fa7d773c5428bce88774f061de, type: 3}
   - {fileID: 8300000, guid: e1148e6a953eb9b44ada84255cd25af2, type: 3}
   - {fileID: 8300000, guid: 3aef8ae8335738146bde2a4ab7bee81d, type: 3}
-  rayStart: {fileID: 4911621908453134}
-  rayEnd: {fileID: 4382976176790716}
+  skillCoolDowns:
+  - 0
+  - 0
+  - 0
+  - 0
+  skillDurations:
+  - 0
+  - 0
+  - 0
+  - 0
+--- !u!114 &114461622384726908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377725903128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 3
+    SynchronizeType: 0
+    Name: State
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &114717691345566406
 MonoBehaviour:
   m_ObjectHideFlags: 1

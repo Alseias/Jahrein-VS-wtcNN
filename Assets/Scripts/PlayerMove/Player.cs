@@ -80,11 +80,10 @@ public class Player : Photon.PunBehaviour
     void Update()
     {
 
-
+        
         if (!photonView.isMine)
         {
 
-            animator.SetInteger("State", state);
 
             timeToReachGoal = currentPacketTime - lastPacketTime;
             currentTime += Time.deltaTime;
@@ -246,8 +245,7 @@ public class Player : Photon.PunBehaviour
     {
         if(stream.isWriting)
         {
-            //stream.SendNext(animator.GetInteger("State")); //Set animation state
-
+            stream.SendNext(animator.GetInteger("State")); //Set animation state
             stream.SendNext(this.transform.position);
             stream.SendNext(health);
             stream.SendNext(this.transform.localScale);
@@ -257,7 +255,7 @@ public class Player : Photon.PunBehaviour
         else
         {
             //correctPosition = (Vector3)stream.ReceiveNext();
-            //state = (int)stream.ReceiveNext(); //Get Animation state
+            animator.SetInteger("State",(int)stream.ReceiveNext());//Get Animation state
             currentTime = 0.0;
             positionAtLastPacket = transform.position;
             realPosition = (Vector3)stream.ReceiveNext();

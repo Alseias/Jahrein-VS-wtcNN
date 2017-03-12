@@ -6,20 +6,29 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Controller2D))]
 public class wtcnnSkills : Photon.PunBehaviour {
-    public GameObject shurikenSpawnPoint, shuriken, bulletSpawnPoint, bullet, skillUiPref;
+    public GameObject shurikenSpawnPoint, shuriken, bulletSpawnPoint, bullet;
+    public Transform rayStart, rayEnd;
+
+    [Header("Skill Settings")]
+    public GameObject skillUiPref;
     public Sprite[] skillSprites;
     public AudioClip[] skillSounds;
-    public Transform rayStart, rayEnd;
+    public float[] skillCoolDowns = { 4, 4, 7, 25 };
+    public float[] skillDurations = { 1, 1, 1, 1 };
+
+    //PRIVATE SKILL SETTINGS!!
+    string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
+    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
+    int usedSkill;
+
+
 
     Animator anim = new Animator();
     Player _player;
     PhotonView pv;
     Controller2D controller;
     bool canJump, isGrounded, OnTrigger, _wtcnGasm;
-    string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
-    float[] skillCoolDowns = { 4, 4, 7, 25 };
-    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
-    int usedSkill;
+
 
     float distance;
 
@@ -33,6 +42,7 @@ public class wtcnnSkills : Photon.PunBehaviour {
         OnTrigger = false;
         canJump = true;
         _wtcnGasm = false;
+        _player.velocity.y = 0;
 
         if(photonView.isMine)
             setSkills();
@@ -43,12 +53,14 @@ public class wtcnnSkills : Photon.PunBehaviour {
         GameObject skillCanvas = GameObject.Find("SkillSet");
         GameObject skillUI;
         for(int i = 0; i < 4; i++) {
-            skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
+            skillUI = Instantiate(skillUiPref, Vector3.zero, skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
             skillUI.GetComponentInChildren<Image>().sprite = skillSprites[i];
 
             skillACD[i] = skillUI.GetComponent<AbilityCoolDown>();
             skillACD[i].abilityButtonAxisName = skillKeyMaps[i];
             skillACD[i].coolDownDuration = skillCoolDowns[i];
+            skillACD[i].durationTime = skillDurations[i];
+
         }
     }
 
@@ -66,16 +78,20 @@ public class wtcnnSkills : Photon.PunBehaviour {
             if(GetComponent<Stats>().isAlive) {
                 if(_player.canMove) {
                     if(Input.GetKey(KeyCode.LeftArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnRunning");
+                        //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnRunning");
+                        anim.SetInteger("State", 4);
                     }
                     if(Input.GetKeyUp(KeyCode.RightArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                        //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                        anim.SetInteger("State", 0);
                     }
                     if(Input.GetKey(KeyCode.RightArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnWalking");
+                        //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnWalking");
+                        anim.SetInteger("State", 3);
                     }
                     if(Input.GetKeyUp(KeyCode.LeftArrow)) {
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                       //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+                        anim.SetInteger("State", 0);
                     }
                 }
 
