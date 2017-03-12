@@ -7,8 +7,8 @@ public class shurikenScript : MonoBehaviour
 {
     [SerializeField]
     Vector2 speed = new Vector2(1, 0);
-    int shurikenDamage = 2;
-    int bulletDamage = 40;
+    float shurikenDamage = 2f;
+    float bulletDamage = 40f;
     Rigidbody2D rb;
     public bool faceDir;
     public float direction, fDir;
@@ -56,19 +56,22 @@ public class shurikenScript : MonoBehaviour
         {
             if (other.GetComponent<PhotonView>().viewID != pvID)
             {
-                if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
+                if (other.gameObject.CompareTag("enemy"))
                 {
-                    Destroy(gameObject);
                     if (this.gameObject.CompareTag("bullet"))
                     {
-                        other.gameObject.GetComponent<Stats>().TakeDamage(bulletDamage);
+                        other.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, bulletDamage);
                     }
                     else if (this.gameObject.CompareTag("shuriken"))
                     {
-                        other.gameObject.GetComponent<Stats>().TakeDamage(shurikenDamage);
+                        other.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, shurikenDamage);
                     }
+                    Destroy(gameObject);
+
+
                 }
             }
         }
+
     }
 }

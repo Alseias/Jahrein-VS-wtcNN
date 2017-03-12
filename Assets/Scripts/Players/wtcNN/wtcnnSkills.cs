@@ -63,9 +63,10 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
         }
     }
-
+    
     void Update()
     {
+        Debug.Log(Raycasting());
         if(OnTrigger && !_wtcnGasm)
         {
             if(Raycasting())
@@ -76,9 +77,19 @@ public class wtcnnSkills : Photon.PunBehaviour {
             }
         }
 
-
-        if(pv.isMine) {
+        if(pv.isMine)
+        {
             Raycasting();
+            if(OnTrigger && !_wtcnGasm)
+            {
+                if(Raycasting()) {
+                    _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
+                    //_wtcnGasm = false;
+
+                    Debug.Log("Damage given");
+                }
+            }
+
             if(GetComponent<Stats>().isAlive) {
                 if(_player.canMove) {
                     if(Input.GetKey(KeyCode.LeftArrow)) {
@@ -125,6 +136,8 @@ public class wtcnnSkills : Photon.PunBehaviour {
                         skillACD[0].use();
                         pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnGasm");
                         _wtcnGasm = true;
+                        Debug.Log("_wtcnGasm" + _wtcnGasm);
+
                     }
 
                     if(Input.GetButtonDown("SkillW") && skillACD[1].itsReady) {
@@ -158,6 +171,8 @@ public class wtcnnSkills : Photon.PunBehaviour {
                     }
                     if(skillACD[0].durationEnd) {
                         _wtcnGasm = false;
+                        Debug.Log("_wtcnGasm" + _wtcnGasm);
+
                     }
                 }
                 _player.canMove = skillACD[0].durationEnd;
@@ -171,28 +186,16 @@ public class wtcnnSkills : Photon.PunBehaviour {
         return rayHit;
     }
 
-    #region collision
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.tag == "Ground") {
-            Debug.Log("collision enter w ground obj");
-            isGrounded = true;
-            canJump = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision) {
-        if(collision.gameObject.tag == "Ground") {
-            isGrounded = false;
-        }
-    }
-    #endregion
 
     #region Animation events
 
     void CheckRayCast() { OnTrigger = !OnTrigger;}
 
     void AttackTrigger() {
-        pv.RPC("BasicAttack", PhotonTargets.All);
+        if(photonView.isMine) {
+            pv.RPC("BasicAttack", PhotonTargets.All);
+
+        }
     }
 
     void ChangeToIdle() {
@@ -217,53 +220,6 @@ public class wtcnnSkills : Photon.PunBehaviour {
         anim.Play(animName);
     }
 
-    /*[PunRPC]
-    void CasperAnimTrigger()
-    {
-        anim.Play("casper");
-    }
-
-    [PunRPC]
-    void WtcnGasmAnimTrigger()
-    {
-        anim.Play("wtcnGasm");
-    }
-
-    [PunRPC]
-    void AwpAnimTrigger()
-    {
-        anim.Play("AWP");
-    }
-
-    [PunRPC]
-    void RunningAnimTrigger()
-    {
-        anim.Play("wtcnRunning");
-    }
-
-    [PunRPC]
-    void WalkingAnimTrigger()
-    {
-        anim.Play("wtcnWalking");
-    }
-
-    [PunRPC]
-    void IdleAnimTrigger()
-    {
-        anim.Play("wtcnIdle");
-    }
-
-    [PunRPC]
-    void JumpAnimTrigger()
-    {
-        anim.Play("wtcnJump");
-    }
-
-    [PunRPC]
-    void AttackAnimTrigger()
-    {
-        anim.Play("BasicAttack");
-    }*/
     #endregion
     
     #region PunRPC
@@ -275,7 +231,7 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
     [PunRPC]
     void BasicAttack() {
-        shurikenScript objShur = PhotonNetwork.Instantiate("shuriken", shurikenSpawnPoint.transform.position, Quaternion.identity, 0).GetComponent<shurikenScript>();
+        shurikenScript objShur = Instantiate(shuriken, shurikenSpawnPoint.transform.position, Quaternion.identity).GetComponent<shurikenScript>();
         /*objShur.SendMessage("dir", _player.isfacingRight, SendMessageOptions.RequireReceiver);
         objShur.SendMessage("id", pv.viewID, SendMessageOptions.RequireReceiver);*/
         objShur.pvID = pv.viewID;

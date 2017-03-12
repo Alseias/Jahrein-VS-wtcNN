@@ -43,6 +43,7 @@ MonoBehaviour:
   - Marco
   - OnAwakeRPC
   - PickupItemInit
+  - PipiSuyu
   - playSound
   - Polo
   - PunPickup
@@ -51,20 +52,7 @@ MonoBehaviour:
   - ready
   - RequestForPickupItems
   - RequestForPickupTimes
+  - setVelocity
   - TaggedPlayer
   - TakeDamage
-  - AttackAnimTrigger
-  - AwpAnimTrigger
-  - CasperAnimTrigger
-  - DeadAnimTrigger
-  - IdleAnimTrigger
-  - JahRageAnimTrigger
-  - JumpAnimTrigger
-  - KutsamaAnimTrigger
-  - PipiSuyu
-  - PipisuyuAnimTrigger
-  - RunningAnimTrigger
-  - setVelocity
-  - WalkingAnimTrigger
-  - WtcnGasmAnimTrigger
   DisableAutoOpenWizard: 1

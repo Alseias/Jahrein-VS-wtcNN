@@ -232,6 +232,7 @@ public class Player : Photon.PunBehaviour
         this.transform.localScale = new Vector2(transform.localScale.x * -1, 1);
     }
 
+
 	void CalculateVelocity()
     {
 		float targetVelocityX = directionalInput.x * moveSpeed;
