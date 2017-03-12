@@ -483,9 +483,9 @@ MonoBehaviour:
   - 10
   - 25
   skillDurations:
-  - 1.4
-  - 3
-  - 4
+  - 0
+  - 0
+  - 0
   - 0
 --- !u!114 &114848562982247206
 MonoBehaviour:

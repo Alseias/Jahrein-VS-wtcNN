@@ -46,29 +46,24 @@ public class Stats : Photon.PunBehaviour
     [PunRPC]
     public void TakeDamage(float damage) {
 
-        Debug.Log("Damage taken");
+        Debug.Log("Damage taken, "+this.gameObject.name);
         currentHealth -= damage;
         _player.health -= damage;
-        if(currentHealth <= 0) {
+        if(currentHealth <= 0&&isAlive) {
             isAlive = false;
             if(this.gameObject.name == "wtcn")
                 this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
             else
                 this.gameObject.GetComponent<JahreinSkills>().playSound(5);
 
-            this.gameObject.GetComponent<Player>().enabled = false;
-            this.gameObject.GetComponent<JahreinSkills>().enabled = false;
-            this.gameObject.GetComponent<PhotonView>().RPC("DyingAnimTrigger", PhotonTargets.All);
+            this.gameObject.GetComponent<Player>().canMove = false;
+            //this.gameObject.GetComponent<JahreinSkills>().enabled = false;
+            photonView.RPC("DyingAnimTrigger", PhotonTargets.All);
         }
         float _health = currentHealth / maxHealth;
         OnChangeHealth(_health);
         isDamageTaken = true;
 
-    }
-
-    void Dead()
-    {
-        photonView.RPC("DeadAnimTrigger", PhotonTargets.All);
     }
 
 
@@ -77,24 +72,7 @@ public class Stats : Photon.PunBehaviour
         healthbar.transform.localScale = new Vector3(health, healthbar.transform.localScale.y, healthbar.transform.localScale.z);
     }
 
-    public void playerOneHud()
-    {
-        PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
-        
-
-
-    }
-
-    public void playerTwoHud()
-    {
-        PhotonNetwork.Instantiate("p2HealthUI", new Vector3(5, 4, 0), Quaternion.identity, 0);
-        
-
-
-    }
-
-
-
+    
     #region Animation RPC
 
     [PunRPC]

@@ -322,6 +322,8 @@ MonoBehaviour:
   shuriken: {fileID: 1456051342887322, guid: 1dbe6d8456f2d6942a66d2c05f34bba4, type: 2}
   bulletSpawnPoint: {fileID: 1358746246464886}
   bullet: {fileID: 1456051342887322, guid: e1d07dc2bd8e0b74ea2031c6d48b2890, type: 2}
+  rayStart: {fileID: 4911621908453134}
+  rayEnd: {fileID: 4382976176790716}
   skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
     type: 2}
   skillSprites:
@@ -336,8 +338,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fee006fa7d773c5428bce88774f061de, type: 3}
   - {fileID: 8300000, guid: e1148e6a953eb9b44ada84255cd25af2, type: 3}
   - {fileID: 8300000, guid: 3aef8ae8335738146bde2a4ab7bee81d, type: 3}
-  rayStart: {fileID: 4911621908453134}
-  rayEnd: {fileID: 4382976176790716}
+  skillCoolDowns:
+  - 0
+  - 0
+  - 0
+  - 0
+  skillDurations:
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!114 &114461622384726908
 MonoBehaviour:
   m_ObjectHideFlags: 1

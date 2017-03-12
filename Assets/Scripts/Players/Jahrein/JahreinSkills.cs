@@ -9,12 +9,20 @@ public class JahreinSkills : Photon.PunBehaviour
     
     Animator anim;
     public GameObject vidanjor, pipiSuyu, vidanjorSpawn, pipiSuyuSpawn;
-    public Sprite[] skillSprites;
-    public GameObject skillUiPref;
+
     public Transform rayStart, rayEnd;
 
-
+    [Header("Skill Settings")]
+    public GameObject skillUiPref;
+    public Sprite[] skillSprites;
     public AudioClip[] skillSounds;
+    public float[] skillCoolDowns = { 4, 7, 10, 25 };
+    public float[] skillDurations = { 1, 1, 1, 1 };
+
+    //PRIVATE SKILL SETTINGS!!
+    string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
+    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
+    int usedSkill;
 
     //PlayerController _playerController;
     PhotonView _photonView;
@@ -22,12 +30,7 @@ public class JahreinSkills : Photon.PunBehaviour
     Player _player;
 
     bool jahAtt = false;
-    string[] skillKeyMaps = { "SkillQ", "SkillW", "SkillE", "SkillR" };
-    public float[] skillCoolDowns = { 4, 7, 10, 25 };
-    public float[] skillDurations = { 1, 1, 1, 1 };
-    AbilityCoolDown[] skillACD = new AbilityCoolDown[4];
 
-    int usedSkill;
     //Abilities q, w, e, r;
 
     private void Awake()
@@ -42,14 +45,13 @@ public class JahreinSkills : Photon.PunBehaviour
         GameObject skillUI;
         for (int i = 0; i < 4; i++)
         {
-            skillUI = Instantiate(skillUiPref, new Vector3(100 + (100 * i), 50, 0), skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
+            skillUI = Instantiate(skillUiPref, Vector3.zero, skillCanvas.transform.rotation, skillCanvas.transform) as GameObject;
             skillUI.GetComponentInChildren<Image>().sprite = skillSprites[i];
 
             skillACD[i] = skillUI.GetComponent<AbilityCoolDown>();
             skillACD[i].abilityButtonAxisName = skillKeyMaps[i];
             skillACD[i].coolDownDuration = skillCoolDowns[i];
             skillACD[i].durationTime = skillDurations[i];
-            //Debug.Log(skillCoolDownCheck[i].abilityButtonAxisName);
         }
     }
 
