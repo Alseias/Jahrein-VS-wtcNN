@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class shurikenScript : MonoBehaviour
-{
+public class shurikenScript : Photon.PunBehaviour{
     [SerializeField]
     Vector2 speed = new Vector2(1, 0);
     float shurikenDamage = 2f;
@@ -30,7 +29,8 @@ public class shurikenScript : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 2);
+        //Destroy(gameObject, 2);
+        
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = speed * (faceDir ? 1 : -1);
         //rb.AddForce(new Vector2(direction * 10, transform.position.y) * (faceDir ? 1 : -1), ForceMode2D.Impulse);
@@ -44,10 +44,12 @@ public class shurikenScript : MonoBehaviour
         rb.velocity = speed * fDir;
 
     }
+
     private void Update()
     {
         rb.AddForce(transform.right * 10f * fDir);
     }
+
 
 
     void OnTriggerEnter2D(Collider2D other)
@@ -56,7 +58,7 @@ public class shurikenScript : MonoBehaviour
         {
             if (other.GetComponent<PhotonView>().viewID != pvID)
             {
-                if (other.gameObject.CompareTag("enemy"))
+                if (other.gameObject.name== "jahRay(Clone)")
                 {
                     if (this.gameObject.CompareTag("bullet"))
                     {
@@ -66,12 +68,16 @@ public class shurikenScript : MonoBehaviour
                     {
                         other.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, shurikenDamage);
                     }
-                    Destroy(gameObject);
+                    Destroy(this.gameObject);
 
 
                 }
             }
         }
+
+    }
+    private void OnBecameInvisible() {
+        Destroy(this.gameObject);
 
     }
 }

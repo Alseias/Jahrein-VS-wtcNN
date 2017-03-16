@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -10,8 +11,16 @@ public class GameManager : Photon.PunBehaviour{
     public GameObject[] playerPrefabs;
     //public GameObject healthOne, healthTwo;
     public GameObject playerOne, playerTwo;
+    public Text txtStart;
+    public bool p_gameStart = false;
+
+
+    private const int TIME_TO_START_MATCH = 3;
+    private float countDown = 0;
+    private bool rpcStart=false;
+
     int selectedChrID;
-    public bool gameStart = false;
+    bool toStart;
     int playerID;
     private void Start()
     {
@@ -34,7 +43,7 @@ public class GameManager : Photon.PunBehaviour{
                 playerOne = (GameObject)PhotonNetwork.Instantiate(this.playerPrefabs[selectedChrID].name, playerOne.transform.position, Quaternion.identity, 0);
                 PhotonNetwork.Instantiate("p1HealthUI", new Vector3(-5, 4, 0), Quaternion.identity, 0);
                 PhotonNetwork.isMessageQueueRunning = true;
-
+                
                 //this.playerPrefabs[selectedChrID].GetComponent<Stats>().playerOneHud();
                 //playerOne.GetComponent<Player>().canMove = false;
             } else {
@@ -54,17 +63,35 @@ public class GameManager : Photon.PunBehaviour{
     }
     private void Update()
     {
-       /* if(PhotonNetwork.room.PlayerCount == 2) {
-            treeSecond();
+        if(toStart) {
+            countDown += Time.deltaTime;
 
-        }*/
+            txtStart.text = string.Format("Match starts in {0}...", TIME_TO_START_MATCH - Mathf.FloorToInt(countDown));
+
+            if(countDown >= TIME_TO_START_MATCH) {
+                p_gameStart = true;
+                txtStart.gameObject.SetActive(false);
+
+                toStart = false;
+            }
+        }
 
     }
     
-    IEnumerator treeSecond() {
-        yield return new WaitForSeconds(3f);
-        gameStart = true;
+    //master client okay with start
+    public void startMatchMaster() {
+        if(!rpcStart) {
+            rpcStart = true;
 
+            photonView.RPC("StartMatch", PhotonTargets.AllViaServer);
+        }
+    }
+
+    [PunRPC]
+    void StartMatch() {
+        Debug.Log("Start match");
+        toStart = true;
+        txtStart.gameObject.SetActive(true);
     }
 
     public override void OnLeftRoom()

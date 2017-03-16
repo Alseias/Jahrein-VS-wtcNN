@@ -19,6 +19,7 @@ public class Player : Photon.PunBehaviour
     public bool isfacingRight;
     public GameObject target, player;
 
+
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
 	public Vector2 wallLeap;
@@ -33,9 +34,10 @@ public class Player : Photon.PunBehaviour
 	float minJumpVelocity;
 	public Vector3 velocity;
 	float velocityXSmoothing;
+    GameManager gm;
 
     Animator animator;
-    bool gamestart;
+    public bool gamestart;
 	public Controller2D controller;
     int state=0;
 	Vector2 directionalInput;
@@ -69,12 +71,20 @@ public class Player : Photon.PunBehaviour
     {
         isfacingRight = true;
         player = this.gameObject;
-        gamestart = GameObject.Find("GameManager").GetComponent<GameManager>().gameStart;
-		controller = GetComponent<Controller2D> ();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        controller = GetComponent<Controller2D> ();
         animator = GetComponent<Animator>();
         gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
+
+        //set move and useSkill true if network is offline
+        if(PhotonNetwork.offlineMode) {
+            canMove = true;
+            canUseSkill = true;
+            gamestart = true;
+        }
     }
 
     void Update()
@@ -99,10 +109,23 @@ public class Player : Photon.PunBehaviour
             HandleWallSliding();
 
             controller.Move(velocity * Time.deltaTime, directionalInput);
+
+            //check target
             if(target == null)
             {
                 target = GameObject.FindGameObjectWithTag("enemy");
+            }else {
+                //if not null and gamestart is false start round
+                if(PhotonNetwork.isMasterClient&&!gamestart) {
+                    gm.startMatchMaster();
+
+                }
+                if(!gamestart) {
+
+                    gamestart = gm.p_gameStart;
+                }
             }
+
             if (canUseSkill)
             {
                 LookAtTarget();

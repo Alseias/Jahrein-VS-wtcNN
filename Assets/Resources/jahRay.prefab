@@ -428,8 +428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61691c23034f4b9439476b99e5e66651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 1
-  canUseSkill: 1
+  canMove: 0
+  canUseSkill: 0
   canDoubleJump: 0
   maxJumpHeight: 2
   minJumpHeight: 0.24
@@ -445,6 +445,7 @@ MonoBehaviour:
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
   velocity: {x: 0, y: 0, z: 0}
+  gamestart: 0
   controller: {fileID: 0}
 --- !u!114 &114823409317971724
 MonoBehaviour:
@@ -461,15 +462,15 @@ MonoBehaviour:
   pipiSuyu: {fileID: 1456051342887322, guid: 84c5974f1416bb24c809479bf24fb6bb, type: 2}
   vidanjorSpawn: {fileID: 0}
   pipiSuyuSpawn: {fileID: 1554745573101502}
+  rayStart: {fileID: 4373917578452036}
+  rayEnd: {fileID: 4626158654964762}
+  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
+    type: 2}
   skillSprites:
   - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
   - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
   - {fileID: 21300000, guid: de5434b222ddbfd4a88cda509f810170, type: 3}
   - {fileID: 21300000, guid: 8187066587ce3b743bb7899f72ac294a, type: 3}
-  skillUiPref: {fileID: 1675226655122476, guid: 1c1aa4a8b23561b4ea75fb9781f33427,
-    type: 2}
-  rayStart: {fileID: 4373917578452036}
-  rayEnd: {fileID: 4626158654964762}
   skillSounds:
   - {fileID: 8300000, guid: e2cbc5a07309c9647ae8e67668ca8537, type: 3}
   - {fileID: 8300000, guid: 6625f9109997c1440b140630adffdd76, type: 3}
@@ -520,8 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3c293932c921648b853b3999597a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  isAlive: 0
+  isAlive: 1
   isDamageTaken: 0
   spr: {fileID: 21300000, guid: c859297090bf72b4087014eb95eae0ed, type: 3}
 --- !u!212 &212435971903484344

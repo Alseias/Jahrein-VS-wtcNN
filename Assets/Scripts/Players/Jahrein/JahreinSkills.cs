@@ -86,7 +86,7 @@ public class JahreinSkills : Photon.PunBehaviour
 
     void Update()
     {
-        if (photonView.isMine)
+        if (photonView.isMine&&_player.gamestart)
         {
             Raycasting();
             if (GetComponent<Stats>().isAlive)
@@ -196,7 +196,6 @@ public class JahreinSkills : Photon.PunBehaviour
 
                     }
                 }
-
                 else
                 {
                     //if player cant use skill

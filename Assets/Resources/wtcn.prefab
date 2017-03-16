@@ -401,8 +401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61691c23034f4b9439476b99e5e66651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 1
-  canUseSkill: 1
+  canMove: 0
+  canUseSkill: 0
   canDoubleJump: 0
   maxJumpHeight: 2
   minJumpHeight: 0.24
@@ -418,6 +418,7 @@ MonoBehaviour:
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
   velocity: {x: 0, y: 0, z: 0}
+  gamestart: 0
   controller: {fileID: 0}
 --- !u!114 &114849173555132420
 MonoBehaviour:
@@ -430,8 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3c293932c921648b853b3999597a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  isAlive: 0
+  isAlive: 1
   isDamageTaken: 0
   spr: {fileID: 21300000, guid: 28c74470b3e2ce142b42c26b3f9c63a8, type: 3}
 --- !u!114 &114896018929359106

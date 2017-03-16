@@ -66,21 +66,15 @@ public class wtcnnSkills : Photon.PunBehaviour {
     
     void Update()
     {
-        Debug.Log(Raycasting());
-        if(OnTrigger && !_wtcnGasm)
-        {
-            if(Raycasting())
-            {
-                _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
-                Debug.Log("Damage given");
-                _wtcnGasm = false;
-            }
-        }
+             
 
-        if(pv.isMine)
+        if(pv.isMine && _player.gamestart)
         {
-            Raycasting();
-            if(OnTrigger && !_wtcnGasm)
+            //Raycasting();
+
+
+
+            /*if(OnTrigger && !_wtcnGasm)
             {
                 if(Raycasting()) {
                     _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
@@ -88,7 +82,7 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
                     Debug.Log("Damage given");
                 }
-            }
+            }*/
 
             if(GetComponent<Stats>().isAlive) {
                 if(_player.canMove) {
@@ -169,11 +163,11 @@ public class wtcnnSkills : Photon.PunBehaviour {
                         _player.canUseSkill = true;
 
                     }
-                    if(skillACD[0].durationEnd) {
+                    /*if(skillACD[0].durationEnd) {
                         _wtcnGasm = false;
                         Debug.Log("_wtcnGasm" + _wtcnGasm);
 
-                    }
+                    }*/
                 }
                 _player.canMove = skillACD[0].durationEnd;
             }
@@ -189,7 +183,14 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
     #region Animation events
 
-    void CheckRayCast() { OnTrigger = !OnTrigger;}
+    void CheckRayCast() {
+        OnTrigger = !OnTrigger;
+        Debug.Log("ontrigger:" + OnTrigger);
+        if(photonView.isMine && OnTrigger) {
+            InvokeRepeating("wtcnGasmDamage", 2f, 0.5f);
+
+        }
+    }
 
     void AttackTrigger() {
         if(photonView.isMine) {
@@ -199,13 +200,36 @@ public class wtcnnSkills : Photon.PunBehaviour {
     }
 
     void ChangeToIdle() {
-        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
-        anim.SetInteger("State", 0);
+        if(photonView.isMine) {
+
+            pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
+            anim.SetInteger("State", 0);
+        }
     }
 
     void WtcnGasmTrigger() {
-        _player.velocity.x = 150f * (_player.isfacingRight ? 1 : -1);
-        pv.RPC("playSound", PhotonTargets.All, usedSkill);
+        if(photonView.isMine) {
+
+            _player.velocity.x = 150f * (_player.isfacingRight ? 1 : -1);
+            pv.RPC("playSound", PhotonTargets.All, usedSkill);
+        }
+    }
+
+    void wtcnGasmDamage() {
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x+5f,transform.position.y), Vector2.right * (_player.isfacingRight ? 1 : -1), 10f, 10);
+        Debug.DrawRay(transform.position, Vector2.right * (_player.isfacingRight ? 1 : -1), Color.green);
+        Debug.Log(hit.transform.name);
+
+
+        if(OnTrigger && _wtcnGasm) {
+            if(hit) {
+                _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
+                Debug.Log("Damage given");
+                _wtcnGasm = false;
+                Debug.Log("gasm:" + _wtcnGasm);
+
+            }
+        }
     }
 
     void ChangeVelocity() {
@@ -235,10 +259,8 @@ public class wtcnnSkills : Photon.PunBehaviour {
         /*objShur.SendMessage("dir", _player.isfacingRight, SendMessageOptions.RequireReceiver);
         objShur.SendMessage("id", pv.viewID, SendMessageOptions.RequireReceiver);*/
         objShur.pvID = pv.viewID;
-        if(_player.isfacingRight)
-            objShur.fDir = 1;
-        else
-            objShur.fDir = -1;
+        objShur.fDir = _player.isfacingRight ? 1 : -1;
+        
     }
 
     [PunRPC]

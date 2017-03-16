@@ -78,10 +78,7 @@ public class Controller2D : RaycastController {
 
 			if (hit)
             {
-                if(hit.collider.tag == "enemy") {
-                    Debug.Log("hit enemy");
-                    return;
-                }
+
 				if (hit.distance == 0)
                 {
 					continue;
