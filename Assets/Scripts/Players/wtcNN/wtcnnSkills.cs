@@ -63,6 +63,7 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
         }
     }
+
     
     void Update()
     {
@@ -70,7 +71,7 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
         if(pv.isMine && _player.gamestart)
         {
-            //Raycasting();
+            Raycasting();
 
 
 
@@ -216,13 +217,13 @@ public class wtcnnSkills : Photon.PunBehaviour {
     }
 
     void wtcnGasmDamage() {
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x+5f,transform.position.y), Vector2.right * (_player.isfacingRight ? 1 : -1), 10f, 10);
+        /*RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x+5f,transform.position.y), Vector2.right * (_player.isfacingRight ? 1 : -1), 10f, 10);
         Debug.DrawRay(transform.position, Vector2.right * (_player.isfacingRight ? 1 : -1), Color.green);
-        Debug.Log(hit.transform.name);
+        Debug.Log(hit.transform.name);*/
 
 
         if(OnTrigger && _wtcnGasm) {
-            if(hit) {
+            if(Raycasting()) {
                 _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
                 Debug.Log("Damage given");
                 _wtcnGasm = false;

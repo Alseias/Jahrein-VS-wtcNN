@@ -13,8 +13,9 @@ public class GameManager : Photon.PunBehaviour{
     public GameObject playerOne, playerTwo;
     public Text txtStart;
     public bool p_gameStart = false;
+    public AudioClip[] audioClips;
 
-
+    private AudioSource audio;
     private const int TIME_TO_START_MATCH = 3;
     private float countDown = 0;
     private bool rpcStart=false;
@@ -27,6 +28,7 @@ public class GameManager : Photon.PunBehaviour{
          
         //call from other scripts
         Instance = this;
+        audio = GetComponent<AudioSource>();
         selectedChrID = PlayerPrefs.GetInt("chrID");
         playerID = PlayerPrefs.GetInt("player");
         if(playerPrefabs == null) {
@@ -69,6 +71,7 @@ public class GameManager : Photon.PunBehaviour{
             txtStart.text = string.Format("Match starts in {0}...", TIME_TO_START_MATCH - Mathf.FloorToInt(countDown));
 
             if(countDown >= TIME_TO_START_MATCH) {
+                playAudios(0);
                 p_gameStart = true;
                 txtStart.gameObject.SetActive(false);
 
@@ -82,7 +85,6 @@ public class GameManager : Photon.PunBehaviour{
     public void startMatchMaster() {
         if(!rpcStart) {
             rpcStart = true;
-
             photonView.RPC("StartMatch", PhotonTargets.AllViaServer);
         }
     }
@@ -92,8 +94,14 @@ public class GameManager : Photon.PunBehaviour{
         Debug.Log("Start match");
         toStart = true;
         txtStart.gameObject.SetActive(true);
-    }
+        playAudios(1);
 
+    }
+    void playAudios(int number) {
+        audio.clip = audioClips[number];
+        audio.Play();
+
+    }
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
