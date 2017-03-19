@@ -15,6 +15,7 @@ public class GameManager : Photon.PunBehaviour{
     public bool p_gameStart = false;
     public AudioClip[] audioClips;
 
+    GameObject MainCam;
     private AudioSource audio;
     private const int TIME_TO_START_MATCH = 3;
     private float countDown = 0;
@@ -29,6 +30,7 @@ public class GameManager : Photon.PunBehaviour{
         //call from other scripts
         Instance = this;
         audio = GetComponent<AudioSource>();
+        MainCam = GameObject.FindGameObjectWithTag("MainCamera");
         selectedChrID = PlayerPrefs.GetInt("chrID");
         playerID = PlayerPrefs.GetInt("player");
         if(playerPrefabs == null) {
@@ -98,8 +100,14 @@ public class GameManager : Photon.PunBehaviour{
 
     }
     void playAudios(int number) {
+
         audio.clip = audioClips[number];
-        audio.Play();
+        if(number > 0) {
+            audio.PlayDelayed(.4f);
+        }else {
+            audio.Play();
+
+        }
 
     }
     public override void OnLeftRoom()

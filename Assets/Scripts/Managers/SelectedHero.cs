@@ -91,26 +91,30 @@ public class SelectedHero : Photon.PunBehaviour {
             case 1:
                 if(!p1.GetComponent<PlayerChrSelect>().imready) {
                     PlayerPrefs.SetInt("chrID", id);
+                    changeChrInfo(id);
 
                 }
                 break;
             case 2:
                 if(!p2.GetComponent<PlayerChrSelect>().imready) {
                     PlayerPrefs.SetInt("chrID", id);
+                    changeChrInfo(id);
+
                 }
                 break;
             default:
                 break;
         }
 
+    }
+
+    void changeChrInfo(int id) {
         //txtskills i dışarıdan referans alıyoruz dizi olarak 5 adet textbox
         txtSkills[0].text = heroInfo.AllHeros[id].heroName;
         for(int i = 0; i < 4; i++) {
             txtSkills[i + 1].text = heroInfo.AllHeros[id].skills[i];
             imgSkills[i].sprite = heroInfo.AllHeros[id].skillImages[i];
         }
-
-
     }
 
     //SET PLAYER IMREADY BOOL TO TRUE
