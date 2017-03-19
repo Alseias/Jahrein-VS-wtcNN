@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Controller2D))]
-public class wtcnnSkills : Photon.PunBehaviour {
+public class wtcnnSkills : Photon.PunBehaviour
+{
     public GameObject shurikenSpawnPoint, shuriken, bulletSpawnPoint, bullet;
     public Transform rayStart, rayEnd;
 
@@ -22,7 +23,6 @@ public class wtcnnSkills : Photon.PunBehaviour {
     int usedSkill;
 
 
-
     Animator anim = new Animator();
     Player _player;
     PhotonView pv;
@@ -33,7 +33,8 @@ public class wtcnnSkills : Photon.PunBehaviour {
     float distance;
 
 
-    void Start() {
+    void Start()
+    {
         _player = GetComponent<Player>();
         pv = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
@@ -49,7 +50,8 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
     }
 
-    void setSkills() {
+    void setSkills()
+    {
         GameObject skillCanvas = GameObject.Find("SkillSet");
         GameObject skillUI;
         for(int i = 0; i < 4; i++) {
@@ -67,39 +69,28 @@ public class wtcnnSkills : Photon.PunBehaviour {
     
     void Update()
     {
-             
-
         if(pv.isMine && _player.gamestart)
         {
             Raycasting();
-
-
-
-            /*if(OnTrigger && !_wtcnGasm)
-            {
-                if(Raycasting()) {
-                    _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
-                    //_wtcnGasm = false;
-
-                    Debug.Log("Damage given");
-                }
-            }*/
-
             if(GetComponent<Stats>().isAlive) {
                 if(_player.canMove) {
-                    if(Input.GetKey(KeyCode.LeftArrow)) {
+                    if(Input.GetKey(KeyCode.LeftArrow))
+                    {
                         //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnRunning");
                         anim.SetInteger("State", 4);
                     }
-                    if(Input.GetKeyUp(KeyCode.RightArrow)) {
+                    if(Input.GetKeyUp(KeyCode.RightArrow))
+                    {
                         //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
                         anim.SetInteger("State", 0);
                     }
-                    if(Input.GetKey(KeyCode.RightArrow)) {
+                    if(Input.GetKey(KeyCode.RightArrow))
+                    {
                         //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnWalking");
                         anim.SetInteger("State", 3);
                     }
-                    if(Input.GetKeyUp(KeyCode.LeftArrow)) {
+                    if(Input.GetKeyUp(KeyCode.LeftArrow))
+                    {
                        //pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
                         anim.SetInteger("State", 0);
                     }
@@ -107,7 +98,6 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
                 if(Input.GetButtonDown("Attack")) //Basic Attack
                 {
-                    
                     pv.RPC("AnimTrigger", PhotonTargets.All, "BasicAttack");
                 }
 
@@ -123,11 +113,11 @@ public class wtcnnSkills : Photon.PunBehaviour {
                     }
                 }
 
-                if(_player.canUseSkill) {
-                    if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady) {
-                        InvokeRepeating("Raycasting", 2f, 0.1f);
 
-
+                if(_player.canUseSkill)
+                {
+                    if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
+                    {
                         _player.canUseSkill = false;
                         usedSkill = 0;
                         skillACD[0].use();
@@ -138,15 +128,16 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
                     }
 
-                    if(Input.GetButtonDown("SkillW") && skillACD[1].itsReady) {
-                        
+                    if(Input.GetButtonDown("SkillW") && skillACD[1].itsReady)
+                    {
                         _player.canUseSkill = false;
                         distance = Vector2.Distance(_player.target.transform.position, transform.position);
                         usedSkill = 1;
                         skillACD[1].use();
                         pv.RPC("AnimTrigger", PhotonTargets.All, "casper");
                         pv.RPC("playSound", PhotonTargets.All, usedSkill);
-                        if(distance < 5f) {
+                        if(distance < 5f)
+                        {
                             Debug.Log("Korkuttum xd");
                             //_player.target.SendMessage("Fear"); //SENDMESSAGE KULLANMA DEMEDİK Mİ!!!!!
                         }
@@ -188,60 +179,65 @@ public class wtcnnSkills : Photon.PunBehaviour {
 
     #region Animation events
 
-    void CheckRayCast() {
+    void CheckRayCast()
+    {
         OnTrigger = !OnTrigger;
         Debug.Log("ontrigger:" + OnTrigger);
-        if(photonView.isMine && OnTrigger) {
-            wtcnGasmDamage();
 
+        if(photonView.isMine && OnTrigger)
+        {
+            InvokeRepeating("wtcnGasmDamage", 2f, 0.01f);
         }
         if(!OnTrigger) {
-            CancelInvoke("Raycasting");
+            CancelInvoke("wtcnGasmDamage");
         }
     }
 
-    void AttackTrigger() {
-        if(photonView.isMine) {
+    void AttackTrigger()
+    {
+        if(photonView.isMine)
+        {
             pv.RPC("BasicAttack", PhotonTargets.All);
-
         }
     }
 
-    void ChangeToIdle() {
-        if(photonView.isMine) {
-
+    void ChangeToIdle()
+    {
+        if(photonView.isMine)
+        {
             pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnIdle");
             anim.SetInteger("State", 0);
         }
     }
 
-    void WtcnGasmTrigger() {
-        if(photonView.isMine) {
-
+    void WtcnGasmTrigger()
+    {
+        if(photonView.isMine)
+        {
             _player.velocity.x = 150f * (_player.isfacingRight ? 1 : -1);
             pv.RPC("playSound", PhotonTargets.All, usedSkill);
         }
     }
 
-    void wtcnGasmDamage() {
-       /* RaycastHit2D hit = Physics2D.Raycast(rayEnd.position, Vector2.right, 10f, 10);
+
+    void wtcnGasmDamage()
+    {
+        /*RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x+5f,transform.position.y), Vector2.right * (_player.isfacingRight ? 1 : -1), 10f, 10);
         Debug.DrawRay(transform.position, Vector2.right * (_player.isfacingRight ? 1 : -1), Color.green);
         Debug.Log(hit.transform.name);*/
-
-
-        if(OnTrigger && _wtcnGasm) {
-            Debug.Log("Raycasting:" + Raycasting());
+        if(OnTrigger && _wtcnGasm)
+        {
             if(Raycasting()) {
                 _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
                 Debug.Log("Damage given");
                 _wtcnGasm = false;
                 Debug.Log("gasm:" + _wtcnGasm);
-
             }
         }
     }
 
-    void ChangeVelocity() {
+    void ChangeVelocity()
+    {
         _player.velocity.x = 0;
     }
     #endregion
