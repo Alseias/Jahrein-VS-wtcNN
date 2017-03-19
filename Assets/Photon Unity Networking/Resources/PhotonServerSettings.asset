@@ -56,4 +56,5 @@ MonoBehaviour:
   - StartMatch
   - TaggedPlayer
   - TakeDamage
+  - Fear
   DisableAutoOpenWizard: 1
