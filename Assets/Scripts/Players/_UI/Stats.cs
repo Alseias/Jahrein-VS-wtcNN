@@ -72,10 +72,10 @@ public class Stats : Photon.PunBehaviour
         isDamageTaken = true;
     }
 
-    void Dead()
+   /* void Dead()
     {
         photonView.RPC("DeadAnimTrigger", PhotonTargets.All);
-    }
+    }*/
 
     void OnChangeHealth (float health)
     {
@@ -97,6 +97,7 @@ public class Stats : Photon.PunBehaviour
     void DyingAnimTrigger()
     {
         this.gameObject.GetComponent<Animator>().Play("dying");
+        GameObject.Find("GameManager").GetComponent<GameManager>().restartGame();
     }
 
     #endregion

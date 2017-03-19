@@ -186,7 +186,7 @@ public class wtcnnSkills : Photon.PunBehaviour
 
         if(photonView.isMine && OnTrigger)
         {
-            InvokeRepeating("wtcnGasmDamage", 2f, 0.01f);
+            InvokeRepeating("wtcnGasmDamage", 0f, 0.01f);
         }
         if(!OnTrigger) {
             CancelInvoke("wtcnGasmDamage");
@@ -222,16 +222,19 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void wtcnGasmDamage()
     {
+        Debug.Log("wtcnGasmDamage");
+
         /*RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x+5f,transform.position.y), Vector2.right * (_player.isfacingRight ? 1 : -1), 10f, 10);
         Debug.DrawRay(transform.position, Vector2.right * (_player.isfacingRight ? 1 : -1), Color.green);
         Debug.Log(hit.transform.name);*/
+
         if(OnTrigger && _wtcnGasm)
         {
             if(Raycasting()) {
                 _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
-                Debug.Log("Damage given");
+                //Debug.Log("Damage given");
                 _wtcnGasm = false;
-                Debug.Log("gasm:" + _wtcnGasm);
+                //Debug.Log("gasm:" + _wtcnGasm);
             }
         }
     }
