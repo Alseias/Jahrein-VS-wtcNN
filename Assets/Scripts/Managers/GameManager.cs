@@ -30,7 +30,7 @@ public class GameManager : Photon.PunBehaviour{
          
         //call from other scripts
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         audio = GetComponent<AudioSource>();
         MainCam = GameObject.FindGameObjectWithTag("MainCamera");
         selectedChrID = PlayerPrefs.GetInt("chrID");

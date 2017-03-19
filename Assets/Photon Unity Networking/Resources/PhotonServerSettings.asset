@@ -35,18 +35,15 @@ MonoBehaviour:
   - changeSprite
   - Chat
   - DestroyRpc
-  - DoJump
   - DyingAnimTrigger
   - Fear
   - InstantiateRpc
   - jahRageSkill
   - jahUlti
-  - Marco
   - OnAwakeRPC
   - PickupItemInit
   - PipiSuyu
   - playSound
-  - Polo
   - PunPickup
   - PunPickupSimple
   - PunRespawn
@@ -56,6 +53,5 @@ MonoBehaviour:
   - resetGame
   - setVelocity
   - StartMatch
-  - TaggedPlayer
   - TakeDamage
   DisableAutoOpenWizard: 1

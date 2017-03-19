@@ -70,7 +70,6 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         if(pv.isMine && _player.gamestart)
         {
-            Raycasting();
             if(GetComponent<Stats>().isAlive)
             {
                 if(_player.canMove)
@@ -181,7 +180,6 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1 << LayerMask.NameToLayer("enemy"));
-        Debug.Log("RayHit:" + rayHit);
         return rayHit;
     }
 
@@ -191,19 +189,19 @@ public class wtcnnSkills : Photon.PunBehaviour
     void AWPTrigger() // Make some specification here -> make sure you only hit enemy
     {
         //Debug.DrawLine(bulletSpawnPoint.transform.position,(_player.isfacingRight ? transform.right : -transform.right) * 10 , Color.red);
-        bool hit = Physics2D.Raycast(bulletSpawnPoint.transform.position, (_player.isfacingRight ? transform.right : -transform.right), Mathf.Infinity);
-        if (hit)
+        RaycastHit2D hitInfo=Physics2D.Raycast(bulletSpawnPoint.transform.position, Vector2.right * (_player.isfacingRight ?1:-1));
+        //bool hit = Physics2D.Raycast(bulletSpawnPoint.transform.position, (_player.isfacingRight ? transform.right : -transform.right), Mathf.Infinity);
+        if (hitInfo.transform.tag=="enemy")
         {
             _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 40f);
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayStart.transform.position, (_player.isfacingRight ? transform.right : -transform.right), Mathf.Infinity,LayerMask.NameToLayer("enemy"));
-        Debug.Log(hit);
+        Debug.Log(hitInfo.transform.name);
     }
 
     void CheckRayCast()
     {
         OnTrigger = !OnTrigger;
-        Debug.Log("ontrigger:" + OnTrigger);
 
         if(photonView.isMine && OnTrigger)
         {
@@ -244,19 +242,12 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     void wtcnGasmDamage()
     {
-        Debug.Log("wtcnGasmDamage");
-
-        /*RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x+5f,transform.position.y), Vector2.right * (_player.isfacingRight ? 1 : -1), 10f, 10);
-        Debug.DrawRay(transform.position, Vector2.right * (_player.isfacingRight ? 1 : -1), Color.green);
-        Debug.Log(hit.transform.name);*/
 
         if(OnTrigger && _wtcnGasm)
         {
             if(Raycasting()) {
                 _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
-                //Debug.Log("Damage given");
                 _wtcnGasm = false;
-                //Debug.Log("gasm:" + _wtcnGasm);
             }
         }
     }
