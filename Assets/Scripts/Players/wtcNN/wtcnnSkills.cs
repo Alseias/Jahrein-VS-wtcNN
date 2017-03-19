@@ -115,6 +115,7 @@ public class wtcnnSkills : Photon.PunBehaviour
                     }
                 }
 
+
                 if(_player.canUseSkill)
                 {
                     if(Input.GetButtonDown("SkillQ") && skillACD[0].itsReady)
@@ -122,8 +123,9 @@ public class wtcnnSkills : Photon.PunBehaviour
                         _player.canUseSkill = false;
                         usedSkill = 0;
                         skillACD[0].use();
-                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnGasm");
                         _wtcnGasm = true;
+
+                        pv.RPC("AnimTrigger", PhotonTargets.All, "wtcnGasm");
                         Debug.Log("_wtcnGasm" + _wtcnGasm);
 
                     }
@@ -179,6 +181,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1 << LayerMask.NameToLayer("enemy"));
+        Debug.Log("RayHit:" + rayHit);
         return rayHit;
     }
 
@@ -201,9 +204,13 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         OnTrigger = !OnTrigger;
         Debug.Log("ontrigger:" + OnTrigger);
+
         if(photonView.isMine && OnTrigger)
         {
             InvokeRepeating("wtcnGasmDamage", 2f, 0.01f);
+        }
+        if(!OnTrigger) {
+            CancelInvoke("wtcnGasmDamage");
         }
     }
 
@@ -232,6 +239,7 @@ public class wtcnnSkills : Photon.PunBehaviour
             pv.RPC("playSound", PhotonTargets.All, usedSkill);
         }
     }
+
 
     void wtcnGasmDamage()
     {
