@@ -69,6 +69,7 @@ public class JahreinSkills : Photon.PunBehaviour
         }
     }
 
+    [PunRPC]
     public void Fear()
     {
         Debug.Log("Korktum :("); // Bunu yazıyor
@@ -143,7 +144,6 @@ public class JahreinSkills : Photon.PunBehaviour
 
                 if (_player.canUseSkill)
                 {
-
                     if (Input.GetButtonDown("SkillQ") && skillACD[0].itsReady && _controller.collisions.below)
                     {
                         _player.canUseSkill = false;

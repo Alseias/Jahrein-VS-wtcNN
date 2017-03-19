@@ -72,10 +72,7 @@ public class Stats : Photon.PunBehaviour
         isDamageTaken = true;
     }
 
-   /* void Dead()
-    {
-        photonView.RPC("DeadAnimTrigger", PhotonTargets.All);
-    }*/
+
 
     void OnChangeHealth (float health)
     {
