@@ -209,7 +209,8 @@ public class wtcnnSkills : Photon.PunBehaviour
         {
             InvokeRepeating("wtcnGasmDamage", 2f, 0.01f);
         }
-        if(!OnTrigger) {
+        if(!OnTrigger)
+        {
             CancelInvoke("wtcnGasmDamage");
         }
     }
