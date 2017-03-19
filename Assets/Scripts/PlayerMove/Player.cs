@@ -35,6 +35,9 @@ public class Player : Photon.PunBehaviour
 	public Vector3 velocity;
 	float velocityXSmoothing;
     GameManager gm;
+    GameObject camera;
+    float maxDistance = 17f;
+    float minDistance = 10f;
 
     Animator animator;
     public bool gamestart;
@@ -72,7 +75,7 @@ public class Player : Photon.PunBehaviour
         isfacingRight = true;
         player = this.gameObject;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
         controller = GetComponent<Controller2D> ();
         animator = GetComponent<Animator>();
         gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -124,6 +127,7 @@ public class Player : Photon.PunBehaviour
 
                     gamestart = gm.p_gameStart;
                 }
+                CheckCamera();
             }
 
             if (canUseSkill)
@@ -142,7 +146,17 @@ public class Player : Photon.PunBehaviour
        
 	}
     
+    //Camera settings
+    void CheckCamera() {
+        float dist = Vector3.Distance(this.transform.position, target.transform.position);
+        if(dist < minDistance) {
+            //camera.transform.position = new Vector3(transform.position.x, 0,-10f);
+        }else if(dist > minDistance && dist < maxDistance) {
+            camera.GetComponent<Camera>().orthographicSize = dist / 2;
+            camera.transform.position = new Vector3(0, 0, -10f);
 
+        }
+    }
 
 	public void SetDirectionalInput (Vector2 input)
     {

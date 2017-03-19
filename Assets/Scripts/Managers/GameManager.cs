@@ -20,6 +20,7 @@ public class GameManager : Photon.PunBehaviour{
     private const int TIME_TO_START_MATCH = 3;
     private float countDown = 0;
     private bool rpcStart=false;
+    private int round = 1;
 
     int selectedChrID;
     bool toStart;
@@ -29,6 +30,7 @@ public class GameManager : Photon.PunBehaviour{
          
         //call from other scripts
         Instance = this;
+        DontDestroyOnLoad(this.gameObject);
         audio = GetComponent<AudioSource>();
         MainCam = GameObject.FindGameObjectWithTag("MainCamera");
         selectedChrID = PlayerPrefs.GetInt("chrID");
@@ -90,14 +92,23 @@ public class GameManager : Photon.PunBehaviour{
             photonView.RPC("StartMatch", PhotonTargets.AllViaServer);
         }
     }
+    public void restartGame() {
+        photonView.RPC("resetGame", PhotonTargets.AllViaServer);
 
+    }
     [PunRPC]
     void StartMatch() {
         Debug.Log("Start match");
         toStart = true;
         txtStart.gameObject.SetActive(true);
-        playAudios(1);
+        playAudios(round);
 
+    }
+    [PunRPC]
+    private void resetGame() {
+        round++;
+        //PhotonNetwork.DestroyAll();
+        //PhotonNetwork.LoadLevel("Game");
     }
     void playAudios(int number) {
 

@@ -17,14 +17,14 @@ MonoBehaviour:
   HostType: 1
   PreferredRegion: 0
   EnabledRegions: -1
-  Protocol: 1
+  Protocol: 0
   ServerAddress: 
   ServerPort: 5055
   VoiceServerPort: 5055
   JoinLobby: 0
   EnableLobbyStatistics: 0
   PunLogging: 0
-  NetworkLogging: 5
+  NetworkLogging: 1
   RunInBackground: 1
   RpcList:
   - AnimTrigger
@@ -37,6 +37,7 @@ MonoBehaviour:
   - DestroyRpc
   - DoJump
   - DyingAnimTrigger
+  - Fear
   - InstantiateRpc
   - jahRageSkill
   - jahUlti
@@ -52,9 +53,9 @@ MonoBehaviour:
   - ready
   - RequestForPickupItems
   - RequestForPickupTimes
+  - resetGame
   - setVelocity
   - StartMatch
   - TaggedPlayer
   - TakeDamage
-  - Fear
   DisableAutoOpenWizard: 1
