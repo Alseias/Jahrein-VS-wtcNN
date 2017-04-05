@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JahPipiSuyu : MonoBehaviour
+public class JahPipiSuyu : Photon.PunBehaviour
 {
     public float fDir;
     public int pvID;
@@ -14,6 +14,7 @@ public class JahPipiSuyu : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.name == "wtcn(Clone)") {
+            if(photonView.isMine)
             collision.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
             Destroy(gameObject);
 

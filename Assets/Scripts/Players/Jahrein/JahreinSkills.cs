@@ -328,8 +328,9 @@ public class JahreinSkills : Photon.PunBehaviour
             _player.damage += (givenDmg * 12) / 100;
 
         }
-        photonView.RPC("OnChangeHealth", PhotonTargets.All, _player.health/100);
-        Debug.Log(givenDmg+"new dmg: "+ _player.damage);
+        photonView.RPC("OnChangeHealth", PhotonTargets.All, mikailHealth/100);
+        //photonView.RPC("TakeDamage", PhotonTargets.All, 0);
+        Debug.Log(givenDmg+" new dmg: "+ _player.damage);
 
     }
     void ChangeVelocity()
