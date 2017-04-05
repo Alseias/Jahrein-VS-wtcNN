@@ -70,6 +70,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         if(pv.isMine && _player.gamestart)
         {
+            Raycasting();
             if(GetComponent<Stats>().isAlive)
             {
                 if(_player.canMove)
@@ -180,6 +181,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1 << LayerMask.NameToLayer("enemy"));
+        Debug.Log("RaycastingWTCN:" + rayHit);
         return rayHit;
     }
 
@@ -267,12 +269,6 @@ public class wtcnnSkills : Photon.PunBehaviour
     #endregion
     
     #region PunRPC
-
-    [PunRPC]
-    void AwpTrigger()
-    {
-        //Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
-    }
 
     [PunRPC]
     void BasicAttack()

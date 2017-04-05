@@ -30,6 +30,9 @@ public class JahreinSkills : Photon.PunBehaviour
     Player _player;
 
     bool jahAtt = false;
+    bool OnTrigger = true;
+    bool basicAttackCheck;
+
 
     //Abilities q, w, e, r;
 
@@ -72,8 +75,8 @@ public class JahreinSkills : Photon.PunBehaviour
     [PunRPC]
     public void Fear()
     {
-        Debug.Log("Korktum :("); // Bunu yazıyor
-        _controller.enabled = false; // Bu amına kodumun yeri çalışmıyor bilgisayarı parçalıyacam.
+        Debug.Log("Korktum :("); 
+        _controller.enabled = false; 
         _player.enabled = false;
         StartCoroutine("FearCounter");
     }
@@ -89,7 +92,7 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         if (photonView.isMine&&_player.gamestart)
         {
-            Raycasting();
+            
             if (GetComponent<Stats>().isAlive)
             {
                 #region animationInput
@@ -133,6 +136,7 @@ public class JahreinSkills : Photon.PunBehaviour
                 if(Input.GetButtonDown("Attack")) // Basic Attack
                 {
                     //anim.SetInteger("State", 7);
+                    basicAttackCheck = true;
                     _photonView.RPC("AnimTrigger", PhotonTargets.All, "BasicAttackv2");
                     _photonView.RPC("basicAttack", PhotonTargets.All);
                 }
@@ -216,6 +220,7 @@ public class JahreinSkills : Photon.PunBehaviour
     private void basicAttack()
     {
         jahAtt = true;
+        basicAttackCheck = true;
     }
 
     [PunRPC]
@@ -266,15 +271,33 @@ public class JahreinSkills : Photon.PunBehaviour
     {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1 << LayerMask.NameToLayer("enemy"));
+        Debug.Log("raycasting:" + rayHit);
         return rayHit;
+    }
+
+    void CheckRayCast(int trigger) {
+        OnTrigger = trigger==1?true:false;
+        if(photonView.isMine&&OnTrigger) {
+            Debug.Log("Invoke repeat");
+            InvokeRepeating("basicAttTrigger", 0f, 0.01f);
+        }else {
+            Debug.Log("Cancel invoke");
+            CancelInvoke("basicAttTrigger");
+        }
     }
 
     void basicAttTrigger()
     {
-        Debug.Log("hit enemy:" + Raycasting());
-        if(Raycasting())
+        
+        if(OnTrigger&&basicAttackCheck)
         {
-            _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, _player.damage);
+            if(Raycasting()) {
+
+                _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, _player.damage);
+                basicAttackCheck = false;
+
+            }
+
         }
     }
 

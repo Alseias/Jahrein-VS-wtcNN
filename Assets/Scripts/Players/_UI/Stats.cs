@@ -53,7 +53,7 @@ public class Stats : Photon.PunBehaviour
         if(_player.health <= 0 && isAlive)
         {
             isAlive = false;
-            if(this.gameObject.name == "wtcn(clone)")
+            if(this.gameObject.name == "wtcn(Clone)"|| this.gameObject.name=="wtcn")
                 this.gameObject.GetComponent<wtcnnSkills>().playSound(5);
             else
                 this.gameObject.GetComponent<JahreinSkills>().playSound(5);
