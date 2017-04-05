@@ -70,6 +70,7 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         if(pv.isMine && _player.gamestart)
         {
+            Raycasting();
             if(GetComponent<Stats>().isAlive)
             {
                 if(_player.canMove)
@@ -180,13 +181,14 @@ public class wtcnnSkills : Photon.PunBehaviour
     {
         Debug.DrawLine(rayStart.position, rayEnd.position, Color.green);
         bool rayHit = Physics2D.Linecast(rayStart.position, rayEnd.position, 1 << LayerMask.NameToLayer("enemy"));
+        Debug.Log("RaycastingWTCN:" + rayHit);
         return rayHit;
     }
 
 
     #region Animation events
 
-    void AWPTrigger() // Make some specification here -> make sure you only hit enemy
+    void AWPTrigger() 
     {
         //Debug.DrawLine(bulletSpawnPoint.transform.position,(_player.isfacingRight ? transform.right : -transform.right) * 10 , Color.red);
         RaycastHit2D hitInfo=Physics2D.Raycast(bulletSpawnPoint.transform.position, Vector2.right * (_player.isfacingRight ?1:-1));
@@ -195,8 +197,7 @@ public class wtcnnSkills : Photon.PunBehaviour
         {
             _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 40f);
         }
-        //RaycastHit2D hit = Physics2D.Raycast(rayStart.transform.position, (_player.isfacingRight ? transform.right : -transform.right), Mathf.Infinity,LayerMask.NameToLayer("enemy"));
-        Debug.Log(hitInfo.transform.name);
+
     }
 
     void CheckRayCast()
@@ -268,12 +269,6 @@ public class wtcnnSkills : Photon.PunBehaviour
     #endregion
     
     #region PunRPC
-
-    [PunRPC]
-    void AwpTrigger()
-    {
-        //Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
-    }
 
     [PunRPC]
     void BasicAttack()
