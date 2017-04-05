@@ -186,7 +186,7 @@ public class wtcnnSkills : Photon.PunBehaviour
 
     #region Animation events
 
-    void AWPTrigger() // Make some specification here -> make sure you only hit enemy
+    void AWPTrigger() 
     {
         //Debug.DrawLine(bulletSpawnPoint.transform.position,(_player.isfacingRight ? transform.right : -transform.right) * 10 , Color.red);
         RaycastHit2D hitInfo=Physics2D.Raycast(bulletSpawnPoint.transform.position, Vector2.right * (_player.isfacingRight ?1:-1));
@@ -195,8 +195,7 @@ public class wtcnnSkills : Photon.PunBehaviour
         {
             _player.target.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 40f);
         }
-        //RaycastHit2D hit = Physics2D.Raycast(rayStart.transform.position, (_player.isfacingRight ? transform.right : -transform.right), Mathf.Infinity,LayerMask.NameToLayer("enemy"));
-        Debug.Log(hitInfo.transform.name);
+
     }
 
     void CheckRayCast()
