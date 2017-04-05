@@ -10,9 +10,14 @@ public class Stats : Photon.PunBehaviour
     Player _player;
     GameObject healthbar;
     int playerID;
+    JahreinSkills jahSkill;
 
     void Start ()
     {
+        if(this.gameObject.GetComponent<JahreinSkills>() != null) {
+            jahSkill = this.gameObject.GetComponent<JahreinSkills>();
+
+        }
         _player = GetComponent<Player>();
         isAlive = true;
         playerID = PlayerPrefs.GetInt("chrID");
@@ -59,7 +64,6 @@ public class Stats : Photon.PunBehaviour
                 this.gameObject.GetComponent<JahreinSkills>().playSound(5);
 
             this.gameObject.GetComponent<Player>().canMove = false;
-            //this.gameObject.GetComponent<JahreinSkills>().enabled = false;
             photonView.RPC("DyingAnimTrigger", PhotonTargets.All);
         }
         float _health = _player.health / 100;
@@ -73,7 +77,7 @@ public class Stats : Photon.PunBehaviour
     }
 
 
-
+    [PunRPC]
     void OnChangeHealth (float health)
     {
         healthbar.transform.localScale = new Vector3(health, healthbar.transform.localScale.y, healthbar.transform.localScale.z);
