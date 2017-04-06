@@ -54,4 +54,5 @@ MonoBehaviour:
   - setVelocity
   - StartMatch
   - TakeDamage
+  - OnChangeHealth
   DisableAutoOpenWizard: 1

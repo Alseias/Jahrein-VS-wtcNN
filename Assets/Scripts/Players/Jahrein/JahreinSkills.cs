@@ -9,7 +9,7 @@ public class JahreinSkills : Photon.PunBehaviour
     
     Animator anim;
     public GameObject vidanjor, pipiSuyu, vidanjorSpawn, pipiSuyuSpawn;
-
+    public bool kutsaBeni;
     public Transform rayStart, rayEnd;
 
     [Header("Skill Settings")]
@@ -32,6 +32,8 @@ public class JahreinSkills : Photon.PunBehaviour
     bool jahAtt = false;
     bool OnTrigger = true;
     bool basicAttackCheck;
+    float mikailHealth;
+    
 
 
     //Abilities q, w, e, r;
@@ -167,6 +169,8 @@ public class JahreinSkills : Photon.PunBehaviour
                         usedSkill = 1;
 
                         _controller.canMove = false;
+                        kutsaBeni = true;
+                        mikailHealth = _player.health;
 
                         anim.Play("kutsamav2");
                         //anim.SetInteger("State", 2);
@@ -315,8 +319,20 @@ public class JahreinSkills : Photon.PunBehaviour
     void CanMove()
     {
         _controller.canMove = true;
+        kutsaBeni = false;
     }
+    void kutsamaFinish() {
+        float givenDmg = mikailHealth - _player.health;
+        _player.health = mikailHealth;
+        if(_player.damage < 7f) {
+            _player.damage += (givenDmg * 12) / 100;
 
+        }
+        photonView.RPC("OnChangeHealth", PhotonTargets.All, mikailHealth/100);
+        //photonView.RPC("TakeDamage", PhotonTargets.All, 0);
+        Debug.Log(givenDmg+" new dmg: "+ _player.damage);
+
+    }
     void ChangeVelocity()
     {
         _player.velocity.x = 0;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JahPipiSuyu : MonoBehaviour
+public class JahPipiSuyu : Photon.PunBehaviour
 {
     public float fDir;
     public int pvID;
@@ -12,9 +12,12 @@ public class JahPipiSuyu : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(new Vector2(15 * fDir, 5) * 50f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(this.gameObject);
-        Debug.Log("içtim geldimi");
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.name == "wtcn(Clone)") {
+            if(photonView.isMine)
+            collision.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, 10f);
+            Destroy(gameObject);
+
+        }
     }
 }
